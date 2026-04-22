@@ -1,0 +1,76 @@
+---
+import '../styles/global.css';
+import type { HeroMetric } from '../lib/site';
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalPath: string;
+  siteName?: string;
+  nav?: { label: string; href: string }[];
+  metrics?: HeroMetric[];
+  activePath?: string;
+  schema?: Record<string, unknown> | Record<string, unknown>[];
+}
+
+const {
+  title,
+  description,
+  canonicalPath,
+  siteName = 'MeetingFlow Hub',
+  nav = [],
+  metrics = [],
+  activePath = '/',
+  schema
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalPath} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalPath} />
+    <meta name="twitter:card" content="summary_large_image" />
+    {schema && (
+      <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    )}
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-shell">
+        <a class="brand" href="/">{siteName}</a>
+        <nav class="site-nav" aria-label="Primary navigation">
+          {nav.map((item) => (
+            <a href={item.href} class:list={{ active: activePath === item.href }}>
+              {item.label}
+            </a>
+          ))}
+        </nav>
+      </div>
+    </header>
+    <slot />
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <strong>{siteName}</strong>
+          <p>A deployable Astro starter site for SEO validation, monetization experiments, and future tool expansion.</p>
+        </div>
+        <div>
+          <strong>Starter metrics</strong>
+          <ul>
+            {metrics.map((metric) => (
+              <li><span>{metric.label}</span><span>{metric.value}</span></li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

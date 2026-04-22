@@ -1,0 +1,130 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { buildCanonicalUrl, getAllPageEntries, getArticleSchema, getFaqSchema, pageMap, siteConfig } from '../../lib/site';
+
+export function getStaticPaths() {
+  return getAllPageEntries().map((page) => ({
+    params: { slug: page.slug },
+    props: { page }
+  }));
+}
+
+const { page } = Astro.props;
+const canonicalPath = buildCanonicalUrl(siteConfig.siteUrl, `/pages/${page.slug}/`);
+const schema = [getArticleSchema(page), getFaqSchema(page)];
+---
+
+<BaseLayout
+  title={`${page.title} | ${siteConfig.siteName}`}
+  description={page.description}
+  canonicalPath={canonicalPath}
+  siteName={siteConfig.siteName}
+  nav={siteConfig.nav}
+  metrics={siteConfig.metrics}
+  activePath={`/pages/${page.slug}/`}
+  schema={schema}
+>
+  <main class="page-shell">
+    <div class="container narrow">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span>/</span>
+        <span>{page.title}</span>
+      </nav>
+
+      <section class="article-hero">
+        <span class="eyebrow">{page.eyebrow}</span>
+        <h1>{page.title}</h1>
+        <p class="lede">{page.description}</p>
+        <p class="keyword-line"><strong>Target keyword cluster:</strong> {page.targetKeyword}</p>
+        <div class="cta-inline">
+          <a class="button primary" href={page.ctaHref}>{page.ctaLabel}</a>
+          <a class="button secondary" href="/">Back to homepage</a>
+        </div>
+      </section>
+
+      {page.intro.map((paragraph: string) => <p>{paragraph}</p>)}
+
+      {page.sections.map((section) => (
+        <section class="content-section">
+          <h2>{section.heading}</h2>
+          {section.type === 'paragraphs' && (
+            section.paragraphs.map((paragraph) => <p>{paragraph}</p>)
+          )}
+          {section.type === 'bullets' && (
+            <ul class="bullet-list">
+              {section.items.map((item) => (
+                <li>
+                  {item.label ? <><strong>{item.label}:</strong> {item.text}</> : item.text}
+                </li>
+              ))}
+            </ul>
+          )}
+          {section.type === 'cards' && (
+            <div class="card-grid three-up">
+              {section.cards.map((card) => (
+                <article class="info-card compact">
+                  <h3>{card.title}</h3>
+                  <p>{card.description}</p>
+                </article>
+              ))}
+            </div>
+          )}
+          {section.type === 'table' && (
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    {section.columns.map((column) => <th>{column}</th>)}
+                  </tr>
+                </thead>
+                <tbody>
+                  {section.rows.map((row) => (
+                    <tr>
+                      {row.map((cell) => <td>{cell}</td>)}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+        </section>
+      ))}
+
+      <section class="content-section monetization-box">
+        <h2>Monetization angle</h2>
+        <p>
+          <strong>Primary monetization:</strong> {page.monetizationPrimary}. This page should be used to route users toward the best-fitting offer while preserving topical authority.
+        </p>
+      </section>
+
+      <section class="content-section faq-block">
+        <h2>FAQ</h2>
+        <div class="faq-list">
+          {page.faq.map((item) => (
+            <article>
+              <h3>{item.question}</h3>
+              <p>{item.answer}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="content-section">
+        <h2>Related pages</h2>
+        <div class="card-grid two-up">
+          {page.relatedSlugs.map((slug: string) => {
+            const related = pageMap[slug];
+            return (
+              <article class="page-card compact">
+                <span class="tag">{related.category}</span>
+                <h3><a href={`/pages/${related.slug}/`}>{related.title}</a></h3>
+                <p>{related.description}</p>
+              </article>
+            );
+          })}
+        </div>
+      </section>
+    </div>
+  </main>
+</BaseLayout>
