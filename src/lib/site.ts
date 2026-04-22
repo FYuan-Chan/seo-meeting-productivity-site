@@ -72,7 +72,7 @@ export const siteConfig = {
     { label: 'Checklist', href: '/pages/remote-meeting-checklist/' }
   ],
   metrics: [
-    { label: 'Starter pages', value: '12' },
+    { label: 'Starter pages', value: '18' },
     { label: 'Main monetization', value: 'Ads + Affiliate' },
     { label: 'Expansion path', value: 'Tools + Email' }
   ] satisfies HeroMetric[],
@@ -797,7 +797,346 @@ export const pages: SeoPage[] = [
         answer: 'Start with lead magnets and internal links to software comparisons, then expand into agency-specific template packs or workflow tools.'
       }
     ]
+  },
+  {
+    slug: 'meeting-minutes-template',
+    title: 'Meeting Minutes Template for Formal Team Records',
+    description:
+      'Use this meeting minutes template when you need a more formal meeting record with decisions, attendees, and archived follow-up items.',
+    eyebrow: 'Template page',
+    intro: [
+      'Meeting minutes intent is adjacent to notes but typically more formal, which makes it useful for governance-heavy teams, operations workflows, and compliance-minded organizations.',
+      'This page expands the cluster into a higher-structure documentation query that can later support templates, generators, and software comparisons.'
+    ],
+    targetKeyword: 'meeting minutes template, formal meeting minutes example, meeting minutes format',
+    category: 'template',
+    monetizationPrimary: 'lead-magnet',
+    ctaLabel: 'Compare minutes and notes',
+    ctaHref: '/pages/meeting-minutes-vs-notes/',
+    relatedSlugs: ['meeting-minutes-vs-notes', 'meeting-notes-template', 'decision-log-template'],
+    sections: [
+      {
+        type: 'bullets',
+        heading: 'What formal minutes usually include',
+        items: [
+          { label: 'Attendees', text: 'List who was present, absent, and responsible for follow-up.' },
+          { label: 'Agenda coverage', text: 'Show which topics were discussed and in what order.' },
+          { label: 'Decisions', text: 'Document approved actions, votes, or direction changes clearly.' },
+          { label: 'Archive value', text: 'Format the record so it can be referenced months later without confusion.' }
+        ]
+      },
+      {
+        type: 'paragraphs',
+        heading: 'Why minutes pages deserve their own landing page',
+        paragraphs: [
+          'Many users search for minutes because they need a more official output than lightweight notes. That different intent justifies a separate page instead of hiding the topic inside a generic template article.',
+          'It also opens room for future downloadable minute templates and vertical versions for boards, nonprofits, and project governance teams.'
+        ]
+      },
+      {
+        type: 'cards',
+        heading: 'Strong future expansions',
+        cards: [
+          { title: 'Board minutes template', description: 'A high-intent subpage for governance-heavy organizations.' },
+          { title: 'Minutes approval workflow', description: 'Useful for turning content traffic into process-tool demand.' },
+          { title: 'Minutes generator', description: 'A simple utility angle that could become a product later.' }
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: 'Should meeting minutes and meeting notes live on separate pages?',
+        answer: 'Yes. The terms overlap, but the searcher often expects different structure, tone, and depth depending on whether they want formal minutes or lightweight notes.'
+      },
+      {
+        question: 'How can this page monetize early?',
+        answer: 'Use lead magnets, template downloads, and internal links into software comparisons or workflow tools for documentation-heavy teams.'
+      }
+    ]
+  },
+  {
+    slug: 'daily-standup-meeting-template',
+    title: 'Daily Standup Meeting Template for Fast Team Updates',
+    description:
+      'Use this daily standup meeting template to keep updates short, surface blockers quickly, and stop status meetings from dragging.',
+    eyebrow: 'Template page',
+    intro: [
+      'Standup intent is highly repeatable because agile and product teams run these meetings constantly. That makes it a strong operational long tail rather than a one-off content page.',
+      'It also helps the site move deeper into recurring meeting formats that can later support agenda tools and summary workflows.'
+    ],
+    targetKeyword: 'daily standup meeting template, standup agenda template, daily scrum meeting format',
+    category: 'template',
+    monetizationPrimary: 'ads',
+    ctaLabel: 'Use a project status template too',
+    ctaHref: '/pages/project-status-meeting-template/',
+    relatedSlugs: ['project-status-meeting-template', 'meeting-agenda-template', 'action-items-template'],
+    sections: [
+      {
+        type: 'bullets',
+        heading: 'A simple standup structure',
+        items: [
+          { label: 'Yesterday', text: 'What was completed since the last check-in?' },
+          { label: 'Today', text: 'What is the immediate focus before the next standup?' },
+          { label: 'Blockers', text: 'What needs support, escalation, or clarification?' },
+          { label: 'Parking lot', text: 'Move deep discussions out of the standup itself.' }
+        ]
+      },
+      {
+        type: 'table',
+        heading: 'Standup formats by team type',
+        columns: ['Team', 'Best cadence', 'Why it works'],
+        rows: [
+          ['Product/engineering', 'Daily', 'Keeps blockers visible and priorities aligned'],
+          ['Ops/support', 'Daily or weekday-only', 'Helps coordinate time-sensitive work'],
+          ['Cross-functional project teams', '2-3 times per week', 'Prevents update fatigue while keeping execution visible']
+        ]
+      },
+      {
+        type: 'paragraphs',
+        heading: 'Where this page fits in the cluster',
+        paragraphs: [
+          'Standup content creates a practical bridge between agendas, action items, and project status updates. That makes it unusually useful for internal links and future templates by methodology.',
+          'If this page performs, the next natural branches are scrum meeting notes, sprint planning templates, and blocker tracking workflows.'
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: 'Should standups always be daily?',
+        answer: 'Not always. The best cadence depends on team speed, dependency density, and whether the meeting still creates useful alignment.'
+      },
+      {
+        question: 'Why is this good for ads first?',
+        answer: 'Standup intent is broad, practical, and recurring, which makes it a good early traffic page while the site builds more commercial layers around it.'
+      }
+    ]
+  },
+  {
+    slug: 'sales-meeting-notes-template',
+    title: 'Sales Meeting Notes Template for Pipeline and Deal Reviews',
+    description:
+      'Use this sales meeting notes template to track deal updates, next steps, risks, and rep follow-up after pipeline reviews.',
+    eyebrow: 'Template page',
+    intro: [
+      'Sales meetings introduce a revenue-adjacent use case into the cluster, which is strategically useful because the software and workflow monetization options are stronger here.',
+      'This page starts moving the site from generic meeting content toward functional templates for specific teams.'
+    ],
+    targetKeyword: 'sales meeting notes template, pipeline review notes template, sales call recap template',
+    category: 'template',
+    monetizationPrimary: 'tool-upsell',
+    ctaLabel: 'See follow-up email templates',
+    ctaHref: '/pages/meeting-follow-up-email-template/',
+    relatedSlugs: ['meeting-follow-up-email-template', 'client-meeting-notes-template', 'decision-log-template'],
+    sections: [
+      {
+        type: 'bullets',
+        heading: 'Key fields for sales meeting notes',
+        items: [
+          { label: 'Deal status', text: 'Capture where each opportunity sits and what changed since the last review.' },
+          { label: 'Blockers', text: 'Flag stalled approvals, missing inputs, or competitive risks.' },
+          { label: 'Owner actions', text: 'Assign exactly what each rep or manager needs to do next.' },
+          { label: 'Forecast impact', text: 'Note whether the update affects confidence, timing, or revenue expectations.' }
+        ]
+      },
+      {
+        type: 'cards',
+        heading: 'Commercial expansion ideas',
+        cards: [
+          { title: 'CRM sync workflow', description: 'A strong bridge into sales tooling and process automation.' },
+          { title: 'Sales call summary templates', description: 'Useful for narrower intent and higher topical depth.' },
+          { title: 'Revenue meeting dashboard tool', description: 'A future product angle with clear operational value.' }
+        ]
+      },
+      {
+        type: 'paragraphs',
+        heading: 'Why this page matters strategically',
+        paragraphs: [
+          'Team-specific meeting templates tend to convert better than generic content because the user sees a direct fit for their workflow.',
+          'Sales is especially attractive because adjacent affiliate categories and future software offers are usually easier to define.'
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: 'Is this page only for sales managers?',
+        answer: 'No. It should serve reps, team leads, and revenue operations users, but manager-led pipeline review intent is often the strongest.'
+      },
+      {
+        question: 'Why is this tagged as tool-upsell?',
+        answer: 'Because note capture in sales naturally connects to CRM logging, call summaries, reminders, and revenue workflow software.'
+      }
+    ]
+  },
+  {
+    slug: 'board-meeting-agenda-template',
+    title: 'Board Meeting Agenda Template for Formal Leadership Reviews',
+    description:
+      'Use this board meeting agenda template to structure formal leadership meetings, align directors, and document high-stakes decisions cleanly.',
+    eyebrow: 'Template page',
+    intro: [
+      'Board meeting intent is narrower than team meeting intent, but it is more structured and often commercially stronger because the searcher needs a serious reusable format.',
+      'This page also broadens the site into executive and governance territory without leaving the meeting workflow niche.'
+    ],
+    targetKeyword: 'board meeting agenda template, board meeting format, nonprofit board agenda example',
+    category: 'template',
+    monetizationPrimary: 'lead-magnet',
+    ctaLabel: 'Use formal minutes too',
+    ctaHref: '/pages/meeting-minutes-template/',
+    relatedSlugs: ['meeting-minutes-template', 'decision-log-template', 'meeting-agenda-template'],
+    sections: [
+      {
+        type: 'bullets',
+        heading: 'Typical sections in a board agenda',
+        items: [
+          { label: 'Call to order', text: 'Open with attendance, approvals, and required formalities.' },
+          { label: 'Reports', text: 'Summarize leadership, finance, or committee updates efficiently.' },
+          { label: 'Discussion items', text: 'Reserve time for strategic decisions or high-risk topics.' },
+          { label: 'Resolutions and follow-up', text: 'Close with approved actions, owners, and future review dates.' }
+        ]
+      },
+      {
+        type: 'paragraphs',
+        heading: 'Why this page is different from a generic agenda page',
+        paragraphs: [
+          'Board meetings usually require more formality, more explicit sequencing, and clearer archival value than ordinary team meetings.',
+          'That difference creates a distinct landing page opportunity and supports future template packs for boards, nonprofits, and executive committees.'
+        ]
+      },
+      {
+        type: 'cards',
+        heading: 'Next high-fit pages',
+        cards: [
+          { title: 'Nonprofit board minutes template', description: 'A natural governance subpage with strong specificity.' },
+          { title: 'Board packet checklist', description: 'Useful for pre-meeting preparation intent.' },
+          { title: 'Resolution tracking template', description: 'A stronger workflow extension beyond agenda creation.' }
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: 'Should this page target business boards only?',
+        answer: 'No. It should also acknowledge nonprofits, associations, and advisory boards where formal meeting structure matters.'
+      },
+      {
+        question: 'What is the best first monetization path here?',
+        answer: 'Lead magnets and downloadable template packs are the cleanest first step, followed by internal links to documentation and decision-tracking pages.'
+      }
+    ]
+  },
+  {
+    slug: 'sprint-retrospective-template',
+    title: 'Sprint Retrospective Template for Better Team Learning',
+    description:
+      'Use this sprint retrospective template to capture wins, friction, patterns, and next experiments after each delivery cycle.',
+    eyebrow: 'Workflow page',
+    intro: [
+      'Retrospective intent adds a reflection and improvement layer to the site, which makes the cluster feel more complete for agile and product teams.',
+      'It also creates room for methodology-specific content that can compound into a larger project-meeting library.'
+    ],
+    targetKeyword: 'sprint retrospective template, retro meeting template, agile retrospective format',
+    category: 'template',
+    monetizationPrimary: 'ads',
+    ctaLabel: 'Pair it with a daily standup template',
+    ctaHref: '/pages/daily-standup-meeting-template/',
+    relatedSlugs: ['daily-standup-meeting-template', 'project-status-meeting-template', 'action-items-template'],
+    sections: [
+      {
+        type: 'bullets',
+        heading: 'Core sections in a useful retrospective',
+        items: [
+          { label: 'What worked', text: 'Capture the practices and decisions that helped the team deliver well.' },
+          { label: 'What did not', text: 'Identify recurring friction instead of isolated complaints.' },
+          { label: 'Patterns', text: 'Look for repeated causes across people, process, or dependencies.' },
+          { label: 'Experiments', text: 'Finish with one or two concrete changes for the next cycle.' }
+        ]
+      },
+      {
+        type: 'table',
+        heading: 'Retrospective styles',
+        columns: ['Style', 'Best for', 'Benefit'],
+        rows: [
+          ['Start / Stop / Continue', 'Teams that want simple structure', 'Easy to repeat with low overhead'],
+          ['Went well / Needs improvement', 'General team retros', 'Balanced reflection without too much facilitation'],
+          ['Mad / Sad / Glad', 'Teams exploring emotion and morale', 'Surfaces softer friction earlier']
+        ]
+      },
+      {
+        type: 'paragraphs',
+        heading: 'Why this page supports long-term expansion',
+        paragraphs: [
+          'Retrospectives connect meeting documentation with continuous improvement, which is a stronger workflow story than simple note capture alone.',
+          'If the site evolves into tools, this page can later support retro boards, action tracking, and recurring meeting templates by methodology.'
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: 'Does this page only fit agile teams?',
+        answer: 'Agile teams are the clearest audience, but any team running repeat work cycles can benefit from a lightweight retrospective format.'
+      },
+      {
+        question: 'Why not build this page later?',
+        answer: 'Because it helps the site cover a broader meeting workflow now, making the cluster more defensible and internally connected.'
+      }
+    ]
+  },
+  {
+    slug: 'weekly-team-meeting-agenda',
+    title: 'Weekly Team Meeting Agenda That Keeps Updates Focused',
+    description:
+      'Use this weekly team meeting agenda to structure recurring updates, unblock teammates, and stop weekly syncs from becoming noisy status dumps.',
+    eyebrow: 'Template page',
+    intro: [
+      'Weekly team meetings are a stable evergreen query because almost every team eventually needs a repeatable structure for recurring coordination.',
+      'This page is broad enough to attract consistent traffic while still fitting tightly inside the meeting workflow cluster.'
+    ],
+    targetKeyword: 'weekly team meeting agenda, weekly meeting template, team sync agenda example',
+    category: 'template',
+    monetizationPrimary: 'ads',
+    ctaLabel: 'Start with the agenda template hub',
+    ctaHref: '/pages/meeting-agenda-template/',
+    relatedSlugs: ['meeting-agenda-template', 'project-status-meeting-template', 'remote-meeting-checklist'],
+    sections: [
+      {
+        type: 'bullets',
+        heading: 'A good weekly team agenda usually covers',
+        items: [
+          { label: 'Priority updates', text: 'Review only what materially changed since the last sync.' },
+          { label: 'Cross-team blockers', text: 'Surface dependencies and issues that need coordination.' },
+          { label: 'Upcoming deadlines', text: 'Reconfirm the next milestones and key owners.' },
+          { label: 'Decisions needed', text: 'Make time for choices, not just passive reporting.' }
+        ]
+      },
+      {
+        type: 'paragraphs',
+        heading: 'Why this page is a smart traffic anchor',
+        paragraphs: [
+          'Weekly meeting intent is broad, stable, and easy to understand, which makes it a strong traffic-support page for the rest of the cluster.',
+          'It can later branch into leadership weekly meetings, department-specific agendas, and sync templates by company size.'
+        ]
+      },
+      {
+        type: 'cards',
+        heading: 'Expansion paths from here',
+        cards: [
+          { title: 'Weekly leadership agenda', description: 'A tighter page for exec and manager syncs.' },
+          { title: 'Department-specific weekly meetings', description: 'Sales, product, marketing, and ops variations.' },
+          { title: 'Weekly update generator', description: 'A lightweight tool angle for turning notes into repeatable agendas.' }
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: 'How is this different from a project status meeting?',
+        answer: 'A weekly team meeting is broader and may include coordination, updates, and decisions beyond one project alone.'
+      },
+      {
+        question: 'Why is this page worth adding early?',
+        answer: 'Because it is evergreen, internally useful, and likely to support both search traffic and future toolized workflow content.'
+      }
+    ]
   }
+
 
 ];
 
