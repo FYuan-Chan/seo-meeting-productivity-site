@@ -72,7 +72,7 @@ export const siteConfig = {
     { label: 'Checklist', href: '/pages/remote-meeting-checklist/' }
   ],
   metrics: [
-    { label: 'Starter pages', value: '6' },
+    { label: 'Starter pages', value: '12' },
     { label: 'Main monetization', value: 'Ads + Affiliate' },
     { label: 'Expansion path', value: 'Tools + Email' }
   ] satisfies HeroMetric[],
@@ -459,7 +459,346 @@ export const pages: SeoPage[] = [
         answer: 'Recommend meeting assistants, recording tools, or collaboration software at the exact workflow moments where they reduce friction.'
       }
     ]
+  },
+  {
+    slug: 'meeting-agenda-template',
+    title: 'Meeting Agenda Template for Faster Decisions',
+    description:
+      'Use a meeting agenda template to keep calls focused, reduce drift, and end with clearer decisions.',
+    eyebrow: 'Template page',
+    intro: [
+      'Agenda-driven pages target an upstream workflow query that often appears before users search for summaries, notes, or AI meeting tools.',
+      'That makes this page useful for internal linking, downloadable assets, and future tool flows that generate agendas automatically from recurring meeting types.'
+    ],
+    targetKeyword: 'meeting agenda template, simple meeting agenda format, team meeting agenda example',
+    category: 'template',
+    monetizationPrimary: 'lead-magnet',
+    ctaLabel: 'Pair it with a meeting notes template',
+    ctaHref: '/pages/meeting-notes-template/',
+    relatedSlugs: ['meeting-notes-template', 'remote-meeting-checklist', 'action-items-template'],
+    sections: [
+      {
+        type: 'bullets',
+        heading: 'What a strong agenda should include',
+        items: [
+          { label: 'Outcome', text: 'State the decision, update, or unblock the meeting needs to produce.' },
+          { label: 'Topics', text: 'List only the issues that move the meeting toward that outcome.' },
+          { label: 'Owners', text: 'Assign a lead to each topic so the room knows who drives the discussion.' },
+          { label: 'Timing', text: 'Give each section a time box to reduce low-value drift.' }
+        ]
+      },
+      {
+        type: 'paragraphs',
+        heading: 'Why agenda pages matter for SEO',
+        paragraphs: [
+          'Agenda intent is practical and evergreen. People repeatedly search for a format they can reuse for weekly team syncs, project reviews, and cross-functional meetings.',
+          'That repeatable need makes this a good lead-magnet page for downloadable templates or a simple agenda builder.'
+        ]
+      },
+      {
+        type: 'cards',
+        heading: 'Future expansion paths',
+        cards: [
+          { title: 'Department-specific agendas', description: 'Create versions for leadership, sales, product, and client meetings.' },
+          { title: 'Agenda generator', description: 'Turn this page into a utility that suggests sections based on meeting type.' },
+          { title: 'Agenda-to-notes workflow', description: 'Route users from planning the meeting to capturing notes and follow-ups.' }
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: 'Should every meeting use the same agenda template?',
+        answer: 'No. A simple base structure works, but high-value meetings should adapt sections to the meeting goal and team type.'
+      },
+      {
+        question: 'How can this page monetize later?',
+        answer: 'It is a strong fit for downloadable template packs, email capture, and a lightweight agenda generator tied to the broader meeting workflow cluster.'
+      }
+    ]
+  },
+  {
+    slug: 'one-on-one-meeting-template',
+    title: 'One-on-One Meeting Template for Managers and Direct Reports',
+    description:
+      'Use this one-on-one meeting template to run better manager check-ins, surface blockers, and track next steps.',
+    eyebrow: 'Template page',
+    intro: [
+      'One-on-one meeting queries carry strong recurring demand because managers need a repeatable format they can use every week or every two weeks.',
+      'This page broadens the cluster from generic team meetings into role-based long tails, which is where scalable SEO expansion usually gets more interesting.'
+    ],
+    targetKeyword: 'one on one meeting template, manager employee check in template, 1:1 meeting notes template',
+    category: 'template',
+    monetizationPrimary: 'ads',
+    ctaLabel: 'See example summary formats',
+    ctaHref: '/pages/meeting-summary-examples/',
+    relatedSlugs: ['meeting-summary-examples', 'meeting-notes-template', 'action-items-template'],
+    sections: [
+      {
+        type: 'bullets',
+        heading: 'Core sections for a useful one-on-one',
+        items: [
+          { label: 'Wins', text: 'Start with progress and positive momentum before moving into blockers.' },
+          { label: 'Challenges', text: 'Give space for obstacles, workload issues, or support requests.' },
+          { label: 'Career growth', text: 'Include a short section for development, skills, and long-term goals.' },
+          { label: 'Action items', text: 'Close with concrete follow-up items for both manager and report.' }
+        ]
+      },
+      {
+        type: 'table',
+        heading: 'One-on-one format options',
+        columns: ['Format', 'Best for', 'Strength'],
+        rows: [
+          ['Weekly 1:1', 'Fast-moving teams', 'Catches blockers early and keeps momentum high'],
+          ['Biweekly 1:1', 'Stable workloads', 'Gives room for deeper reflection without meeting overload'],
+          ['Monthly growth-focused 1:1', 'Career development conversations', 'Supports longer-term planning and feedback']
+        ]
+      },
+      {
+        type: 'paragraphs',
+        heading: 'Why this page helps the site expand',
+        paragraphs: [
+          'Role-based templates are a smart next step because they create more specific intent than broad meeting keywords while still fitting the same topical authority graph.',
+          'If this page gains traction, the site can expand into skip-level, performance review, and coaching conversation templates.'
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: 'Is this better as a manager page or an employee page?',
+        answer: 'Manager-led intent is usually stronger, but the page should acknowledge shared ownership so it feels useful to both sides.'
+      },
+      {
+        question: 'What can be productized from this page?',
+        answer: 'A one-on-one notes manager, meeting prep checklist, or AI summary assistant for recurring check-ins would all fit naturally.'
+      }
+    ]
+  },
+  {
+    slug: 'meeting-follow-up-email-template',
+    title: 'Meeting Follow-Up Email Template That Actually Gets Action',
+    description:
+      'Use this meeting follow-up email template to recap decisions, confirm owners, and keep post-meeting momentum alive.',
+    eyebrow: 'Template page',
+    intro: [
+      'Follow-up email intent sits right after the meeting itself, which makes it especially useful for connecting notes, summaries, action items, and workflow software.',
+      'It also attracts users who care less about the note-taking process and more about what gets sent afterward.'
+    ],
+    targetKeyword: 'meeting follow up email template, post meeting email example, meeting recap email sample',
+    category: 'template',
+    monetizationPrimary: 'tool-upsell',
+    ctaLabel: 'Build better action items next',
+    ctaHref: '/pages/action-items-template/',
+    relatedSlugs: ['action-items-template', 'meeting-summary-examples', 'meeting-notes-template'],
+    sections: [
+      {
+        type: 'bullets',
+        heading: 'A high-performing follow-up email should include',
+        items: [
+          { label: 'Purpose', text: 'Remind readers what the meeting was trying to accomplish.' },
+          { label: 'Decisions', text: 'Capture only the final choices and any unresolved risks.' },
+          { label: 'Owners and due dates', text: 'Make responsibility impossible to miss.' },
+          { label: 'Next checkpoint', text: 'Tell the team when progress will be reviewed again.' }
+        ]
+      },
+      {
+        type: 'cards',
+        heading: 'Useful variations to add later',
+        cards: [
+          { title: 'Client follow-up email', description: 'Tailor tone and recap style for customer-facing communication.' },
+          { title: 'Internal project recap', description: 'Focus on blockers, owners, and timeline changes.' },
+          { title: 'Leadership summary email', description: 'Use a tighter executive-friendly recap format.' }
+        ]
+      },
+      {
+        type: 'paragraphs',
+        heading: 'Why this query matters commercially',
+        paragraphs: [
+          'Users searching for follow-up emails often feel the pain of inconsistent post-meeting execution, which is close to workflow-software intent.',
+          'That makes this page a good bridge toward AI meeting assistants, summary tools, and reminder workflows.'
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: 'Should this page include full email scripts?',
+        answer: 'Yes. Over time, adding copy-paste examples by meeting type should improve usefulness and search depth.'
+      },
+      {
+        question: 'Why is this tagged as tool-upsell?',
+        answer: 'Because follow-up automation naturally points toward software for recap drafting, reminders, and task syncing.'
+      }
+    ]
+  },
+  {
+    slug: 'decision-log-template',
+    title: 'Decision Log Template for Teams That Keep Revisiting Old Calls',
+    description:
+      'Use a decision log template to record key decisions, owners, and rationale so teams stop reopening the same debates.',
+    eyebrow: 'Workflow page',
+    intro: [
+      'Decision-log intent is valuable because it moves beyond note capture into organizational memory, which is a stronger problem than simple documentation.',
+      'That makes this page a smart bridge into future tools for searchable meeting knowledge and decision tracking.'
+    ],
+    targetKeyword: 'decision log template, decision tracker template, meeting decision log example',
+    category: 'template',
+    monetizationPrimary: 'tool-upsell',
+    ctaLabel: 'Compare AI meeting assistants',
+    ctaHref: '/pages/best-ai-meeting-assistants/',
+    relatedSlugs: ['best-ai-meeting-assistants', 'meeting-minutes-vs-notes', 'meeting-follow-up-email-template'],
+    sections: [
+      {
+        type: 'table',
+        heading: 'Essential fields in a decision log',
+        columns: ['Field', 'Purpose'],
+        rows: [
+          ['Decision', 'States exactly what was chosen'],
+          ['Context', 'Explains why the decision mattered'],
+          ['Owner', 'Clarifies who is accountable after the call'],
+          ['Date and review point', 'Helps teams revisit the decision only when appropriate']
+        ]
+      },
+      {
+        type: 'bullets',
+        heading: 'When a decision log is especially useful',
+        items: [
+          { text: 'Cross-functional projects where decisions affect multiple teams.' },
+          { text: 'Leadership and roadmap meetings where tradeoffs need to be remembered.' },
+          { text: 'Client or stakeholder work where scope shifts can otherwise be disputed later.' }
+        ]
+      },
+      {
+        type: 'paragraphs',
+        heading: 'Why this page can support future productization',
+        paragraphs: [
+          'A searchable decision log is already close to product shape. Teams want a system that connects meetings, notes, decisions, and follow-up work in one place.',
+          'If the site expands into tools, this page is one of the best foundations for a lightweight SaaS concept.'
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: 'How is a decision log different from meeting notes?',
+        answer: 'Meeting notes capture the discussion, while a decision log isolates the outcomes that should remain easy to reference later.'
+      },
+      {
+        question: 'Can this page monetize before there is a product?',
+        answer: 'Yes. It can carry ads, route users to software comparisons, and support lead magnets like downloadable trackers.'
+      }
+    ]
+  },
+  {
+    slug: 'project-status-meeting-template',
+    title: 'Project Status Meeting Template for Cleaner Weekly Updates',
+    description:
+      'Use this project status meeting template to report progress, surface blockers, and leave each weekly update with clearer next steps.',
+    eyebrow: 'Template page',
+    intro: [
+      'Project status meetings are one of the most common recurring team rituals, so a solid template page can bring repeatable search demand and broad internal-link value.',
+      'This page also reinforces the site around recurring operational meetings rather than only generic note-taking terms.'
+    ],
+    targetKeyword: 'project status meeting template, weekly project update template, project review meeting agenda',
+    category: 'template',
+    monetizationPrimary: 'ads',
+    ctaLabel: 'Use the remote meeting checklist too',
+    ctaHref: '/pages/remote-meeting-checklist/',
+    relatedSlugs: ['remote-meeting-checklist', 'meeting-agenda-template', 'meeting-summary-examples'],
+    sections: [
+      {
+        type: 'bullets',
+        heading: 'Recommended sections for weekly status meetings',
+        items: [
+          { label: 'Progress since last update', text: 'Capture visible movement, not every activity detail.' },
+          { label: 'Current risks', text: 'Highlight blockers early so the meeting can solve them.' },
+          { label: 'Upcoming milestones', text: 'Keep the team aligned on deadlines and dependencies.' },
+          { label: 'Actions after the meeting', text: 'Make the next week easier by assigning owners clearly.' }
+        ]
+      },
+      {
+        type: 'cards',
+        heading: 'Who benefits most from this page',
+        cards: [
+          { title: 'Project managers', description: 'Need a consistent meeting shape across multiple workstreams.' },
+          { title: 'Startup operators', description: 'Need concise updates without enterprise process overhead.' },
+          { title: 'Client service teams', description: 'Need a simple cadence for reporting progress and issues.' }
+        ]
+      },
+      {
+        type: 'paragraphs',
+        heading: 'Why this page helps topical authority',
+        paragraphs: [
+          'It adds a concrete meeting type with clear workflow intent, which is usually better than publishing broad generic productivity content.',
+          'Specific meeting-type pages are often how a content asset grows from a starter site into a meaningful page system.'
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: 'Should this page be agenda-focused or notes-focused?',
+        answer: 'It should cover both lightly, but the strongest primary intent is a reusable structure for the meeting itself.'
+      },
+      {
+        question: 'What is the best next expansion from here?',
+        answer: 'Add team-specific pages such as marketing status meetings, product sprint reviews, and client status update formats.'
+      }
+    ]
+  },
+  {
+    slug: 'client-meeting-notes-template',
+    title: 'Client Meeting Notes Template for Agencies and Service Teams',
+    description:
+      'Use this client meeting notes template to capture requests, decisions, scope changes, and next follow-ups after every client call.',
+    eyebrow: 'Template page',
+    intro: [
+      'Client-facing meeting intent is commercially useful because it sits close to service workflows, accountability, and software adoption.',
+      'It also creates a path into agency-specific template clusters, which can become a meaningful sub-hub if the site grows.'
+    ],
+    targetKeyword: 'client meeting notes template, client call notes template, client meeting recap example',
+    category: 'template',
+    monetizationPrimary: 'lead-magnet',
+    ctaLabel: 'See the follow-up email template',
+    ctaHref: '/pages/meeting-follow-up-email-template/',
+    relatedSlugs: ['meeting-follow-up-email-template', 'meeting-summary-examples', 'best-ai-meeting-assistants'],
+    sections: [
+      {
+        type: 'bullets',
+        heading: 'What client notes should capture clearly',
+        items: [
+          { label: 'Requests', text: 'Document exactly what the client asked for or changed.' },
+          { label: 'Decisions', text: 'Record approvals, priorities, or timeline shifts made on the call.' },
+          { label: 'Risks', text: 'Flag ambiguity or scope concerns before they become conflicts.' },
+          { label: 'Follow-up', text: 'List the next communication or deliverable with an owner and date.' }
+        ]
+      },
+      {
+        type: 'paragraphs',
+        heading: 'Why this page is worth adding early',
+        paragraphs: [
+          'Client meeting content pulls the site toward agency and service-business use cases, which often have strong monetization potential through templates, software recommendations, and consulting products.',
+          'It also gives the money page more practical support from a real-world use case rather than only generic educational pages.'
+        ]
+      },
+      {
+        type: 'cards',
+        heading: 'Natural follow-on content',
+        cards: [
+          { title: 'Client kickoff template', description: 'A high-intent page for setting expectations at project start.' },
+          { title: 'Scope change recap template', description: 'Useful when projects need a formal written change summary.' },
+          { title: 'Client status report template', description: 'Build a service-team cluster around recurring updates.' }
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: 'Why not keep client notes inside the generic notes page?',
+        answer: 'Because client meetings have different stakes, vocabulary, and follow-up patterns. Splitting intent usually creates a better landing page.'
+      },
+      {
+        question: 'How should this page monetize first?',
+        answer: 'Start with lead magnets and internal links to software comparisons, then expand into agency-specific template packs or workflow tools.'
+      }
+    ]
   }
+
 ];
 
 export const pageMap = Object.fromEntries(pages.map((page) => [page.slug, page])) as Record<string, SeoPage>;
