@@ -5,7 +5,10 @@ interface Props {
   ratings: Record<string, Record<string, number | string>>;
 }
 
-const { dimensions, tools, ratings } = Astro.props;
+const { dimensions = [], tools = [], ratings = {} } = Astro.props;
+
+// Debug logging
+console.log('ComparisonTable props:', { dimensions, tools, ratings });
 
 function getRatingColor(value: number): string {
   if (value >= 9) return 'var(--brand)';
@@ -14,7 +17,13 @@ function getRatingColor(value: number): string {
   return '#ef4444';
 }
 
-function isNumeric(val: number | string): val is number {
+function getRatingValue(dim: string, tool: string): number | string | undefined {
+  const toolRatings = ratings[tool];
+  if (!toolRatings) return undefined;
+  return toolRatings[dim];
+}
+
+function isNumeric(val: number | string | undefined): val is number {
   return typeof val === 'number';
 }
 ---
@@ -36,7 +45,7 @@ function isNumeric(val: number | string): val is number {
           <tr>
             <td class="dim-cell">{dim}</td>
             {tools.map((tool) => {
-              const val = ratings[dim]?.[tool];
+              const val = getRatingValue(dim, tool);
               return (
                 <td>
                   {isNumeric(val) ? (
@@ -67,7 +76,7 @@ function isNumeric(val: number | string): val is number {
       <h4 class="tool-card-mobile-name">{tool}</h4>
       <ul class="tool-card-mobile-list">
         {dimensions.map((dim) => {
-          const val = ratings[dim]?.[tool];
+          const val = getRatingValue(dim, tool);
           return (
             <li>
               <span class="dim-label">{dim}</span>
