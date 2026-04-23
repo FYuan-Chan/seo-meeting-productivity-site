@@ -1,5 +1,5 @@
 export type MonetizationPrimary = 'affiliate' | 'ads' | 'lead-magnet' | 'tool-upsell';
-export type PageCategory = 'commercial' | 'template' | 'examples' | 'comparison' | 'checklist';
+export type PageCategory = 'commercial' | 'template' | 'examples' | 'comparison' | 'checklist' | 'tool';
 
 const DEFAULT_SITE_URL = 'https://example.com';
 const siteUrlFromEnv = (import.meta.env.PUBLIC_SITE_URL ?? DEFAULT_SITE_URL).replace(/\/$/, '');
@@ -35,6 +35,12 @@ export type PageSection =
       heading: string;
       columns: string[];
       rows: string[][];
+    }
+  | {
+      type: 'tool';
+      toolType: 'json-formatter' | 'timestamp-converter' | 'password-generator' | 'calculator';
+      toolTitle: string;
+      heading: string;
     };
 
 export type SeoPage = {
@@ -2904,7 +2910,61 @@ export const pages: SeoPage[] = [
         answer: 'No, you can use this tool without creating an account.'
       }
     ]
-  }
+  },
+  {
+    slug: 'password-generator',
+    title: 'Password Generator',
+    description: 'Free online password generator. Easy to use, no signup required. Generate secure, random passwords instantly.',
+    eyebrow: 'Interactive tool',
+    intro: [
+      'This interactive tool helps you generate secure, random passwords.',
+      'Use this free online tool to create strong passwords for your accounts.'
+    ],
+    targetKeyword: 'password generator',
+    category: 'tool',
+    monetizationPrimary: 'ads',
+    ctaLabel: 'Try our other tools',
+    ctaHref: '/pages/',
+    relatedSlugs: ['online-calculator', 'json-formatter'],
+    sections: [
+      {
+        type: 'tool',
+        toolType: 'password-generator',
+        toolTitle: 'Password Generator',
+        heading: 'Password Generator Tool'
+      },
+      {
+        type: 'paragraphs',
+        heading: 'How to use this tool',
+        paragraphs: [
+          'Select your desired password length using the slider.',
+          'Choose which character types to include.',
+          'Click "Generate Password" to create a secure password.',
+          'Copy the password with one click.'
+        ]
+      },
+      {
+        type: 'bullets',
+        heading: 'Features',
+        items: [
+          { text: 'Customizable password length (8-64 characters)' },
+          { text: 'Include uppercase, lowercase, numbers, and symbols' },
+          { text: 'Option to exclude ambiguous characters' },
+          { text: 'Generate multiple passwords at once' }
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: 'Is this password generator secure?',
+        answer: "Yes, this tool uses the browser's built-in cryptographic random number generator for maximum security."
+      },
+      {
+        question: 'Are my passwords stored anywhere?',
+        answer: 'No, all password generation happens locally in your browser. No data is sent to any server.'
+      }
+    ]
+  },
 ];
 
 starterMetrics[0] = { ...starterMetrics[0], value: String(pages.length) };
