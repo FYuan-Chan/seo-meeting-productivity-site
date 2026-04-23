@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import AdSense from '../../components/AdSense.astro';
 import { buildCanonicalUrl, getAllPageEntries, getArticleSchema, getFaqSchema, pageMap, siteConfig } from '../../lib/site';
 
 export function getStaticPaths() {
@@ -13,8 +12,6 @@ export function getStaticPaths() {
 const { page } = Astro.props;
 const canonicalPath = buildCanonicalUrl(siteConfig.siteUrl, `/pages/${page.slug}/`);
 const schema = [getArticleSchema(page), getFaqSchema(page)];
-// Auto-generate ad slots from page slug hash (for unique slots per page)
-const adSlotBase = Math.abs(page.slug.split('').reduce((a: number, c: string) => ((a << 5) - a + c.charCodeAt(0)) | 0, 0));
 ---
 
 <BaseLayout
@@ -47,11 +44,6 @@ const adSlotBase = Math.abs(page.slug.split('').reduce((a: number, c: string) =>
       </section>
 
       {page.intro.map((paragraph: string) => <p>{paragraph}</p>)}
-
-      {/* Top Ad - after intro */}
-      <div class="ad-slot ad-top">
-        <AdSense slot={`${adSlotBase}01`} format="fluid" />
-      </div>
 
       {page.sections.map((section, idx) => (
         <section class="content-section">
@@ -98,11 +90,6 @@ const adSlotBase = Math.abs(page.slug.split('').reduce((a: number, c: string) =>
           )}
         </section>
       ))}
-
-      {/* Mid Ad - between sections and monetization */}
-      <div class="ad-slot ad-mid">
-        <AdSense slot={`${adSlotBase}02`} format="auto" />
-      </div>
 
       <section class="content-section monetization-box">
         <h2>Monetization angle</h2>

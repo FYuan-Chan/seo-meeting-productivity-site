@@ -242,15 +242,3 @@ th { color: #dff5ff; background: rgba(125, 211, 252, 0.08); }
   .site-nav a { padding-left: 0; }
 }
 
-/* Ad slots */
-.ad-slot {
-  margin: 2rem auto;
-  text-align: center;
-  min-height: 100px;
-}
-.ad-top {
-  margin-bottom: 2.5rem;
-}
-.ad-mid {
-  margin: 3rem 0;
-}
