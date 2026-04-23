@@ -2461,6 +2461,416 @@ export const pages: SeoPage[] = [
       }
     ]
   }
+,
+  {
+    slug: 'documentation-generator',
+    title: 'Documentation Generator',
+    description: 'Free online documentation generator. Easy to use, no signup required. Generate, calculate, or convert instantly in your browser.',
+    eyebrow: 'Interactive tool',
+    intro: [
+      'This interactive tool helps you with documentation generator.',
+      'Use this free online tool to save time and improve your workflow.'
+    ],
+    targetKeyword: 'documentation generator',
+    category: 'tool',
+    monetizationPrimary: 'ads',
+    ctaLabel: 'Try our other tools',
+    ctaHref: '/pages/',
+    relatedSlugs: ['online-calculator', 'password-generator'],
+    sections: [
+      {
+        type: 'paragraphs',
+        heading: 'How to use this tool',
+        paragraphs: [
+          'Enter your input in the fields provided.',
+          'Click the action button to process.',
+          'Copy or download your results.'
+        ]
+      },
+      {
+        type: 'bullets',
+        heading: 'Features',
+        items: [
+          { text: 'Free to use with no registration required' },
+          { text: 'Works directly in your browser' },
+          { text: 'Fast and reliable results' }
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: 'Is this tool free?',
+        answer: 'Yes, this tool is completely free to use with no hidden charges.'
+      },
+      {
+        question: 'Do I need to create an account?',
+        answer: 'No, you can use this tool without creating an account.'
+      }
+    ]
+  },\n  {
+    slug: 'online-calculator',
+    title: 'Online Calculator',
+    description: 'Free online online calculator. Easy to use, no signup required. Generate, calculate, or convert instantly in your browser.',
+    eyebrow: 'Interactive tool',
+    intro: [
+      'This interactive tool helps you with online calculator.',
+      'Use this free online tool to save time and improve your workflow.'
+    ],
+    targetKeyword: 'online calculator',
+    category: 'tool',
+    monetizationPrimary: 'ads',
+    ctaLabel: 'Try our other tools',
+    ctaHref: '/pages/',
+    relatedSlugs: ['online-calculator', 'password-generator'],
+    sections: [
+      {
+        type: 'paragraphs',
+        heading: 'How to use this tool',
+        paragraphs: [
+          'Enter your input in the fields provided.',
+          'Click the action button to process.',
+          'Copy or download your results.'
+        ]
+      },
+      {
+        type: 'bullets',
+        heading: 'Features',
+        items: [
+          { text: 'Free to use with no registration required' },
+          { text: 'Works directly in your browser' },
+          { text: 'Fast and reliable results' }
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: 'Is this tool free?',
+        answer: 'Yes, this tool is completely free to use with no hidden charges.'
+      },
+      {
+        question: 'Do I need to create an account?',
+        answer: 'No, you can use this tool without creating an account.'
+      }
+    ]
+  },\n  {
+    slug: 'pdf-converter',
+    title: 'Pdf Converter',
+    description: 'Free online pdf converter. Easy to use, no signup required. Generate, calculate, or convert instantly in your browser.',
+    eyebrow: 'Interactive tool',
+    intro: [
+      'This interactive tool helps you with pdf converter.',
+      'Use this free online tool to save time and improve your workflow.'
+    ],
+    targetKeyword: 'pdf converter',
+    category: 'tool',
+    monetizationPrimary: 'ads',
+    ctaLabel: 'Try our other tools',
+    ctaHref: '/pages/',
+    relatedSlugs: ['online-calculator', 'password-generator'],
+    sections: [
+      {
+        type: 'paragraphs',
+        heading: 'How to use this tool',
+        paragraphs: [
+          'Enter your input in the fields provided.',
+          'Click the action button to process.',
+          'Copy or download your results.'
+        ]
+      },
+      {
+        type: 'bullets',
+        heading: 'Features',
+        items: [
+          { text: 'Free to use with no registration required' },
+          { text: 'Works directly in your browser' },
+          { text: 'Fast and reliable results' }
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: 'Is this tool free?',
+        answer: 'Yes, this tool is completely free to use with no hidden charges.'
+      },
+      {
+        question: 'Do I need to create an account?',
+        answer: 'No, you can use this tool without creating an account.'
+      }
+    ]
+  },\n  {
+    slug: 'timestamp-converter',
+    title: 'Timestamp Converter',
+    description: 'Free online timestamp converter. Easy to use, no signup required. Generate, calculate, or convert instantly in your browser.',
+    eyebrow: 'Interactive tool',
+    intro: [
+      'This interactive tool helps you with timestamp converter.',
+      'Use this free online tool to save time and improve your workflow.'
+    ],
+    targetKeyword: 'timestamp converter',
+    category: 'tool',
+    monetizationPrimary: 'ads',
+    ctaLabel: 'Try our other tools',
+    ctaHref: '/pages/',
+    relatedSlugs: ['online-calculator', 'password-generator'],
+    sections: [
+      {
+        type: 'paragraphs',
+        heading: 'How to use this tool',
+        paragraphs: [
+          'Enter your input in the fields provided.',
+          'Click the action button to process.',
+          'Copy or download your results.'
+        ]
+      },
+      {
+        type: 'bullets',
+        heading: 'Features',
+        items: [
+          { text: 'Free to use with no registration required' },
+          { text: 'Works directly in your browser' },
+          { text: 'Fast and reliable results' }
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: 'Is this tool free?',
+        answer: 'Yes, this tool is completely free to use with no hidden charges.'
+      },
+      {
+        question: 'Do I need to create an account?',
+        answer: 'No, you can use this tool without creating an account.'
+      }
+    ]
+  },\n  {
+    slug: 'hash-generator',
+    title: 'Hash Generator',
+    description: 'Free online hash generator. Easy to use, no signup required. Generate, calculate, or convert instantly in your browser.',
+    eyebrow: 'Interactive tool',
+    intro: [
+      'This interactive tool helps you with hash generator.',
+      'Use this free online tool to save time and improve your workflow.'
+    ],
+    targetKeyword: 'hash generator',
+    category: 'tool',
+    monetizationPrimary: 'ads',
+    ctaLabel: 'Try our other tools',
+    ctaHref: '/pages/',
+    relatedSlugs: ['online-calculator', 'password-generator'],
+    sections: [
+      {
+        type: 'paragraphs',
+        heading: 'How to use this tool',
+        paragraphs: [
+          'Enter your input in the fields provided.',
+          'Click the action button to process.',
+          'Copy or download your results.'
+        ]
+      },
+      {
+        type: 'bullets',
+        heading: 'Features',
+        items: [
+          { text: 'Free to use with no registration required' },
+          { text: 'Works directly in your browser' },
+          { text: 'Fast and reliable results' }
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: 'Is this tool free?',
+        answer: 'Yes, this tool is completely free to use with no hidden charges.'
+      },
+      {
+        question: 'Do I need to create an account?',
+        answer: 'No, you can use this tool without creating an account.'
+      }
+    ]
+  },\n  {
+    slug: 'json-formatter',
+    title: 'Json Formatter Template',
+    description: 'Download and customize this json formatter to improve your workflow. Includes examples and best practices.',
+    eyebrow: 'Template page',
+    intro: [
+      'This template page provides ready-to-use formats for json formatter.',
+      'Templates are evergreen content that attracts consistent search traffic.'
+    ],
+    targetKeyword: 'json formatter',
+    category: 'template',
+    monetizationPrimary: 'ads',
+    ctaLabel: 'See commercial comparisons',
+    ctaHref: '/pages/best-ai-meeting-assistants/',
+    relatedSlugs: ['best-ai-meeting-assistants', 'meeting-summary-examples'],
+    sections: [
+      {
+        type: 'paragraphs',
+        heading: 'How to use this template',
+        paragraphs: [
+          'Copy the template structure and customize it for your specific needs.',
+          'Use this as a starting point and adapt sections to your workflow.'
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: 'Can I download this template?',
+        answer: 'Yes, you can copy the template or request a downloadable version via email.'
+      }
+    ]
+  },\n  {
+    slug: 'github-readme-template-generator',
+    title: 'Github Readme Template Generator',
+    description: 'Download and customize this github readme template generator to improve your workflow. Includes examples and best practices.',
+    eyebrow: 'Template page',
+    intro: [
+      'This template page provides ready-to-use formats for github readme template generator.',
+      'Templates are evergreen content that attracts consistent search traffic.'
+    ],
+    targetKeyword: 'github readme template generator',
+    category: 'template',
+    monetizationPrimary: 'ads',
+    ctaLabel: 'See commercial comparisons',
+    ctaHref: '/pages/best-ai-meeting-assistants/',
+    relatedSlugs: ['best-ai-meeting-assistants', 'meeting-summary-examples'],
+    sections: [
+      {
+        type: 'paragraphs',
+        heading: 'How to use this template',
+        paragraphs: [
+          'Copy the template structure and customize it for your specific needs.',
+          'Use this as a starting point and adapt sections to your workflow.'
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: 'Can I download this template?',
+        answer: 'Yes, you can copy the template or request a downloadable version via email.'
+      }
+    ]
+  },\n  {
+    slug: 'email-template-generator',
+    title: 'Email Template Generator',
+    description: 'Download and customize this email template generator to improve your workflow. Includes examples and best practices.',
+    eyebrow: 'Template page',
+    intro: [
+      'This template page provides ready-to-use formats for email template generator.',
+      'Templates are evergreen content that attracts consistent search traffic.'
+    ],
+    targetKeyword: 'email template generator',
+    category: 'template',
+    monetizationPrimary: 'ads',
+    ctaLabel: 'See commercial comparisons',
+    ctaHref: '/pages/best-ai-meeting-assistants/',
+    relatedSlugs: ['best-ai-meeting-assistants', 'meeting-summary-examples'],
+    sections: [
+      {
+        type: 'paragraphs',
+        heading: 'How to use this template',
+        paragraphs: [
+          'Copy the template structure and customize it for your specific needs.',
+          'Use this as a starting point and adapt sections to your workflow.'
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: 'Can I download this template?',
+        answer: 'Yes, you can copy the template or request a downloadable version via email.'
+      }
+    ]
+  },\n  {
+    slug: 'documentation-generator-ai',
+    title: 'Documentation Generator Ai',
+    description: 'Free online documentation generator ai. Easy to use, no signup required. Generate, calculate, or convert instantly in your browser.',
+    eyebrow: 'Interactive tool',
+    intro: [
+      'This interactive tool helps you with documentation generator ai.',
+      'Use this free online tool to save time and improve your workflow.'
+    ],
+    targetKeyword: 'documentation generator ai',
+    category: 'tool',
+    monetizationPrimary: 'ads',
+    ctaLabel: 'Try our other tools',
+    ctaHref: '/pages/',
+    relatedSlugs: ['online-calculator', 'password-generator'],
+    sections: [
+      {
+        type: 'paragraphs',
+        heading: 'How to use this tool',
+        paragraphs: [
+          'Enter your input in the fields provided.',
+          'Click the action button to process.',
+          'Copy or download your results.'
+        ]
+      },
+      {
+        type: 'bullets',
+        heading: 'Features',
+        items: [
+          { text: 'Free to use with no registration required' },
+          { text: 'Works directly in your browser' },
+          { text: 'Fast and reliable results' }
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: 'Is this tool free?',
+        answer: 'Yes, this tool is completely free to use with no hidden charges.'
+      },
+      {
+        question: 'Do I need to create an account?',
+        answer: 'No, you can use this tool without creating an account.'
+      }
+    ]
+  },\n  {
+    slug: 'documentation-generator-for-code',
+    title: 'Documentation Generator for Code',
+    description: 'Free online documentation generator for code. Easy to use, no signup required. Generate, calculate, or convert instantly in your browser.',
+    eyebrow: 'Interactive tool',
+    intro: [
+      'This interactive tool helps you with documentation generator for code.',
+      'Use this free online tool to save time and improve your workflow.'
+    ],
+    targetKeyword: 'documentation generator for code',
+    category: 'tool',
+    monetizationPrimary: 'ads',
+    ctaLabel: 'Try our other tools',
+    ctaHref: '/pages/',
+    relatedSlugs: ['online-calculator', 'password-generator'],
+    sections: [
+      {
+        type: 'paragraphs',
+        heading: 'How to use this tool',
+        paragraphs: [
+          'Enter your input in the fields provided.',
+          'Click the action button to process.',
+          'Copy or download your results.'
+        ]
+      },
+      {
+        type: 'bullets',
+        heading: 'Features',
+        items: [
+          { text: 'Free to use with no registration required' },
+          { text: 'Works directly in your browser' },
+          { text: 'Fast and reliable results' }
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: 'Is this tool free?',
+        answer: 'Yes, this tool is completely free to use with no hidden charges.'
+      },
+      {
+        question: 'Do I need to create an account?',
+        answer: 'No, you can use this tool without creating an account.'
+      }
+    ]
+  }
 ];
 
 starterMetrics[0] = { ...starterMetrics[0], value: String(pages.length) };
