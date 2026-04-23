@@ -7,9 +7,6 @@ interface Props {
 
 const { dimensions = [], tools = [], ratings = {} } = Astro.props;
 
-// Debug logging
-console.log('ComparisonTable props:', { dimensions, tools, ratings });
-
 function getRatingColor(value: number): string {
   if (value >= 9) return 'var(--brand)';
   if (value >= 7) return '#22c55e';
