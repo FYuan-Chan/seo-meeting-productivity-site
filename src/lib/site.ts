@@ -72,7 +72,7 @@ export const siteConfig = {
     { label: 'Checklist', href: '/pages/remote-meeting-checklist/' }
   ],
   metrics: [
-    { label: 'Starter pages', value: '18' },
+    { label: 'Starter pages', value: '24' },
     { label: 'Main monetization', value: 'Ads + Affiliate' },
     { label: 'Expansion path', value: 'Tools + Email' }
   ] satisfies HeroMetric[],
@@ -1080,6 +1080,346 @@ export const pages: SeoPage[] = [
       }
     ]
   },
+  {
+    slug: 'otter-vs-fireflies-vs-fathom',
+    title: 'Otter vs Fireflies vs Fathom: Which AI Meeting Tool Fits Best?',
+    description:
+      'Compare Otter, Fireflies, and Fathom across summary quality, integrations, pricing fit, and team use cases before you choose a meeting assistant.',
+    eyebrow: 'Comparison page',
+    intro: [
+      'Vendor-comparison pages are where affiliate intent usually becomes much more concrete because the searcher has moved from category discovery into shortlist evaluation.',
+      'This page helps the site compete for bottom-funnel traffic while creating a reusable comparison structure for other meeting-tool vendors later.'
+    ],
+    targetKeyword: 'otter vs fireflies vs fathom, best ai meeting recorder comparison, ai meeting assistant comparison',
+    category: 'comparison',
+    monetizationPrimary: 'affiliate',
+    ctaLabel: 'See the broader AI meeting tools page',
+    ctaHref: '/pages/best-ai-meeting-assistants/',
+    relatedSlugs: ['best-ai-meeting-assistants', 'best-ai-meeting-assistants-for-sales', 'ai-meeting-assistant-for-remote-teams'],
+    sections: [
+      {
+        type: 'table',
+        heading: 'How these tools differ at a glance',
+        columns: ['Tool', 'Best for', 'Main strength', 'Watch-out'],
+        rows: [
+          ['Otter', 'Teams that want searchable transcripts', 'Strong transcript-first workflow and meeting archive', 'Can feel less specialized for action-item automation'],
+          ['Fireflies', 'Cross-functional teams needing integrations', 'Broad integrations and workflow coverage', 'Feature sprawl can make setup feel heavier'],
+          ['Fathom', 'Lean teams that want quick call recaps', 'Fast highlight capture and lightweight summary experience', 'May offer less depth for larger admin-heavy deployments']
+        ]
+      },
+      {
+        type: 'bullets',
+        heading: 'What to compare before you commit',
+        items: [
+          { label: 'Summary style', text: 'Check whether the recap is concise enough to forward without heavy editing.' },
+          { label: 'Integration fit', text: 'Your value rises sharply if notes flow into CRM, docs, or project tools automatically.' },
+          { label: 'Admin controls', text: 'Larger teams should review permissions, recording defaults, and workspace governance early.' },
+          { label: 'Real pricing path', text: 'Compare the useful paid plan, not just the free tier headline.' }
+        ]
+      },
+      {
+        type: 'paragraphs',
+        heading: 'Why this page is monetization-critical',
+        paragraphs: [
+          'Comparison pages like this tend to monetize better than generic informational pages because the visitor is already choosing between recognizable options.',
+          'It also gives the site a template for scaling into many vendor-versus-vendor comparisons without leaving the core meeting productivity niche.'
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: 'Why build this page before more generic templates?',
+        answer: 'Because product-versus-product intent usually sits closer to conversion, which makes the traffic more valuable for affiliate links and future software positioning.'
+      },
+      {
+        question: 'How should this page improve later?',
+        answer: 'Add real pricing details, screenshots, integration notes, and scenario-based recommendations for sales, product, and remote teams.'
+      }
+    ]
+  },
+  {
+    slug: 'best-ai-meeting-assistants-for-sales',
+    title: 'Best AI Meeting Assistants for Sales Teams in 2026',
+    description:
+      'Find the best AI meeting assistants for sales calls, pipeline reviews, CRM sync, follow-up drafting, and revenue team coaching.',
+    eyebrow: 'Commercial page',
+    intro: [
+      'Sales-focused commercial pages are usually stronger than broad software lists because the use case is clearer and the workflow value is easier to explain.',
+      'This page connects meeting notes directly to CRM hygiene, follow-up speed, and revenue execution, which is a better monetization story than generic summaries alone.'
+    ],
+    targetKeyword: 'best ai meeting assistant for sales, ai sales call notes tool, sales meeting recorder software',
+    category: 'commercial',
+    monetizationPrimary: 'affiliate',
+    ctaLabel: 'Use the sales notes template too',
+    ctaHref: '/pages/sales-meeting-notes-template/',
+    relatedSlugs: ['sales-meeting-notes-template', 'otter-vs-fireflies-vs-fathom', 'ai-meeting-notes-for-client-calls'],
+    sections: [
+      {
+        type: 'table',
+        heading: 'Sales-buying criteria that matter most',
+        columns: ['Capability', 'Why it matters', 'What to look for'],
+        rows: [
+          ['CRM syncing', 'Reps should not duplicate data entry after calls', 'Auto-push notes, owners, and next steps into account records'],
+          ['Follow-up drafting', 'Faster recaps improve pipeline momentum', 'Editable email drafts and action summaries'],
+          ['Speaker and topic capture', 'Coaching and deal review depend on clean attribution', 'Accurate participant labeling and call highlights'],
+          ['Deal risk visibility', 'Managers need more than a transcript dump', 'Clear extraction of blockers, objections, and next-stage actions']
+        ]
+      },
+      {
+        type: 'cards',
+        heading: 'Best-fit sales scenarios',
+        cards: [
+          { title: 'Outbound discovery calls', description: 'Speed matters most: fast recaps, objection capture, and next-step prompts.' },
+          { title: 'Account executive teams', description: 'CRM logging and deal-summary structure are more important than raw transcript volume.' },
+          { title: 'Revenue leaders', description: 'Look for coaching signals, theme detection, and repeatable pipeline review support.' }
+        ]
+      },
+      {
+        type: 'paragraphs',
+        heading: 'Why this page can outperform broader tool lists',
+        paragraphs: [
+          'Use-case specificity often improves both rankings and monetization because the visitor sees exactly how the tool fits a revenue workflow.',
+          'This page also creates a stronger bridge into future pages about call summaries, CRM note automation, and sales meeting dashboards.'
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: 'Is this only for sales calls with prospects?',
+        answer: 'No. It also fits internal pipeline reviews, handoffs, forecast calls, and customer expansion conversations where accurate next-step capture matters.'
+      },
+      {
+        question: 'Why is this more valuable than a generic AI note taker page?',
+        answer: 'Because sales intent is tied to revenue outcomes, so software recommendations can be more concrete and commercially stronger.'
+      }
+    ]
+  },
+  {
+    slug: 'ai-meeting-minutes-generator',
+    title: 'AI Meeting Minutes Generator: Faster Formal Minutes Without the Drag',
+    description:
+      'Use an AI meeting minutes generator to turn raw notes or transcripts into cleaner formal minutes for leadership, board, and compliance-heavy meetings.',
+    eyebrow: 'Tool page',
+    intro: [
+      'Tool-intent pages matter because they move the site beyond passive content and toward software-like demand where future first-party products become plausible.',
+      'Minutes generation is especially valuable because the job is repetitive, formatting-heavy, and painful enough that users actively seek automation.'
+    ],
+    targetKeyword: 'ai meeting minutes generator, meeting minutes ai tool, automatic meeting minutes generator',
+    category: 'commercial',
+    monetizationPrimary: 'tool-upsell',
+    ctaLabel: 'Start from the minutes template',
+    ctaHref: '/pages/meeting-minutes-template/',
+    relatedSlugs: ['meeting-minutes-template', 'board-meeting-agenda-template', 'meeting-notes-generator'],
+    sections: [
+      {
+        type: 'bullets',
+        heading: 'What a strong minutes generator should do',
+        items: [
+          { label: 'Formal structure', text: 'Convert messy notes into attendance, agenda, discussion, resolutions, and follow-up sections.' },
+          { label: 'Editable output', text: 'Users should be able to clean the draft quickly instead of rewriting everything.' },
+          { label: 'Decision clarity', text: 'Important approvals and action items should stand out, not get buried inside transcript text.' },
+          { label: 'Export options', text: 'Support for docs, PDFs, or board packet workflows increases practical value.' }
+        ]
+      },
+      {
+        type: 'paragraphs',
+        heading: 'Why this is a strong future product wedge',
+        paragraphs: [
+          'Unlike generic content, a generator page can later become an actual utility with a simple form, file upload, or transcript-to-minutes workflow.',
+          'That makes it one of the clearest bridges from SEO traffic into software monetization for this site.'
+        ]
+      },
+      {
+        type: 'cards',
+        heading: 'High-fit audiences',
+        cards: [
+          { title: 'Board coordinators', description: 'Need formal archival output, not just a casual summary.' },
+          { title: 'Operations teams', description: 'Want consistency across recurring internal governance meetings.' },
+          { title: 'Small businesses', description: 'Need a lightweight shortcut without buying full meeting-software suites.' }
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: 'Why is this tagged as tool-upsell instead of affiliate only?',
+        answer: 'Because this query can support both software recommendations now and a first-party generator product later, which gives it stronger long-term leverage.'
+      },
+      {
+        question: 'What should the MVP version look like?',
+        answer: 'A basic form that turns structured notes into editable minutes output is enough to validate demand before building transcript uploads or integrations.'
+      }
+    ]
+  },
+  {
+    slug: 'meeting-notes-generator',
+    title: 'Meeting Notes Generator for Faster Recaps and Action Items',
+    description:
+      'A meeting notes generator helps turn rough discussion points into cleaner summaries, decisions, and action items for weekly team workflows.',
+    eyebrow: 'Tool page',
+    intro: [
+      'Compared with formal minutes, general note-generation intent is broader and more frequent, which makes this page a useful bridge between templates and future tools.',
+      'It can attract users who want speed first and may later convert into product usage, template downloads, or tool recommendations.'
+    ],
+    targetKeyword: 'meeting notes generator, ai notes generator for meetings, automatic meeting notes tool',
+    category: 'commercial',
+    monetizationPrimary: 'tool-upsell',
+    ctaLabel: 'Use the base notes template',
+    ctaHref: '/pages/meeting-notes-template/',
+    relatedSlugs: ['meeting-notes-template', 'ai-meeting-minutes-generator', 'action-items-template'],
+    sections: [
+      {
+        type: 'table',
+        heading: 'Common outputs a notes generator should create',
+        columns: ['Output', 'Why users want it', 'Expansion potential'],
+        rows: [
+          ['Summary', 'Share the meeting quickly with absent teammates', 'Email recap and Slack-ready exports'],
+          ['Decisions', 'Avoid reopening resolved topics', 'Decision-log syncing and archive pages'],
+          ['Action items', 'Push accountability into the workflow', 'Task export into project tools'],
+          ['Follow-up draft', 'Save time immediately after the meeting', 'Lead capture or premium automation flow']
+        ]
+      },
+      {
+        type: 'bullets',
+        heading: 'What makes this page commercially useful',
+        items: [
+          { label: 'Broad demand', text: 'Many teams want the output of a meeting assistant without fully understanding vendor differences yet.' },
+          { label: 'Tool bridge', text: 'You can recommend existing software now while validating first-party generator interest later.' },
+          { label: 'Workflow fit', text: 'This query connects naturally to templates, action items, follow-up emails, and weekly status updates.' }
+        ]
+      },
+      {
+        type: 'paragraphs',
+        heading: 'Why this page belongs in the cluster now',
+        paragraphs: [
+          'It broadens the site from static examples into utility-oriented intent, which is important if the long-term goal is to build software assets instead of only content assets.',
+          'It also supports better internal routing from informational pages toward higher-intent automation queries.'
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: 'How is this different from an AI meeting assistant page?',
+        answer: 'This page focuses on the output job itself, not the broader software category, which makes it a cleaner tool-intent landing page.'
+      },
+      {
+        question: 'Could this become a real product page later?',
+        answer: 'Yes. It is one of the easiest pages to evolve into a lightweight generator with copy-paste input and exportable output.'
+      }
+    ]
+  },
+  {
+    slug: 'ai-meeting-assistant-for-remote-teams',
+    title: 'AI Meeting Assistant for Remote Teams: What Actually Matters?',
+    description:
+      'Choose an AI meeting assistant for remote teams based on async recap quality, timezone-friendly follow-up, and searchable meeting history.',
+    eyebrow: 'Use-case page',
+    intro: [
+      'Remote-team intent is commercially useful because the pain is specific: not everyone attends live, context gets fragmented, and written recaps matter more than transcript novelty.',
+      'That makes this a strong use-case page for routing readers toward comparison pages and future remote-work workflow tools.'
+    ],
+    targetKeyword: 'ai meeting assistant for remote teams, remote meeting notes tool, async meeting recap software',
+    category: 'commercial',
+    monetizationPrimary: 'affiliate',
+    ctaLabel: 'Compare the top tools',
+    ctaHref: '/pages/best-ai-meeting-assistants/',
+    relatedSlugs: ['best-ai-meeting-assistants', 'remote-meeting-checklist', 'otter-vs-fireflies-vs-fathom'],
+    sections: [
+      {
+        type: 'cards',
+        heading: 'Remote-team needs that change the buying decision',
+        cards: [
+          { title: 'Async-friendly summaries', description: 'Absent teammates need clean context without watching the full recording.' },
+          { title: 'Searchable meeting memory', description: 'Distributed teams benefit more from durable archives and retrieval.' },
+          { title: 'Cross-timezone follow-up', description: 'Action items and decisions must survive delayed handoffs between regions.' }
+        ]
+      },
+      {
+        type: 'bullets',
+        heading: 'Evaluation questions for remote workflows',
+        items: [
+          { label: 'Can absent teammates catch up fast?', text: 'The summary should explain outcomes, not just mirror the transcript.' },
+          { label: 'Does it fit async collaboration?', text: 'Look for clean export into docs, chat, or task systems.' },
+          { label: 'Can it reduce duplicate meetings?', text: 'The real value is better shared context, not just prettier notes.' }
+        ]
+      },
+      {
+        type: 'paragraphs',
+        heading: 'Why this use-case page is strategically smart',
+        paragraphs: [
+          'Use-case specificity gives the commercial pages more depth and often attracts visitors who are closer to choosing a tool for a real team problem.',
+          'It also opens the door to future remote-work subclusters such as async update templates, meeting recap systems, and decision archives.'
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: 'Why not just target generic remote meeting templates?',
+        answer: 'Because this page sits closer to software evaluation intent, which makes it more useful for monetization and future product positioning.'
+      },
+      {
+        question: 'What should this page link to most heavily?',
+        answer: 'It should route traffic into the broad money page, vendor comparisons, and remote workflow support pages like checklists and recap templates.'
+      }
+    ]
+  },
+  {
+    slug: 'ai-meeting-notes-for-client-calls',
+    title: 'AI Meeting Notes for Client Calls: Better Recaps, Less Follow-Up Chaos',
+    description:
+      'Use AI meeting notes for client calls to capture requests, scope changes, decisions, and next steps without messy post-call scramble.',
+    eyebrow: 'Use-case page',
+    intro: [
+      'Client-call note capture is one of the best high-intent workflow angles because missed details directly affect delivery quality, retention, and expansion opportunities.',
+      'This page can convert well into both affiliate recommendations and future service-oriented tools such as client recap generators.'
+    ],
+    targetKeyword: 'ai meeting notes for client calls, client call summary ai, ai notes tool for client meetings',
+    category: 'commercial',
+    monetizationPrimary: 'affiliate',
+    ctaLabel: 'Use the client meeting notes template',
+    ctaHref: '/pages/client-meeting-notes-template/',
+    relatedSlugs: ['client-meeting-notes-template', 'best-ai-meeting-assistants-for-sales', 'meeting-follow-up-email-template'],
+    sections: [
+      {
+        type: 'bullets',
+        heading: 'What matters most in client-call notes',
+        items: [
+          { label: 'Requests and scope shifts', text: 'Capture changing expectations before they create delivery confusion.' },
+          { label: 'Decisions and approvals', text: 'Make it easy to reference what was actually agreed.' },
+          { label: 'Follow-up tasks', text: 'Turn the recap into clear owner-based actions immediately after the call.' },
+          { label: 'Client-facing polish', text: 'The summary should be clean enough to reuse in an email or shared document.' }
+        ]
+      },
+      {
+        type: 'table',
+        heading: 'Who benefits most from this workflow',
+        columns: ['Team', 'Pain point', 'Why AI notes help'],
+        rows: [
+          ['Agencies', 'Many recurring client calls', 'Faster recap creation and less dropped context'],
+          ['Consultants', 'Decision-heavy conversations', 'Cleaner documentation of recommendations and next steps'],
+          ['Customer success teams', 'Retention and expansion conversations', 'Better continuity across account touchpoints']
+        ]
+      },
+      {
+        type: 'paragraphs',
+        heading: 'Why this page is commercially attractive',
+        paragraphs: [
+          'Client-call note intent is close to operational pain, which tends to make software suggestions feel more justified and actionable.',
+          'It also supports future product ideas like client recap generators, action-item extraction, and approval tracking workflows.'
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: 'Is this page only for agencies?',
+        answer: 'No. It also fits consultants, account managers, and customer success teams that need cleaner post-call documentation.'
+      },
+      {
+        question: 'Why is this stronger than a generic meeting notes page?',
+        answer: 'Because the use case is clearer, the workflow pain is sharper, and the monetization path through software recommendations is usually stronger.'
+      }
+    ]
+  }
+,
   {
     slug: 'weekly-team-meeting-agenda',
     title: 'Weekly Team Meeting Agenda That Keeps Updates Focused',
