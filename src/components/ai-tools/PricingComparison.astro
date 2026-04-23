@@ -1,0 +1,203 @@
+---
+import type { PricingPlan } from '../../lib/site';
+
+interface Props {
+  plans: PricingPlan[];
+}
+
+const { plans } = Astro.props;
+---
+
+<!-- Desktop Table -->
+<div class="pricing-table-wrap">
+  <table class="pricing-table">
+    <thead>
+      <tr>
+        <th>Tool</th>
+        <th>Free</th>
+        <th>Pro</th>
+        <th>Enterprise</th>
+        <th>Best For</th>
+      </tr>
+    </thead>
+    <tbody>
+      {plans.map((plan) => (
+        <tr class:list={[{ highlighted: !!plan.bestFor }]}>
+          <td class="tool-name">{plan.toolName}</td>
+          <td>{plan.free ? plan.free : <span class="empty-cell">—</span>}</td>
+          <td>{plan.pro ? plan.pro : <span class="empty-cell">—</span>}</td>
+          <td>{plan.enterprise ? plan.enterprise : <span class="empty-cell">—</span>}</td>
+          <td>
+            {plan.bestFor ? (
+              <span class="best-for-badge">{plan.bestFor}</span>
+            ) : (
+              <span class="empty-cell">—</span>
+            )}
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<!-- Mobile Cards -->
+<div class="pricing-cards">
+  {plans.map((plan) => (
+    <div class:list={['pricing-card', { highlighted: !!plan.bestFor }]}>
+      <div class="card-header">{plan.toolName}</div>
+      <div class="card-row">
+        <span class="card-label">Free</span>
+        <span>{plan.free ? plan.free : <span class="empty-cell">—</span>}</span>
+      </div>
+      <div class="card-row">
+        <span class="card-label">Pro</span>
+        <span>{plan.pro ? plan.pro : <span class="empty-cell">—</span>}</span>
+      </div>
+      <div class="card-row">
+        <span class="card-label">Enterprise</span>
+        <span>{plan.enterprise ? plan.enterprise : <span class="empty-cell">—</span>}</span>
+      </div>
+      {plan.bestFor && (
+        <div class="card-row">
+          <span class="card-label">Best For</span>
+          <span class="best-for-badge">{plan.bestFor}</span>
+        </div>
+      )}
+    </div>
+  ))}
+</div>
+
+<style>
+  /* Desktop Table */
+  .pricing-table-wrap {
+    overflow-x: auto;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+    background: var(--panel);
+  }
+
+  .pricing-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 640px;
+  }
+
+  .pricing-table thead {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+  }
+
+  .pricing-table th {
+    padding: 1rem;
+    text-align: left;
+    color: #dff5ff;
+    background: rgba(125, 211, 252, 0.08);
+    border-bottom: 1px solid var(--border);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .pricing-table td {
+    padding: 1rem;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+    color: var(--text);
+    vertical-align: middle;
+  }
+
+  .pricing-table tbody tr {
+    transition: background 0.2s ease;
+  }
+
+  .pricing-table tbody tr:hover {
+    background: rgba(125, 211, 252, 0.04);
+  }
+
+  .pricing-table tbody tr.highlighted {
+    border-left: 3px solid var(--accent);
+    background: rgba(192, 132, 252, 0.05);
+  }
+
+  .pricing-table tbody tr.highlighted:hover {
+    background: rgba(192, 132, 252, 0.09);
+  }
+
+  .tool-name {
+    font-weight: 600;
+    color: var(--brand);
+  }
+
+  .empty-cell {
+    color: var(--muted);
+    opacity: 0.5;
+  }
+
+  .best-for-badge {
+    display: inline-flex;
+    padding: 0.25rem 0.65rem;
+    border-radius: 999px;
+    background: rgba(192, 132, 252, 0.15);
+    color: #e4ccff;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+
+  /* Mobile Cards */
+  .pricing-cards {
+    display: none;
+  }
+
+  .pricing-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 1.25rem;
+  }
+
+  .pricing-card.highlighted {
+    border-color: var(--accent);
+  }
+
+  .card-header {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--brand);
+    margin-bottom: 0.85rem;
+    padding-bottom: 0.65rem;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+  }
+
+  .card-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.07);
+    color: var(--text);
+    font-size: 0.95rem;
+  }
+
+  .card-row:last-child {
+    border-bottom: none;
+  }
+
+  .card-label {
+    color: var(--muted);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  @media (max-width: 900px) {
+    .pricing-table-wrap {
+      display: none;
+    }
+    .pricing-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+</style>

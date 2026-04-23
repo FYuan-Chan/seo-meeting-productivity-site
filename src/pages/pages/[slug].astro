@@ -1,6 +1,11 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { buildCanonicalUrl, getAllPageEntries, getArticleSchema, getFaqSchema, pageMap, siteConfig } from '../../lib/site';
+import { buildCanonicalUrl, getAllPageEntries, getArticleSchema, getFaqSchema, getReviewSchema, getBreadcrumbSchema, pageMap, siteConfig } from '../../lib/site';
+import ComparisonTable from '../../components/ai-tools/ComparisonTable.astro';
+import ToolRatingCard from '../../components/ai-tools/ToolRatingCard.astro';
+import PricingComparison from '../../components/ai-tools/PricingComparison.astro';
+import UseCaseRecommender from '../../components/ai-tools/UseCaseRecommender.astro';
+import RelatedComparisons from '../../components/ai-tools/RelatedComparisons.astro';
 
 export function getStaticPaths() {
   return getAllPageEntries().map((page) => ({
@@ -11,7 +16,15 @@ export function getStaticPaths() {
 
 const { page } = Astro.props;
 const canonicalPath = buildCanonicalUrl(siteConfig.siteUrl, `/pages/${page.slug}/`);
-const schema = [getArticleSchema(page), getFaqSchema(page)];
+
+const isAIToolPage = page.category.startsWith('ai-') || page.category === 'github-trending' || page.category === 'tutorial';
+
+const schemas = [
+  getArticleSchema(page),
+  ...(page.faq.length > 0 ? [getFaqSchema(page)] : []),
+  ...(isAIToolPage && page.aiToolMeta ? [getReviewSchema(page)] : []),
+  getBreadcrumbSchema(page, siteConfig.siteUrl),
+];
 ---
 
 <BaseLayout
@@ -22,7 +35,7 @@ const schema = [getArticleSchema(page), getFaqSchema(page)];
   nav={siteConfig.nav}
   metrics={siteConfig.metrics}
   activePath={`/pages/${page.slug}/`}
-  schema={schema}
+  schema={schemas}
 >
   <main class="page-shell">
     <div class="container narrow">
@@ -88,6 +101,26 @@ const schema = [getArticleSchema(page), getFaqSchema(page)];
               </table>
             </div>
           )}
+          {section.type === 'comparison-table' && (
+            <ComparisonTable
+              dimensions={section.dimensions}
+              tools={section.tools}
+              ratings={section.ratings}
+            />
+          )}
+          {section.type === 'tool-cards' && (
+            <div class="card-grid two-up">
+              {section.tools.map((tool) => (
+                <ToolRatingCard tool={tool} />
+              ))}
+            </div>
+          )}
+          {section.type === 'pricing-table' && (
+            <PricingComparison plans={section.plans} />
+          )}
+          {section.type === 'use-case-grid' && (
+            <UseCaseRecommender useCases={section.useCases} />
+          )}
 
         </section>
       ))}
@@ -110,6 +143,10 @@ const schema = [getArticleSchema(page), getFaqSchema(page)];
           ))}
         </div>
       </section>
+
+      {page.relatedSlugs && page.relatedSlugs.length > 0 && (
+        <RelatedComparisons relatedSlugs={page.relatedSlugs} currentSlug={page.slug} />
+      )}
 
       <section class="content-section">
         <h2>Related pages</h2>

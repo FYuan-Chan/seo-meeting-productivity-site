@@ -3,6 +3,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { buildCanonicalUrl, getAllPageEntries, siteConfig } from '../lib/site';
 
 const pages = getAllPageEntries();
+const aiToolPages = getAllPageEntries().filter(p => 
+  p.category.startsWith('ai-') || p.category === 'github-trending' || p.category === 'tutorial'
+);
 const canonicalPath = buildCanonicalUrl(siteConfig.siteUrl, '/');
 ---
 
@@ -79,6 +82,24 @@ const canonicalPath = buildCanonicalUrl(siteConfig.siteUrl, '/');
         </div>
       </div>
     </section>
+
+    {aiToolPages.length > 0 && (
+      <section class="container section-block">
+        <h2>AI Tools & Comparisons</h2>
+        <p style="color: var(--text); opacity: 0.8; margin-bottom: 24px;">
+          In-depth comparisons, reviews, and guides for the best AI tools in 2026.
+        </p>
+        <div class="card-grid two-up">
+          {aiToolPages.map((p) => (
+            <a href={`/pages/${p.slug}/`} class="page-card">
+              <span class="eyebrow">{p.eyebrow}</span>
+              <strong>{p.title}</strong>
+              <p>{p.description.slice(0, 120)}...</p>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
 
     <section class="section-block">
       <div class="container">

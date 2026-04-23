@@ -1,8 +1,10 @@
-export type MonetizationPrimary = 'affiliate' | 'ads' | 'lead-magnet' | 'tool-upsell';
-export type PageCategory = 'commercial' | 'template' | 'examples' | 'comparison' | 'checklist';
+import { aiToolPages } from './ai-tools-data';
+
+export type MonetizationPrimary = 'affiliate' | 'ads' | 'lead-magnet' | 'tool-upsell' | 'hybrid';
+export type PageCategory = 'commercial' | 'template' | 'examples' | 'comparison' | 'checklist' | 'ai-comparison' | 'ai-review' | 'ai-pillar' | 'github-trending' | 'tutorial';
 
 const DEFAULT_SITE_URL = 'https://example.com';
-const siteUrlFromEnv = (import.meta.env.PUBLIC_SITE_URL ?? DEFAULT_SITE_URL).replace(/\/$/, '');
+const siteUrlFromEnv = ((import.meta as any).env?.PUBLIC_SITE_URL ?? DEFAULT_SITE_URL).replace(/\/$/, '');
 
 export type HeroMetric = {
   label: string;
@@ -36,6 +38,55 @@ export type PageSection =
       columns: string[];
       rows: string[][];
     }
+  | {
+      type: 'comparison-table';
+      heading: string;
+      dimensions: string[];
+      tools: string[];
+      ratings: Record<string, Record<string, number | string>>;
+    }
+  | {
+      type: 'tool-cards';
+      heading: string;
+      tools: ToolCardData[];
+    }
+  | {
+      type: 'pricing-table';
+      heading: string;
+      plans: PricingPlan[];
+    }
+  | {
+      type: 'use-case-grid';
+      heading: string;
+      useCases: UseCaseItem[];
+    }
+
+export type ToolCardData = {
+  name: string;
+  logo?: string;
+  rating: number;
+  summary: string;
+  pros: string[];
+  cons: string[];
+  ctaUrl: string;
+  ctaLabel: string;
+  pricing?: string;
+};
+
+export type PricingPlan = {
+  toolName: string;
+  free?: string;
+  pro?: string;
+  enterprise?: string;
+  bestFor?: string;
+};
+
+export type UseCaseItem = {
+  scenario: string;
+  recommended: string;
+  reason: string;
+  icon?: string;
+};
 
 export type SeoPage = {
   slug: string;
@@ -51,6 +102,22 @@ export type SeoPage = {
   relatedSlugs: string[];
   sections: PageSection[];
   faq: { question: string; answer: string }[];
+  aiToolMeta?: {
+    type: 'comparison' | 'pillar' | 'review' | 'trending-digest' | 'setup-guide';
+    tools: string[];
+    lastUpdated: string;
+    affiliateLinks?: { tool: string; url: string; label: string; commission?: string }[];
+    comparisonData?: {
+      dimensions: string[];
+      ratings: Record<string, Record<string, number | string>>;
+    };
+    githubMeta?: {
+      repoUrl: string;
+      stars: number;
+      language: string;
+      trendingPeriod?: 'daily' | 'weekly' | 'monthly';
+    };
+  };
 };
 
 const starterMetrics: HeroMetric[] = [
@@ -2719,8 +2786,8 @@ starterMetrics[0] = { ...starterMetrics[0], value: String(pages.length) };
 
 export const pageMap = Object.fromEntries(pages.map((page) => [page.slug, page])) as Record<string, SeoPage>;
 
-export function getAllPageEntries() {
-  return pages;
+export function getAllPageEntries(): SeoPage[] {
+  return [...pages, ...aiToolPages];
 }
 
 export function buildCanonicalUrl(siteUrl: string, pathname: string) {
@@ -2755,5 +2822,61 @@ export function getArticleSchema(page: SeoPage) {
       name: siteConfig.siteName
     },
     mainEntityOfPage: buildCanonicalUrl(siteConfig.siteUrl, `/pages/${page.slug}/`)
+  };
+}
+
+export function getReviewSchema(page: SeoPage) {
+  const tools = page.aiToolMeta?.tools ?? [];
+  const ratings = page.aiToolMeta?.comparisonData?.ratings ?? {};
+  const items = tools.map((tool) => {
+    const toolRatings = ratings[tool] ?? {};
+    const values = Object.values(toolRatings).filter((v): v is number => typeof v === 'number');
+    const avg = values.length > 0 ? values.reduce((a, b) => a + b, 0) / values.length : 0;
+    return {
+      '@type': 'Review',
+      itemReviewed: { '@type': 'SoftwareApplication', name: tool },
+      reviewRating: { '@type': 'Rating', ratingValue: Math.round(avg * 10) / 10, bestRating: 10 },
+      author: { '@type': 'Organization', name: siteConfig.siteName },
+    };
+  });
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    itemListElement: items,
+  };
+}
+
+export function getProductSchema(tool: ToolCardData) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: tool.name,
+    description: tool.summary,
+    applicationCategory: 'BusinessApplication',
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: tool.rating,
+      bestRating: 5,
+      ratingCount: 1,
+    },
+    offers: tool.pricing ? { '@type': 'Offer', price: '0', priceCurrency: 'USD', description: tool.pricing } : undefined,
+  };
+}
+
+export function getBreadcrumbSchema(page: SeoPage, siteUrl: string) {
+  const isAITool = page.category.startsWith('ai-') || page.category === 'github-trending' || page.category === 'tutorial';
+  const items: { '@type': string; position: number; name: string; item: string }[] = [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
+  ];
+  if (isAITool) {
+    items.push({ '@type': 'ListItem', position: 2, name: 'AI Tools', item: `${siteUrl}/pages/` });
+    items.push({ '@type': 'ListItem', position: 3, name: page.title, item: buildCanonicalUrl(siteUrl, `/pages/${page.slug}/`) });
+  } else {
+    items.push({ '@type': 'ListItem', position: 2, name: page.title, item: buildCanonicalUrl(siteUrl, `/pages/${page.slug}/`) });
+  }
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items,
   };
 }

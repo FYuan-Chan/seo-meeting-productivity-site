@@ -1,0 +1,240 @@
+---
+interface Props {
+  dimensions: string[];
+  tools: string[];
+  ratings: Record<string, Record<string, number | string>>;
+}
+
+const { dimensions, tools, ratings } = Astro.props;
+
+function getRatingColor(value: number): string {
+  if (value >= 9) return 'var(--brand)';
+  if (value >= 7) return '#22c55e';
+  if (value >= 4) return '#eab308';
+  return '#ef4444';
+}
+
+function isNumeric(val: number | string): val is number {
+  return typeof val === 'number';
+}
+---
+
+<!-- Desktop table view -->
+<div class="comparison-wrapper desktop-view">
+  <div class="comparison-table-outer">
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th class="dim-header">Dimension</th>
+          {tools.map((tool) => (
+            <th>{tool}</th>
+          ))}
+        </tr>
+      </thead>
+      <tbody>
+        {dimensions.map((dim) => (
+          <tr>
+            <td class="dim-cell">{dim}</td>
+            {tools.map((tool) => {
+              const val = ratings[dim]?.[tool];
+              return (
+                <td>
+                  {isNumeric(val) ? (
+                    <div class="rating-bar-wrap">
+                      <div
+                        class="rating-bar"
+                        style={`width: ${(val / 10) * 100}%; background: ${getRatingColor(val)};`}
+                      />
+                      <span class="rating-num">{val}</span>
+                    </div>
+                  ) : (
+                    <span class="rating-text">{val ?? '—'}</span>
+                  )}
+                </td>
+              );
+            })}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Mobile card view -->
+<div class="comparison-wrapper mobile-view">
+  {tools.map((tool) => (
+    <div class="tool-card-mobile">
+      <h4 class="tool-card-mobile-name">{tool}</h4>
+      <ul class="tool-card-mobile-list">
+        {dimensions.map((dim) => {
+          const val = ratings[dim]?.[tool];
+          return (
+            <li>
+              <span class="dim-label">{dim}</span>
+              {isNumeric(val) ? (
+                <div class="rating-bar-wrap">
+                  <div
+                    class="rating-bar"
+                    style={`width: ${(val / 10) * 100}%; background: ${getRatingColor(val)};`}
+                  />
+                  <span class="rating-num">{val}</span>
+                </div>
+              ) : (
+                <span class="rating-text">{val ?? '—'}</span>
+              )}
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  ))}
+</div>
+
+<style>
+  /* Outer wrapper */
+  .comparison-wrapper.mobile-view {
+    display: none;
+  }
+
+  /* Desktop table */
+  .comparison-table-outer {
+    overflow-x: auto;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+    background: var(--panel);
+  }
+
+  .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+  }
+
+  .comparison-table thead tr {
+    background: var(--bg-alt);
+    position: sticky;
+    top: 0;
+    z-index: 2;
+  }
+
+  .comparison-table th,
+  .comparison-table td {
+    padding: 0.85rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+    font-size: 0.95rem;
+  }
+
+  .comparison-table th {
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .dim-header,
+  .dim-cell {
+    position: sticky;
+    left: 0;
+    z-index: 1;
+    background: var(--panel);
+    min-width: 160px;
+    font-weight: 600;
+  }
+
+  .dim-header {
+    background: var(--bg-alt);
+    z-index: 3;
+  }
+
+  .comparison-table tbody tr:hover td {
+    background: rgba(125, 211, 252, 0.05);
+  }
+
+  .comparison-table tbody tr:hover .dim-cell {
+    background: rgba(16, 29, 52, 0.95);
+  }
+
+  /* Rating bar */
+  .rating-bar-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    min-width: 120px;
+  }
+
+  .rating-bar {
+    height: 8px;
+    border-radius: 4px;
+    flex-shrink: 0;
+    transition: width 0.3s ease;
+  }
+
+  .rating-bar-wrap .rating-bar {
+    flex: 0 0 auto;
+    max-width: calc(100% - 2.5rem);
+  }
+
+  .rating-num {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--text);
+    flex-shrink: 0;
+  }
+
+  .rating-text {
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
+  /* Mobile card view */
+  @media (max-width: 900px) {
+    .comparison-wrapper.desktop-view {
+      display: none;
+    }
+
+    .comparison-wrapper.mobile-view {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .tool-card-mobile {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+    }
+
+    .tool-card-mobile-name {
+      margin: 0 0 1rem;
+      font-size: 1.15rem;
+      color: var(--text);
+    }
+
+    .tool-card-mobile-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .tool-card-mobile-list li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.6rem 0;
+      border-top: 1px solid rgba(148, 163, 184, 0.1);
+    }
+
+    .dim-label {
+      color: var(--muted);
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    .rating-bar-wrap {
+      min-width: 100px;
+      max-width: 160px;
+    }
+  }
+</style>

@@ -7,7 +7,11 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "test": "vitest run"
+    "test": "vitest run",
+    "trending": "npx tsx scripts/fetch-trending.ts",
+    "google-trends": "npx tsx scripts/fetch-google-trends.ts",
+    "gen-page": "npx tsx scripts/generate-page-template.ts",
+    "validate": "npx tsx scripts/validate-pages.ts"
   },
   "dependencies": {
     "astro": "^5.2.0"
@@ -15,6 +19,7 @@
   "devDependencies": {
     "@types/node": "^22.15.21",
     "typescript": "^5.8.3",
+    "tsx": "^4.0.0",
     "vitest": "^3.1.1"
   }
 }
