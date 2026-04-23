@@ -115,6 +115,15 @@ const schema = [getArticleSchema(page), getFaqSchema(page)];
         <div class="card-grid two-up">
           {page.relatedSlugs.map((slug: string) => {
             const related = pageMap[slug];
+            if (!related) {
+              return (
+                <article class="page-card compact">
+                  <span class="tag">N/A</span>
+                  <h3>{slug}</h3>
+                  <p>Page not found</p>
+                </article>
+              );
+            }
             return (
               <article class="page-card compact">
                 <span class="tag">{related.category}</span>
