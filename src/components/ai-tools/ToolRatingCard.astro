@@ -1,11 +1,13 @@
 ---
 import type { ToolCardData } from '../../lib/site';
+import { appendUtmParams } from '../../lib/site';
 
 interface Props {
   tool: ToolCardData;
 }
 
 const { tool } = Astro.props;
+const ctaUrlWithUtm = appendUtmParams(tool.ctaUrl);
 
 const fullStars = Math.floor(tool.rating);
 const partialFill = Math.round((tool.rating - fullStars) * 100);
@@ -64,7 +66,7 @@ const initial = tool.name.charAt(0).toUpperCase();
       <span class="pricing-tag">{tool.pricing}</span>
     )}
     <a
-      href={tool.ctaUrl}
+      href={ctaUrlWithUtm}
       class="cta-btn"
       target="_blank"
       rel="nofollow sponsored noopener"

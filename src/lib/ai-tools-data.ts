@@ -6,7 +6,7 @@ export const aiToolPages: SeoPage[] = [
     slug: 'chatgpt-vs-claude',
     title: 'ChatGPT vs Claude in 2026: The Definitive AI Comparison',
     description:
-      'An in-depth comparison of ChatGPT and Claude across writing quality, coding, reasoning, speed, context window, and pricing. Find the best AI for your workflow.',
+      'ChatGPT vs Claude compared across writing, coding, reasoning, speed, context window, and pricing. Find the best AI for your workflow.',
     eyebrow: 'AI Comparison',
     intro: [
       'ChatGPT and Claude are the two most popular general-purpose AI assistants in 2026. Whether you need help writing marketing copy, debugging code, or summarizing research, picking the right model can save hours every week.',
@@ -120,7 +120,7 @@ export const aiToolPages: SeoPage[] = [
     slug: 'best-ai-coding-tools',
     title: 'Best AI Coding Tools in 2026: Complete Guide',
     description:
-      'Discover the top AI coding tools for developers in 2026. Compare GitHub Copilot, Cursor, Cody, Tabnine, and Amazon CodeWhisperer across features, pricing, and IDE support.',
+      'Top AI coding tools for 2026 compared. GitHub Copilot, Cursor, Cody, Tabnine, and CodeWhisperer reviewed across features, pricing, and IDE support.',
     eyebrow: 'AI Pillar Page',
     intro: [
       'AI coding assistants have become essential developer tools in 2026. From autocomplete to full-file generation, these tools can dramatically reduce time spent on boilerplate, debugging, and documentation.',
@@ -232,7 +232,7 @@ export const aiToolPages: SeoPage[] = [
   // ─── 3. GitHub Copilot vs Cursor ───
   {
     slug: 'github-copilot-vs-cursor',
-    title: 'GitHub Copilot vs Cursor: Which AI Code Editor Wins in 2026?',
+    title: 'GitHub Copilot vs Cursor: Best AI Code Editor 2026',
     description:
       'A detailed comparison of GitHub Copilot and Cursor for AI-assisted coding. Compare features, pricing, IDE experience, and real-world coding performance.',
     eyebrow: 'AI Comparison',
@@ -336,7 +336,7 @@ export const aiToolPages: SeoPage[] = [
     slug: 'best-ai-writing-tools',
     title: 'Best AI Writing Tools in 2026: Expert-Tested Guide',
     description:
-      'Compare the best AI writing tools for content creation, copywriting, and SEO. Includes Jasper, Copy.ai, Writesonic, Claude, and ChatGPT with detailed pros, cons, and pricing.',
+      'Best AI writing tools for content creation, copywriting, and SEO. Jasper, Copy.ai, Writesonic, Claude, and ChatGPT compared with pros, cons, and pricing.',
     eyebrow: 'AI Pillar Page',
     intro: [
       'AI writing tools have evolved from simple text generators to sophisticated content creation platforms. In 2026, the best tools integrate SEO optimization, brand voice training, and workflow automation.',
@@ -448,9 +448,9 @@ export const aiToolPages: SeoPage[] = [
   // ─── 5. Jasper vs Copy.ai ───
   {
     slug: 'jasper-vs-copy-ai',
-    title: 'Jasper vs Copy.ai in 2026: Which AI Writing Platform Is Right for You?',
+    title: 'Jasper vs Copy.ai 2026: AI Writing Platform Compared',
     description:
-      'Compare Jasper and Copy.ai for AI content creation. Detailed analysis of features, pricing, templates, team workflows, and best use cases for each platform.',
+      'Jasper vs Copy.ai for AI content creation. Compare features, pricing, templates, team workflows, and best use cases for each platform.',
     eyebrow: 'AI Comparison',
     intro: [
       'Jasper and Copy.ai are the two most popular dedicated AI writing platforms for marketing teams. Both have evolved significantly in 2026, but they serve different segments of the market.',

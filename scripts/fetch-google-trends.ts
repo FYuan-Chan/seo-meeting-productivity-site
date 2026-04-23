@@ -60,6 +60,11 @@ ${CYAN}Examples:${RESET}
   npx tsx scripts/fetch-google-trends.ts --geo US --seed "ai meeting,chatgpt,github copilot"
 
 ${DIM}Output: scripts/data/google-trends-{YYYY-MM-DD}.json${RESET}
+
+${YELLOW}Note:${RESET} This script requires access to Google services.
+  If you are in China or behind a firewall, you may need to configure
+  an HTTP proxy via the HTTPS_PROXY or HTTP_PROXY environment variable.
+  Example: HTTPS_PROXY=http://127.0.0.1:7890 npx tsx scripts/fetch-google-trends.ts
 `);
 }
 
@@ -96,6 +101,49 @@ function parseArgs(argv: string[]): { geo: string; seeds: string[] } {
     }
   }
   return { geo, seeds };
+}
+
+// ─── Network helpers ─────────────────────────────────────────────────────────
+
+const REQUEST_TIMEOUT_MS = 15_000;
+const MAX_RETRIES = 2;
+const RETRY_DELAY_MS = 2_000;
+
+const COMMON_HEADERS: Record<string, string> = {
+  'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36',
+};
+
+async function fetchWithTimeout(url: string, init: RequestInit = {}, timeoutMs = REQUEST_TIMEOUT_MS): Promise<Response> {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    return await fetch(url, { ...init, signal: controller.signal });
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+async function fetchWithRetry(url: string, init: RequestInit = {}, retries = MAX_RETRIES): Promise<Response> {
+  let lastError: Error | undefined;
+  for (let attempt = 0; attempt <= retries; attempt++) {
+    try {
+      const response = await fetchWithTimeout(url, init);
+      if (response.ok) return response;
+      lastError = new Error(`HTTP ${response.status} ${response.statusText}`);
+    } catch (err) {
+      lastError = err as Error;
+    }
+    if (attempt < retries) {
+      console.warn(`${YELLOW}⚠️  Attempt ${attempt + 1} failed, retrying in ${RETRY_DELAY_MS / 1000}s...${RESET}`);
+      await new Promise((r) => setTimeout(r, RETRY_DELAY_MS));
+    }
+  }
+  throw lastError ?? new Error('Request failed');
+}
+
+function isNetworkError(err: Error): boolean {
+  const msg = err.message.toLowerCase();
+  return msg.includes('abort') || msg.includes('timeout') || msg.includes('econnrefused') || msg.includes('enotfound') || msg.includes('fetch failed') || msg.includes('network');
 }
 
 // ─── RSS parsing ─────────────────────────────────────────────────────────────
@@ -155,16 +203,9 @@ async function fetchSuggestions(seed: string, geo: string, fetchedAt: string): P
   const url = `https://suggestqueries.google.com/complete/search?client=firefox&q=${encodeURIComponent(seed)}&gl=${geo}`;
 
   try {
-    const response = await fetch(url, {
-      headers: {
-        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) TrendsFetcher/1.0',
-        'Accept': 'application/json',
-      },
+    const response = await fetchWithRetry(url, {
+      headers: { ...COMMON_HEADERS, 'Accept': 'application/json' },
     });
-    if (!response.ok) {
-      console.warn(`${YELLOW}⚠️  Suggest API returned ${response.status} for "${seed}"${RESET}`);
-      return [];
-    }
 
     const data = (await response.json()) as [string, string[]];
     const suggestions = data[1] ?? [];
@@ -178,7 +219,13 @@ async function fetchSuggestions(seed: string, geo: string, fetchedAt: string): P
         geo,
       }));
   } catch (err) {
-    console.warn(`${YELLOW}⚠️  Failed to fetch suggestions for "${seed}": ${(err as Error).message}${RESET}`);
+    const e = err as Error;
+    if (isNetworkError(e)) {
+      console.warn(`${YELLOW}⚠️  无法连接 Google Suggest 服务 for "${seed}": ${e.message}${RESET}`);
+      console.warn(`${YELLOW}   请检查网络代理设置 (HTTPS_PROXY)${RESET}`);
+    } else {
+      console.warn(`${YELLOW}⚠️  Failed to fetch suggestions for "${seed}": ${e.message}${RESET}`);
+    }
     return [];
   }
 }
@@ -195,25 +242,39 @@ async function main(): Promise<void> {
   const allItems: GoogleTrendItem[] = [];
 
   // 1. Fetch Google Trends RSS
+  // Primary RSS URL
   const rssUrl = `https://trends.google.com/trending/rss?geo=${geo}`;
+  // Fallback RSS URL (alternative endpoint)
+  const rssUrlFallback = `https://trends.google.com/trends/trendingsearches/daily/rss?geo=${geo}`;
   console.log(`${CYAN}⏳ Fetching Google Trends RSS: ${rssUrl}${RESET}`);
 
-  try {
-    const response = await fetch(rssUrl, {
-      headers: {
-        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) TrendsFetcher/1.0',
-        'Accept': 'application/xml,text/xml',
-      },
-    });
-    if (!response.ok) {
-      throw new Error(`HTTP ${response.status} ${response.statusText}`);
+  let rssFetched = false;
+  for (const url of [rssUrl, rssUrlFallback]) {
+    try {
+      const response = await fetchWithRetry(url, {
+        headers: { ...COMMON_HEADERS, 'Accept': 'application/xml,text/xml' },
+      });
+      const xml = await response.text();
+      const rssItems = parseRssItems(xml, geo, fetchedAt);
+      allItems.push(...rssItems);
+      console.log(`${GREEN}✅ RSS: found ${rssItems.length} trending topics${RESET}`);
+      rssFetched = true;
+      break;
+    } catch (err) {
+      const e = err as Error;
+      if (url === rssUrlFallback) {
+        // Both URLs failed
+        if (isNetworkError(e)) {
+          console.error(`${RED}❌ 无法连接 Google 服务，请检查网络代理设置。${RESET}`);
+          console.error(`${RED}   可通过设置 HTTPS_PROXY 环境变量使用代理，例如:${RESET}`);
+          console.error(`${RED}   HTTPS_PROXY=http://127.0.0.1:7890 npx tsx scripts/fetch-google-trends.ts${RESET}`);
+        } else {
+          console.warn(`${YELLOW}⚠️  RSS fetch failed: ${e.message}. Continuing with seed keywords...${RESET}`);
+        }
+      } else {
+        console.warn(`${YELLOW}⚠️  Primary RSS failed (${e.message}), trying fallback URL...${RESET}`);
+      }
     }
-    const xml = await response.text();
-    const rssItems = parseRssItems(xml, geo, fetchedAt);
-    allItems.push(...rssItems);
-    console.log(`${GREEN}✅ RSS: found ${rssItems.length} trending topics${RESET}`);
-  } catch (err) {
-    console.warn(`${YELLOW}⚠️  RSS fetch failed: ${(err as Error).message}. Continuing with seed keywords...${RESET}`);
   }
 
   // 2. Fetch suggestions for each seed keyword

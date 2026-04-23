@@ -2863,6 +2863,18 @@ export function getProductSchema(tool: ToolCardData) {
   };
 }
 
+export function appendUtmParams(url: string, source: string = 'signalforges', medium: string = 'referral', campaign: string = 'ai-tools'): string {
+  try {
+    const u = new URL(url);
+    if (!u.searchParams.has('utm_source')) u.searchParams.set('utm_source', source);
+    if (!u.searchParams.has('utm_medium')) u.searchParams.set('utm_medium', medium);
+    if (!u.searchParams.has('utm_campaign')) u.searchParams.set('utm_campaign', campaign);
+    return u.toString();
+  } catch {
+    return url;
+  }
+}
+
 export function getBreadcrumbSchema(page: SeoPage, siteUrl: string) {
   const isAITool = page.category.startsWith('ai-') || page.category === 'github-trending' || page.category === 'tutorial';
   const items: { '@type': string; position: number; name: string; item: string }[] = [
