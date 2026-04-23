@@ -1,0 +1,38 @@
+---
+// Google AdSense 广告组件
+// 使用方法：<AdUnit slot="1234567890" format="auto" />
+
+interface Props {
+  slot: string; // 广告单元 ID
+  format?: 'auto' | 'fluid' | 'rectangle' | 'vertical' | 'horizontal';
+  responsive?: boolean;
+  className?: string;
+}
+
+const { 
+  slot, 
+  format = 'auto', 
+  responsive = true,
+  className = ''
+} = Astro.props;
+---
+
+<ins 
+  class={`adsbygoogle ${className}`}
+  style="display:block"
+  data-ad-client="ca-pub-6108188461869936"
+  data-ad-slot={slot}
+  data-ad-format={format}
+  data-full-width-responsive={responsive ? 'true' : 'false'}
+></ins>
+
+<script is:inline>
+  // 确保 AdSense 脚本已加载后执行
+  if (typeof window !== 'undefined') {
+    try {
+      (window.adsbygoogle = window.adsbygoogle || []).push({});
+    } catch (e) {
+      console.warn('AdSense not loaded yet:', e);
+    }
+  }
+</script>

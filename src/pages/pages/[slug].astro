@@ -6,6 +6,7 @@ import ToolRatingCard from '../../components/ai-tools/ToolRatingCard.astro';
 import PricingComparison from '../../components/ai-tools/PricingComparison.astro';
 import UseCaseRecommender from '../../components/ai-tools/UseCaseRecommender.astro';
 import RelatedComparisons from '../../components/ai-tools/RelatedComparisons.astro';
+import AdPlaceholder from '../../components/ads/AdPlaceholder.astro';
 
 export function getStaticPaths() {
   return getAllPageEntries().map((page) => ({
@@ -137,6 +138,11 @@ const schemas = [
           ))}
         </div>
 
+        <!-- Ad Placeholder - After Intro -->
+        <div class="ad-section">
+          <AdPlaceholder slot="intro-ad" format="auto" />
+        </div>
+
         <!-- Main Content Sections -->
         <div class="article-body">
           {page.sections.map((section, idx) => (
@@ -225,9 +231,6 @@ const schemas = [
               )}
             </section>
           ))}
-        </div>
-
-        <!-- FAQ Section -->
         {page.faq.length > 0 && (
           <section class="faq-section" id="faq">
             <h2 class="section-heading">
