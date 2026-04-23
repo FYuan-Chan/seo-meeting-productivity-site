@@ -2965,6 +2965,453 @@ export const pages: SeoPage[] = [
       }
     ]
   },
+,
+  {
+    slug: 'documentation-generator-template',
+    title: 'Documentation Generator Template',
+    description: 'Free online documentation generator template. Easy to use, no signup required. Generate, calculate, or convert instantly in your browser.',
+    eyebrow: 'Interactive tool',
+    intro: [
+      'This interactive tool helps you with documentation generator template.',
+      'Use this free online tool to save time and improve your workflow.'
+    ],
+    targetKeyword: 'documentation generator template',
+    category: 'tool',
+    monetizationPrimary: 'ads',
+    ctaLabel: 'Try our other tools',
+    ctaHref: '/pages/',
+    relatedSlugs: ["ai-meeting-minutes-generator", "meeting-notes-generator"],
+    sections: [
+      {
+        type: 'paragraphs',
+        heading: 'How to use this tool',
+        paragraphs: [
+          'Enter your input in the fields provided.',
+          'Click the action button to process.',
+          'Copy or download your results.'
+        ]
+      },
+      {
+        type: 'bullets',
+        heading: 'Features',
+        items: [
+          { text: 'Free to use with no registration required' },
+          { text: 'Works directly in your browser' },
+          { text: 'Fast and reliable results' }
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: 'Is this tool free?',
+        answer: 'Yes, this tool is completely free to use with no hidden charges.'
+      },
+      {
+        question: 'Do I need to create an account?',
+        answer: 'No, you can use this tool without creating an account.'
+      }
+    ]
+  },
+  {
+    slug: 'online-calculator-template',
+    title: 'Online Calculator Template',
+    description: 'Free online online calculator template. Easy to use, no signup required. Generate, calculate, or convert instantly in your browser.',
+    eyebrow: 'Interactive tool',
+    intro: [
+      'This interactive tool helps you with online calculator template.',
+      'Use this free online tool to save time and improve your workflow.'
+    ],
+    targetKeyword: 'online calculator template',
+    category: 'tool',
+    monetizationPrimary: 'ads',
+    ctaLabel: 'Try our other tools',
+    ctaHref: '/pages/',
+    relatedSlugs: ["ai-meeting-minutes-generator", "meeting-notes-generator"],
+    sections: [
+      {
+        type: 'paragraphs',
+        heading: 'How to use this tool',
+        paragraphs: [
+          'Enter your input in the fields provided.',
+          'Click the action button to process.',
+          'Copy or download your results.'
+        ]
+      },
+      {
+        type: 'bullets',
+        heading: 'Features',
+        items: [
+          { text: 'Free to use with no registration required' },
+          { text: 'Works directly in your browser' },
+          { text: 'Fast and reliable results' }
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: 'Is this tool free?',
+        answer: 'Yes, this tool is completely free to use with no hidden charges.'
+      },
+      {
+        question: 'Do I need to create an account?',
+        answer: 'No, you can use this tool without creating an account.'
+      }
+    ]
+  },
+  {
+    slug: 'color-palette-generator-template',
+    title: 'Color Palette Generator Template',
+    description: 'Free online color palette generator template. Easy to use, no signup required. Generate, calculate, or convert instantly in your browser.',
+    eyebrow: 'Interactive tool',
+    intro: [
+      'This interactive tool helps you with color palette generator template.',
+      'Use this free online tool to save time and improve your workflow.'
+    ],
+    targetKeyword: 'color palette generator template',
+    category: 'tool',
+    monetizationPrimary: 'ads',
+    ctaLabel: 'Try our other tools',
+    ctaHref: '/pages/',
+    relatedSlugs: ["ai-meeting-minutes-generator", "meeting-notes-generator"],
+    sections: [
+      {
+        type: 'paragraphs',
+        heading: 'How to use this tool',
+        paragraphs: [
+          'Enter your input in the fields provided.',
+          'Click the action button to process.',
+          'Copy or download your results.'
+        ]
+      },
+      {
+        type: 'bullets',
+        heading: 'Features',
+        items: [
+          { text: 'Free to use with no registration required' },
+          { text: 'Works directly in your browser' },
+          { text: 'Fast and reliable results' }
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: 'Is this tool free?',
+        answer: 'Yes, this tool is completely free to use with no hidden charges.'
+      },
+      {
+        question: 'Do I need to create an account?',
+        answer: 'No, you can use this tool without creating an account.'
+      }
+    ]
+  },
+  {
+    slug: 'pdf-converter-template',
+    title: 'Pdf Converter Template',
+    description: 'Free online pdf converter template. Easy to use, no signup required. Generate, calculate, or convert instantly in your browser.',
+    eyebrow: 'Interactive tool',
+    intro: [
+      'This interactive tool helps you with pdf converter template.',
+      'Use this free online tool to save time and improve your workflow.'
+    ],
+    targetKeyword: 'pdf converter template',
+    category: 'tool',
+    monetizationPrimary: 'ads',
+    ctaLabel: 'Try our other tools',
+    ctaHref: '/pages/',
+    relatedSlugs: ["ai-meeting-minutes-generator", "meeting-notes-generator"],
+    sections: [
+      {
+        type: 'paragraphs',
+        heading: 'How to use this tool',
+        paragraphs: [
+          'Enter your input in the fields provided.',
+          'Click the action button to process.',
+          'Copy or download your results.'
+        ]
+      },
+      {
+        type: 'bullets',
+        heading: 'Features',
+        items: [
+          { text: 'Free to use with no registration required' },
+          { text: 'Works directly in your browser' },
+          { text: 'Fast and reliable results' }
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: 'Is this tool free?',
+        answer: 'Yes, this tool is completely free to use with no hidden charges.'
+      },
+      {
+        question: 'Do I need to create an account?',
+        answer: 'No, you can use this tool without creating an account.'
+      }
+    ]
+  },
+  {
+    slug: 'qr-code-generator-template',
+    title: 'Qr Code Generator Template',
+    description: 'Free online qr code generator template. Easy to use, no signup required. Generate, calculate, or convert instantly in your browser.',
+    eyebrow: 'Interactive tool',
+    intro: [
+      'This interactive tool helps you with qr code generator template.',
+      'Use this free online tool to save time and improve your workflow.'
+    ],
+    targetKeyword: 'qr code generator template',
+    category: 'tool',
+    monetizationPrimary: 'ads',
+    ctaLabel: 'Try our other tools',
+    ctaHref: '/pages/',
+    relatedSlugs: ["ai-meeting-minutes-generator", "meeting-notes-generator"],
+    sections: [
+      {
+        type: 'paragraphs',
+        heading: 'How to use this tool',
+        paragraphs: [
+          'Enter your input in the fields provided.',
+          'Click the action button to process.',
+          'Copy or download your results.'
+        ]
+      },
+      {
+        type: 'bullets',
+        heading: 'Features',
+        items: [
+          { text: 'Free to use with no registration required' },
+          { text: 'Works directly in your browser' },
+          { text: 'Fast and reliable results' }
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: 'Is this tool free?',
+        answer: 'Yes, this tool is completely free to use with no hidden charges.'
+      },
+      {
+        question: 'Do I need to create an account?',
+        answer: 'No, you can use this tool without creating an account.'
+      }
+    ]
+  },
+  {
+    slug: 'password-generator-template',
+    title: 'Password Generator Template',
+    description: 'Free online password generator template. Easy to use, no signup required. Generate, calculate, or convert instantly in your browser.',
+    eyebrow: 'Interactive tool',
+    intro: [
+      'This interactive tool helps you with password generator template.',
+      'Use this free online tool to save time and improve your workflow.'
+    ],
+    targetKeyword: 'password generator template',
+    category: 'tool',
+    monetizationPrimary: 'ads',
+    ctaLabel: 'Try our other tools',
+    ctaHref: '/pages/',
+    relatedSlugs: ["ai-meeting-minutes-generator", "meeting-notes-generator"],
+    sections: [
+      {
+        type: 'paragraphs',
+        heading: 'How to use this tool',
+        paragraphs: [
+          'Enter your input in the fields provided.',
+          'Click the action button to process.',
+          'Copy or download your results.'
+        ]
+      },
+      {
+        type: 'bullets',
+        heading: 'Features',
+        items: [
+          { text: 'Free to use with no registration required' },
+          { text: 'Works directly in your browser' },
+          { text: 'Fast and reliable results' }
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: 'Is this tool free?',
+        answer: 'Yes, this tool is completely free to use with no hidden charges.'
+      },
+      {
+        question: 'Do I need to create an account?',
+        answer: 'No, you can use this tool without creating an account.'
+      }
+    ]
+  },
+  {
+    slug: 'timestamp-converter-template',
+    title: 'Timestamp Converter Template',
+    description: 'Free online timestamp converter template. Easy to use, no signup required. Generate, calculate, or convert instantly in your browser.',
+    eyebrow: 'Interactive tool',
+    intro: [
+      'This interactive tool helps you with timestamp converter template.',
+      'Use this free online tool to save time and improve your workflow.'
+    ],
+    targetKeyword: 'timestamp converter template',
+    category: 'tool',
+    monetizationPrimary: 'ads',
+    ctaLabel: 'Try our other tools',
+    ctaHref: '/pages/',
+    relatedSlugs: ["ai-meeting-minutes-generator", "meeting-notes-generator"],
+    sections: [
+      {
+        type: 'paragraphs',
+        heading: 'How to use this tool',
+        paragraphs: [
+          'Enter your input in the fields provided.',
+          'Click the action button to process.',
+          'Copy or download your results.'
+        ]
+      },
+      {
+        type: 'bullets',
+        heading: 'Features',
+        items: [
+          { text: 'Free to use with no registration required' },
+          { text: 'Works directly in your browser' },
+          { text: 'Fast and reliable results' }
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: 'Is this tool free?',
+        answer: 'Yes, this tool is completely free to use with no hidden charges.'
+      },
+      {
+        question: 'Do I need to create an account?',
+        answer: 'No, you can use this tool without creating an account.'
+      }
+    ]
+  },
+  {
+    slug: 'hash-generator-template',
+    title: 'Hash Generator Template',
+    description: 'Free online hash generator template. Easy to use, no signup required. Generate, calculate, or convert instantly in your browser.',
+    eyebrow: 'Interactive tool',
+    intro: [
+      'This interactive tool helps you with hash generator template.',
+      'Use this free online tool to save time and improve your workflow.'
+    ],
+    targetKeyword: 'hash generator template',
+    category: 'tool',
+    monetizationPrimary: 'ads',
+    ctaLabel: 'Try our other tools',
+    ctaHref: '/pages/',
+    relatedSlugs: ["ai-meeting-minutes-generator", "meeting-notes-generator"],
+    sections: [
+      {
+        type: 'paragraphs',
+        heading: 'How to use this tool',
+        paragraphs: [
+          'Enter your input in the fields provided.',
+          'Click the action button to process.',
+          'Copy or download your results.'
+        ]
+      },
+      {
+        type: 'bullets',
+        heading: 'Features',
+        items: [
+          { text: 'Free to use with no registration required' },
+          { text: 'Works directly in your browser' },
+          { text: 'Fast and reliable results' }
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: 'Is this tool free?',
+        answer: 'Yes, this tool is completely free to use with no hidden charges.'
+      },
+      {
+        question: 'Do I need to create an account?',
+        answer: 'No, you can use this tool without creating an account.'
+      }
+    ]
+  },
+  {
+    slug: 'json-formatter-template',
+    title: 'Json Formatter Template',
+    description: 'Free online json formatter template. Easy to use, no signup required. Generate, calculate, or convert instantly in your browser.',
+    eyebrow: 'Interactive tool',
+    intro: [
+      'This interactive tool helps you with json formatter template.',
+      'Use this free online tool to save time and improve your workflow.'
+    ],
+    targetKeyword: 'json formatter template',
+    category: 'tool',
+    monetizationPrimary: 'ads',
+    ctaLabel: 'Try our other tools',
+    ctaHref: '/pages/',
+    relatedSlugs: ["ai-meeting-minutes-generator", "meeting-notes-generator"],
+    sections: [
+      {
+        type: 'paragraphs',
+        heading: 'How to use this tool',
+        paragraphs: [
+          'Enter your input in the fields provided.',
+          'Click the action button to process.',
+          'Copy or download your results.'
+        ]
+      },
+      {
+        type: 'bullets',
+        heading: 'Features',
+        items: [
+          { text: 'Free to use with no registration required' },
+          { text: 'Works directly in your browser' },
+          { text: 'Fast and reliable results' }
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: 'Is this tool free?',
+        answer: 'Yes, this tool is completely free to use with no hidden charges.'
+      },
+      {
+        question: 'Do I need to create an account?',
+        answer: 'No, you can use this tool without creating an account.'
+      }
+    ]
+  },
+  {
+    slug: 'meeting-notes-template-for-role',
+    title: 'Meeting Notes Template for {role}',
+    description: 'Download and customize this meeting notes template for {role} to improve your workflow. Includes examples and best practices.',
+    eyebrow: 'Template page',
+    intro: [
+      'This template page provides ready-to-use formats for meeting notes template for {role}.',
+      'Templates are evergreen content that attracts consistent search traffic.'
+    ],
+    targetKeyword: 'meeting notes template for {role}',
+    category: 'template',
+    monetizationPrimary: 'ads',
+    ctaLabel: 'See commercial comparisons',
+    ctaHref: '/pages/best-ai-meeting-assistants/',
+    relatedSlugs: ['best-ai-meeting-assistants', 'meeting-summary-examples'],
+    sections: [
+      {
+        type: 'paragraphs',
+        heading: 'How to use this template',
+        paragraphs: [
+          'Copy the template structure and customize it for your specific needs.',
+          'Use this as a starting point and adapt sections to your workflow.'
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: 'Can I download this template?',
+        answer: 'Yes, you can copy the template or request a downloadable version via email.'
+      }
+    ]
+  }
 ];
 
 starterMetrics[0] = { ...starterMetrics[0], value: String(pages.length) };
