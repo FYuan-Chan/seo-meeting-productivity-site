@@ -2523,14 +2523,20 @@ export const pages: SeoPage[] = [
     ctaLabel: 'Try our other tools',
     ctaHref: '/pages/',
     relatedSlugs: ['online-calculator', 'password-generator'],
-    sections: [
+    sections: [      {
+        type: 'tool',
+        toolType: 'calculator',
+        toolTitle: 'Online Calculator',
+        heading: 'Calculator Tool'
+      },
       {
         type: 'paragraphs',
-        heading: 'How to use this tool',
+        heading: 'Calculator Features',
         paragraphs: [
-          'Enter your input in the fields provided.',
-          'Click the action button to process.',
-          'Copy or download your results.'
+          'Basic arithmetic operations: add, subtract, multiply, divide.',
+          'Percentage calculations and number negation.',
+          'Calculation history for reference.',
+          'Keyboard support for quick input.'
         ]
       },
       {
@@ -2541,8 +2547,7 @@ export const pages: SeoPage[] = [
           { text: 'Works directly in your browser' },
           { text: 'Fast and reliable results' }
         ]
-      }
-    ],
+      }],
     faq: [
       {
         question: 'Is this tool free?',
@@ -2615,14 +2620,20 @@ export const pages: SeoPage[] = [
     ctaLabel: 'Try our other tools',
     ctaHref: '/pages/',
     relatedSlugs: ['online-calculator', 'password-generator'],
-    sections: [
+    sections: [      {
+        type: 'tool',
+        toolType: 'timestamp-converter',
+        toolTitle: 'Timestamp Converter',
+        heading: 'Timestamp Converter Tool'
+      },
       {
         type: 'paragraphs',
         heading: 'How to use this tool',
         paragraphs: [
-          'Enter your input in the fields provided.',
-          'Click the action button to process.',
-          'Copy or download your results.'
+          'Enter a Unix timestamp or select a date/time.',
+          'Click the conversion buttons to transform between formats.',
+          'Use quick convert buttons for common time offsets.',
+          'Copy any result format with one click.'
         ]
       },
       {
@@ -2633,8 +2644,7 @@ export const pages: SeoPage[] = [
           { text: 'Works directly in your browser' },
           { text: 'Fast and reliable results' }
         ]
-      }
-    ],
+      }],
     faq: [
       {
         question: 'Is this tool free?',
@@ -2707,16 +2717,31 @@ export const pages: SeoPage[] = [
     ctaLabel: 'See commercial comparisons',
     ctaHref: '/pages/best-ai-meeting-assistants/',
     relatedSlugs: ['best-ai-meeting-assistants', 'meeting-summary-examples'],
-    sections: [
+    sections: [      {
+        type: 'tool',
+        toolType: 'json-formatter',
+        toolTitle: 'JSON Formatter & Validator',
+        heading: 'JSON Formatter Tool'
+      },
       {
         type: 'paragraphs',
-        heading: 'How to use this template',
+        heading: 'How to use this tool',
         paragraphs: [
-          'Copy the template structure and customize it for your specific needs.',
-          'Use this as a starting point and adapt sections to your workflow.'
+          'Paste your JSON data into the input field above.',
+          'Click "Format & Validate" to beautify and check your JSON.',
+          'Use "Minify" to compress JSON for production use.',
+          'Copy the formatted output with one click.'
         ]
-      }
-    ],
+      },
+      {
+        type: 'bullets',
+        heading: 'Features',
+        items: [
+          { text: 'Free to use with no registration required' },
+          { text: 'Works directly in your browser' },
+          { text: 'Fast and reliable results' }
+        ]
+      }],
     faq: [
       {
         question: 'Can I download this template?',

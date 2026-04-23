@@ -1,0 +1,418 @@
+---
+// Timestamp Converter Tool Component
+interface Props {
+  title?: string;
+}
+
+const { title = 'Timestamp Converter' } = Astro.props;
+---
+
+<div class="tool-container timestamp-converter">
+  <div class="tool-header">
+    <h3>{title}</h3>
+    <p class="tool-description">Convert between Unix timestamps and human-readable dates instantly.</p>
+  </div>
+  
+  <div class="tool-body">
+    <div class="converter-grid">
+      <div class="input-section">
+        <label for="timestamp-input">Unix Timestamp</label>
+        <input 
+          type="text" 
+          id="timestamp-input" 
+          placeholder="1704067200"
+        />
+        <button id="use-now-btn" class="btn secondary small">Use Current Time</button>
+      </div>
+      
+      <div class="arrow-icon">⟷</div>
+      
+      <div class="input-section">
+        <label for="datetime-input">Date & Time</label>
+        <input 
+          type="datetime-local" 
+          id="datetime-input"
+        />
+        <div class="timezone-info">
+          <span id="timezone-label">Local Timezone: --</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="controls">
+      <button id="convert-to-date-btn" class="btn primary">Timestamp → Date</button>
+      <button id="convert-to-timestamp-btn" class="btn primary">Date → Timestamp</button>
+      <button id="copy-timestamp-btn" class="btn secondary">Copy Timestamp</button>
+      <button id="copy-date-btn" class="btn secondary">Copy Date</button>
+    </div>
+    
+    <div class="output-section">
+      <h4>Conversion Results</h4>
+      <div class="results-grid">
+        <div class="result-item">
+          <span class="result-label">Unix Timestamp (seconds):</span>
+          <span id="result-timestamp" class="result-value">--</span>
+        </div>
+        <div class="result-item">
+          <span class="result-label">Unix Timestamp (milliseconds):</span>
+          <span id="result-timestamp-ms" class="result-value">--</span>
+        </div>
+        <div class="result-item">
+          <span class="result-label">ISO 8601:</span>
+          <span id="result-iso" class="result-value">--</span>
+        </div>
+        <div class="result-item">
+          <span class="result-label">RFC 2822:</span>
+          <span id="result-rfc" class="result-value">--</span>
+        </div>
+        <div class="result-item">
+          <span class="result-label">Human Readable:</span>
+          <span id="result-human" class="result-value">--</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="quick-convert">
+      <h4>Quick Convert</h4>
+      <div class="quick-buttons">
+        <button class="quick-btn" data-offset="0">Now</button>
+        <button class="quick-btn" data-offset="-3600">1 hour ago</button>
+        <button class="quick-btn" data-offset="-86400">Yesterday</button>
+        <button class="quick-btn" data-offset="-604800">1 week ago</button>
+        <button class="quick-btn" data-offset="-2592000">30 days ago</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .tool-container {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border: 1px solid #3a3a5a;
+  }
+  
+  .tool-header {
+    margin-bottom: 1.5rem;
+  }
+  
+  .tool-header h3 {
+    color: #fff;
+    margin: 0 0 0.5rem 0;
+    font-size: 1.5rem;
+  }
+  
+  .tool-description {
+    color: #a0a0c0;
+    margin: 0;
+    font-size: 0.95rem;
+  }
+  
+  .tool-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .converter-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 1rem;
+    align-items: center;
+  }
+  
+  .input-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  label {
+    color: #c0c0e0;
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+  
+  input {
+    padding: 0.75rem;
+    border-radius: 6px;
+    border: 1px solid #3a3a5a;
+    background: #0d0d1a;
+    color: #e0e0ff;
+    font-family: 'Monaco', 'Menlo', monospace;
+    font-size: 0.95rem;
+  }
+  
+  input:focus {
+    outline: none;
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+  }
+  
+  .arrow-icon {
+    font-size: 1.5rem;
+    color: #6366f1;
+    padding: 0 0.5rem;
+  }
+  
+  .timezone-info {
+    font-size: 0.8rem;
+    color: #8080a0;
+  }
+  
+  .controls {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  
+  .btn {
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+    font-size: 0.9rem;
+  }
+  
+  .btn.small {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+  
+  .btn.primary {
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    color: white;
+  }
+  
+  .btn.primary:hover {
+    background: linear-gradient(135deg, #5558e6 0%, #7c4fec 100%);
+    transform: translateY(-1px);
+  }
+  
+  .btn.secondary {
+    background: #2a2a4a;
+    color: #c0c0e0;
+    border: 1px solid #3a3a5a;
+  }
+  
+  .btn.secondary:hover {
+    background: #3a3a5a;
+  }
+  
+  .output-section {
+    background: #0d0d1a;
+    border-radius: 8px;
+    padding: 1rem;
+    border: 1px solid #2a2a4a;
+  }
+  
+  .output-section h4 {
+    color: #c0c0e0;
+    margin: 0 0 1rem 0;
+    font-size: 1rem;
+  }
+  
+  .results-grid {
+    display: grid;
+    gap: 0.75rem;
+  }
+  
+  .result-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    background: #1a1a2e;
+    border-radius: 4px;
+    border: 1px solid #2a2a4a;
+  }
+  
+  .result-label {
+    color: #8080a0;
+    font-size: 0.85rem;
+  }
+  
+  .result-value {
+    color: #e0e0ff;
+    font-family: 'Monaco', 'Menlo', monospace;
+    font-size: 0.9rem;
+  }
+  
+  .quick-convert {
+    background: #0d0d1a;
+    border-radius: 8px;
+    padding: 1rem;
+    border: 1px solid #2a2a4a;
+  }
+  
+  .quick-convert h4 {
+    color: #c0c0e0;
+    margin: 0 0 0.75rem 0;
+    font-size: 1rem;
+  }
+  
+  .quick-buttons {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  
+  .quick-btn {
+    padding: 0.4rem 0.8rem;
+    background: #2a2a4a;
+    color: #c0c0e0;
+    border: 1px solid #3a3a5a;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+  }
+  
+  .quick-btn:hover {
+    background: #3a3a5a;
+    color: #fff;
+  }
+  
+  @media (max-width: 768px) {
+    .converter-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .arrow-icon {
+      text-align: center;
+      transform: rotate(90deg);
+    }
+  }
+</style>
+
+<script>
+  function initTimestampConverter() {
+    const timestampInput = document.getElementById('timestamp-input') as HTMLInputElement;
+    const datetimeInput = document.getElementById('datetime-input') as HTMLInputElement;
+    const useNowBtn = document.getElementById('use-now-btn');
+    const convertToDateBtn = document.getElementById('convert-to-date-btn');
+    const convertToTimestampBtn = document.getElementById('convert-to-timestamp-btn');
+    const copyTimestampBtn = document.getElementById('copy-timestamp-btn');
+    const copyDateBtn = document.getElementById('copy-date-btn');
+    const timezoneLabel = document.getElementById('timezone-label');
+    
+    const resultTimestamp = document.getElementById('result-timestamp');
+    const resultTimestampMs = document.getElementById('result-timestamp-ms');
+    const resultIso = document.getElementById('result-iso');
+    const resultRfc = document.getElementById('result-rfc');
+    const resultHuman = document.getElementById('result-human');
+    
+    // Set timezone label
+    if (timezoneLabel) {
+      const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      timezoneLabel.textContent = `Local Timezone: ${tz}`;
+    }
+    
+    function updateResults(date: Date) {
+      const timestamp = Math.floor(date.getTime() / 1000);
+      const timestampMs = date.getTime();
+      
+      if (resultTimestamp) resultTimestamp.textContent = timestamp.toString();
+      if (resultTimestampMs) resultTimestampMs.textContent = timestampMs.toString();
+      if (resultIso) resultIso.textContent = date.toISOString();
+      if (resultRfc) resultRfc.textContent = date.toUTCString();
+      if (resultHuman) resultHuman.textContent = date.toLocaleString();
+    }
+    
+    function setToNow() {
+      const now = new Date();
+      if (timestampInput) timestampInput.value = Math.floor(now.getTime() / 1000).toString();
+      if (datetimeInput) {
+        const local = new Date(now.getTime() - now.getTimezoneOffset() * 60000);
+        datetimeInput.value = local.toISOString().slice(0, 16);
+      }
+      updateResults(now);
+    }
+    
+    function convertTimestampToDate() {
+      if (!timestampInput?.value) return;
+      
+      let timestamp = parseInt(timestampInput.value);
+      // Handle milliseconds
+      if (timestamp > 1000000000000) {
+        timestamp = timestamp / 1000;
+      }
+      
+      const date = new Date(timestamp * 1000);
+      if (isNaN(date.getTime())) {
+        alert('Invalid timestamp');
+        return;
+      }
+      
+      if (datetimeInput) {
+        const local = new Date(date.getTime() - date.getTimezoneOffset() * 60000);
+        datetimeInput.value = local.toISOString().slice(0, 16);
+      }
+      updateResults(date);
+    }
+    
+    function convertDateToTimestamp() {
+      if (!datetimeInput?.value) return;
+      
+      const date = new Date(datetimeInput.value);
+      if (isNaN(date.getTime())) {
+        alert('Invalid date');
+        return;
+      }
+      
+      if (timestampInput) timestampInput.value = Math.floor(date.getTime() / 1000).toString();
+      updateResults(date);
+    }
+    
+    function copyToClipboard(text: string, btn: HTMLElement | null) {
+      navigator.clipboard.writeText(text);
+      if (btn) {
+        const original = btn.textContent;
+        btn.textContent = 'Copied!';
+        setTimeout(() => {
+          btn.textContent = original;
+        }, 1500);
+      }
+    }
+    
+    // Event listeners
+    useNowBtn?.addEventListener('click', setToNow);
+    convertToDateBtn?.addEventListener('click', convertTimestampToDate);
+    convertToTimestampBtn?.addEventListener('click', convertDateToTimestamp);
+    
+    copyTimestampBtn?.addEventListener('click', () => {
+      if (resultTimestamp) copyToClipboard(resultTimestamp.textContent || '', copyTimestampBtn);
+    });
+    
+    copyDateBtn?.addEventListener('click', () => {
+      if (resultIso) copyToClipboard(resultIso.textContent || '', copyDateBtn);
+    });
+    
+    // Quick convert buttons
+    document.querySelectorAll('.quick-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const offset = parseInt((btn as HTMLElement).dataset.offset || '0');
+        const date = new Date(Date.now() + offset * 1000);
+        if (timestampInput) timestampInput.value = Math.floor(date.getTime() / 1000).toString();
+        if (datetimeInput) {
+          const local = new Date(date.getTime() - date.getTimezoneOffset() * 60000);
+          datetimeInput.value = local.toISOString().slice(0, 16);
+        }
+        updateResults(date);
+      });
+    });
+    
+    // Initialize with current time
+    setToNow();
+  }
+  
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initTimestampConverter);
+  } else {
+    initTimestampConverter();
+  }
+</script>

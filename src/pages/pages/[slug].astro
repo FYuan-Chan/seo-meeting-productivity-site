@@ -1,6 +1,10 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { buildCanonicalUrl, getAllPageEntries, getArticleSchema, getFaqSchema, pageMap, siteConfig } from '../../lib/site';
+import JsonFormatter from '../../components/tools/JsonFormatter.astro';
+import TimestampConverter from '../../components/tools/TimestampConverter.astro';
+import PasswordGenerator from '../../components/tools/PasswordGenerator.astro';
+import Calculator from '../../components/tools/Calculator.astro';
 
 export function getStaticPaths() {
   return getAllPageEntries().map((page) => ({
@@ -87,6 +91,18 @@ const schema = [getArticleSchema(page), getFaqSchema(page)];
                 </tbody>
               </table>
             </div>
+          )}
+          {section.type === 'tool' && section.toolType === 'json-formatter' && (
+            <JsonFormatter title={section.toolTitle} />
+          )}
+          {section.type === 'tool' && section.toolType === 'timestamp-converter' && (
+            <TimestampConverter title={section.toolTitle} />
+          )}
+          {section.type === 'tool' && section.toolType === 'password-generator' && (
+            <PasswordGenerator title={section.toolTitle} />
+          )}
+          {section.type === 'tool' && section.toolType === 'calculator' && (
+            <Calculator title={section.toolTitle} />
           )}
         </section>
       ))}
