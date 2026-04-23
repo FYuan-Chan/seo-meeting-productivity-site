@@ -37,40 +37,41 @@ const relatedPages = allPages.filter(
 
 <style>
   .related-section {
-    margin-top: 2.5rem;
+    margin-top: var(--space-10);
   }
 
   .related-heading {
-    font-size: 1.75rem;
-    font-weight: 700;
-    color: var(--color-text-primary, var(--text));
-    margin-bottom: 1.25rem;
+    font-size: var(--text-2xl);
+    font-weight: var(--font-bold);
+    color: var(--color-text-bright);
+    margin-bottom: var(--space-5);
     letter-spacing: -0.02em;
   }
 
   .related-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1rem;
+    gap: var(--space-4);
   }
 
   .related-card {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 1rem;
-    background: var(--color-surface, rgba(19, 26, 46, 0.95));
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: var(--radius-lg, 12px);
-    padding: 1.25rem 1.5rem;
+    gap: var(--space-4);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-4) var(--space-5);
     text-decoration: none;
-    color: var(--color-text, var(--text));
-    transition: border-color 150ms ease, box-shadow 150ms ease;
+    color: var(--color-text);
+    transition: all var(--transition-base);
   }
 
   .related-card:hover {
-    border-color: rgba(59, 130, 246, 0.3);
-    box-shadow: 0 2px 12px rgba(2, 6, 23, 0.25);
+    background: var(--color-surface-hover);
+    border-color: var(--color-border-hover);
+    box-shadow: var(--shadow-md);
   }
 
   .related-card:hover .related-arrow {
@@ -83,30 +84,40 @@ const relatedPages = allPages.filter(
   }
 
   .related-title {
-    font-size: 1.05rem;
-    font-weight: 600;
-    color: var(--color-text-primary, var(--text));
-    margin: 0 0 0.35rem;
-    line-height: 1.3;
+    font-size: var(--text-base);
+    font-weight: var(--font-semibold);
+    color: var(--color-text-bright);
+    margin: 0 0 var(--space-1);
+    line-height: var(--leading-snug);
   }
 
   .related-desc {
-    font-size: 0.85rem;
-    color: var(--color-text-muted, var(--muted));
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
     margin: 0;
-    line-height: 1.5;
+    line-height: var(--leading-normal);
   }
 
   .related-arrow {
     font-size: 1.2rem;
-    color: var(--color-primary-light, var(--brand));
+    color: var(--color-primary-light);
     flex-shrink: 0;
-    transition: transform 150ms ease;
+    transition: transform var(--transition-base);
   }
 
   @media (max-width: 900px) {
     .related-grid {
       grid-template-columns: 1fr;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .related-card,
+    .related-arrow {
+      transition: none;
+    }
+    .related-card:hover .related-arrow {
+      transform: none;
     }
   }
 </style>

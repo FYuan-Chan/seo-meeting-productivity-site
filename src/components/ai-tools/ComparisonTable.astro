@@ -8,10 +8,10 @@ interface Props {
 const { dimensions = [], tools = [], ratings = {} } = Astro.props;
 
 function getRatingColor(value: number): string {
-  if (value >= 9) return 'var(--brand)';
-  if (value >= 7) return '#22c55e';
-  if (value >= 4) return '#eab308';
-  return '#ef4444';
+  if (value >= 9) return 'var(--color-primary)';
+  if (value >= 7) return 'var(--color-success)';
+  if (value >= 4) return 'var(--color-warning)';
+  return 'var(--color-error)';
 }
 
 function getRatingValue(dim: string, tool: string): number | string | undefined {
@@ -105,9 +105,9 @@ function isNumeric(val: number | string | undefined): val is number {
   /* Desktop table */
   .comparison-table-outer {
     overflow-x: auto;
-    border-radius: var(--radius-lg, 12px);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    background: var(--color-surface, var(--panel));
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
   }
 
   .comparison-table {
@@ -117,7 +117,7 @@ function isNumeric(val: number | string | undefined): val is number {
   }
 
   .comparison-table thead tr {
-    background: var(--color-bg-alt, var(--bg-alt));
+    background: var(--color-bg-alt);
     position: sticky;
     top: 0;
     z-index: 2;
@@ -125,18 +125,18 @@ function isNumeric(val: number | string | undefined): val is number {
 
   .comparison-table th,
   .comparison-table td {
-    padding: 0.75rem 1rem;
+    padding: var(--space-3) var(--space-4);
     text-align: left;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    color: var(--color-text, var(--text));
-    font-size: 0.9rem;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-text);
+    font-size: var(--text-sm);
   }
 
   .comparison-table th {
-    font-weight: 600;
+    font-weight: var(--font-semibold);
     white-space: nowrap;
-    color: var(--color-text-primary, #f8fafc);
-    font-size: 0.8rem;
+    color: var(--color-text-bright);
+    font-size: var(--text-xs);
     text-transform: uppercase;
     letter-spacing: 0.04em;
   }
@@ -146,18 +146,18 @@ function isNumeric(val: number | string | undefined): val is number {
     position: sticky;
     left: 0;
     z-index: 1;
-    background: var(--color-surface, var(--panel));
+    background: var(--color-surface);
     min-width: 160px;
-    font-weight: 600;
+    font-weight: var(--font-semibold);
   }
 
   .dim-header {
-    background: var(--color-bg-alt, var(--bg-alt));
+    background: var(--color-bg-alt);
     z-index: 3;
   }
 
   .comparison-table tbody tr {
-    transition: background 100ms ease;
+    transition: background var(--transition-fast);
   }
 
   .comparison-table tbody tr:hover td {
@@ -165,14 +165,14 @@ function isNumeric(val: number | string | undefined): val is number {
   }
 
   .comparison-table tbody tr:hover .dim-cell {
-    background: var(--color-panel, rgba(16, 29, 52, 0.95));
+    background: var(--color-surface);
   }
 
   /* Rating bar */
   .rating-bar-wrap {
     display: flex;
     align-items: center;
-    gap: 0.6rem;
+    gap: var(--space-2);
     min-width: 120px;
   }
 
@@ -181,7 +181,7 @@ function isNumeric(val: number | string | undefined): val is number {
     border-radius: 3px;
     flex-shrink: 0;
     box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
-    transition: width 200ms ease-out;
+    transition: width var(--transition-slow);
   }
 
   .rating-bar-wrap .rating-bar {
@@ -190,16 +190,16 @@ function isNumeric(val: number | string | undefined): val is number {
   }
 
   .rating-num {
-    font-weight: 700;
-    font-size: 0.85rem;
+    font-weight: var(--font-bold);
+    font-size: var(--text-sm);
     font-variant-numeric: tabular-nums;
-    color: var(--color-text, var(--text));
+    color: var(--color-text);
     flex-shrink: 0;
   }
 
   .rating-text {
-    color: var(--color-text-muted, var(--muted));
-    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
   }
 
   /* Mobile card view */
@@ -211,21 +211,21 @@ function isNumeric(val: number | string | undefined): val is number {
     .comparison-wrapper.mobile-view {
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
+      gap: var(--space-4);
     }
 
     .tool-card-mobile {
-      background: var(--color-surface, var(--panel));
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      border-radius: var(--radius-lg, 12px);
-      padding: 1.25rem;
+      background: var(--color-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-5);
     }
 
     .tool-card-mobile-name {
-      margin: 0 0 1rem;
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--color-text-primary, var(--text));
+      margin: 0 0 var(--space-4);
+      font-size: var(--text-lg);
+      font-weight: var(--font-bold);
+      color: var(--color-text-bright);
     }
 
     .tool-card-mobile-list {
@@ -238,20 +238,27 @@ function isNumeric(val: number | string | undefined): val is number {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 1rem;
-      padding: 0.6rem 0;
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      gap: var(--space-4);
+      padding: var(--space-2) 0;
+      border-top: 1px solid var(--color-border);
     }
 
     .dim-label {
-      color: var(--color-text-muted, var(--muted));
-      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      font-size: var(--text-sm);
       flex-shrink: 0;
     }
 
     .rating-bar-wrap {
       min-width: 100px;
       max-width: 160px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .comparison-table tbody tr,
+    .rating-bar {
+      transition: none;
     }
   }
 </style>
