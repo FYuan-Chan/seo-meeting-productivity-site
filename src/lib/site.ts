@@ -2172,6 +2172,327 @@ export const pages: SeoPage[] = [
   }
 
 
+,
+  {
+    slug: 'email-template',
+    title: 'Email Template',
+    description: 'Download and customize this email template to improve your workflow. Includes examples and best practices.',
+    eyebrow: 'Template page',
+    intro: [
+      'This template page provides ready-to-use formats for email template.',
+      'Templates are evergreen content that attracts consistent search traffic.'
+    ],
+    targetKeyword: 'email template',
+    category: 'template',
+    monetizationPrimary: 'ads',
+    ctaLabel: 'See commercial comparisons',
+    ctaHref: '/pages/best-ai-meeting-assistants/',
+    relatedSlugs: ['best-ai-meeting-assistants', 'meeting-summary-examples'],
+    sections: [
+      {
+        type: 'paragraphs',
+        heading: 'How to use this template',
+        paragraphs: [
+          'Copy the template structure and customize it for your specific needs.',
+          'Use this as a starting point and adapt sections to your workflow.'
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: 'Can I download this template?',
+        answer: 'Yes, you can copy the template or request a downloadable version via email.'
+      }
+    ]
+  },
+  {
+    slug: 'meeting-notes-template',
+    title: 'Meeting Notes Template',
+    description: 'Download and customize this meeting notes template to improve your workflow. Includes examples and best practices.',
+    eyebrow: 'Template page',
+    intro: [
+      'This template page provides ready-to-use formats for meeting notes template.',
+      'Templates are evergreen content that attracts consistent search traffic.'
+    ],
+    targetKeyword: 'meeting notes template',
+    category: 'template',
+    monetizationPrimary: 'ads',
+    ctaLabel: 'See commercial comparisons',
+    ctaHref: '/pages/best-ai-meeting-assistants/',
+    relatedSlugs: ['best-ai-meeting-assistants', 'meeting-summary-examples'],
+    sections: [
+      {
+        type: 'paragraphs',
+        heading: 'How to use this template',
+        paragraphs: [
+          'Copy the template structure and customize it for your specific needs.',
+          'Use this as a starting point and adapt sections to your workflow.'
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: 'Can I download this template?',
+        answer: 'Yes, you can copy the template or request a downloadable version via email.'
+      }
+    ]
+  },
+  {
+    slug: 'meeting-notes-template-word',
+    title: 'Meeting Notes Template Word',
+    description: 'Download and customize this meeting notes template word to improve your workflow. Includes examples and best practices.',
+    eyebrow: 'Template page',
+    intro: [
+      'This template page provides ready-to-use formats for meeting notes template word.',
+      'Templates are evergreen content that attracts consistent search traffic.'
+    ],
+    targetKeyword: 'meeting notes template word',
+    category: 'template',
+    monetizationPrimary: 'ads',
+    ctaLabel: 'See commercial comparisons',
+    ctaHref: '/pages/best-ai-meeting-assistants/',
+    relatedSlugs: ['best-ai-meeting-assistants', 'meeting-summary-examples'],
+    sections: [
+      {
+        type: 'paragraphs',
+        heading: 'How to use this template',
+        paragraphs: [
+          'Copy the template structure and customize it for your specific needs.',
+          'Use this as a starting point and adapt sections to your workflow.'
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: 'Can I download this template?',
+        answer: 'Yes, you can copy the template or request a downloadable version via email.'
+      }
+    ]
+  },
+  {
+    slug: 'meeting-notes-template-free',
+    title: 'Meeting Notes Template Free',
+    description: 'Download and customize this meeting notes template free to improve your workflow. Includes examples and best practices.',
+    eyebrow: 'Template page',
+    intro: [
+      'This template page provides ready-to-use formats for meeting notes template free.',
+      'Templates are evergreen content that attracts consistent search traffic.'
+    ],
+    targetKeyword: 'meeting notes template free',
+    category: 'template',
+    monetizationPrimary: 'ads',
+    ctaLabel: 'See commercial comparisons',
+    ctaHref: '/pages/best-ai-meeting-assistants/',
+    relatedSlugs: ['best-ai-meeting-assistants', 'meeting-summary-examples'],
+    sections: [
+      {
+        type: 'paragraphs',
+        heading: 'How to use this template',
+        paragraphs: [
+          'Copy the template structure and customize it for your specific needs.',
+          'Use this as a starting point and adapt sections to your workflow.'
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: 'Can I download this template?',
+        answer: 'Yes, you can copy the template or request a downloadable version via email.'
+      }
+    ]
+  },
+  {
+    slug: 'meeting-notes-template-onenote',
+    title: 'Meeting Notes Template Onenote',
+    description: 'Download and customize this meeting notes template onenote to improve your workflow. Includes examples and best practices.',
+    eyebrow: 'Template page',
+    intro: [
+      'This template page provides ready-to-use formats for meeting notes template onenote.',
+      'Templates are evergreen content that attracts consistent search traffic.'
+    ],
+    targetKeyword: 'meeting notes template onenote',
+    category: 'template',
+    monetizationPrimary: 'ads',
+    ctaLabel: 'See commercial comparisons',
+    ctaHref: '/pages/best-ai-meeting-assistants/',
+    relatedSlugs: ['best-ai-meeting-assistants', 'meeting-summary-examples'],
+    sections: [
+      {
+        type: 'paragraphs',
+        heading: 'How to use this template',
+        paragraphs: [
+          'Copy the template structure and customize it for your specific needs.',
+          'Use this as a starting point and adapt sections to your workflow.'
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: 'Can I download this template?',
+        answer: 'Yes, you can copy the template or request a downloadable version via email.'
+      }
+    ]
+  },
+  {
+    slug: 'meeting-notes-template-excel',
+    title: 'Meeting Notes Template Excel',
+    description: 'Download and customize this meeting notes template excel to improve your workflow. Includes examples and best practices.',
+    eyebrow: 'Template page',
+    intro: [
+      'This template page provides ready-to-use formats for meeting notes template excel.',
+      'Templates are evergreen content that attracts consistent search traffic.'
+    ],
+    targetKeyword: 'meeting notes template excel',
+    category: 'template',
+    monetizationPrimary: 'ads',
+    ctaLabel: 'See commercial comparisons',
+    ctaHref: '/pages/best-ai-meeting-assistants/',
+    relatedSlugs: ['best-ai-meeting-assistants', 'meeting-summary-examples'],
+    sections: [
+      {
+        type: 'paragraphs',
+        heading: 'How to use this template',
+        paragraphs: [
+          'Copy the template structure and customize it for your specific needs.',
+          'Use this as a starting point and adapt sections to your workflow.'
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: 'Can I download this template?',
+        answer: 'Yes, you can copy the template or request a downloadable version via email.'
+      }
+    ]
+  },
+  {
+    slug: 'meeting-notes-template-pdf',
+    title: 'Meeting Notes Template Pdf',
+    description: 'Download and customize this meeting notes template pdf to improve your workflow. Includes examples and best practices.',
+    eyebrow: 'Template page',
+    intro: [
+      'This template page provides ready-to-use formats for meeting notes template pdf.',
+      'Templates are evergreen content that attracts consistent search traffic.'
+    ],
+    targetKeyword: 'meeting notes template pdf',
+    category: 'template',
+    monetizationPrimary: 'ads',
+    ctaLabel: 'See commercial comparisons',
+    ctaHref: '/pages/best-ai-meeting-assistants/',
+    relatedSlugs: ['best-ai-meeting-assistants', 'meeting-summary-examples'],
+    sections: [
+      {
+        type: 'paragraphs',
+        heading: 'How to use this template',
+        paragraphs: [
+          'Copy the template structure and customize it for your specific needs.',
+          'Use this as a starting point and adapt sections to your workflow.'
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: 'Can I download this template?',
+        answer: 'Yes, you can copy the template or request a downloadable version via email.'
+      }
+    ]
+  },
+  {
+    slug: 'meeting-notes-template-notion',
+    title: 'Meeting Notes Template Notion',
+    description: 'Download and customize this meeting notes template notion to improve your workflow. Includes examples and best practices.',
+    eyebrow: 'Template page',
+    intro: [
+      'This template page provides ready-to-use formats for meeting notes template notion.',
+      'Templates are evergreen content that attracts consistent search traffic.'
+    ],
+    targetKeyword: 'meeting notes template notion',
+    category: 'template',
+    monetizationPrimary: 'ads',
+    ctaLabel: 'See commercial comparisons',
+    ctaHref: '/pages/best-ai-meeting-assistants/',
+    relatedSlugs: ['best-ai-meeting-assistants', 'meeting-summary-examples'],
+    sections: [
+      {
+        type: 'paragraphs',
+        heading: 'How to use this template',
+        paragraphs: [
+          'Copy the template structure and customize it for your specific needs.',
+          'Use this as a starting point and adapt sections to your workflow.'
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: 'Can I download this template?',
+        answer: 'Yes, you can copy the template or request a downloadable version via email.'
+      }
+    ]
+  },
+  {
+    slug: 'meeting-notes-template-obsidian',
+    title: 'Meeting Notes Template Obsidian',
+    description: 'Download and customize this meeting notes template obsidian to improve your workflow. Includes examples and best practices.',
+    eyebrow: 'Template page',
+    intro: [
+      'This template page provides ready-to-use formats for meeting notes template obsidian.',
+      'Templates are evergreen content that attracts consistent search traffic.'
+    ],
+    targetKeyword: 'meeting notes template obsidian',
+    category: 'template',
+    monetizationPrimary: 'ads',
+    ctaLabel: 'See commercial comparisons',
+    ctaHref: '/pages/best-ai-meeting-assistants/',
+    relatedSlugs: ['best-ai-meeting-assistants', 'meeting-summary-examples'],
+    sections: [
+      {
+        type: 'paragraphs',
+        heading: 'How to use this template',
+        paragraphs: [
+          'Copy the template structure and customize it for your specific needs.',
+          'Use this as a starting point and adapt sections to your workflow.'
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: 'Can I download this template?',
+        answer: 'Yes, you can copy the template or request a downloadable version via email.'
+      }
+    ]
+  },
+  {
+    slug: 'meeting-notes-template-printable',
+    title: 'Meeting Notes Template Printable',
+    description: 'Download and customize this meeting notes template printable to improve your workflow. Includes examples and best practices.',
+    eyebrow: 'Template page',
+    intro: [
+      'This template page provides ready-to-use formats for meeting notes template printable.',
+      'Templates are evergreen content that attracts consistent search traffic.'
+    ],
+    targetKeyword: 'meeting notes template printable',
+    category: 'template',
+    monetizationPrimary: 'ads',
+    ctaLabel: 'See commercial comparisons',
+    ctaHref: '/pages/best-ai-meeting-assistants/',
+    relatedSlugs: ['best-ai-meeting-assistants', 'meeting-summary-examples'],
+    sections: [
+      {
+        type: 'paragraphs',
+        heading: 'How to use this template',
+        paragraphs: [
+          'Copy the template structure and customize it for your specific needs.',
+          'Use this as a starting point and adapt sections to your workflow.'
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: 'Can I download this template?',
+        answer: 'Yes, you can copy the template or request a downloadable version via email.'
+      }
+    ]
+  }
 ];
 
 starterMetrics[0] = { ...starterMetrics[0], value: String(pages.length) };
