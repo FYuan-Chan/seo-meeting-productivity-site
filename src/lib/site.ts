@@ -72,7 +72,7 @@ export const siteConfig = {
     { label: 'Checklist', href: '/pages/remote-meeting-checklist/' }
   ],
   metrics: [
-    { label: 'Starter pages', value: '24' },
+    { label: 'Starter pages', value: '30' },
     { label: 'Main monetization', value: 'Ads + Affiliate' },
     { label: 'Expansion path', value: 'Tools + Email' }
   ] satisfies HeroMetric[],
@@ -1473,6 +1473,352 @@ export const pages: SeoPage[] = [
       {
         question: 'Why is this page worth adding early?',
         answer: 'Because it is evergreen, internally useful, and likely to support both search traffic and future toolized workflow content.'
+      }
+    ]
+  }
+
+,
+  {
+    slug: 'fireflies-vs-fathom',
+    title: 'Fireflies vs Fathom: Which AI Meeting Assistant Is Better for Fast Follow-Up?',
+    description:
+      'Compare Fireflies and Fathom for recap speed, integrations, workflow depth, and which type of team gets more value from each tool.',
+    eyebrow: 'Comparison page',
+    intro: [
+      'Fireflies vs Fathom is the kind of comparison that captures users after category discovery, when they are narrowing toward a shortlist and getting closer to a trial decision.',
+      'That makes it a strong affiliate-style page and a reusable pattern for more vendor-versus-vendor content inside the meeting productivity niche.'
+    ],
+    targetKeyword: 'fireflies vs fathom, fathom vs fireflies, ai meeting assistant comparison',
+    category: 'comparison',
+    monetizationPrimary: 'affiliate',
+    ctaLabel: 'Compare the broader AI meeting tools market',
+    ctaHref: '/pages/best-ai-meeting-assistants/',
+    relatedSlugs: ['otter-vs-fireflies-vs-fathom', 'best-ai-meeting-assistants', 'meeting-notes-generator'],
+    sections: [
+      {
+        type: 'table',
+        heading: 'Quick comparison snapshot',
+        columns: ['Tool', 'Best for', 'Strength', 'Watch-out'],
+        rows: [
+          ['Fireflies', 'Teams wanting broader integrations', 'Workflow coverage across notes, CRM, and collaboration tools', 'Can feel heavier for teams that just want quick recaps'],
+          ['Fathom', 'Lean teams wanting faster follow-up', 'Simple highlights and clean post-call summaries', 'Less suited to admin-heavy deployment needs']
+        ]
+      },
+      {
+        type: 'bullets',
+        heading: 'What to compare before choosing',
+        items: [
+          { label: 'Follow-up speed', text: 'If the team forwards recaps immediately, summary clarity and editing speed matter a lot.' },
+          { label: 'Workflow complexity', text: 'Fireflies often fits broader operational workflows, while Fathom can feel lighter for focused recap use.' },
+          { label: 'Integration needs', text: 'Check whether notes need to move into CRM, docs, or project tools automatically.' },
+          { label: 'Team maturity', text: 'Smaller teams may prefer simplicity, while larger teams may tolerate heavier setup for more controls.' }
+        ]
+      },
+      {
+        type: 'paragraphs',
+        heading: 'Why this page matters commercially',
+        paragraphs: [
+          'Visitors searching this comparison are already evaluating real options, which usually produces more valuable traffic than broad top-of-funnel template queries.',
+          'It also supports future expansion into scenario-specific recommendations, pricing tables, and tool screenshots that can improve both trust and monetization.'
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: 'Why is this page stronger than a generic tool list?',
+        answer: 'Because users searching for a direct comparison are usually closer to trial intent and need decision support, not basic category education.'
+      },
+      {
+        question: 'How should this page improve over time?',
+        answer: 'Add current pricing, setup friction notes, screenshots, and scenario-specific recommendations for sales, customer success, and internal team meetings.'
+      }
+    ]
+  }
+,
+  {
+    slug: 'otter-vs-tldv',
+    title: 'Otter vs tl;dv: Which AI Meeting Notes Tool Fits Your Team?',
+    description:
+      'Compare Otter and tl;dv across transcript quality, async sharing, highlight workflows, and the kind of team each tool serves best.',
+    eyebrow: 'Comparison page',
+    intro: [
+      'Otter vs tl;dv targets a practical decision point: one tool often appeals to transcript-heavy teams, while the other resonates with async-friendly workflows and clip sharing.',
+      'That contrast makes this a strong page for bottom-funnel searchers who are no longer browsing categories and are now deciding which tool to test.'
+    ],
+    targetKeyword: 'otter vs tldv, tl;dv vs otter, ai meeting notes comparison',
+    category: 'comparison',
+    monetizationPrimary: 'affiliate',
+    ctaLabel: 'See the main AI meeting assistant roundup',
+    ctaHref: '/pages/best-ai-meeting-assistants/',
+    relatedSlugs: ['otter-vs-fireflies-vs-fathom', 'best-ai-meeting-assistants', 'ai-meeting-assistant-for-remote-teams'],
+    sections: [
+      {
+        type: 'table',
+        heading: 'How Otter and tl;dv differ',
+        columns: ['Tool', 'Best for', 'Main strength', 'Watch-out'],
+        rows: [
+          ['Otter', 'Teams needing searchable transcripts', 'Strong transcript archive and searchable meeting history', 'May feel less optimized for async highlight sharing'],
+          ['tl;dv', 'Remote teams sharing highlights across time zones', 'Clip-friendly recap workflow and async collaboration angle', 'May be less compelling if transcript depth is the main buying criterion']
+        ]
+      },
+      {
+        type: 'cards',
+        heading: 'Best-fit scenarios',
+        cards: [
+          { title: 'Operations-heavy teams', description: 'Otter can fit when searchable records and transcript archives matter most.' },
+          { title: 'Distributed teams', description: 'tl;dv can fit when clip sharing and async review are central to the workflow.' },
+          { title: 'Manager review workflows', description: 'Either tool can work, but the better choice depends on whether archive depth or easy recap sharing matters more.' }
+        ]
+      },
+      {
+        type: 'paragraphs',
+        heading: 'Why this page supports revenue',
+        paragraphs: [
+          'Comparison intent like this usually monetizes better than generic informational content because the visitor is already trying to make a software choice.',
+          'It also strengthens the site as a vendor-evaluation resource instead of only a template library, which improves the business upside of the whole asset.'
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: 'Is this page only useful for remote teams?',
+        answer: 'No. It is also useful for any team comparing transcript depth against async recap and sharing workflows.'
+      },
+      {
+        question: 'What should be added later?',
+        answer: 'Real feature comparisons, export behavior, pricing notes, and scenario-based recommendations for product, sales, and remote management use cases.'
+      }
+    ]
+  }
+,
+  {
+    slug: 'gong-alternatives-for-small-teams',
+    title: 'Best Gong Alternatives for Small Teams That Need Call Notes and Follow-Up',
+    description:
+      'Find lighter Gong alternatives for small teams that want call summaries, meeting notes, and follow-up support without enterprise-heavy complexity.',
+    eyebrow: 'Comparison page',
+    intro: [
+      'Gong alternatives for small teams is commercially attractive because the user often understands the category but is actively filtering out enterprise-level pricing or complexity.',
+      'That makes this page a strong bridge between high-ticket software intent and more realistic tools for startups, agencies, and lean revenue teams.'
+    ],
+    targetKeyword: 'gong alternatives for small teams, small team revenue intelligence tools, call notes software alternatives',
+    category: 'comparison',
+    monetizationPrimary: 'affiliate',
+    ctaLabel: 'Start with the sales-focused AI assistant page',
+    ctaHref: '/pages/best-ai-meeting-assistants-for-sales/',
+    relatedSlugs: ['best-ai-meeting-assistants-for-sales', 'meeting-follow-up-email-template', 'ai-meeting-notes-for-client-calls'],
+    sections: [
+      {
+        type: 'table',
+        heading: 'What small teams usually want instead of Gong',
+        columns: ['Need', 'Why it matters', 'Smaller-team preference'],
+        rows: [
+          ['Cleaner notes and recaps', 'Teams need post-call clarity without manual admin work', 'Fast summaries and usable action items'],
+          ['Lower onboarding friction', 'Lean teams cannot spend weeks on setup', 'Simple workflows and intuitive adoption'],
+          ['Manageable pricing', 'Budget sensitivity is real in early-stage teams', 'Tools with a useful path before enterprise contracts'],
+          ['CRM-adjacent value', 'Follow-up should support pipeline progress', 'Enough integration depth without bloated configuration']
+        ]
+      },
+      {
+        type: 'bullets',
+        heading: 'What makes a good Gong alternative for a smaller team',
+        items: [
+          { label: 'Faster time to value', text: 'The tool should improve recaps and follow-up in the first week, not after a long rollout.' },
+          { label: 'Sane workflow scope', text: 'Small teams often need practical note capture more than a full enterprise intelligence layer.' },
+          { label: 'Revenue relevance', text: 'The product should still help with coaching, follow-up, and pipeline conversations.' },
+          { label: 'Operator-friendly UX', text: 'Founders and small sales leaders usually prefer software that feels lightweight and obvious.' }
+        ]
+      },
+      {
+        type: 'paragraphs',
+        heading: 'Why this page is high-value',
+        paragraphs: [
+          'This query catches users with real software budget intent while still letting the site recommend more accessible tools that fit smaller-team economics.',
+          'It is also an excellent page for later monetization through vendor-specific affiliate blocks, comparison modules, and vertical landing pages.'
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: 'Why not just target Gong itself?',
+        answer: 'Because alternative-intent often lets a smaller site compete for clearer buyer needs where users are explicitly open to other tools.'
+      },
+      {
+        question: 'Who is this page best for?',
+        answer: 'Startups, agencies, small sales teams, and founder-led revenue teams that want call intelligence benefits without enterprise overhead.'
+      }
+    ]
+  }
+,
+  {
+    slug: 'ai-meeting-assistant-for-customer-success',
+    title: 'Best AI Meeting Assistant for Customer Success Teams',
+    description:
+      'Choose an AI meeting assistant for customer success based on renewal context, handoff clarity, account history, and cleaner follow-up after customer calls.',
+    eyebrow: 'Role-based page',
+    intro: [
+      'Customer success teams sit on rich meeting data: renewal signals, risk indicators, requests, blockers, and expansion opportunities. That makes this a high-value role-based page with clear software relevance.',
+      'Compared with generic meeting-tool queries, customer success intent gives the site a sharper angle and a better path into affiliate recommendations or future workflow tools.'
+    ],
+    targetKeyword: 'ai meeting assistant for customer success, customer success meeting notes ai, customer call recap tool',
+    category: 'commercial',
+    monetizationPrimary: 'affiliate',
+    ctaLabel: 'See AI notes for client calls',
+    ctaHref: '/pages/ai-meeting-notes-for-client-calls/',
+    relatedSlugs: ['ai-meeting-notes-for-client-calls', 'meeting-follow-up-email-template', 'best-ai-meeting-assistants'],
+    sections: [
+      {
+        type: 'bullets',
+        heading: 'What customer success teams need most',
+        items: [
+          { label: 'Account continuity', text: 'Make it easy to understand account history across renewals, onboarding, and support conversations.' },
+          { label: 'Risk capture', text: 'Identify concerns, blockers, and sentiment shifts before they become churn events.' },
+          { label: 'Expansion visibility', text: 'Surface upsell or adoption signals that should not disappear inside messy notes.' },
+          { label: 'Action clarity', text: 'Turn customer calls into clean follow-up tasks for CSMs and cross-functional partners.' }
+        ]
+      },
+      {
+        type: 'table',
+        heading: 'Where AI assistance helps in CS workflows',
+        columns: ['Workflow', 'Pain point', 'AI value'],
+        rows: [
+          ['QBR and review calls', 'Too much context to capture manually', 'Cleaner summaries and clearer action tracking'],
+          ['Renewal-risk conversations', 'Important signals get buried in long notes', 'Faster signal capture and searchable history'],
+          ['Onboarding and adoption calls', 'Handoffs become fragmented', 'Better continuity across touchpoints']
+        ]
+      },
+      {
+        type: 'paragraphs',
+        heading: 'Why this page is commercially strong',
+        paragraphs: [
+          'Customer success software intent is close to operational value because meeting quality affects retention and expansion, not just internal note hygiene.',
+          'That makes tool recommendations easier to justify and opens room for future products like customer recap generators or renewal-risk extraction workflows.'
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: 'Is this page only about enterprise CS teams?',
+        answer: 'No. It also fits agencies, SaaS startups, and service teams that manage recurring customer conversations and need better post-call continuity.'
+      },
+      {
+        question: 'Why build role-based pages like this?',
+        answer: 'Because role-specific intent often converts better than broad category intent and helps the site expand into richer commercial subclusters.'
+      }
+    ]
+  }
+,
+  {
+    slug: 'ai-meeting-assistant-for-product-managers',
+    title: 'Best AI Meeting Assistant for Product Managers',
+    description:
+      'Find an AI meeting assistant for product managers that helps capture decisions, user feedback, stakeholder requests, and follow-up from product conversations.',
+    eyebrow: 'Role-based page',
+    intro: [
+      'Product managers live inside many conversation types: standups, roadmap reviews, stakeholder syncs, customer interviews, and cross-functional planning. That makes product-specific note capture a strong role-based page.',
+      'This page helps the site move beyond generic meeting productivity terms into a clearer workflow where the value of searchable decisions and structured recaps is easy to understand.'
+    ],
+    targetKeyword: 'ai meeting assistant for product managers, product manager meeting notes ai, product meeting recap tool',
+    category: 'commercial',
+    monetizationPrimary: 'affiliate',
+    ctaLabel: 'Open the decision log template',
+    ctaHref: '/pages/decision-log-template/',
+    relatedSlugs: ['decision-log-template', 'project-status-meeting-template', 'best-ai-meeting-assistants'],
+    sections: [
+      {
+        type: 'cards',
+        heading: 'Where PMs get the most value',
+        cards: [
+          { title: 'Decision-heavy meetings', description: 'Capture what was decided so roadmap conversations do not keep reopening.' },
+          { title: 'Cross-functional alignment', description: 'Summaries help engineering, design, and GTM teams stay aligned on outcomes.' },
+          { title: 'User-feedback synthesis', description: 'AI notes can reduce the friction of turning calls into usable product insight.' }
+        ]
+      },
+      {
+        type: 'bullets',
+        heading: 'What to evaluate in a PM-focused tool',
+        items: [
+          { label: 'Decision capture', text: 'The recap should clearly preserve choices, tradeoffs, and next steps.' },
+          { label: 'Searchability', text: 'PMs benefit from being able to retrieve old meeting context quickly.' },
+          { label: 'Cross-team sharing', text: 'Notes should be easy to forward into docs, tickets, and async updates.' },
+          { label: 'Signal extraction', text: 'The tool should help surface themes, not just generate transcripts.' }
+        ]
+      },
+      {
+        type: 'paragraphs',
+        heading: 'Why this page fits the site strategy',
+        paragraphs: [
+          'Product manager intent is commercially interesting because the workflow pain is recurring, tool-supported, and tied to knowledge quality across teams.',
+          'It also creates a bridge from content pages into future tools such as decision extractors, feedback summarizers, and roadmap recap generators.'
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: 'Why target PMs specifically?',
+        answer: 'Because product managers run many decision-rich meetings, making the value proposition more concrete than on broad generic meeting pages.'
+      },
+      {
+        question: 'What should this page link to internally?',
+        answer: 'Decision logs, project status templates, product-team variants, and future recap or synthesis tools are all strong internal link targets.'
+      }
+    ]
+  }
+,
+  {
+    slug: 'ai-meeting-notes-for-recruiters',
+    title: 'AI Meeting Notes for Recruiters: Better Interview and Hiring Follow-Up',
+    description:
+      'Use AI meeting notes for recruiters to capture interview details, hiring feedback, alignment decisions, and cleaner follow-up across the recruiting process.',
+    eyebrow: 'Role-based page',
+    intro: [
+      'Recruiters and hiring teams manage many repetitive conversations where missed details create coordination problems fast. That makes recruiting a practical role-based workflow for note capture tools.',
+      'This page also broadens the site into another commercially useful audience that values summary quality, handoff clarity, and fast post-call documentation.'
+    ],
+    targetKeyword: 'ai meeting notes for recruiters, recruiting interview notes ai, hiring call recap tool',
+    category: 'commercial',
+    monetizationPrimary: 'affiliate',
+    ctaLabel: 'Use the meeting summary examples hub',
+    ctaHref: '/pages/meeting-summary-examples/',
+    relatedSlugs: ['meeting-summary-examples', 'meeting-follow-up-email-template', 'best-ai-meeting-assistants'],
+    sections: [
+      {
+        type: 'table',
+        heading: 'Recruiting workflows where AI notes help',
+        columns: ['Workflow', 'Pain point', 'Why AI notes help'],
+        rows: [
+          ['Screening calls', 'High repetition and scattered notes', 'Cleaner summaries and easier candidate comparison'],
+          ['Hiring panel debriefs', 'Feedback gets fragmented across interviewers', 'Better synthesis and alignment capture'],
+          ['Stakeholder syncs', 'Decision context can get lost quickly', 'Stronger record of next steps and ownership']
+        ]
+      },
+      {
+        type: 'bullets',
+        heading: 'What recruiters should evaluate',
+        items: [
+          { label: 'Summary clarity', text: 'The output should be easy to scan when moving quickly between candidates.' },
+          { label: 'Handoff quality', text: 'Notes should support recruiter-to-hiring-manager communication cleanly.' },
+          { label: 'Search and recall', text: 'Candidate history becomes more usable when prior calls are easier to revisit.' },
+          { label: 'Operational speed', text: 'The tool should reduce admin burden rather than add another layer of work.' }
+        ]
+      },
+      {
+        type: 'paragraphs',
+        heading: 'Why this page is worth building',
+        paragraphs: [
+          'Recruiting note workflows are operationally repetitive and easy to understand, which makes the query commercially useful without drifting too far from the site’s core note-taking theme.',
+          'It also sets up future expansions into interview scorecards, debrief templates, and candidate recap generators.'
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: 'Does this page fit the meeting productivity niche?',
+        answer: 'Yes. Recruiting conversations are still meeting workflows, and the note-capture pain is concrete, recurring, and tool-friendly.'
+      },
+      {
+        question: 'What can this page branch into later?',
+        answer: 'Interview note templates, hiring debrief examples, recruiter workflow tools, and team-specific comparison pages are all natural next steps.'
       }
     ]
   }
