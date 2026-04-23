@@ -71,16 +71,28 @@ const { plans } = Astro.props;
   /* Desktop Table */
   .pricing-table-wrap {
     overflow-x: auto;
-    border-radius: var(--radius-md);
-    border: 1px solid var(--border);
-    background: var(--panel);
+    border-radius: var(--radius-lg, 12px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: var(--color-surface, var(--panel));
   }
 
   .pricing-table {
     width: 100%;
     border-collapse: collapse;
     min-width: 640px;
+    table-layout: fixed;
   }
+
+  .pricing-table th:nth-child(1),
+  .pricing-table td:nth-child(1) { width: 14%; }
+  .pricing-table th:nth-child(2),
+  .pricing-table td:nth-child(2) { width: 18%; }
+  .pricing-table th:nth-child(3),
+  .pricing-table td:nth-child(3) { width: 22%; }
+  .pricing-table th:nth-child(4),
+  .pricing-table td:nth-child(4) { width: 22%; }
+  .pricing-table th:nth-child(5),
+  .pricing-table td:nth-child(5) { width: 24%; }
 
   .pricing-table thead {
     position: sticky;
@@ -89,59 +101,59 @@ const { plans } = Astro.props;
   }
 
   .pricing-table th {
-    padding: 1rem;
+    padding: 0.75rem 1rem;
     text-align: left;
-    color: #dff5ff;
-    background: rgba(125, 211, 252, 0.08);
-    border-bottom: 1px solid var(--border);
-    font-size: 0.9rem;
+    color: var(--color-text-primary, #f8fafc);
+    background: var(--color-bg-alt, rgba(16, 24, 40, 0.95));
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    font-size: 0.8rem;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.04em;
   }
 
   .pricing-table td {
-    padding: 1rem;
-    border-bottom: 1px solid rgba(148, 163, 184, 0.1);
-    color: var(--text);
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    color: var(--color-text, var(--text));
     vertical-align: middle;
+    font-size: 0.9rem;
   }
 
   .pricing-table tbody tr {
-    transition: background 0.2s ease;
+    transition: background 100ms ease;
   }
 
   .pricing-table tbody tr:hover {
-    background: rgba(125, 211, 252, 0.04);
+    background: rgba(59, 130, 246, 0.04);
   }
 
   .pricing-table tbody tr.highlighted {
-    border-left: 3px solid var(--accent);
-    background: rgba(192, 132, 252, 0.05);
+    border-left: 3px solid var(--color-primary, var(--accent));
+    background: rgba(59, 130, 246, 0.04);
   }
 
   .pricing-table tbody tr.highlighted:hover {
-    background: rgba(192, 132, 252, 0.09);
+    background: rgba(59, 130, 246, 0.07);
   }
 
   .tool-name {
     font-weight: 600;
-    color: var(--brand);
+    color: var(--color-primary-light, var(--brand));
   }
 
   .empty-cell {
-    color: var(--muted);
-    opacity: 0.5;
+    color: var(--color-text-hint, var(--muted));
+    opacity: 0.4;
   }
 
   .best-for-badge {
-    display: inline-flex;
-    padding: 0.25rem 0.65rem;
-    border-radius: 999px;
-    background: rgba(192, 132, 252, 0.15);
-    color: #e4ccff;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     font-weight: 500;
-    letter-spacing: 0.02em;
+    color: var(--color-text-secondary, #cbd5e1);
+    line-height: 1.5;
+    word-break: break-word;
+    max-width: 100%;
   }
 
   /* Mobile Cards */
@@ -150,23 +162,24 @@ const { plans } = Astro.props;
   }
 
   .pricing-card {
-    background: var(--panel);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-md);
+    background: var(--color-surface, var(--panel));
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: var(--radius-lg, 12px);
     padding: 1.25rem;
   }
 
   .pricing-card.highlighted {
-    border-color: var(--accent);
+    border-color: rgba(59, 130, 246, 0.3);
+    border-left: 3px solid var(--color-primary, var(--accent));
   }
 
   .card-header {
     font-weight: 600;
-    font-size: 1.1rem;
-    color: var(--brand);
+    font-size: 1.05rem;
+    color: var(--color-primary-light, var(--brand));
     margin-bottom: 0.85rem;
     padding-bottom: 0.65rem;
-    border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   }
 
   .card-row {
@@ -174,9 +187,9 @@ const { plans } = Astro.props;
     justify-content: space-between;
     align-items: center;
     padding: 0.5rem 0;
-    border-bottom: 1px solid rgba(148, 163, 184, 0.07);
-    color: var(--text);
-    font-size: 0.95rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    color: var(--color-text, var(--text));
+    font-size: 0.9rem;
   }
 
   .card-row:last-child {
@@ -184,10 +197,10 @@ const { plans } = Astro.props;
   }
 
   .card-label {
-    color: var(--muted);
-    font-size: 0.85rem;
+    color: var(--color-text-muted, var(--muted));
+    font-size: 0.8rem;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.04em;
   }
 
   @media (max-width: 900px) {
@@ -197,7 +210,7 @@ const { plans } = Astro.props;
     .pricing-cards {
       display: flex;
       flex-direction: column;
-      gap: 1rem;
+      gap: 1.25rem;
     }
   }
 </style>

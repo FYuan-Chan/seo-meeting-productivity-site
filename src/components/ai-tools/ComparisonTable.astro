@@ -105,9 +105,9 @@ function isNumeric(val: number | string | undefined): val is number {
   /* Desktop table */
   .comparison-table-outer {
     overflow-x: auto;
-    border-radius: var(--radius-md);
-    border: 1px solid var(--border);
-    background: var(--panel);
+    border-radius: var(--radius-lg, 12px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: var(--color-surface, var(--panel));
   }
 
   .comparison-table {
@@ -117,7 +117,7 @@ function isNumeric(val: number | string | undefined): val is number {
   }
 
   .comparison-table thead tr {
-    background: var(--bg-alt);
+    background: var(--color-bg-alt, var(--bg-alt));
     position: sticky;
     top: 0;
     z-index: 2;
@@ -125,16 +125,20 @@ function isNumeric(val: number | string | undefined): val is number {
 
   .comparison-table th,
   .comparison-table td {
-    padding: 0.85rem 1rem;
+    padding: 0.75rem 1rem;
     text-align: left;
-    border-bottom: 1px solid var(--border);
-    color: var(--text);
-    font-size: 0.95rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    color: var(--color-text, var(--text));
+    font-size: 0.9rem;
   }
 
   .comparison-table th {
-    font-weight: 700;
+    font-weight: 600;
     white-space: nowrap;
+    color: var(--color-text-primary, #f8fafc);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
   }
 
   .dim-header,
@@ -142,22 +146,26 @@ function isNumeric(val: number | string | undefined): val is number {
     position: sticky;
     left: 0;
     z-index: 1;
-    background: var(--panel);
+    background: var(--color-surface, var(--panel));
     min-width: 160px;
     font-weight: 600;
   }
 
   .dim-header {
-    background: var(--bg-alt);
+    background: var(--color-bg-alt, var(--bg-alt));
     z-index: 3;
   }
 
+  .comparison-table tbody tr {
+    transition: background 100ms ease;
+  }
+
   .comparison-table tbody tr:hover td {
-    background: rgba(125, 211, 252, 0.05);
+    background: rgba(59, 130, 246, 0.04);
   }
 
   .comparison-table tbody tr:hover .dim-cell {
-    background: rgba(16, 29, 52, 0.95);
+    background: var(--color-panel, rgba(16, 29, 52, 0.95));
   }
 
   /* Rating bar */
@@ -169,10 +177,11 @@ function isNumeric(val: number | string | undefined): val is number {
   }
 
   .rating-bar {
-    height: 8px;
-    border-radius: 4px;
+    height: 6px;
+    border-radius: 3px;
     flex-shrink: 0;
-    transition: width 0.3s ease;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
+    transition: width 200ms ease-out;
   }
 
   .rating-bar-wrap .rating-bar {
@@ -182,14 +191,15 @@ function isNumeric(val: number | string | undefined): val is number {
 
   .rating-num {
     font-weight: 700;
-    font-size: 0.9rem;
-    color: var(--text);
+    font-size: 0.85rem;
+    font-variant-numeric: tabular-nums;
+    color: var(--color-text, var(--text));
     flex-shrink: 0;
   }
 
   .rating-text {
-    color: var(--muted);
-    font-size: 0.9rem;
+    color: var(--color-text-muted, var(--muted));
+    font-size: 0.85rem;
   }
 
   /* Mobile card view */
@@ -201,20 +211,21 @@ function isNumeric(val: number | string | undefined): val is number {
     .comparison-wrapper.mobile-view {
       display: flex;
       flex-direction: column;
-      gap: 1rem;
+      gap: 1.5rem;
     }
 
     .tool-card-mobile {
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
+      background: var(--color-surface, var(--panel));
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: var(--radius-lg, 12px);
       padding: 1.25rem;
     }
 
     .tool-card-mobile-name {
       margin: 0 0 1rem;
-      font-size: 1.15rem;
-      color: var(--text);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--color-text-primary, var(--text));
     }
 
     .tool-card-mobile-list {
@@ -229,12 +240,12 @@ function isNumeric(val: number | string | undefined): val is number {
       align-items: center;
       gap: 1rem;
       padding: 0.6rem 0;
-      border-top: 1px solid rgba(148, 163, 184, 0.1);
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
     }
 
     .dim-label {
-      color: var(--muted);
-      font-size: 0.9rem;
+      color: var(--color-text-muted, var(--muted));
+      font-size: 0.85rem;
       flex-shrink: 0;
     }
 
