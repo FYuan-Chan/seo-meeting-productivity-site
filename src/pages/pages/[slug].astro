@@ -19,6 +19,15 @@ const canonicalPath = buildCanonicalUrl(siteConfig.siteUrl, `/pages/${page.slug}
 
 const isAIToolPage = page.category.startsWith('ai-') || page.category === 'github-trending' || page.category === 'tutorial';
 
+// Calculate estimated reading time (average 200 words per minute)
+const wordCount = page.sections.reduce((acc, section) => {
+  if (section.paragraphs) {
+    return acc + section.paragraphs.join(' ').split(/\s+/).length;
+  }
+  return acc + 200; // Estimate for other section types
+}, 0);
+const readingTime = Math.max(3, Math.ceil(wordCount / 200));
+
 const schemas = [
   getArticleSchema(page),
   ...(page.faq.length > 0 ? [getFaqSchema(page)] : []),
@@ -37,141 +46,920 @@ const schemas = [
   activePath={`/pages/${page.slug}/`}
   schema={schemas}
 >
-  <main class="page-shell">
-    <div class="container narrow">
-      <nav class="breadcrumbs" aria-label="Breadcrumb">
-        <a href="/">Home</a>
-        <span>/</span>
-        <span>{page.title}</span>
-      </nav>
-
-      <section class="article-hero">
-        <span class="eyebrow">{page.eyebrow}</span>
-        <h1>{page.title}</h1>
-        <p class="lede">{page.description}</p>
-        <p class="keyword-line"><strong>Target keyword cluster:</strong> {page.targetKeyword}</p>
-        <div class="cta-inline">
-          <a class="button primary" href={page.ctaHref}>{page.ctaLabel}</a>
-          <a class="button secondary" href="/">Back to homepage</a>
+  <main class="article-page">
+    <!-- Article Header -->
+    <header class="article-header">
+      <div class="container content-width">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span class="separator">/</span>
+          <span class="current">{page.title}</span>
+        </nav>
+        
+        <div class="article-meta">
+          <span class="category-badge">{page.eyebrow}</span>
+          <span class="meta-separator">•</span>
+          <span class="reading-time">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            {readingTime} min read
+          </span>
+          <span class="meta-separator">•</span>
+          <span class="last-updated">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            Updated {page.aiToolMeta?.lastUpdated || '2026'}
+          </span>
         </div>
-      </section>
+        
+        <h1 class="article-title">{page.title}</h1>
+        
+        <p class="article-description">{page.description}</p>
+        
+        <div class="article-actions">
+          <a class="btn btn-primary" href={page.ctaHref}>
+            {page.ctaLabel}
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+          <button class="btn btn-secondary share-btn" onclick="navigator.share({title: document.title, url: window.location.href})">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="18" cy="5" r="3"></circle>
+              <circle cx="6" cy="12" r="3"></circle>
+              <circle cx="18" cy="19" r="3"></circle>
+              <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+              <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+            </svg>
+            Share
+          </button>
+        </div>
+      </div>
+    </header>
 
-      {page.intro.map((paragraph: string) => <p>{paragraph}</p>)}
+    <!-- Table of Contents (for longer articles) -->
+    {page.sections.length > 3 && (
+      <aside class="toc-sidebar">
+        <div class="toc-container">
+          <h3 class="toc-title">Table of Contents</h3>
+          <nav class="toc-nav">
+            {page.sections.map((section, idx) => (
+              <a href={`#section-${idx}`} class="toc-link">
+                <span class="toc-number">{idx + 1}</span>
+                <span class="toc-text">{section.heading}</span>
+              </a>
+            ))}
+            {page.faq.length > 0 && (
+              <a href="#faq" class="toc-link">
+                <span class="toc-number">{page.sections.length + 1}</span>
+                <span class="toc-text">FAQ</span>
+              </a>
+            )}
+          </nav>
+        </div>
+      </aside>
+    )}
 
-      {page.sections.map((section, idx) => (
-        <section class="content-section">
-          <h2>{section.heading}</h2>
-          {section.type === 'paragraphs' && (
-            section.paragraphs.map((paragraph) => <p>{paragraph}</p>)
-          )}
-          {section.type === 'bullets' && (
-            <ul class="bullet-list">
-              {section.items.map((item) => (
-                <li>
-                  {item.label ? <><strong>{item.label}:</strong> {item.text}</> : item.text}
-                </li>
-              ))}
-            </ul>
-          )}
-          {section.type === 'cards' && (
-            <div class="card-grid three-up">
-              {section.cards.map((card) => (
-                <article class="info-card compact">
-                  <h3>{card.title}</h3>
-                  <p>{card.description}</p>
-                </article>
-              ))}
-            </div>
-          )}
-          {section.type === 'table' && (
-            <div class="table-wrap">
-              <table>
-                <thead>
-                  <tr>
-                    {section.columns.map((column) => <th>{column}</th>)}
-                  </tr>
-                </thead>
-                <tbody>
-                  {section.rows.map((row) => (
-                    <tr>
-                      {row.map((cell) => <td>{cell}</td>)}
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          )}
-          {section.type === 'comparison-table' && (
-            <ComparisonTable
-              dimensions={section.dimensions}
-              tools={section.tools}
-              ratings={section.ratings}
-            />
-          )}
-          {section.type === 'tool-cards' && (
-            <div class="card-grid two-up">
-              {section.tools.map((tool) => (
-                <ToolRatingCard tool={tool} />
-              ))}
-            </div>
-          )}
-          {section.type === 'pricing-table' && (
-            <PricingComparison plans={section.plans} />
-          )}
-          {section.type === 'use-case-grid' && (
-            <UseCaseRecommender useCases={section.useCases} />
-          )}
-
-        </section>
-      ))}
-
-      <section class="content-section monetization-box">
-        <h2>Monetization angle</h2>
-        <p>
-          <strong>Primary monetization:</strong> {page.monetizationPrimary}. This page should be used to route users toward the best-fitting offer while preserving topical authority.
-        </p>
-      </section>
-
-      <section class="content-section faq-block">
-        <h2>FAQ</h2>
-        <div class="faq-list">
-          {page.faq.map((item) => (
-            <article>
-              <h3>{item.question}</h3>
-              <p>{item.answer}</p>
-            </article>
+    <!-- Article Content -->
+    <article class="article-content">
+      <div class="container content-width">
+        <!-- Introduction -->
+        <div class="article-intro">
+          {page.intro.map((paragraph) => (
+            <p class="intro-paragraph">{paragraph}</p>
           ))}
         </div>
-      </section>
 
-      {page.relatedSlugs && page.relatedSlugs.length > 0 && (
-        <RelatedComparisons relatedSlugs={page.relatedSlugs} currentSlug={page.slug} />
-      )}
-
-      <section class="content-section">
-        <h2>Related pages</h2>
-        <div class="card-grid two-up">
-          {page.relatedSlugs.map((slug: string) => {
-            const related = pageMap[slug];
-            if (!related) {
-              return (
-                <article class="page-card compact">
-                  <span class="tag">N/A</span>
-                  <h3>{slug}</h3>
-                  <p>Page not found</p>
-                </article>
-              );
-            }
-            return (
-              <article class="page-card compact">
-                <span class="tag">{related.category}</span>
-                <h3><a href={`/pages/${related.slug}/`}>{related.title}</a></h3>
-                <p>{related.description}</p>
-              </article>
-            );
-          })}
+        <!-- Main Content Sections -->
+        <div class="article-body">
+          {page.sections.map((section, idx) => (
+            <section class="content-section" id={`section-${idx}`}>
+              <h2 class="section-heading">
+                <span class="section-number">{idx + 1}</span>
+                {section.heading}
+              </h2>
+              
+              {section.type === 'paragraphs' && (
+                <div class="prose">
+                  {section.paragraphs.map((paragraph) => (
+                    <p>{paragraph}</p>
+                  ))}
+                </div>
+              )}
+              
+              {section.type === 'bullets' && (
+                <ul class="feature-list">
+                  {section.items.map((item) => (
+                    <li>
+                      {item.label ? (
+                        <>
+                          <strong>{item.label}:</strong> {item.text}
+                        </>
+                      ) : (
+                        item.text
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              )}
+              
+              {section.type === 'cards' && (
+                <div class="card-grid three-up">
+                  {section.cards.map((card) => (
+                    <article class="feature-card">
+                      <h3>{card.title}</h3>
+                      <p>{card.description}</p>
+                    </article>
+                  ))}
+                </div>
+              )}
+              
+              {section.type === 'table' && (
+                <div class="table-container">
+                  <table class="data-table">
+                    <thead>
+                      <tr>
+                        {section.columns.map((column) => <th>{column}</th>)}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {section.rows.map((row) => (
+                        <tr>
+                          {row.map((cell) => <td>{cell}</td>)}
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
+              
+              {section.type === 'comparison-table' && (
+                <ComparisonTable
+                  dimensions={section.dimensions}
+                  tools={section.tools}
+                  ratings={section.ratings}
+                />
+              )}
+              
+              {section.type === 'tool-cards' && (
+                <div class="tool-cards-grid">
+                  {section.tools.map((tool) => (
+                    <ToolRatingCard tool={tool} />
+                  ))}
+                </div>
+              )}
+              
+              {section.type === 'pricing-table' && (
+                <PricingComparison plans={section.plans} />
+              )}
+              
+              {section.type === 'use-case-grid' && (
+                <UseCaseRecommender useCases={section.useCases} />
+              )}
+            </section>
+          ))}
         </div>
-      </section>
-    </div>
+
+        <!-- FAQ Section -->
+        {page.faq.length > 0 && (
+          <section class="faq-section" id="faq">
+            <h2 class="section-heading">
+              <span class="section-number">{page.sections.length + 1}</span>
+              Frequently Asked Questions
+            </h2>
+            <div class="faq-list">
+              {page.faq.map((item) => (
+                <details class="faq-item">
+                  <summary class="faq-question">{item.question}</summary>
+                  <div class="faq-answer">
+                    <p>{item.answer}</p>
+                  </div>
+                </details>
+              ))}
+            </div>
+          </section>
+        )}
+
+        <!-- Monetization Box -->
+        <aside class="monetization-box">
+          <div class="box-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+              <path d="M2 17l10 5 10-5"></path>
+              <path d="M2 12l10 5 10-5"></path>
+            </svg>
+          </div>
+          <div class="box-content">
+            <h3>Primary monetization</h3>
+            <p><strong>{page.monetizationPrimary}</strong>. This page routes users toward the best-fitting offer while preserving topical authority.</p>
+          </div>
+        </aside>
+
+        <!-- Related Comparisons -->
+        {page.relatedSlugs && page.relatedSlugs.length > 0 && (
+          <RelatedComparisons relatedSlugs={page.relatedSlugs} currentSlug={page.slug} />
+        )}
+
+        <!-- Related Pages -->
+        <section class="related-articles">
+          <h2 class="section-heading">Related Articles</h2>
+          <div class="related-grid">
+            {page.relatedSlugs.map((slug) => {
+              const related = pageMap[slug];
+              if (!related) {
+                return (
+                  <article class="related-card missing">
+                    <span class="card-category">N/A</span>
+                    <h3>{slug}</h3>
+                    <p>Page not found</p>
+                  </article>
+                );
+              }
+              return (
+                <a href={`/pages/${related.slug}/`} class="related-card">
+                  <span class="card-category">{related.category}</span>
+                  <h3>{related.title}</h3>
+                  <p>{related.description}</p>
+                  <span class="read-more">
+                    Read article
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                      <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                  </span>
+                </a>
+              );
+            })}
+          </div>
+        </section>
+      </div>
+    </article>
   </main>
 </BaseLayout>
+
+<style>
+  /* ─── Article Page Layout ─── */
+  .article-page {
+    min-height: 100vh;
+  }
+
+  /* ─── Article Header ─── */
+  .article-header {
+    background: linear-gradient(180deg, var(--color-surface) 0%, var(--color-bg) 100%);
+    border-bottom: 1px solid var(--color-border);
+    padding: var(--space-8) 0 var(--space-10);
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-4);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    flex-wrap: wrap;
+  }
+
+  .category-badge {
+    display: inline-flex;
+    padding: var(--space-1) var(--space-3);
+    background: rgba(59, 130, 246, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    border-radius: var(--radius-full);
+    color: var(--color-primary-light);
+    font-weight: var(--font-semibold);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .meta-separator {
+    color: var(--color-text-dim);
+  }
+
+  .reading-time,
+  .last-updated {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+  }
+
+  .reading-time svg,
+  .last-updated svg {
+    opacity: 0.7;
+  }
+
+  .article-title {
+    font-size: clamp(var(--text-3xl), 5vw, var(--text-5xl));
+    font-weight: var(--font-extrabold);
+    line-height: var(--leading-tight);
+    color: var(--color-text-bright);
+    margin-bottom: var(--space-4);
+    max-width: 20ch;
+    letter-spacing: -0.02em;
+  }
+
+  .article-description {
+    font-size: var(--text-lg);
+    color: var(--color-text-muted);
+    line-height: var(--leading-relaxed);
+    max-width: 65ch;
+    margin-bottom: var(--space-6);
+  }
+
+  .article-actions {
+    display: flex;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+  }
+
+  /* ─── Buttons ─── */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-5);
+    font-weight: var(--font-semibold);
+    font-size: var(--text-sm);
+    border-radius: var(--radius-lg);
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    text-decoration: none;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+    color: white;
+    box-shadow: var(--shadow-md);
+  }
+
+  .btn-primary:hover {
+    background: linear-gradient(135deg, var(--color-primary-light), var(--color-primary));
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg), var(--shadow-glow);
+    color: white;
+  }
+
+  .btn-secondary {
+    background: var(--color-surface);
+    border-color: var(--color-border);
+    color: var(--color-text);
+  }
+
+  .btn-secondary:hover {
+    background: var(--color-surface-hover);
+    border-color: var(--color-border-hover);
+    color: var(--color-text-bright);
+  }
+
+  /* ─── Table of Contents Sidebar ─── */
+  .toc-sidebar {
+    position: fixed;
+    left: max(var(--space-4), calc((100vw - var(--max-width)) / 2 - 280px));
+    top: 120px;
+    width: 240px;
+    z-index: var(--z-base);
+  }
+
+  .toc-container {
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    padding: var(--space-5);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .toc-title {
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+    color: var(--color-text-bright);
+    margin-bottom: var(--space-4);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .toc-nav {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .toc-link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-3);
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
+    text-decoration: none;
+  }
+
+  .toc-link:hover {
+    background: rgba(59, 130, 246, 0.1);
+    color: var(--color-primary-light);
+  }
+
+  .toc-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    background: var(--color-surface);
+    border-radius: var(--radius-sm);
+    font-size: var(--text-xs);
+    font-weight: var(--font-semibold);
+    color: var(--color-text-dim);
+  }
+
+  .toc-text {
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* ─── Article Content ─── */
+  .article-content {
+    padding: var(--space-10) 0;
+  }
+
+  .article-intro {
+    margin-bottom: var(--space-8);
+    padding-bottom: var(--space-6);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .intro-paragraph {
+    font-size: var(--text-lg);
+    line-height: var(--leading-relaxed);
+    color: var(--color-text);
+  }
+
+  .intro-paragraph:first-child {
+    font-size: var(--text-xl);
+    color: var(--color-text-bright);
+    font-weight: var(--font-medium);
+  }
+
+  .article-body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-10);
+  }
+
+  /* ─── Content Sections ─── */
+  .content-section {
+    scroll-margin-top: 100px;
+  }
+
+  .section-heading {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-size: var(--text-2xl);
+    font-weight: var(--font-bold);
+    color: var(--color-text-bright);
+    margin-bottom: var(--space-6);
+    padding-bottom: var(--space-3);
+    border-bottom: 2px solid var(--color-border);
+  }
+
+  .section-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+    border-radius: var(--radius-md);
+    font-size: var(--text-sm);
+    font-weight: var(--font-bold);
+    color: white;
+    flex-shrink: 0;
+  }
+
+  /* ─── Prose Styles ─── */
+  .prose {
+    max-width: 100%;
+  }
+
+  .prose p {
+    font-size: var(--text-base);
+    line-height: var(--leading-loose);
+    color: var(--color-text);
+    margin-bottom: var(--space-5);
+  }
+
+  .prose p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* ─── Feature List ─── */
+  .feature-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  .feature-list li {
+    position: relative;
+    padding: var(--space-4) var(--space-4) var(--space-4) var(--space-10);
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    font-size: var(--text-base);
+    line-height: var(--leading-normal);
+    color: var(--color-text);
+    transition: all var(--transition-base);
+  }
+
+  .feature-list li::before {
+    content: '✓';
+    position: absolute;
+    left: var(--space-4);
+    top: var(--space-4);
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(34, 197, 94, 0.1);
+    color: var(--color-success);
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    font-weight: var(--font-bold);
+  }
+
+  .feature-list li:hover {
+    background: var(--color-card-hover);
+    border-color: var(--color-border-hover);
+  }
+
+  .feature-list li strong {
+    color: var(--color-text-bright);
+  }
+
+  /* ─── Feature Cards ─── */
+  .feature-card {
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    padding: var(--space-6);
+    transition: all var(--transition-base);
+  }
+
+  .feature-card:hover {
+    background: var(--color-card-hover);
+    border-color: var(--color-border-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .feature-card h3 {
+    font-size: var(--text-lg);
+    font-weight: var(--font-semibold);
+    color: var(--color-text-bright);
+    margin-bottom: var(--space-3);
+  }
+
+  .feature-card p {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    line-height: var(--leading-normal);
+    margin: 0;
+  }
+
+  /* ─── Data Table ─── */
+  .table-container {
+    overflow-x: auto;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+  }
+
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 640px;
+  }
+
+  .data-table th,
+  .data-table td {
+    padding: var(--space-4);
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+    font-size: var(--text-sm);
+  }
+
+  .data-table th {
+    background: var(--color-bg-alt);
+    color: var(--color-text-bright);
+    font-weight: var(--font-semibold);
+    position: sticky;
+    top: 0;
+  }
+
+  .data-table tbody tr:hover {
+    background: rgba(59, 130, 246, 0.03);
+  }
+
+  .data-table tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  /* ─── Tool Cards Grid ─── */
+  .tool-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--space-6);
+  }
+
+  /* ─── FAQ Section ─── */
+  .faq-section {
+    scroll-margin-top: 100px;
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .faq-item {
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: all var(--transition-base);
+  }
+
+  .faq-item:hover {
+    border-color: var(--color-border-hover);
+  }
+
+  .faq-item[open] {
+    background: var(--color-card-hover);
+  }
+
+  .faq-question {
+    padding: var(--space-4) var(--space-5);
+    font-weight: var(--font-semibold);
+    color: var(--color-text-bright);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    transition: all var(--transition-fast);
+  }
+
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-question::after {
+    content: '+';
+    font-size: var(--text-xl);
+    font-weight: var(--font-light);
+    color: var(--color-text-muted);
+    transition: transform var(--transition-base);
+  }
+
+  .faq-item[open] .faq-question::after {
+    transform: rotate(45deg);
+    color: var(--color-primary-light);
+  }
+
+  .faq-question:hover {
+    color: var(--color-primary-light);
+  }
+
+  .faq-answer {
+    padding: 0 var(--space-5) var(--space-5);
+  }
+
+  .faq-answer p {
+    font-size: var(--text-base);
+    line-height: var(--leading-relaxed);
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  /* ─── Monetization Box ─── */
+  .monetization-box {
+    display: flex;
+    gap: var(--space-4);
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.05), rgba(59, 130, 246, 0.05));
+    border: 1px solid rgba(34, 197, 94, 0.2);
+    border-radius: var(--radius-xl);
+    padding: var(--space-5);
+    margin-top: var(--space-10);
+  }
+
+  .box-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: rgba(34, 197, 94, 0.1);
+    border-radius: var(--radius-lg);
+    color: var(--color-success);
+    flex-shrink: 0;
+  }
+
+  .box-content h3 {
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+    color: var(--color-text-bright);
+    margin-bottom: var(--space-2);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .box-content p {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin: 0;
+    line-height: var(--leading-normal);
+  }
+
+  .box-content strong {
+    color: var(--color-success-light);
+    text-transform: capitalize;
+  }
+
+  /* ─── Related Articles ─── */
+  .related-articles {
+    margin-top: var(--space-12);
+    padding-top: var(--space-8);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-5);
+  }
+
+  .related-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    padding: var(--space-5);
+    text-decoration: none;
+    transition: all var(--transition-base);
+  }
+
+  .related-card:hover {
+    background: var(--color-card-hover);
+    border-color: var(--color-border-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .related-card.missing {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  .card-category {
+    display: inline-block;
+    padding: var(--space-1) var(--space-2);
+    background: rgba(139, 92, 246, 0.1);
+    color: var(--color-accent-light);
+    border-radius: var(--radius-full);
+    font-size: var(--text-xs);
+    font-weight: var(--font-medium);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-3);
+    align-self: flex-start;
+  }
+
+  .related-card h3 {
+    font-size: var(--text-lg);
+    font-weight: var(--font-semibold);
+    color: var(--color-text-bright);
+    margin-bottom: var(--space-2);
+    line-height: var(--leading-snug);
+  }
+
+  .related-card p {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    line-height: var(--leading-normal);
+    flex: 1;
+    margin-bottom: var(--space-4);
+  }
+
+  .read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+    color: var(--color-primary-light);
+    margin-top: auto;
+  }
+
+  .related-card:hover .read-more {
+    color: var(--color-primary);
+  }
+
+  /* ─── Responsive Design ─── */
+  @media (max-width: 1280px) {
+    .toc-sidebar {
+      display: none;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .article-header {
+      padding: var(--space-6) 0 var(--space-8);
+    }
+
+    .article-title {
+      font-size: var(--text-2xl);
+    }
+
+    .article-description {
+      font-size: var(--text-base);
+    }
+
+    .section-heading {
+      font-size: var(--text-xl);
+    }
+
+    .section-number {
+      width: 28px;
+      height: 28px;
+      font-size: var(--text-xs);
+    }
+
+    .tool-cards-grid,
+    .related-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .article-actions {
+      flex-direction: column;
+    }
+
+    .btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .article-meta {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-2);
+    }
+
+    .meta-separator {
+      display: none;
+    }
+
+    .feature-list li {
+      padding-left: var(--space-8);
+    }
+
+    .feature-list li::before {
+      left: var(--space-3);
+    }
+  }
+
+  /* ─── Reduced Motion ─── */
+  @media (prefers-reduced-motion: reduce) {
+    .btn,
+    .feature-card,
+    .faq-item,
+    .related-card {
+      transition: none;
+    }
+    
+    .btn:hover,
+    .feature-card:hover,
+    .related-card:hover {
+      transform: none;
+    }
+  }
+</style>
