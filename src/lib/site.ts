@@ -53,6 +53,12 @@ export type SeoPage = {
   faq: { question: string; answer: string }[];
 };
 
+const starterMetrics: HeroMetric[] = [
+  { label: 'Starter pages', value: '36' },
+  { label: 'Main monetization', value: 'Ads + Affiliate' },
+  { label: 'Expansion path', value: 'Tools + Email' }
+];
+
 export const siteConfig = {
   siteName: 'MeetingFlow Hub',
   siteUrl: siteUrlFromEnv,
@@ -71,11 +77,7 @@ export const siteConfig = {
     { label: 'Examples', href: '/pages/meeting-summary-examples/' },
     { label: 'Checklist', href: '/pages/remote-meeting-checklist/' }
   ],
-  metrics: [
-    { label: 'Starter pages', value: '36' },
-    { label: 'Main monetization', value: 'Ads + Affiliate' },
-    { label: 'Expansion path', value: 'Tools + Email' }
-  ] satisfies HeroMetric[],
+  metrics: starterMetrics satisfies HeroMetric[],
   homepageSections: {
     nicheReasons: [
       {
@@ -2171,6 +2173,8 @@ export const pages: SeoPage[] = [
 
 
 ];
+
+starterMetrics[0] = { ...starterMetrics[0], value: String(pages.length) };
 
 export const pageMap = Object.fromEntries(pages.map((page) => [page.slug, page])) as Record<string, SeoPage>;
 

@@ -1,0 +1,33 @@
+---
+// AdSense Ad Unit Component
+// Usage: <AdSense slot="1234567890" format="auto" />
+interface Props {
+  slot: string;
+  format?: 'auto' | 'fluid' | 'rectangle' | 'vertical';
+  style?: string;
+  layout?: string;
+  layoutKey?: string;
+}
+
+const {
+  slot,
+  format = 'auto',
+  style = 'display:block',
+  layout,
+  layoutKey
+} = Astro.props;
+---
+
+<ins
+  class="adsbygoogle"
+  style={style}
+  data-ad-client="ca-pub-6108188461869936"
+  data-ad-slot={slot}
+  data-ad-format={format}
+  data-full-width-responsive="true"
+  {...layout && { 'data-ad-layout': layout }}
+  {...layoutKey && { 'data-ad-layout-key': layoutKey }}
+></ins>
+<script is:inline>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
