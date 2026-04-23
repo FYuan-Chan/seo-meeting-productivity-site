@@ -1,5 +1,5 @@
 export type MonetizationPrimary = 'affiliate' | 'ads' | 'lead-magnet' | 'tool-upsell';
-export type PageCategory = 'commercial' | 'template' | 'examples' | 'comparison' | 'checklist' | 'tool';
+export type PageCategory = 'commercial' | 'template' | 'examples' | 'comparison' | 'checklist';
 
 const DEFAULT_SITE_URL = 'https://example.com';
 const siteUrlFromEnv = (import.meta.env.PUBLIC_SITE_URL ?? DEFAULT_SITE_URL).replace(/\/$/, '');
@@ -36,12 +36,6 @@ export type PageSection =
       columns: string[];
       rows: string[][];
     }
-  | {
-      type: 'tool';
-      toolType: 'json-formatter' | 'timestamp-converter' | 'password-generator' | 'calculator';
-      toolTitle: string;
-      heading: string;
-    };
 
 export type SeoPage = {
   slug: string;
@@ -60,46 +54,46 @@ export type SeoPage = {
 };
 
 const starterMetrics: HeroMetric[] = [
-  { label: 'Starter pages', value: '36' },
+  { label: 'Meeting pages', value: '48' },
   { label: 'Main monetization', value: 'Ads + Affiliate' },
   { label: 'Expansion path', value: 'Tools + Email' }
 ];
 
 export const siteConfig = {
-  siteName: 'MeetingFlow Hub',
+  siteName: 'SignalForges',
   siteUrl: siteUrlFromEnv,
   language: 'en',
   niche: 'AI meeting notes and meeting productivity',
-  heroTitle: 'Turn AI meeting workflow demand into a focused SEO asset.',
+  heroTitle: 'Meeting productivity tools, templates, and workflows for remote teams.',
   heroDescription:
-    'MeetingFlow Hub is a deployable Astro starter site built around a monetizable cluster: AI meeting assistants, meeting note templates, action items, and remote meeting workflows.',
+    'SignalForges is a focused meeting productivity hub covering AI meeting assistants, meeting note templates, async meeting workflows, and remote team collaboration tools.',
   primaryCta: {
     label: 'Open the money page',
     href: '/pages/best-ai-meeting-assistants/'
   },
   nav: [
-    { label: 'Best AI Tools', href: '/pages/best-ai-meeting-assistants/' },
+    { label: 'AI Tools', href: '/pages/best-ai-meeting-assistants/' },
     { label: 'Templates', href: '/pages/meeting-notes-template/' },
-    { label: 'Examples', href: '/pages/meeting-summary-examples/' },
-    { label: 'Checklist', href: '/pages/remote-meeting-checklist/' }
+    { label: 'Async Guide', href: '/pages/async-meeting-notes-best-practices/' },
+    { label: 'Remote Agenda', href: '/pages/meeting-agenda-remote-teams/' }
   ],
   metrics: starterMetrics satisfies HeroMetric[],
   homepageSections: {
     nicheReasons: [
       {
-        title: 'Commercial intent',
+        title: 'Growing remote-first demand',
         description:
-          'People comparing AI meeting assistants or searching for meeting note systems often convert into SaaS trials, making this cluster strong for affiliate monetization.'
+          'Remote and hybrid teams are actively searching for async meeting workflows, meeting templates, and productivity tools that work across timezones.'
       },
       {
-        title: 'Template + tool hybrid',
+        title: 'Template + workflow pages',
         description:
-          'You can rank informational pages today and layer on generators, transcript cleanup tools, or action-item extractors later.'
+          'Meeting note templates, agenda formats, and checklist pages have strong evergreen search demand and work well with display ads and lead magnets.'
       },
       {
-        title: 'Expandable topic graph',
+        title: 'Software comparison angle',
         description:
-          'The cluster expands naturally into role-based pages, software comparisons, glossary content, and lightweight utilities.'
+          'AI meeting assistant comparisons (Otter, Fireflies, Fathom) carry commercial intent and can support affiliate monetization as traffic grows.'
       }
     ] satisfies FeatureCard[],
     monetizationCards: [
@@ -138,12 +132,7 @@ export const pages: SeoPage[] = [
     monetizationPrimary: 'affiliate',
     ctaLabel: 'See supporting template pages',
     ctaHref: '/pages/meeting-notes-template/',
-    relatedSlugs: [
-      'meeting-notes-template',
-      'meeting-summary-examples',
-      'action-items-template',
-      'meeting-minutes-vs-notes'
-    ],
+    relatedSlugs: ['meeting-notes-template', 'meeting-summary-examples', 'action-items-template', 'meeting-minutes-vs-notes'],
     sections: [
       {
         type: 'table',
@@ -184,9 +173,10 @@ export const pages: SeoPage[] = [
       {
         question: 'How should this page evolve next?',
         answer: 'Replace generic tool categories with real vendors, add pricing snapshots, real screenshots, and intent-matched comparison tables.'
-      }
+      },
     ]
   },
+
   {
     slug: 'meeting-notes-template',
     title: 'Meeting Notes Template for Fast Weekly Updates',
@@ -240,9 +230,10 @@ export const pages: SeoPage[] = [
       {
         question: 'How does this page monetize?',
         answer: 'It is ideal for display ads, internal links to the commercial page, and later lead magnets such as downloadable template packs.'
-      }
+      },
     ]
   },
+
   {
     slug: 'meeting-summary-examples',
     title: 'Meeting Summary Examples You Can Reuse in 2026',
@@ -286,7 +277,7 @@ export const pages: SeoPage[] = [
           'Traffic from example-driven keywords may not convert instantly, but it broadens topical authority and feeds internal links to commercial pages.',
           'These pages also set up future downloadable packs, summary generators, and AI-assisted rewriting tools.'
         ]
-      }
+      },
     ],
     faq: [
       {
@@ -296,9 +287,10 @@ export const pages: SeoPage[] = [
       {
         question: 'What should be added later?',
         answer: 'Real-world example blocks by meeting type, downloadable snippets, and a summary rewrite tool.'
-      }
+      },
     ]
   },
+
   {
     slug: 'action-items-template',
     title: 'Action Items Template for Better Meeting Follow-Through',
@@ -354,9 +346,10 @@ export const pages: SeoPage[] = [
       {
         question: 'Can this page still carry ads?',
         answer: 'Yes, but its bigger upside is as a bridge into a simple utility or SaaS workflow rather than pure display ads.'
-      }
+      },
     ]
   },
+
   {
     slug: 'meeting-minutes-vs-notes',
     title: 'Meeting Minutes vs Notes: What Teams Actually Need',
@@ -409,9 +402,10 @@ export const pages: SeoPage[] = [
       {
         question: 'Is this a commercial page?',
         answer: 'Not directly. It is a support page that strengthens topical authority and routes searchers to templates or software comparisons.'
-      }
+      },
     ]
   },
+
   {
     slug: 'remote-meeting-checklist',
     title: 'Remote Meeting Checklist for Teams That Need Better Follow-Up',
@@ -465,9 +459,10 @@ export const pages: SeoPage[] = [
       {
         question: 'How can this page support affiliate revenue?',
         answer: 'Recommend meeting assistants, recording tools, or collaboration software at the exact workflow moments where they reduce friction.'
-      }
+      },
     ]
   },
+
   {
     slug: 'meeting-agenda-template',
     title: 'Meeting Agenda Template for Faster Decisions',
@@ -521,9 +516,10 @@ export const pages: SeoPage[] = [
       {
         question: 'How can this page monetize later?',
         answer: 'It is a strong fit for downloadable template packs, email capture, and a lightweight agenda generator tied to the broader meeting workflow cluster.'
-      }
+      },
     ]
   },
+
   {
     slug: 'one-on-one-meeting-template',
     title: 'One-on-One Meeting Template for Managers and Direct Reports',
@@ -568,7 +564,7 @@ export const pages: SeoPage[] = [
           'Role-based templates are a smart next step because they create more specific intent than broad meeting keywords while still fitting the same topical authority graph.',
           'If this page gains traction, the site can expand into skip-level, performance review, and coaching conversation templates.'
         ]
-      }
+      },
     ],
     faq: [
       {
@@ -578,9 +574,10 @@ export const pages: SeoPage[] = [
       {
         question: 'What can be productized from this page?',
         answer: 'A one-on-one notes manager, meeting prep checklist, or AI summary assistant for recurring check-ins would all fit naturally.'
-      }
+      },
     ]
   },
+
   {
     slug: 'meeting-follow-up-email-template',
     title: 'Meeting Follow-Up Email Template That Actually Gets Action',
@@ -624,7 +621,7 @@ export const pages: SeoPage[] = [
           'Users searching for follow-up emails often feel the pain of inconsistent post-meeting execution, which is close to workflow-software intent.',
           'That makes this page a good bridge toward AI meeting assistants, summary tools, and reminder workflows.'
         ]
-      }
+      },
     ],
     faq: [
       {
@@ -634,9 +631,10 @@ export const pages: SeoPage[] = [
       {
         question: 'Why is this tagged as tool-upsell?',
         answer: 'Because follow-up automation naturally points toward software for recap drafting, reminders, and task syncing.'
-      }
+      },
     ]
   },
+
   {
     slug: 'decision-log-template',
     title: 'Decision Log Template for Teams That Keep Revisiting Old Calls',
@@ -681,7 +679,7 @@ export const pages: SeoPage[] = [
           'A searchable decision log is already close to product shape. Teams want a system that connects meetings, notes, decisions, and follow-up work in one place.',
           'If the site expands into tools, this page is one of the best foundations for a lightweight SaaS concept.'
         ]
-      }
+      },
     ],
     faq: [
       {
@@ -691,9 +689,10 @@ export const pages: SeoPage[] = [
       {
         question: 'Can this page monetize before there is a product?',
         answer: 'Yes. It can carry ads, route users to software comparisons, and support lead magnets like downloadable trackers.'
-      }
+      },
     ]
   },
+
   {
     slug: 'project-status-meeting-template',
     title: 'Project Status Meeting Template for Cleaner Weekly Updates',
@@ -737,7 +736,7 @@ export const pages: SeoPage[] = [
           'It adds a concrete meeting type with clear workflow intent, which is usually better than publishing broad generic productivity content.',
           'Specific meeting-type pages are often how a content asset grows from a starter site into a meaningful page system.'
         ]
-      }
+      },
     ],
     faq: [
       {
@@ -747,9 +746,10 @@ export const pages: SeoPage[] = [
       {
         question: 'What is the best next expansion from here?',
         answer: 'Add team-specific pages such as marketing status meetings, product sprint reviews, and client status update formats.'
-      }
+      },
     ]
   },
+
   {
     slug: 'client-meeting-notes-template',
     title: 'Client Meeting Notes Template for Agencies and Service Teams',
@@ -803,9 +803,10 @@ export const pages: SeoPage[] = [
       {
         question: 'How should this page monetize first?',
         answer: 'Start with lead magnets and internal links to software comparisons, then expand into agency-specific template packs or workflow tools.'
-      }
+      },
     ]
   },
+
   {
     slug: 'meeting-minutes-template',
     title: 'Meeting Minutes Template for Formal Team Records',
@@ -859,9 +860,10 @@ export const pages: SeoPage[] = [
       {
         question: 'How can this page monetize early?',
         answer: 'Use lead magnets, template downloads, and internal links into software comparisons or workflow tools for documentation-heavy teams.'
-      }
+      },
     ]
   },
+
   {
     slug: 'daily-standup-meeting-template',
     title: 'Daily Standup Meeting Template for Fast Team Updates',
@@ -906,7 +908,7 @@ export const pages: SeoPage[] = [
           'Standup content creates a practical bridge between agendas, action items, and project status updates. That makes it unusually useful for internal links and future templates by methodology.',
           'If this page performs, the next natural branches are scrum meeting notes, sprint planning templates, and blocker tracking workflows.'
         ]
-      }
+      },
     ],
     faq: [
       {
@@ -916,9 +918,10 @@ export const pages: SeoPage[] = [
       {
         question: 'Why is this good for ads first?',
         answer: 'Standup intent is broad, practical, and recurring, which makes it a good early traffic page while the site builds more commercial layers around it.'
-      }
+      },
     ]
   },
+
   {
     slug: 'sales-meeting-notes-template',
     title: 'Sales Meeting Notes Template for Pipeline and Deal Reviews',
@@ -962,7 +965,7 @@ export const pages: SeoPage[] = [
           'Team-specific meeting templates tend to convert better than generic content because the user sees a direct fit for their workflow.',
           'Sales is especially attractive because adjacent affiliate categories and future software offers are usually easier to define.'
         ]
-      }
+      },
     ],
     faq: [
       {
@@ -972,9 +975,10 @@ export const pages: SeoPage[] = [
       {
         question: 'Why is this tagged as tool-upsell?',
         answer: 'Because note capture in sales naturally connects to CRM logging, call summaries, reminders, and revenue workflow software.'
-      }
+      },
     ]
   },
+
   {
     slug: 'board-meeting-agenda-template',
     title: 'Board Meeting Agenda Template for Formal Leadership Reviews',
@@ -1028,9 +1032,10 @@ export const pages: SeoPage[] = [
       {
         question: 'What is the best first monetization path here?',
         answer: 'Lead magnets and downloadable template packs are the cleanest first step, followed by internal links to documentation and decision-tracking pages.'
-      }
+      },
     ]
   },
+
   {
     slug: 'sprint-retrospective-template',
     title: 'Sprint Retrospective Template for Better Team Learning',
@@ -1075,7 +1080,7 @@ export const pages: SeoPage[] = [
           'Retrospectives connect meeting documentation with continuous improvement, which is a stronger workflow story than simple note capture alone.',
           'If the site evolves into tools, this page can later support retro boards, action tracking, and recurring meeting templates by methodology.'
         ]
-      }
+      },
     ],
     faq: [
       {
@@ -1085,9 +1090,10 @@ export const pages: SeoPage[] = [
       {
         question: 'Why not build this page later?',
         answer: 'Because it helps the site cover a broader meeting workflow now, making the cluster more defensible and internally connected.'
-      }
+      },
     ]
   },
+
   {
     slug: 'otter-vs-fireflies-vs-fathom',
     title: 'Otter vs Fireflies vs Fathom: Which AI Meeting Tool Fits Best?',
@@ -1132,7 +1138,7 @@ export const pages: SeoPage[] = [
           'Comparison pages like this tend to monetize better than generic informational pages because the visitor is already choosing between recognizable options.',
           'It also gives the site a template for scaling into many vendor-versus-vendor comparisons without leaving the core meeting productivity niche.'
         ]
-      }
+      },
     ],
     faq: [
       {
@@ -1142,9 +1148,10 @@ export const pages: SeoPage[] = [
       {
         question: 'How should this page improve later?',
         answer: 'Add real pricing details, screenshots, integration notes, and scenario-based recommendations for sales, product, and remote teams.'
-      }
+      },
     ]
   },
+
   {
     slug: 'best-ai-meeting-assistants-for-sales',
     title: 'Best AI Meeting Assistants for Sales Teams in 2026',
@@ -1189,7 +1196,7 @@ export const pages: SeoPage[] = [
           'Use-case specificity often improves both rankings and monetization because the visitor sees exactly how the tool fits a revenue workflow.',
           'This page also creates a stronger bridge into future pages about call summaries, CRM note automation, and sales meeting dashboards.'
         ]
-      }
+      },
     ],
     faq: [
       {
@@ -1199,9 +1206,10 @@ export const pages: SeoPage[] = [
       {
         question: 'Why is this more valuable than a generic AI note taker page?',
         answer: 'Because sales intent is tied to revenue outcomes, so software recommendations can be more concrete and commercially stronger.'
-      }
+      },
     ]
   },
+
   {
     slug: 'ai-meeting-minutes-generator',
     title: 'AI Meeting Minutes Generator: Faster Formal Minutes Without the Drag',
@@ -1255,9 +1263,10 @@ export const pages: SeoPage[] = [
       {
         question: 'What should the MVP version look like?',
         answer: 'A basic form that turns structured notes into editable minutes output is enough to validate demand before building transcript uploads or integrations.'
-      }
+      },
     ]
   },
+
   {
     slug: 'meeting-notes-generator',
     title: 'Meeting Notes Generator for Faster Recaps and Action Items',
@@ -1302,7 +1311,7 @@ export const pages: SeoPage[] = [
           'It broadens the site from static examples into utility-oriented intent, which is important if the long-term goal is to build software assets instead of only content assets.',
           'It also supports better internal routing from informational pages toward higher-intent automation queries.'
         ]
-      }
+      },
     ],
     faq: [
       {
@@ -1312,9 +1321,10 @@ export const pages: SeoPage[] = [
       {
         question: 'Could this become a real product page later?',
         answer: 'Yes. It is one of the easiest pages to evolve into a lightweight generator with copy-paste input and exportable output.'
-      }
+      },
     ]
   },
+
   {
     slug: 'ai-meeting-assistant-for-remote-teams',
     title: 'AI Meeting Assistant for Remote Teams: What Actually Matters?',
@@ -1357,7 +1367,7 @@ export const pages: SeoPage[] = [
           'Use-case specificity gives the commercial pages more depth and often attracts visitors who are closer to choosing a tool for a real team problem.',
           'It also opens the door to future remote-work subclusters such as async update templates, meeting recap systems, and decision archives.'
         ]
-      }
+      },
     ],
     faq: [
       {
@@ -1367,9 +1377,10 @@ export const pages: SeoPage[] = [
       {
         question: 'What should this page link to most heavily?',
         answer: 'It should route traffic into the broad money page, vendor comparisons, and remote workflow support pages like checklists and recap templates.'
-      }
+      },
     ]
   },
+
   {
     slug: 'ai-meeting-notes-for-client-calls',
     title: 'AI Meeting Notes for Client Calls: Better Recaps, Less Follow-Up Chaos',
@@ -1414,7 +1425,7 @@ export const pages: SeoPage[] = [
           'Client-call note intent is close to operational pain, which tends to make software suggestions feel more justified and actionable.',
           'It also supports future product ideas like client recap generators, action-item extraction, and approval tracking workflows.'
         ]
-      }
+      },
     ],
     faq: [
       {
@@ -1424,10 +1435,11 @@ export const pages: SeoPage[] = [
       {
         question: 'Why is this stronger than a generic meeting notes page?',
         answer: 'Because the use case is clearer, the workflow pain is sharper, and the monetization path through software recommendations is usually stronger.'
-      }
+      },
     ]
   }
 ,
+
   {
     slug: 'weekly-team-meeting-agenda',
     title: 'Weekly Team Meeting Agenda That Keeps Updates Focused',
@@ -1481,11 +1493,12 @@ export const pages: SeoPage[] = [
       {
         question: 'Why is this page worth adding early?',
         answer: 'Because it is evergreen, internally useful, and likely to support both search traffic and future toolized workflow content.'
-      }
+      },
     ]
   }
 
 ,
+
   {
     slug: 'fireflies-vs-fathom',
     title: 'Fireflies vs Fathom: Which AI Meeting Assistant Is Better for Fast Follow-Up?',
@@ -1529,7 +1542,7 @@ export const pages: SeoPage[] = [
           'Visitors searching this comparison are already evaluating real options, which usually produces more valuable traffic than broad top-of-funnel template queries.',
           'It also supports future expansion into scenario-specific recommendations, pricing tables, and tool screenshots that can improve both trust and monetization.'
         ]
-      }
+      },
     ],
     faq: [
       {
@@ -1539,10 +1552,11 @@ export const pages: SeoPage[] = [
       {
         question: 'How should this page improve over time?',
         answer: 'Add current pricing, setup friction notes, screenshots, and scenario-specific recommendations for sales, customer success, and internal team meetings.'
-      }
+      },
     ]
   }
 ,
+
   {
     slug: 'otter-vs-tldv',
     title: 'Otter vs tl;dv: Which AI Meeting Notes Tool Fits Your Team?',
@@ -1585,7 +1599,7 @@ export const pages: SeoPage[] = [
           'Comparison intent like this usually monetizes better than generic informational content because the visitor is already trying to make a software choice.',
           'It also strengthens the site as a vendor-evaluation resource instead of only a template library, which improves the business upside of the whole asset.'
         ]
-      }
+      },
     ],
     faq: [
       {
@@ -1595,10 +1609,11 @@ export const pages: SeoPage[] = [
       {
         question: 'What should be added later?',
         answer: 'Real feature comparisons, export behavior, pricing notes, and scenario-based recommendations for product, sales, and remote management use cases.'
-      }
+      },
     ]
   }
 ,
+
   {
     slug: 'gong-alternatives-for-small-teams',
     title: 'Best Gong Alternatives for Small Teams That Need Call Notes and Follow-Up',
@@ -1644,7 +1659,7 @@ export const pages: SeoPage[] = [
           'This query catches users with real software budget intent while still letting the site recommend more accessible tools that fit smaller-team economics.',
           'It is also an excellent page for later monetization through vendor-specific affiliate blocks, comparison modules, and vertical landing pages.'
         ]
-      }
+      },
     ],
     faq: [
       {
@@ -1654,10 +1669,11 @@ export const pages: SeoPage[] = [
       {
         question: 'Who is this page best for?',
         answer: 'Startups, agencies, small sales teams, and founder-led revenue teams that want call intelligence benefits without enterprise overhead.'
-      }
+      },
     ]
   }
 ,
+
   {
     slug: 'ai-meeting-assistant-for-customer-success',
     title: 'Best AI Meeting Assistant for Customer Success Teams',
@@ -1702,7 +1718,7 @@ export const pages: SeoPage[] = [
           'Customer success software intent is close to operational value because meeting quality affects retention and expansion, not just internal note hygiene.',
           'That makes tool recommendations easier to justify and opens room for future products like customer recap generators or renewal-risk extraction workflows.'
         ]
-      }
+      },
     ],
     faq: [
       {
@@ -1712,10 +1728,11 @@ export const pages: SeoPage[] = [
       {
         question: 'Why build role-based pages like this?',
         answer: 'Because role-specific intent often converts better than broad category intent and helps the site expand into richer commercial subclusters.'
-      }
+      },
     ]
   }
 ,
+
   {
     slug: 'ai-meeting-assistant-for-product-managers',
     title: 'Best AI Meeting Assistant for Product Managers',
@@ -1759,7 +1776,7 @@ export const pages: SeoPage[] = [
           'Product manager intent is commercially interesting because the workflow pain is recurring, tool-supported, and tied to knowledge quality across teams.',
           'It also creates a bridge from content pages into future tools such as decision extractors, feedback summarizers, and roadmap recap generators.'
         ]
-      }
+      },
     ],
     faq: [
       {
@@ -1769,10 +1786,11 @@ export const pages: SeoPage[] = [
       {
         question: 'What should this page link to internally?',
         answer: 'Decision logs, project status templates, product-team variants, and future recap or synthesis tools are all strong internal link targets.'
-      }
+      },
     ]
   }
 ,
+
   {
     slug: 'ai-meeting-notes-for-recruiters',
     title: 'AI Meeting Notes for Recruiters: Better Interview and Hiring Follow-Up',
@@ -1817,7 +1835,7 @@ export const pages: SeoPage[] = [
           'Recruiting note workflows are operationally repetitive and easy to understand, which makes the query commercially useful without drifting too far from the site’s core note-taking theme.',
           'It also sets up future expansions into interview scorecards, debrief templates, and candidate recap generators.'
         ]
-      }
+      },
     ],
     faq: [
       {
@@ -1827,12 +1845,13 @@ export const pages: SeoPage[] = [
       {
         question: 'What can this page branch into later?',
         answer: 'Interview note templates, hiring debrief examples, recruiter workflow tools, and team-specific comparison pages are all natural next steps.'
-      }
+      },
     ]
   }
 
 
 ,
+
   {
     slug: 'fathom-vs-avoma',
     title: 'Fathom vs Avoma: Which AI Meeting Assistant Is Better for Notes and Follow-Through?',
@@ -1876,7 +1895,7 @@ export const pages: SeoPage[] = [
           'Vendor-vs-vendor pages strengthen the site as a decision engine instead of only a template library, which increases affiliate potential.',
           'They also support future comparison widgets, pricing snapshots, and tool recommendation logic that can become a productized asset later.'
         ]
-      }
+      },
     ],
     faq: [
       {
@@ -1886,10 +1905,11 @@ export const pages: SeoPage[] = [
       {
         question: 'What should this page gain later?',
         answer: 'Add real screenshots, pricing notes, export behavior, and recommendations for specific team sizes or workflows.'
-      }
+      },
     ]
   }
 ,
+
   {
     slug: 'grain-vs-fireflies',
     title: 'Grain vs Fireflies: Which AI Meeting Notes Tool Is Better for Team Workflows?',
@@ -1932,7 +1952,7 @@ export const pages: SeoPage[] = [
           'This page serves explicit evaluation intent, which usually means higher monetization value than top-of-funnel informational pages.',
           'It also prepares the cluster for future matrix-style comparison hubs and tool recommendation flows.'
         ]
-      }
+      },
     ],
     faq: [
       {
@@ -1942,10 +1962,11 @@ export const pages: SeoPage[] = [
       {
         question: 'What should it link to?',
         answer: 'Broader comparison hubs, sales-focused pages, and future tool pages like summary or follow-up generators all make strong internal links.'
-      }
+      },
     ]
   }
 ,
+
   {
     slug: 'ai-meeting-assistant-for-consultants',
     title: 'Best AI Meeting Assistant for Consultants and Client-Facing Advisory Work',
@@ -1990,7 +2011,7 @@ export const pages: SeoPage[] = [
           'Consulting is close to revenue because recap quality affects retention, trust, and delivery speed.',
           'This also opens a path toward future productized assets like client recap generators, action extractors, or template packs for advisory teams.'
         ]
-      }
+      },
     ],
     faq: [
       {
@@ -2000,10 +2021,11 @@ export const pages: SeoPage[] = [
       {
         question: 'What should come after this page?',
         answer: 'Consultant recap templates, client update generators, and service-team comparison pages are natural follow-on assets.'
-      }
+      },
     ]
   }
 ,
+
   {
     slug: 'ai-meeting-notes-for-sales-managers',
     title: 'AI Meeting Notes for Sales Managers: Better Coaching, Handoffs, and Follow-Up',
@@ -2047,7 +2069,7 @@ export const pages: SeoPage[] = [
           'Sales-manager intent sits very near budget and tool evaluation, which makes it stronger than broad meeting-note queries.',
           'It also supports future expansion into coaching templates, objection summaries, and follow-up tools.'
         ]
-      }
+      },
     ],
     faq: [
       {
@@ -2057,10 +2079,11 @@ export const pages: SeoPage[] = [
       {
         question: 'How does this monetize?',
         answer: 'Role-based software recommendation pages are strong for affiliate offers, internal comparison links, and future workflow tools.'
-      }
+      },
     ]
   }
 ,
+
   {
     slug: 'meeting-summary-generator',
     title: 'Meeting Summary Generator: Turn Raw Notes Into a Clear Recap Faster',
@@ -2106,7 +2129,7 @@ export const pages: SeoPage[] = [
           'This is a high-leverage query because it creates a path from SEO content into an actual product surface.',
           'Even before a live tool exists, the page can rank, collect intent, and later become the natural home for a generator MVP.'
         ]
-      }
+      },
     ],
     faq: [
       {
@@ -2116,10 +2139,11 @@ export const pages: SeoPage[] = [
       {
         question: 'What should this page become later?',
         answer: 'A live meeting summary utility, a prompt-powered workflow, or a gated export tool would all fit this page naturally.'
-      }
+      },
     ]
   }
 ,
+
   {
     slug: 'follow-up-email-generator',
     title: 'Follow-Up Email Generator for Meetings, Client Calls, and Next Steps',
@@ -2163,7 +2187,7 @@ export const pages: SeoPage[] = [
           'This page targets a concrete repeated task, which makes it stronger than purely educational content for eventual product conversion.',
           'It also supports a simple MVP path: paste notes in, generate a follow-up draft, and export the result.'
         ]
-      }
+      },
     ],
     faq: [
       {
@@ -2173,44 +2197,13 @@ export const pages: SeoPage[] = [
       {
         question: 'What could the MVP be?',
         answer: 'A lightweight input form that turns notes into a polished email draft would be enough to start validating real product intent.'
-      }
+      },
     ]
   }
 
 
 ,
-  {
-    slug: 'email-template',
-    title: 'Email Template',
-    description: 'Download and customize this email template to improve your workflow. Includes examples and best practices.',
-    eyebrow: 'Template page',
-    intro: [
-      'This template page provides ready-to-use formats for email template.',
-      'Templates are evergreen content that attracts consistent search traffic.'
-    ],
-    targetKeyword: 'email template',
-    category: 'template',
-    monetizationPrimary: 'ads',
-    ctaLabel: 'See commercial comparisons',
-    ctaHref: '/pages/best-ai-meeting-assistants/',
-    relatedSlugs: ['best-ai-meeting-assistants', 'meeting-summary-examples'],
-    sections: [
-      {
-        type: 'paragraphs',
-        heading: 'How to use this template',
-        paragraphs: [
-          'Copy the template structure and customize it for your specific needs.',
-          'Use this as a starting point and adapt sections to your workflow.'
-        ]
-      }
-    ],
-    faq: [
-      {
-        question: 'Can I download this template?',
-        answer: 'Yes, you can copy the template or request a downloadable version via email.'
-      }
-    ]
-  },
+
   {
     slug: 'meeting-notes-template-word',
     title: 'Meeting Notes Template Word',
@@ -2234,15 +2227,16 @@ export const pages: SeoPage[] = [
           'Copy the template structure and customize it for your specific needs.',
           'Use this as a starting point and adapt sections to your workflow.'
         ]
-      }
+      },
     ],
     faq: [
       {
         question: 'Can I download this template?',
         answer: 'Yes, you can copy the template or request a downloadable version via email.'
-      }
+      },
     ]
   },
+
   {
     slug: 'meeting-notes-template-free',
     title: 'Meeting Notes Template Free',
@@ -2266,15 +2260,16 @@ export const pages: SeoPage[] = [
           'Copy the template structure and customize it for your specific needs.',
           'Use this as a starting point and adapt sections to your workflow.'
         ]
-      }
+      },
     ],
     faq: [
       {
         question: 'Can I download this template?',
         answer: 'Yes, you can copy the template or request a downloadable version via email.'
-      }
+      },
     ]
   },
+
   {
     slug: 'meeting-notes-template-onenote',
     title: 'Meeting Notes Template Onenote',
@@ -2298,15 +2293,16 @@ export const pages: SeoPage[] = [
           'Copy the template structure and customize it for your specific needs.',
           'Use this as a starting point and adapt sections to your workflow.'
         ]
-      }
+      },
     ],
     faq: [
       {
         question: 'Can I download this template?',
         answer: 'Yes, you can copy the template or request a downloadable version via email.'
-      }
+      },
     ]
   },
+
   {
     slug: 'meeting-notes-template-excel',
     title: 'Meeting Notes Template Excel',
@@ -2330,15 +2326,16 @@ export const pages: SeoPage[] = [
           'Copy the template structure and customize it for your specific needs.',
           'Use this as a starting point and adapt sections to your workflow.'
         ]
-      }
+      },
     ],
     faq: [
       {
         question: 'Can I download this template?',
         answer: 'Yes, you can copy the template or request a downloadable version via email.'
-      }
+      },
     ]
   },
+
   {
     slug: 'meeting-notes-template-pdf',
     title: 'Meeting Notes Template Pdf',
@@ -2362,15 +2359,16 @@ export const pages: SeoPage[] = [
           'Copy the template structure and customize it for your specific needs.',
           'Use this as a starting point and adapt sections to your workflow.'
         ]
-      }
+      },
     ],
     faq: [
       {
         question: 'Can I download this template?',
         answer: 'Yes, you can copy the template or request a downloadable version via email.'
-      }
+      },
     ]
   },
+
   {
     slug: 'meeting-notes-template-notion',
     title: 'Meeting Notes Template Notion',
@@ -2394,15 +2392,16 @@ export const pages: SeoPage[] = [
           'Copy the template structure and customize it for your specific needs.',
           'Use this as a starting point and adapt sections to your workflow.'
         ]
-      }
+      },
     ],
     faq: [
       {
         question: 'Can I download this template?',
         answer: 'Yes, you can copy the template or request a downloadable version via email.'
-      }
+      },
     ]
   },
+
   {
     slug: 'meeting-notes-template-obsidian',
     title: 'Meeting Notes Template Obsidian',
@@ -2426,15 +2425,16 @@ export const pages: SeoPage[] = [
           'Copy the template structure and customize it for your specific needs.',
           'Use this as a starting point and adapt sections to your workflow.'
         ]
-      }
+      },
     ],
     faq: [
       {
         question: 'Can I download this template?',
         answer: 'Yes, you can copy the template or request a downloadable version via email.'
-      }
+      },
     ]
   },
+
   {
     slug: 'meeting-notes-template-printable',
     title: 'Meeting Notes Template Printable',
@@ -2458,928 +2458,17 @@ export const pages: SeoPage[] = [
           'Copy the template structure and customize it for your specific needs.',
           'Use this as a starting point and adapt sections to your workflow.'
         ]
-      }
+      },
     ],
     faq: [
       {
         question: 'Can I download this template?',
         answer: 'Yes, you can copy the template or request a downloadable version via email.'
-      }
+      },
     ]
   }
 ,
-  {
-    slug: 'documentation-generator',
-    title: 'Documentation Generator',
-    description: 'Free online documentation generator. Easy to use, no signup required. Generate, calculate, or convert instantly in your browser.',
-    eyebrow: 'Interactive tool',
-    intro: [
-      'This interactive tool helps you with documentation generator.',
-      'Use this free online tool to save time and improve your workflow.'
-    ],
-    targetKeyword: 'documentation generator',
-    category: 'tool',
-    monetizationPrimary: 'ads',
-    ctaLabel: 'Try our other tools',
-    ctaHref: '/pages/',
-    relatedSlugs: ['online-calculator', 'password-generator'],
-    sections: [
-      {
-        type: 'paragraphs',
-        heading: 'How to use this tool',
-        paragraphs: [
-          'Enter your input in the fields provided.',
-          'Click the action button to process.',
-          'Copy or download your results.'
-        ]
-      },
-      {
-        type: 'bullets',
-        heading: 'Features',
-        items: [
-          { text: 'Free to use with no registration required' },
-          { text: 'Works directly in your browser' },
-          { text: 'Fast and reliable results' }
-        ]
-      }
-    ],
-    faq: [
-      {
-        question: 'Is this tool free?',
-        answer: 'Yes, this tool is completely free to use with no hidden charges.'
-      },
-      {
-        question: 'Do I need to create an account?',
-        answer: 'No, you can use this tool without creating an account.'
-      }
-    ]
-  },
-  {
-    slug: 'online-calculator',
-    title: 'Online Calculator',
-    description: 'Free online online calculator. Easy to use, no signup required. Generate, calculate, or convert instantly in your browser.',
-    eyebrow: 'Interactive tool',
-    intro: [
-      'This interactive tool helps you with online calculator.',
-      'Use this free online tool to save time and improve your workflow.'
-    ],
-    targetKeyword: 'online calculator',
-    category: 'tool',
-    monetizationPrimary: 'ads',
-    ctaLabel: 'Try our other tools',
-    ctaHref: '/pages/',
-    relatedSlugs: ['online-calculator', 'password-generator'],
-    sections: [      {
-        type: 'tool',
-        toolType: 'calculator',
-        toolTitle: 'Online Calculator',
-        heading: 'Calculator Tool'
-      },
-      {
-        type: 'paragraphs',
-        heading: 'Calculator Features',
-        paragraphs: [
-          'Basic arithmetic operations: add, subtract, multiply, divide.',
-          'Percentage calculations and number negation.',
-          'Calculation history for reference.',
-          'Keyboard support for quick input.'
-        ]
-      },
-      {
-        type: 'bullets',
-        heading: 'Features',
-        items: [
-          { text: 'Free to use with no registration required' },
-          { text: 'Works directly in your browser' },
-          { text: 'Fast and reliable results' }
-        ]
-      }],
-    faq: [
-      {
-        question: 'Is this tool free?',
-        answer: 'Yes, this tool is completely free to use with no hidden charges.'
-      },
-      {
-        question: 'Do I need to create an account?',
-        answer: 'No, you can use this tool without creating an account.'
-      }
-    ]
-  },
-  {
-    slug: 'pdf-converter',
-    title: 'Pdf Converter',
-    description: 'Free online pdf converter. Easy to use, no signup required. Generate, calculate, or convert instantly in your browser.',
-    eyebrow: 'Interactive tool',
-    intro: [
-      'This interactive tool helps you with pdf converter.',
-      'Use this free online tool to save time and improve your workflow.'
-    ],
-    targetKeyword: 'pdf converter',
-    category: 'tool',
-    monetizationPrimary: 'ads',
-    ctaLabel: 'Try our other tools',
-    ctaHref: '/pages/',
-    relatedSlugs: ['online-calculator', 'password-generator'],
-    sections: [
-      {
-        type: 'paragraphs',
-        heading: 'How to use this tool',
-        paragraphs: [
-          'Enter your input in the fields provided.',
-          'Click the action button to process.',
-          'Copy or download your results.'
-        ]
-      },
-      {
-        type: 'bullets',
-        heading: 'Features',
-        items: [
-          { text: 'Free to use with no registration required' },
-          { text: 'Works directly in your browser' },
-          { text: 'Fast and reliable results' }
-        ]
-      }
-    ],
-    faq: [
-      {
-        question: 'Is this tool free?',
-        answer: 'Yes, this tool is completely free to use with no hidden charges.'
-      },
-      {
-        question: 'Do I need to create an account?',
-        answer: 'No, you can use this tool without creating an account.'
-      }
-    ]
-  },
-  {
-    slug: 'timestamp-converter',
-    title: 'Timestamp Converter',
-    description: 'Free online timestamp converter. Easy to use, no signup required. Generate, calculate, or convert instantly in your browser.',
-    eyebrow: 'Interactive tool',
-    intro: [
-      'This interactive tool helps you with timestamp converter.',
-      'Use this free online tool to save time and improve your workflow.'
-    ],
-    targetKeyword: 'timestamp converter',
-    category: 'tool',
-    monetizationPrimary: 'ads',
-    ctaLabel: 'Try our other tools',
-    ctaHref: '/pages/',
-    relatedSlugs: ['online-calculator', 'password-generator'],
-    sections: [      {
-        type: 'tool',
-        toolType: 'timestamp-converter',
-        toolTitle: 'Timestamp Converter',
-        heading: 'Timestamp Converter Tool'
-      },
-      {
-        type: 'paragraphs',
-        heading: 'How to use this tool',
-        paragraphs: [
-          'Enter a Unix timestamp or select a date/time.',
-          'Click the conversion buttons to transform between formats.',
-          'Use quick convert buttons for common time offsets.',
-          'Copy any result format with one click.'
-        ]
-      },
-      {
-        type: 'bullets',
-        heading: 'Features',
-        items: [
-          { text: 'Free to use with no registration required' },
-          { text: 'Works directly in your browser' },
-          { text: 'Fast and reliable results' }
-        ]
-      }],
-    faq: [
-      {
-        question: 'Is this tool free?',
-        answer: 'Yes, this tool is completely free to use with no hidden charges.'
-      },
-      {
-        question: 'Do I need to create an account?',
-        answer: 'No, you can use this tool without creating an account.'
-      }
-    ]
-  },
-  {
-    slug: 'hash-generator',
-    title: 'Hash Generator',
-    description: 'Free online hash generator. Easy to use, no signup required. Generate, calculate, or convert instantly in your browser.',
-    eyebrow: 'Interactive tool',
-    intro: [
-      'This interactive tool helps you with hash generator.',
-      'Use this free online tool to save time and improve your workflow.'
-    ],
-    targetKeyword: 'hash generator',
-    category: 'tool',
-    monetizationPrimary: 'ads',
-    ctaLabel: 'Try our other tools',
-    ctaHref: '/pages/',
-    relatedSlugs: ['online-calculator', 'password-generator'],
-    sections: [
-      {
-        type: 'paragraphs',
-        heading: 'How to use this tool',
-        paragraphs: [
-          'Enter your input in the fields provided.',
-          'Click the action button to process.',
-          'Copy or download your results.'
-        ]
-      },
-      {
-        type: 'bullets',
-        heading: 'Features',
-        items: [
-          { text: 'Free to use with no registration required' },
-          { text: 'Works directly in your browser' },
-          { text: 'Fast and reliable results' }
-        ]
-      }
-    ],
-    faq: [
-      {
-        question: 'Is this tool free?',
-        answer: 'Yes, this tool is completely free to use with no hidden charges.'
-      },
-      {
-        question: 'Do I need to create an account?',
-        answer: 'No, you can use this tool without creating an account.'
-      }
-    ]
-  },
-  {
-    slug: 'json-formatter',
-    title: 'Json Formatter Template',
-    description: 'Download and customize this json formatter to improve your workflow. Includes examples and best practices.',
-    eyebrow: 'Template page',
-    intro: [
-      'This template page provides ready-to-use formats for json formatter.',
-      'Templates are evergreen content that attracts consistent search traffic.'
-    ],
-    targetKeyword: 'json formatter',
-    category: 'template',
-    monetizationPrimary: 'ads',
-    ctaLabel: 'See commercial comparisons',
-    ctaHref: '/pages/best-ai-meeting-assistants/',
-    relatedSlugs: ['best-ai-meeting-assistants', 'meeting-summary-examples'],
-    sections: [      {
-        type: 'tool',
-        toolType: 'json-formatter',
-        toolTitle: 'JSON Formatter & Validator',
-        heading: 'JSON Formatter Tool'
-      },
-      {
-        type: 'paragraphs',
-        heading: 'How to use this tool',
-        paragraphs: [
-          'Paste your JSON data into the input field above.',
-          'Click "Format & Validate" to beautify and check your JSON.',
-          'Use "Minify" to compress JSON for production use.',
-          'Copy the formatted output with one click.'
-        ]
-      },
-      {
-        type: 'bullets',
-        heading: 'Features',
-        items: [
-          { text: 'Free to use with no registration required' },
-          { text: 'Works directly in your browser' },
-          { text: 'Fast and reliable results' }
-        ]
-      }],
-    faq: [
-      {
-        question: 'Can I download this template?',
-        answer: 'Yes, you can copy the template or request a downloadable version via email.'
-      }
-    ]
-  },
-  {
-    slug: 'github-readme-template-generator',
-    title: 'Github Readme Template Generator',
-    description: 'Download and customize this github readme template generator to improve your workflow. Includes examples and best practices.',
-    eyebrow: 'Template page',
-    intro: [
-      'This template page provides ready-to-use formats for github readme template generator.',
-      'Templates are evergreen content that attracts consistent search traffic.'
-    ],
-    targetKeyword: 'github readme template generator',
-    category: 'template',
-    monetizationPrimary: 'ads',
-    ctaLabel: 'See commercial comparisons',
-    ctaHref: '/pages/best-ai-meeting-assistants/',
-    relatedSlugs: ['best-ai-meeting-assistants', 'meeting-summary-examples'],
-    sections: [
-      {
-        type: 'paragraphs',
-        heading: 'How to use this template',
-        paragraphs: [
-          'Copy the template structure and customize it for your specific needs.',
-          'Use this as a starting point and adapt sections to your workflow.'
-        ]
-      }
-    ],
-    faq: [
-      {
-        question: 'Can I download this template?',
-        answer: 'Yes, you can copy the template or request a downloadable version via email.'
-      }
-    ]
-  },
-  {
-    slug: 'email-template-generator',
-    title: 'Email Template Generator',
-    description: 'Download and customize this email template generator to improve your workflow. Includes examples and best practices.',
-    eyebrow: 'Template page',
-    intro: [
-      'This template page provides ready-to-use formats for email template generator.',
-      'Templates are evergreen content that attracts consistent search traffic.'
-    ],
-    targetKeyword: 'email template generator',
-    category: 'template',
-    monetizationPrimary: 'ads',
-    ctaLabel: 'See commercial comparisons',
-    ctaHref: '/pages/best-ai-meeting-assistants/',
-    relatedSlugs: ['best-ai-meeting-assistants', 'meeting-summary-examples'],
-    sections: [
-      {
-        type: 'paragraphs',
-        heading: 'How to use this template',
-        paragraphs: [
-          'Copy the template structure and customize it for your specific needs.',
-          'Use this as a starting point and adapt sections to your workflow.'
-        ]
-      }
-    ],
-    faq: [
-      {
-        question: 'Can I download this template?',
-        answer: 'Yes, you can copy the template or request a downloadable version via email.'
-      }
-    ]
-  },
-  {
-    slug: 'documentation-generator-ai',
-    title: 'Documentation Generator Ai',
-    description: 'Free online documentation generator ai. Easy to use, no signup required. Generate, calculate, or convert instantly in your browser.',
-    eyebrow: 'Interactive tool',
-    intro: [
-      'This interactive tool helps you with documentation generator ai.',
-      'Use this free online tool to save time and improve your workflow.'
-    ],
-    targetKeyword: 'documentation generator ai',
-    category: 'tool',
-    monetizationPrimary: 'ads',
-    ctaLabel: 'Try our other tools',
-    ctaHref: '/pages/',
-    relatedSlugs: ['online-calculator', 'password-generator'],
-    sections: [
-      {
-        type: 'paragraphs',
-        heading: 'How to use this tool',
-        paragraphs: [
-          'Enter your input in the fields provided.',
-          'Click the action button to process.',
-          'Copy or download your results.'
-        ]
-      },
-      {
-        type: 'bullets',
-        heading: 'Features',
-        items: [
-          { text: 'Free to use with no registration required' },
-          { text: 'Works directly in your browser' },
-          { text: 'Fast and reliable results' }
-        ]
-      }
-    ],
-    faq: [
-      {
-        question: 'Is this tool free?',
-        answer: 'Yes, this tool is completely free to use with no hidden charges.'
-      },
-      {
-        question: 'Do I need to create an account?',
-        answer: 'No, you can use this tool without creating an account.'
-      }
-    ]
-  },
-  {
-    slug: 'documentation-generator-for-code',
-    title: 'Documentation Generator for Code',
-    description: 'Free online documentation generator for code. Easy to use, no signup required. Generate, calculate, or convert instantly in your browser.',
-    eyebrow: 'Interactive tool',
-    intro: [
-      'This interactive tool helps you with documentation generator for code.',
-      'Use this free online tool to save time and improve your workflow.'
-    ],
-    targetKeyword: 'documentation generator for code',
-    category: 'tool',
-    monetizationPrimary: 'ads',
-    ctaLabel: 'Try our other tools',
-    ctaHref: '/pages/',
-    relatedSlugs: ['online-calculator', 'password-generator'],
-    sections: [
-      {
-        type: 'paragraphs',
-        heading: 'How to use this tool',
-        paragraphs: [
-          'Enter your input in the fields provided.',
-          'Click the action button to process.',
-          'Copy or download your results.'
-        ]
-      },
-      {
-        type: 'bullets',
-        heading: 'Features',
-        items: [
-          { text: 'Free to use with no registration required' },
-          { text: 'Works directly in your browser' },
-          { text: 'Fast and reliable results' }
-        ]
-      }
-    ],
-    faq: [
-      {
-        question: 'Is this tool free?',
-        answer: 'Yes, this tool is completely free to use with no hidden charges.'
-      },
-      {
-        question: 'Do I need to create an account?',
-        answer: 'No, you can use this tool without creating an account.'
-      }
-    ]
-  },
-  {
-    slug: 'password-generator',
-    title: 'Password Generator',
-    description: 'Free online password generator. Easy to use, no signup required. Generate secure, random passwords instantly.',
-    eyebrow: 'Interactive tool',
-    intro: [
-      'This interactive tool helps you generate secure, random passwords.',
-      'Use this free online tool to create strong passwords for your accounts.'
-    ],
-    targetKeyword: 'password generator',
-    category: 'tool',
-    monetizationPrimary: 'ads',
-    ctaLabel: 'Try our other tools',
-    ctaHref: '/pages/',
-    relatedSlugs: ['online-calculator', 'json-formatter'],
-    sections: [
-      {
-        type: 'tool',
-        toolType: 'password-generator',
-        toolTitle: 'Password Generator',
-        heading: 'Password Generator Tool'
-      },
-      {
-        type: 'paragraphs',
-        heading: 'How to use this tool',
-        paragraphs: [
-          'Select your desired password length using the slider.',
-          'Choose which character types to include.',
-          'Click "Generate Password" to create a secure password.',
-          'Copy the password with one click.'
-        ]
-      },
-      {
-        type: 'bullets',
-        heading: 'Features',
-        items: [
-          { text: 'Customizable password length (8-64 characters)' },
-          { text: 'Include uppercase, lowercase, numbers, and symbols' },
-          { text: 'Option to exclude ambiguous characters' },
-          { text: 'Generate multiple passwords at once' }
-        ]
-      }
-    ],
-    faq: [
-      {
-        question: 'Is this password generator secure?',
-        answer: "Yes, this tool uses the browser's built-in cryptographic random number generator for maximum security."
-      },
-      {
-        question: 'Are my passwords stored anywhere?',
-        answer: 'No, all password generation happens locally in your browser. No data is sent to any server.'
-      }
-    ]
-  },
-,
-  {
-    slug: 'documentation-generator-template',
-    title: 'Documentation Generator Template',
-    description: 'Free online documentation generator template. Easy to use, no signup required. Generate, calculate, or convert instantly in your browser.',
-    eyebrow: 'Interactive tool',
-    intro: [
-      'This interactive tool helps you with documentation generator template.',
-      'Use this free online tool to save time and improve your workflow.'
-    ],
-    targetKeyword: 'documentation generator template',
-    category: 'tool',
-    monetizationPrimary: 'ads',
-    ctaLabel: 'Try our other tools',
-    ctaHref: '/pages/',
-    relatedSlugs: ["ai-meeting-minutes-generator", "meeting-notes-generator"],
-    sections: [
-      {
-        type: 'paragraphs',
-        heading: 'How to use this tool',
-        paragraphs: [
-          'Enter your input in the fields provided.',
-          'Click the action button to process.',
-          'Copy or download your results.'
-        ]
-      },
-      {
-        type: 'bullets',
-        heading: 'Features',
-        items: [
-          { text: 'Free to use with no registration required' },
-          { text: 'Works directly in your browser' },
-          { text: 'Fast and reliable results' }
-        ]
-      }
-    ],
-    faq: [
-      {
-        question: 'Is this tool free?',
-        answer: 'Yes, this tool is completely free to use with no hidden charges.'
-      },
-      {
-        question: 'Do I need to create an account?',
-        answer: 'No, you can use this tool without creating an account.'
-      }
-    ]
-  },
-  {
-    slug: 'online-calculator-template',
-    title: 'Online Calculator Template',
-    description: 'Free online online calculator template. Easy to use, no signup required. Generate, calculate, or convert instantly in your browser.',
-    eyebrow: 'Interactive tool',
-    intro: [
-      'This interactive tool helps you with online calculator template.',
-      'Use this free online tool to save time and improve your workflow.'
-    ],
-    targetKeyword: 'online calculator template',
-    category: 'tool',
-    monetizationPrimary: 'ads',
-    ctaLabel: 'Try our other tools',
-    ctaHref: '/pages/',
-    relatedSlugs: ["ai-meeting-minutes-generator", "meeting-notes-generator"],
-    sections: [
-      {
-        type: 'paragraphs',
-        heading: 'How to use this tool',
-        paragraphs: [
-          'Enter your input in the fields provided.',
-          'Click the action button to process.',
-          'Copy or download your results.'
-        ]
-      },
-      {
-        type: 'bullets',
-        heading: 'Features',
-        items: [
-          { text: 'Free to use with no registration required' },
-          { text: 'Works directly in your browser' },
-          { text: 'Fast and reliable results' }
-        ]
-      }
-    ],
-    faq: [
-      {
-        question: 'Is this tool free?',
-        answer: 'Yes, this tool is completely free to use with no hidden charges.'
-      },
-      {
-        question: 'Do I need to create an account?',
-        answer: 'No, you can use this tool without creating an account.'
-      }
-    ]
-  },
-  {
-    slug: 'color-palette-generator-template',
-    title: 'Color Palette Generator Template',
-    description: 'Free online color palette generator template. Easy to use, no signup required. Generate, calculate, or convert instantly in your browser.',
-    eyebrow: 'Interactive tool',
-    intro: [
-      'This interactive tool helps you with color palette generator template.',
-      'Use this free online tool to save time and improve your workflow.'
-    ],
-    targetKeyword: 'color palette generator template',
-    category: 'tool',
-    monetizationPrimary: 'ads',
-    ctaLabel: 'Try our other tools',
-    ctaHref: '/pages/',
-    relatedSlugs: ["ai-meeting-minutes-generator", "meeting-notes-generator"],
-    sections: [
-      {
-        type: 'paragraphs',
-        heading: 'How to use this tool',
-        paragraphs: [
-          'Enter your input in the fields provided.',
-          'Click the action button to process.',
-          'Copy or download your results.'
-        ]
-      },
-      {
-        type: 'bullets',
-        heading: 'Features',
-        items: [
-          { text: 'Free to use with no registration required' },
-          { text: 'Works directly in your browser' },
-          { text: 'Fast and reliable results' }
-        ]
-      }
-    ],
-    faq: [
-      {
-        question: 'Is this tool free?',
-        answer: 'Yes, this tool is completely free to use with no hidden charges.'
-      },
-      {
-        question: 'Do I need to create an account?',
-        answer: 'No, you can use this tool without creating an account.'
-      }
-    ]
-  },
-  {
-    slug: 'pdf-converter-template',
-    title: 'Pdf Converter Template',
-    description: 'Free online pdf converter template. Easy to use, no signup required. Generate, calculate, or convert instantly in your browser.',
-    eyebrow: 'Interactive tool',
-    intro: [
-      'This interactive tool helps you with pdf converter template.',
-      'Use this free online tool to save time and improve your workflow.'
-    ],
-    targetKeyword: 'pdf converter template',
-    category: 'tool',
-    monetizationPrimary: 'ads',
-    ctaLabel: 'Try our other tools',
-    ctaHref: '/pages/',
-    relatedSlugs: ["ai-meeting-minutes-generator", "meeting-notes-generator"],
-    sections: [
-      {
-        type: 'paragraphs',
-        heading: 'How to use this tool',
-        paragraphs: [
-          'Enter your input in the fields provided.',
-          'Click the action button to process.',
-          'Copy or download your results.'
-        ]
-      },
-      {
-        type: 'bullets',
-        heading: 'Features',
-        items: [
-          { text: 'Free to use with no registration required' },
-          { text: 'Works directly in your browser' },
-          { text: 'Fast and reliable results' }
-        ]
-      }
-    ],
-    faq: [
-      {
-        question: 'Is this tool free?',
-        answer: 'Yes, this tool is completely free to use with no hidden charges.'
-      },
-      {
-        question: 'Do I need to create an account?',
-        answer: 'No, you can use this tool without creating an account.'
-      }
-    ]
-  },
-  {
-    slug: 'qr-code-generator-template',
-    title: 'Qr Code Generator Template',
-    description: 'Free online qr code generator template. Easy to use, no signup required. Generate, calculate, or convert instantly in your browser.',
-    eyebrow: 'Interactive tool',
-    intro: [
-      'This interactive tool helps you with qr code generator template.',
-      'Use this free online tool to save time and improve your workflow.'
-    ],
-    targetKeyword: 'qr code generator template',
-    category: 'tool',
-    monetizationPrimary: 'ads',
-    ctaLabel: 'Try our other tools',
-    ctaHref: '/pages/',
-    relatedSlugs: ["ai-meeting-minutes-generator", "meeting-notes-generator"],
-    sections: [
-      {
-        type: 'paragraphs',
-        heading: 'How to use this tool',
-        paragraphs: [
-          'Enter your input in the fields provided.',
-          'Click the action button to process.',
-          'Copy or download your results.'
-        ]
-      },
-      {
-        type: 'bullets',
-        heading: 'Features',
-        items: [
-          { text: 'Free to use with no registration required' },
-          { text: 'Works directly in your browser' },
-          { text: 'Fast and reliable results' }
-        ]
-      }
-    ],
-    faq: [
-      {
-        question: 'Is this tool free?',
-        answer: 'Yes, this tool is completely free to use with no hidden charges.'
-      },
-      {
-        question: 'Do I need to create an account?',
-        answer: 'No, you can use this tool without creating an account.'
-      }
-    ]
-  },
-  {
-    slug: 'password-generator-template',
-    title: 'Password Generator Template',
-    description: 'Free online password generator template. Easy to use, no signup required. Generate, calculate, or convert instantly in your browser.',
-    eyebrow: 'Interactive tool',
-    intro: [
-      'This interactive tool helps you with password generator template.',
-      'Use this free online tool to save time and improve your workflow.'
-    ],
-    targetKeyword: 'password generator template',
-    category: 'tool',
-    monetizationPrimary: 'ads',
-    ctaLabel: 'Try our other tools',
-    ctaHref: '/pages/',
-    relatedSlugs: ["ai-meeting-minutes-generator", "meeting-notes-generator"],
-    sections: [
-      {
-        type: 'paragraphs',
-        heading: 'How to use this tool',
-        paragraphs: [
-          'Enter your input in the fields provided.',
-          'Click the action button to process.',
-          'Copy or download your results.'
-        ]
-      },
-      {
-        type: 'bullets',
-        heading: 'Features',
-        items: [
-          { text: 'Free to use with no registration required' },
-          { text: 'Works directly in your browser' },
-          { text: 'Fast and reliable results' }
-        ]
-      }
-    ],
-    faq: [
-      {
-        question: 'Is this tool free?',
-        answer: 'Yes, this tool is completely free to use with no hidden charges.'
-      },
-      {
-        question: 'Do I need to create an account?',
-        answer: 'No, you can use this tool without creating an account.'
-      }
-    ]
-  },
-  {
-    slug: 'timestamp-converter-template',
-    title: 'Timestamp Converter Template',
-    description: 'Free online timestamp converter template. Easy to use, no signup required. Generate, calculate, or convert instantly in your browser.',
-    eyebrow: 'Interactive tool',
-    intro: [
-      'This interactive tool helps you with timestamp converter template.',
-      'Use this free online tool to save time and improve your workflow.'
-    ],
-    targetKeyword: 'timestamp converter template',
-    category: 'tool',
-    monetizationPrimary: 'ads',
-    ctaLabel: 'Try our other tools',
-    ctaHref: '/pages/',
-    relatedSlugs: ["ai-meeting-minutes-generator", "meeting-notes-generator"],
-    sections: [
-      {
-        type: 'paragraphs',
-        heading: 'How to use this tool',
-        paragraphs: [
-          'Enter your input in the fields provided.',
-          'Click the action button to process.',
-          'Copy or download your results.'
-        ]
-      },
-      {
-        type: 'bullets',
-        heading: 'Features',
-        items: [
-          { text: 'Free to use with no registration required' },
-          { text: 'Works directly in your browser' },
-          { text: 'Fast and reliable results' }
-        ]
-      }
-    ],
-    faq: [
-      {
-        question: 'Is this tool free?',
-        answer: 'Yes, this tool is completely free to use with no hidden charges.'
-      },
-      {
-        question: 'Do I need to create an account?',
-        answer: 'No, you can use this tool without creating an account.'
-      }
-    ]
-  },
-  {
-    slug: 'hash-generator-template',
-    title: 'Hash Generator Template',
-    description: 'Free online hash generator template. Easy to use, no signup required. Generate, calculate, or convert instantly in your browser.',
-    eyebrow: 'Interactive tool',
-    intro: [
-      'This interactive tool helps you with hash generator template.',
-      'Use this free online tool to save time and improve your workflow.'
-    ],
-    targetKeyword: 'hash generator template',
-    category: 'tool',
-    monetizationPrimary: 'ads',
-    ctaLabel: 'Try our other tools',
-    ctaHref: '/pages/',
-    relatedSlugs: ["ai-meeting-minutes-generator", "meeting-notes-generator"],
-    sections: [
-      {
-        type: 'paragraphs',
-        heading: 'How to use this tool',
-        paragraphs: [
-          'Enter your input in the fields provided.',
-          'Click the action button to process.',
-          'Copy or download your results.'
-        ]
-      },
-      {
-        type: 'bullets',
-        heading: 'Features',
-        items: [
-          { text: 'Free to use with no registration required' },
-          { text: 'Works directly in your browser' },
-          { text: 'Fast and reliable results' }
-        ]
-      }
-    ],
-    faq: [
-      {
-        question: 'Is this tool free?',
-        answer: 'Yes, this tool is completely free to use with no hidden charges.'
-      },
-      {
-        question: 'Do I need to create an account?',
-        answer: 'No, you can use this tool without creating an account.'
-      }
-    ]
-  },
-  {
-    slug: 'json-formatter-template',
-    title: 'Json Formatter Template',
-    description: 'Free online json formatter template. Easy to use, no signup required. Generate, calculate, or convert instantly in your browser.',
-    eyebrow: 'Interactive tool',
-    intro: [
-      'This interactive tool helps you with json formatter template.',
-      'Use this free online tool to save time and improve your workflow.'
-    ],
-    targetKeyword: 'json formatter template',
-    category: 'tool',
-    monetizationPrimary: 'ads',
-    ctaLabel: 'Try our other tools',
-    ctaHref: '/pages/',
-    relatedSlugs: ["ai-meeting-minutes-generator", "meeting-notes-generator"],
-    sections: [
-      {
-        type: 'paragraphs',
-        heading: 'How to use this tool',
-        paragraphs: [
-          'Enter your input in the fields provided.',
-          'Click the action button to process.',
-          'Copy or download your results.'
-        ]
-      },
-      {
-        type: 'bullets',
-        heading: 'Features',
-        items: [
-          { text: 'Free to use with no registration required' },
-          { text: 'Works directly in your browser' },
-          { text: 'Fast and reliable results' }
-        ]
-      }
-    ],
-    faq: [
-      {
-        question: 'Is this tool free?',
-        answer: 'Yes, this tool is completely free to use with no hidden charges.'
-      },
-      {
-        question: 'Do I need to create an account?',
-        answer: 'No, you can use this tool without creating an account.'
-      }
-    ]
-  },
+
   {
     slug: 'meeting-notes-template-for-role',
     title: 'Meeting Notes Template for {role}',
@@ -3403,12 +2492,224 @@ export const pages: SeoPage[] = [
           'Copy the template structure and customize it for your specific needs.',
           'Use this as a starting point and adapt sections to your workflow.'
         ]
-      }
+      },
     ],
     faq: [
       {
         question: 'Can I download this template?',
         answer: 'Yes, you can copy the template or request a downloadable version via email.'
+      }
+    ]
+,
+  },
+  {
+    slug: 'async-meeting-notes-best-practices',
+    title: 'Async Meeting Notes Best Practices for Remote Teams',
+    description:
+      'Learn async meeting notes best practices to replace unnecessary live meetings, improve documentation, and keep distributed teams aligned.',
+    eyebrow: 'Best practices guide',
+    intro: [
+      'Async meeting notes are becoming a core workflow for remote-first teams that want to reduce live meeting load without losing decision quality.',
+      'This page targets a growing search demand for structured async communication patterns, especially from teams adopting hybrid or fully remote setups.'
+    ],
+    targetKeyword: 'async meeting notes, async meeting best practices, asynchronous meeting notes template',
+    category: 'template',
+    monetizationPrimary: 'ads',
+    ctaLabel: 'Download the meeting notes template',
+    ctaHref: '/pages/meeting-notes-template/',
+    relatedSlugs: ['meeting-notes-template', 'remote-meeting-checklist', 'meeting-agenda-template'],
+    sections: [
+      {
+        type: 'paragraphs',
+        heading: 'Why async meeting notes are replacing live syncs',
+        paragraphs: [
+          'Many teams run meetings just to share updates that could have been written down. Async meeting notes solve this by turning updates into a structured document that teammates review on their own schedule.',
+          'The key shift is moving from "everyone must attend" to "everyone must read." This reduces calendar load while improving the quality of written decisions.'
+        ]
+      },
+      {
+        type: 'bullets',
+        heading: 'Core async meeting notes structure',
+        items: [
+          { label: 'Purpose statement', text: 'What this async session is trying to decide or align on.' },
+          { label: 'Background context', text: 'Link to docs, data, or prior decisions so readers can catch up fast.' },
+          { label: 'Proposed decision', text: 'State the recommendation clearly so people can approve or push back.' },
+          { label: 'Discussion thread', text: 'A comment section or linked channel for questions and objections.' },
+          { label: 'Deadline for input', text: 'A clear cutoff so the decision does not stall indefinitely.' }
+        ]
+      },
+      {
+        type: 'table',
+        heading: 'Async versus live meetings',
+        columns: ['Aspect', 'Async notes', 'Live meeting'],
+        rows: [
+          ['Time cost', '15 min to write, 10 min to read', '30-60 min per attendee'],
+          ['Decision speed', 'Faster for simple decisions', 'Better for complex debates'],
+          ['Documentation', 'Built-in by default', 'Requires separate note-taking'],
+          ['Timezone friendly', 'Fully async', 'Requires overlap hours'],
+          ['Scalability', 'Scales to large teams easily', 'Gets expensive with headcount']
+        ]
+      },
+      {
+        type: 'cards',
+        heading: 'When to use async notes instead of a meeting',
+        cards: [
+          { title: 'Status updates', description: 'Weekly progress reports, project status, and blocker lists do not need a live call.' },
+          { title: 'Simple decisions', description: 'If the decision has fewer than 3 options and low risk, async is faster.' },
+          { title: 'Information sharing', description: 'Training materials, policy changes, and announcements are better written than spoken.' }
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: 'What tools work best for async meeting notes?',
+        answer: 'Notion, Google Docs, Loom (for video notes), and dedicated async tools like Range or Friday all work well. The format matters more than the tool.'
+      },
+      {
+        question: 'How do you get team buy-in for async meetings?',
+        answer: 'Start with one recurring meeting per week. Convert it to async notes and show the time savings. Most teams adopt the pattern quickly once they see it works.'
+      },
+      {
+        question: 'Can async notes fully replace live meetings?',
+        answer: 'Not entirely. Complex debates, relationship building, and sensitive topics still benefit from live interaction. The goal is to move the right meetings to async, not all meetings.'
+      }
+    ]
+  },
+  {
+    slug: 'meeting-agenda-remote-teams',
+    title: 'Meeting Agenda Template for Remote Teams That Actually Stay Focused',
+    description:
+      'Use this meeting agenda template designed for remote teams to keep virtual calls focused, reduce drift, and end with clear action items.',
+    eyebrow: 'Template page',
+    intro: [
+      'Remote meetings have different failure modes than in-office meetings. They drift faster, lose engagement quicker, and produce worse follow-up documentation.',
+      'This page targets a specific search demand from remote team leads who need an agenda format designed for virtual calls, not adapted from conference room habits.'
+    ],
+    targetKeyword: 'meeting agenda remote teams, remote meeting agenda template, virtual meeting agenda format',
+    category: 'template',
+    monetizationPrimary: 'ads',
+    ctaLabel: 'Pair with the remote meeting checklist',
+    ctaHref: '/pages/remote-meeting-checklist/',
+    relatedSlugs: ['remote-meeting-checklist', 'meeting-agenda-template', 'meeting-notes-template'],
+    sections: [
+      {
+        type: 'paragraphs',
+        heading: 'Why remote meetings need a different agenda format',
+        paragraphs: [
+          'In-person meetings benefit from ambient social cues, side conversations, and shared physical artifacts like whiteboards. Remote meetings lose all of that.',
+          'A remote-first agenda compensates by being more explicit about timing, roles, and handoff points. It also builds in buffers for tech issues and timezone fatigue.'
+        ]
+      },
+      {
+        type: 'bullets',
+        heading: 'Remote meeting agenda template',
+        items: [
+          { label: 'Meeting link and tech check', text: 'Include the video link, dial-in backup, and a note to test audio before start.' },
+          { label: 'Time-boxed topics', text: 'Each topic gets a specific time allocation. Remote meetings drift faster without this.' },
+          { label: 'Facilitator and note-taker', text: 'Assign roles explicitly. In remote calls, silence does not mean agreement.' },
+          { label: 'Screen-share plan', text: 'State which documents or dashboards will be shown so attendees can pre-load them.' },
+          { label: 'Decision points', text: 'Mark which topics need a decision versus which are just updates.' },
+          { label: 'Wrap-up and action items', text: 'Last 5 minutes for confirming owners, deadlines, and next meeting date.' }
+        ]
+      },
+      {
+        type: 'table',
+        heading: 'Remote meeting timing guidelines',
+        columns: ['Meeting type', 'Recommended length', 'Why this works'],
+        rows: [
+          ['Daily standup', '15 minutes max', 'Remote standups that go longer lose engagement fast'],
+          ['Weekly team sync', '30-45 minutes', 'Long enough for updates and one discussion topic'],
+          ['Project review', '45-60 minutes with break', 'Remote attention drops after 45 minutes without a pause'],
+          ['Brainstorming', '30 minutes structured', 'Use async pre-work to make the live session more focused']
+        ]
+      },
+      {
+        type: 'cards',
+        heading: 'Remote-specific agenda add-ons',
+        cards: [
+          { title: 'Async pre-read', description: 'Share documents 24 hours before the meeting so attendees arrive with context, not curiosity.' },
+          { title: 'Chat monitor role', description: 'Assign someone to watch the chat for questions that the speaker might miss.' },
+          { title: 'Recording decision', description: 'State upfront whether the call will be recorded and where the recording will live.' }
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: 'How is this different from a generic meeting agenda?',
+        answer: 'This template accounts for remote-specific issues like timezone coordination, tech failures, screen sharing logistics, and the faster engagement drop-off in virtual calls.'
+      },
+      {
+        question: 'Should every remote meeting use the same agenda?',
+        answer: 'No. The template should be adapted by meeting type. A standup needs a different structure than a quarterly review, but both benefit from explicit time-boxing and role assignment.'
+      }
+    ]
+  },
+  {
+    slug: 'meeting-notes-recovery-guide',
+    title: 'How to Reconstruct Meeting Notes You Forgot to Take',
+    description:
+      'Missed taking notes during a meeting? Use this step-by-step guide to reconstruct meeting notes from recordings, chat logs, and memory.',
+    eyebrow: 'How-to guide',
+    intro: [
+      'Not every meeting gets documented in real time. Sometimes the note-taker was absent, the meeting ran long, or everyone just forgot.',
+      'This page targets a low-competition but high-urgency search query from people who need to recover meeting outcomes after the fact.'
+    ],
+    targetKeyword: 'reconstruct meeting notes, recover meeting notes, how to summarize a meeting after the fact',
+    category: 'template',
+    monetizationPrimary: 'ads',
+    ctaLabel: 'Use a template to avoid this next time',
+    ctaHref: '/pages/meeting-notes-template/',
+    relatedSlugs: ['meeting-notes-template', 'meeting-summary-examples', 'action-items-template'],
+    sections: [
+      {
+        type: 'paragraphs',
+        heading: 'Why meeting notes recovery matters',
+        paragraphs: [
+          'When meeting notes are missing or incomplete, teams lose decisions, action items get dropped, and follow-up stalls. The cost of undocumented meetings compounds over time.',
+          'Having a recovery process is not a substitute for good note-taking habits, but it is a critical safety net for when things go wrong.'
+        ]
+      },
+      {
+        type: 'bullets',
+        heading: 'Step-by-step meeting notes reconstruction',
+        items: [
+          { label: 'Step 1: Check for recordings', text: 'Look for Zoom, Teams, or Google Meet recordings. Many tools auto-save transcripts that can be summarized.' },
+          { label: 'Step 2: Pull chat logs', text: 'Meeting chat often contains links, decisions, and action items shared during the call.' },
+          { label: 'Step 3: Ask attendees for their notes', text: 'Send a quick message asking each attendee to share what they captured or remember.' },
+          { label: 'Step 4: Review calendar invites and prep docs', text: 'The agenda and pre-read materials contain context about what was supposed to be discussed.' },
+          { label: 'Step 5: Rebuild the decision list', text: 'Focus on decisions first, then action items, then context. Do not try to recreate full discussion notes.' },
+          { label: 'Step 6: Fill gaps with questions', text: 'For unclear items, ask specific questions rather than guessing. Accuracy matters more than completeness.' }
+        ]
+      },
+      {
+        type: 'table',
+        heading: 'Recovery method comparison',
+        columns: ['Method', 'Best for', 'Time needed', 'Accuracy'],
+        rows: [
+          ['Recording transcript', 'Meetings with auto-record', '10-15 min to summarize', 'High'],
+          ['Chat log review', 'Meetings with active chat', '5-10 min', 'Medium'],
+          ['Attendee recall', 'Meetings without recordings', '15-30 min (async)', 'Medium-low'],
+          ['Calendar + prep docs', 'Planned meetings', '5-10 min for context', 'High for agenda items']
+        ]
+      },
+      {
+        type: 'cards',
+        heading: 'Prevention tips for next time',
+        cards: [
+          { title: 'Always assign a note-taker', description: 'Rotate the role so it does not fall on one person. Include it in the agenda.' },
+          { title: 'Enable auto-transcription', description: 'Most video tools can auto-transcribe. Turn it on by default for important meetings.' },
+          { title: 'Use a template', description: 'A pre-filled template reduces the friction of starting to take notes. Even partial notes are better than none.' }
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: 'Can AI tools help reconstruct meeting notes?',
+        answer: 'Yes. If you have a recording, tools like Otter.ai, Fireflies, or Fathom can generate transcripts and summaries automatically. Even a raw transcript is easier to work from than memory.'
+      },
+      {
+        question: 'What if there is no recording at all?',
+        answer: 'Use the attendee recall method. Send a structured form asking for: decisions made, action items assigned, and key discussion points. Aggregate responses and fill gaps.'
       }
     ]
   }
