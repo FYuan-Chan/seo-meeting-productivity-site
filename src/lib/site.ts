@@ -2507,7 +2507,8 @@ export const pages: SeoPage[] = [
         answer: 'No, you can use this tool without creating an account.'
       }
     ]
-  },\n  {
+  },
+  {
     slug: 'online-calculator',
     title: 'Online Calculator',
     description: 'Free online online calculator. Easy to use, no signup required. Generate, calculate, or convert instantly in your browser.',
@@ -2552,7 +2553,8 @@ export const pages: SeoPage[] = [
         answer: 'No, you can use this tool without creating an account.'
       }
     ]
-  },\n  {
+  },
+  {
     slug: 'pdf-converter',
     title: 'Pdf Converter',
     description: 'Free online pdf converter. Easy to use, no signup required. Generate, calculate, or convert instantly in your browser.',
@@ -2597,7 +2599,8 @@ export const pages: SeoPage[] = [
         answer: 'No, you can use this tool without creating an account.'
       }
     ]
-  },\n  {
+  },
+  {
     slug: 'timestamp-converter',
     title: 'Timestamp Converter',
     description: 'Free online timestamp converter. Easy to use, no signup required. Generate, calculate, or convert instantly in your browser.',
@@ -2642,7 +2645,8 @@ export const pages: SeoPage[] = [
         answer: 'No, you can use this tool without creating an account.'
       }
     ]
-  },\n  {
+  },
+  {
     slug: 'hash-generator',
     title: 'Hash Generator',
     description: 'Free online hash generator. Easy to use, no signup required. Generate, calculate, or convert instantly in your browser.',
@@ -2687,7 +2691,8 @@ export const pages: SeoPage[] = [
         answer: 'No, you can use this tool without creating an account.'
       }
     ]
-  },\n  {
+  },
+  {
     slug: 'json-formatter',
     title: 'Json Formatter Template',
     description: 'Download and customize this json formatter to improve your workflow. Includes examples and best practices.',
@@ -2718,7 +2723,8 @@ export const pages: SeoPage[] = [
         answer: 'Yes, you can copy the template or request a downloadable version via email.'
       }
     ]
-  },\n  {
+  },
+  {
     slug: 'github-readme-template-generator',
     title: 'Github Readme Template Generator',
     description: 'Download and customize this github readme template generator to improve your workflow. Includes examples and best practices.',
@@ -2749,7 +2755,8 @@ export const pages: SeoPage[] = [
         answer: 'Yes, you can copy the template or request a downloadable version via email.'
       }
     ]
-  },\n  {
+  },
+  {
     slug: 'email-template-generator',
     title: 'Email Template Generator',
     description: 'Download and customize this email template generator to improve your workflow. Includes examples and best practices.',
@@ -2780,7 +2787,8 @@ export const pages: SeoPage[] = [
         answer: 'Yes, you can copy the template or request a downloadable version via email.'
       }
     ]
-  },\n  {
+  },
+  {
     slug: 'documentation-generator-ai',
     title: 'Documentation Generator Ai',
     description: 'Free online documentation generator ai. Easy to use, no signup required. Generate, calculate, or convert instantly in your browser.',
@@ -2825,7 +2833,8 @@ export const pages: SeoPage[] = [
         answer: 'No, you can use this tool without creating an account.'
       }
     ]
-  },\n  {
+  },
+  {
     slug: 'documentation-generator-for-code',
     title: 'Documentation Generator for Code',
     description: 'Free online documentation generator for code. Easy to use, no signup required. Generate, calculate, or convert instantly in your browser.',
