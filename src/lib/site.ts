@@ -131,9 +131,9 @@ export const siteConfig = {
   siteUrl: siteUrlFromEnv,
   language: 'en',
   niche: 'AI meeting notes and meeting productivity',
-  heroTitle: 'Meeting productivity tools, templates, and workflows for remote teams.',
+  heroTitle: 'AI tool comparisons and productivity guides for modern teams.',
   heroDescription:
-    'SignalForges is a focused meeting productivity hub covering AI meeting assistants, meeting note templates, async meeting workflows, and remote team collaboration tools.',
+    'SignalForges is an AI tools comparison hub covering ChatGPT, Claude, coding assistants, writing tools, and productivity apps with in-depth reviews and real usage data.',
   primaryCta: {
     label: 'Open the money page',
     href: '/pages/best-ai-meeting-assistants/'
