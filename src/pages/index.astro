@@ -11,10 +11,25 @@ const meetingPages = getAllPageEntries().filter(p =>
 );
 const canonicalPath = buildCanonicalUrl(siteConfig.siteUrl, '/');
 
-// Featured articles (first 3 AI tool pages)
-const featuredPages = aiToolPages.slice(0, 3);
-// Latest articles (last 6 pages)
-const latestPages = pages.slice(-6).reverse();
+// Featured articles: latest briefing + related articles
+const briefingPages = aiToolPages.filter(p => p.slug.startsWith('ai-briefing-')).sort((a, b) => b.slug.localeCompare(a.slug));
+const latestBriefing = briefingPages[0];
+
+let featuredPages = [];
+if (latestBriefing) {
+  // Get related pages from the briefing
+  const relatedSlugs = latestBriefing.relatedSlugs || [];
+  const relatedPages = relatedSlugs.map(slug => aiToolPages.find(p => p.slug === slug)).filter(Boolean);
+  
+  // Combine: briefing first, then related pages (up to 3 total)
+  featuredPages = [latestBriefing, ...relatedPages.slice(0, 2)];
+} else {
+  // Fallback: first 3 AI tool pages
+  featuredPages = aiToolPages.slice(0, 3);
+}
+
+// Latest articles (last 6 pages, excluding featured)
+const latestPages = pages.filter(p => !featuredPages.includes(p)).slice(-6).reverse();
 ---
 
 <BaseLayout
