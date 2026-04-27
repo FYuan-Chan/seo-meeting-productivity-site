@@ -1,0 +1,112 @@
+{
+  "date": "2026-04-27",
+  "selection": {
+    "值得深入分析": [
+      {
+        "repo": "mattpocock/skills",
+        "stars": 2519,
+        "reason": "高增长、解决真实痛点"
+      },
+      {
+        "repo": "abhigyanpatwari/GitNexus",
+        "stars": 700,
+        "reason": "AI/开源相关、有教育价值"
+      }
+    ],
+    "了解即可": [
+      {
+        "repo": "Z4nzu/hackingtool",
+        "stars": 1720,
+        "reason": "适合入门、专业人士用Kali"
+      },
+      {
+        "repo": "Alishahryar1/free-claude-code",
+        "stars": 1701,
+        "reason": "可能违反服务条款、有风险"
+      },
+      {
+        "repo": "codecrafters-io/build-your-own-x",
+        "stars": 1075,
+        "reason": "中等增长、有实用价值"
+      }
+    ],
+    "不推荐": []
+  },
+  "detailedRepos": [
+    {
+      "fullName": "mattpocock/skills",
+      "description": "Agent Skills for real engineers. Straight from my .claude directory.",
+      "language": "Shell",
+      "stars": 0,
+      "todayStars": 2519,
+      "forks": 0,
+      "url": "https://github.com/mattpocock/skills",
+      "fetchedAt": "2026-04-27T06:46:40.819Z",
+      "period": "daily",
+      "readmeSummary": "# Agent Skills For Real Engineers\n\nMy agent skills that I use every day to do real engineering - not vibe coding.\n\nIf you want to keep up with changes to these skills, and any new ones I create, you c",
+      "lastCommit": "Unknown",
+      "openIssues": 0,
+      "authorType": "Unknown"
+    },
+    {
+      "fullName": "Z4nzu/hackingtool",
+      "description": "ALL IN ONE Hacking Tool For Hackers",
+      "language": "Python",
+      "stars": 0,
+      "todayStars": 1720,
+      "forks": 0,
+      "url": "https://github.com/Z4nzu/hackingtool",
+      "fetchedAt": "2026-04-27T06:46:40.819Z",
+      "period": "daily",
+      "readmeSummary": "<div align=\"center\">\n\n<img src=\"images/logo.svg\" alt=\"HackingTool\" width=\"600\">\n\n<p><b>All-in-One Hacking Tool for Security Researchers & Pentesters</b></p>\n\n[![License](https://img.shields.io/github/",
+      "lastCommit": "Unknown",
+      "openIssues": 0,
+      "authorType": "Unknown"
+    },
+    {
+      "fullName": "Alishahryar1/free-claude-code",
+      "description": "Use claude-code for free in the terminal, VSCode extension or via discord like openclaw",
+      "language": "Python",
+      "stars": 0,
+      "todayStars": 1701,
+      "forks": 0,
+      "url": "https://github.com/Alishahryar1/free-claude-code",
+      "fetchedAt": "2026-04-27T06:46:40.819Z",
+      "period": "daily",
+      "readmeSummary": "<div align=\"center\">\n\n# 🤖 Free Claude Code\n\n### Use Claude Code CLI & VSCode for free. No Anthropic API key required.\n\n[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-th",
+      "lastCommit": "Unknown",
+      "openIssues": 0,
+      "authorType": "Unknown"
+    },
+    {
+      "fullName": "codecrafters-io/build-your-own-x",
+      "description": "Master programming by recreating your favorite technologies from scratch.",
+      "language": "Markdown",
+      "stars": 0,
+      "todayStars": 1075,
+      "forks": 0,
+      "url": "https://github.com/codecrafters-io/build-your-own-x",
+      "fetchedAt": "2026-04-27T06:46:40.819Z",
+      "period": "daily",
+      "readmeSummary": "[![Banner](https://codecrafters.io/images/new-ccgithub-banner.png)](https://codecrafters.io/github-banner)\n\n## Build your own &lt;insert-technology-here&gt;\n\nThis repository is a compilation of well-w",
+      "lastCommit": "Unknown",
+      "openIssues": 0,
+      "authorType": "Unknown"
+    },
+    {
+      "fullName": "abhigyanpatwari/GitNexus",
+      "description": "GitNexus: The Zero-Server Code Intelligence Engine - GitNexus is a client-side knowledge graph creator that runs entirely in your browser. Drop in a GitHub repo or ZIP file, and get an interactive knowledge graph wit a built in Graph RAG Agent. Perfect for code exploration",
+      "language": "TypeScript",
+      "stars": 0,
+      "todayStars": 700,
+      "forks": 0,
+      "url": "https://github.com/abhigyanpatwari/GitNexus",
+      "fetchedAt": "2026-04-27T06:46:40.819Z",
+      "period": "daily",
+      "readmeSummary": "# GitNexus\n⚠️ Important Notice:** GitNexus has NO official cryptocurrency, token, or coin. Any token/coin using the GitNexus name on Pump.fun or any other platform is **not affiliated with, endorsed b",
+      "lastCommit": "Unknown",
+      "openIssues": 0,
+      "authorType": "Unknown"
+    }
+  ]
+}
