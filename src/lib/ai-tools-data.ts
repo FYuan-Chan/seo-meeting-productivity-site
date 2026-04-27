@@ -3717,4 +3717,25 @@ export const aiToolPages: SeoPage[] = [
       { question: 'Which skill should I start with?', answer: 'Start with `to-prd`. It\'s the most practical and helps you generate product requirement documents quickly.' },
     ],
   },
+  {
+    slug: 'ai-briefing-2026-04-27',
+    title: 'AI Daily Briefing 2026-04-27: DeepSeek Price Cut, Qoder Discount, AWS Claude Integration',
+    description: '2026-04-27 AI briefing: DeepSeek API cache hit price drops to 1/10, Qoder Ultimate tier 0.8x limited-time discount, AWS launches Claude Platform integration.',
+    eyebrow: 'AI Daily Briefing',
+    intro: ['Three major AI developments today.', 'DeepSeek reduces API prices, Qoder launches discount, AWS integrates Claude.'],
+    targetKeyword: 'ai daily briefing, deepseek pricing, qoder discount',
+    category: 'ai-comparison',
+    monetizationPrimary: 'ads',
+    ctaLabel: 'Compare AI Tools',
+    ctaHref: '/pages/best-ai-coding-tools/',
+    relatedSlugs: ['chatgpt-vs-claude', 'best-ai-coding-tools'],
+    aiToolMeta: { type: 'comparison', tools: ['DeepSeek', 'Qoder', 'Claude'], lastUpdated: '2026-04-27' },
+    sections: [
+      { type: 'paragraphs', heading: 'Summary', paragraphs: ['DeepSeek API cache hit price reduced to 1/10.', 'Qoder Ultimate tier 0.8x limited-time discount.', 'AWS launches Claude Platform integration service.'] },
+    ],
+    faq: [
+      { question: 'What happened with DeepSeek?', answer: 'DeepSeek reduced API cache hit price to 1/10 of original price.' },
+      { question: 'What is Qoder discount?', answer: 'Qoder Ultimate tier billing multiplier reduced from 1.6x to 0.8x.' },
+    ],
+  },
 ];
