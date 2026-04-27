@@ -153,16 +153,11 @@ const schemas = [
               </h2>
               
               {section.type === 'paragraphs' && (
-                <div class="prose" set:html={section.paragraphs.map(p => {
-                  // Simple markdown rendering
-                  return p
-                    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-                    .replace(/\*(.+?)\*/g, '<em>$1</em>')
-                    .replace(/`(.+?)`/g, '<code>$1</code>')
-                    .replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2">$1</a>')
-                    .replace(/^```(\w+)?\n([\s\S]*?)```$/gm, '<pre><code class="language-$1">$2</code></pre>')
-                    .replace(/\n/g, '<br/>');
-                }).join('<br/>')} />
+                <div class="prose">
+                  {section.paragraphs.map((paragraph) => (
+                    <p>{paragraph}</p>
+                  ))}
+                </div>
               )}
               
               {section.type === 'bullets' && (
