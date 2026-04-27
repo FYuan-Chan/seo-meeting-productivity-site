@@ -3006,4 +3006,45 @@ export const aiToolPages: SeoPage[] = [
       { question: '这些变化对AI工具市场有什么影响？', answer: '三件大事共同推动AI工具市场：1) DeepSeek降价加剧API价格竞争；2) Qoder优惠加剧编程工具价格战；3) AWS整合Claude降低企业采用门槛。整体趋势是AI工具成本降低、易用性提高。' },
     ],
   },
+  {
+    slug: 'github-trending-daily-2026-04-27',
+    title: 'GitHub Trending 每日综述 | 2026-04-27 - 13 个仓库爆火，总增长 9656 stars',
+    description:
+      'GitHub Trending 每日综述 2026-04-27，分析热门仓库趋势和亮点。',
+    eyebrow: 'GitHub Trending',
+    intro: [
+      '# GitHub Trending 每日综述 | 2026-04-27 - 13 个仓库爆火，总增长 9656 stars\n\n> 今日 GitHub Trending 榜单共有 13 个仓库上榜，总增长 9656 stars。AI/Agent 相关仓库占据主导地位，开发者工具和学习资源紧随其后。让我们一起看看今天有哪些值得关注的开源项目！\n\n## 📊 榜单概览\n\n| 指标 | 数值 |...',
+      '本文基于 GitHub Trending 数据分析，提供深度见解和使用建议。',
+    ],
+    targetKeyword: 'github trending, github trending daily 2026 04 27',
+    category: 'github-trending',
+    monetizationPrimary: 'ads',
+    ctaLabel: '查看 GitHub Trending',
+    ctaHref: 'https://github.com/trending',
+    relatedSlugs: [
+      'chatgpt-vs-claude',
+      'best-ai-coding-tools',
+      'github-copilot-vs-cursor',
+    ],
+    aiToolMeta: {
+      type: 'comparison',
+      tools: ['GitHub', 'Open Source', 'Developer Tools'],
+      lastUpdated: '2026-04-27',
+    },
+    sections: [
+      {
+        type: 'paragraphs',
+        heading: '文章内容',
+        paragraphs: [
+          '# GitHub Trending 每日综述 | 2026-04-27 - 13 个仓库爆火，总增长 9656 stars\n\n> 今日 GitHub Trending 榜单共有 13 个仓库上榜，总增长 9656 stars。AI/Agent 相关仓库占据主导地位，开发者工具和学习资源紧随其后。让我们一起看看今天有哪些值得关注的开源项目！\n\n## 📊 榜单概览\n\n| 指标 | 数值 |\n|------|------|\n| **上榜仓库数** | 13 |\n| **总增长 stars** | +9656 |\n| **平均增长** | +742 stars/仓库 |\n| **...',
+          '完整内容请查看文章详情。',
+        ],
+      },
+    ],
+    faq: [
+      { question: 'GitHub Trending 是什么？', answer: 'GitHub Trending 是 GitHub 的热门仓库排行榜，展示当前最受欢迎的开源项目。' },
+      { question: '如何使用 GitHub Trending？', answer: '可以访问 https://github.com/trending 查看每日、每周、每月的热门仓库。' },
+      { question: '如何分析 GitHub Trending 数据？', answer: '可以关注 stars 增长、语言分布、主题分类等指标，了解技术趋势。' },
+    ],
+  },
 ];
