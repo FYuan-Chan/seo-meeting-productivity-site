@@ -4016,7 +4016,7 @@ export const aiToolPages: SeoPage[] = [
     ],
   },
   {
-    slug: 'ai-news-2026-04-27',
+    slug: 'ai-news-2026-04-28',
     title: 'AI Daily Briefing 2026-04-27: DeepSeek Slashes API Prices, Qoder Discounts, AWS Claude Integration',
     description: 'Three AI developments: DeepSeek cuts API cache price to 1/10, Qoder Ultimate 0.8x discount, AWS launches Claude Platform.',
     eyebrow: 'AI News',
@@ -4050,7 +4050,7 @@ export const aiToolPages: SeoPage[] = [
     ],
   },
   {
-    slug: 'free-claude-code-2026-04-27',
+    slug: 'free-claude-code-2026-04-28',
     title: 'free-claude-code: Free Claude Code Access, But at What Cost?',
     description: 'free-claude-code gained +1,701 stars. Free Claude Code access without API key. Warning: may violate Anthropic TOS.',
     eyebrow: 'GitHub Trending',
@@ -4087,7 +4087,7 @@ export const aiToolPages: SeoPage[] = [
     ],
   },
   {
-    slug: 'openclaw-2026-04-27',
+    slug: 'openclaw-2026-04-28',
     title: 'OpenClaw: Your Own Personal AI Assistant Across All Platforms',
     description: 'openclaw gained +627 stars. Personal AI assistant that works on any OS. Local-first, privacy-focused.',
     eyebrow: 'GitHub Trending',
@@ -4123,7 +4123,7 @@ export const aiToolPages: SeoPage[] = [
     ],
   },
   {
-    slug: 'awesome-codex-skills-2026-04-27',
+    slug: 'awesome-codex-skills-2026-04-28',
     title: 'awesome-codex-skills: A Curated List of Practical Codex Skills',
     description: 'awesome-codex-skills gained +517 stars. Curated list of practical skills for Codex CLI and API.',
     eyebrow: 'GitHub Trending',
@@ -4159,7 +4159,7 @@ export const aiToolPages: SeoPage[] = [
     ],
   },
   {
-    slug: 'beads-2026-04-27',
+    slug: 'beads-2026-04-28',
     title: 'Beads: How This Go Project Adds Memory to Your Coding Agent',
     description: 'beads gained +152 stars. Memory upgrade for coding agents. Adds persistent context across sessions.',
     eyebrow: 'GitHub Trending',
@@ -4195,7 +4195,7 @@ export const aiToolPages: SeoPage[] = [
     ],
   },
   {
-    slug: 'typescript-go-2026-04-27',
+    slug: 'typescript-go-2026-04-28',
     title: 'microsoft/typescript-go: Why Microsoft Is Porting TypeScript to Go',
     description: 'typescript-go gained +23 stars. Microsoft porting TypeScript to Go for 10x faster type checking.',
     eyebrow: 'GitHub Trending',
