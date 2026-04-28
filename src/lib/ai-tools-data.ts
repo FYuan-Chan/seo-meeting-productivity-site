@@ -3603,7 +3603,7 @@ export const aiToolPages: SeoPage[] = [
   },
   {
     slug: 'ai-briefing-2026-04-27',
-    title: 'AI Daily Briefing 2026-04-27: DeepSeek Price Cut, Qoder Discount, AWS Claude Integration',
+    title: 'AI Daily Briefing 2026-04-28: DeepSeek Price Cut, Qoder Discount, AWS Claude Integration',
     description: '2026-04-27 AI briefing: DeepSeek API cache hit price drops to 1/10, Qoder Ultimate tier 0.8x limited-time discount, AWS launches Claude Platform integration.',
     eyebrow: 'AI Daily Briefing',
     intro: [
@@ -3719,7 +3719,7 @@ export const aiToolPages: SeoPage[] = [
   },
   {
     slug: 'ai-briefing-2026-04-27',
-    title: 'AI Daily Briefing 2026-04-27: DeepSeek Price Cut, Qoder Discount, AWS Claude Integration',
+    title: 'AI Daily Briefing 2026-04-28: DeepSeek Price Cut, Qoder Discount, AWS Claude Integration',
     description: '2026-04-27 AI briefing: DeepSeek API cache hit price drops to 1/10, Qoder Ultimate tier 0.8x limited-time discount, AWS launches Claude Platform integration.',
     eyebrow: 'AI Daily Briefing',
     intro: ['Three major AI developments today.', 'DeepSeek reduces API prices, Qoder launches discount, AWS integrates Claude.'],
@@ -4017,7 +4017,7 @@ export const aiToolPages: SeoPage[] = [
   },
   {
     slug: 'ai-news-2026-04-28',
-    title: 'AI Daily Briefing 2026-04-27: DeepSeek Slashes API Prices, Qoder Discounts, AWS Claude Integration',
+    title: 'AI Daily Briefing 2026-04-28: DeepSeek Slashes API Prices, Qoder Discounts, AWS Claude Integration',
     description: 'Three AI developments: DeepSeek cuts API cache price to 1/10, Qoder Ultimate 0.8x discount, AWS launches Claude Platform.',
     eyebrow: 'AI News',
     intro: ['DeepSeek reduces API prices, Qoder launches discount, AWS integrates Claude.', 'Three developments that lower barriers for developers.'],
@@ -4228,6 +4228,38 @@ export const aiToolPages: SeoPage[] = [
     faq: [
       { question: 'When will this be ready?', answer: 'Not announced. This is a staging repo for development.' },
       { question: 'Why Go instead of Rust?', answer: 'Microsoft likely chose Go for faster development and existing expertise.' },
+    ],
+  },
+  {
+    slug: 'ai-briefing-2026-04-28',
+    title: 'AI 早报 2026-04-28：mattpocock/skills持续爆火，GitHub Trending热点追踪',
+    description: '2026-04-28 AI早报：mattpocock/skills今日+5645 stars，free-claude-code+2949 stars，AI Agent生态加速发展。',
+    eyebrow: 'AI Daily Briefing',
+    intro: [
+      '今日GitHub Trending：mattpocock/skills持续爆火，+5645 stars。AI Agent生态加速发展。',
+      '关注free-claude-code、GitNexus、microsoft/VibeVoice等热门项目。',
+    ],
+    targetKeyword: 'ai daily briefing, github trending, mattpocock skills, ai agent',
+    category: 'ai-comparison',
+    monetizationPrimary: 'ads',
+    ctaLabel: 'View GitHub Trending',
+    ctaHref: '/pages/github-trending-2026-04-28/',
+    relatedSlugs: ['mattpocock-skills-day2-2026-04-28', 'github-trending-summary-2026-04-28', 'free-claude-code-2026-04-28'],
+    aiToolMeta: { type: 'comparison', tools: ['GitHub', 'AI Agent', 'Claude'], lastUpdated: '2026-04-28' },
+    sections: [
+      {
+        type: 'paragraphs',
+        heading: '今日热点',
+        paragraphs: [
+          'mattpocock/skills 持续爆火，今日+5,645 stars。AI Agent技能生态正在形成。',
+          'free-claude-code +2,949 stars，但有TOS风险。',
+          'microsoft/VibeVoice +757 stars，微软新AI语音项目。',
+        ],
+      },
+    ],
+    faq: [
+      { question: '今日最值得关注的项目是什么？', answer: 'mattpocock/skills，+5,645 stars。如果你用Claude Code，值得安装。' },
+      { question: 'GitHub Trending今日有什么趋势？', answer: 'AI Agent工具链继续主导，特别是技能库和记忆系统。' },
     ],
   },
 ];
