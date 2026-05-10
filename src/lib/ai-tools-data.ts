@@ -4211,9 +4211,9 @@ export const aiToolPages: SeoPage[] = [
         heading: 'Source ledger and methodology',
         paragraphs: [
           'This analysis is based on the following primary sources, accessed on 2026-05-10:',
-          '1. "Validating agentic behavior when correct is not deterministic" by Gaurav Mittal and Reshabh Kumar Sharma, published 2026-05-06 on the GitHub Blog. URL: github.blog/ai-and-ml/generative-ai/validating-agentic-behavior-when-correct-isnt-deterministic/',
-          '2. "Running Codex safely at OpenAI," published 2026-05-08 on openai.com. URL: openai.com/index/running-codex-safely',
-          '3. "Improving token efficiency in GitHub Agentic Workflows" by Landon Cox and Mara Kiefer, published 2026-05-07 on the GitHub Blog. URL: github.blog/ai-and-ml/github-copilot/improving-token-efficiency-in-github-agentic-workflows/',
+          '1. "Validating agentic behavior when correct is not deterministic" by Gaurav Mittal and Reshabh Kumar Sharma, published 2026-05-06 on the GitHub Blog. URL: https://github.blog/ai-and-ml/generative-ai/validating-agentic-behavior-when-correct-isnt-deterministic/',
+          '2. "Running Codex safely at OpenAI," published 2026-05-08 on openai.com. URL: https://openai.com/index/running-codex-safely',
+          '3. "Improving token efficiency in GitHub Agentic Workflows" by Landon Cox and Mara Kiefer, published 2026-05-07 on the GitHub Blog. URL: https://github.blog/ai-and-ml/github-copilot/improving-token-efficiency-in-github-agentic-workflows/',
           'Quantified results (accuracy, ET reduction percentages) are cited directly from these primary sources. No hands-on testing was performed by SignalForges. All claims are attributed to their original authors. Performance figures should be treated as refresh-sensitive and may change as these systems evolve.',
         ],
       },
