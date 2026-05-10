@@ -103,6 +103,46 @@ describe('site metadata', () => {
     expect(articlePageSource).not.toContain('reviewRating');
   });
 
+  it('supports Growth OS visual asset sections inside public articles', () => {
+    expect(articlePageSource).toContain("section.type === 'visual-asset'");
+    expect(articlePageSource).toContain('visual-asset-figure');
+    expect(articlePageSource).toContain('<img');
+  });
+
+  it('counts visual asset section text toward editorial depth checks', () => {
+    const basePage = {
+      slug: 'visual-test',
+      title: 'Visual Test',
+      description: 'Visual support test.',
+      eyebrow: 'Test',
+      intro: ['Intro text.'],
+      targetKeyword: 'visual test',
+      category: 'ai-pillar',
+      monetizationPrimary: 'ads',
+      ctaLabel: 'Read',
+      ctaHref: '/pages/best-ai-coding-tools/',
+      relatedSlugs: [],
+      sections: [],
+      faq: [],
+    } as any;
+    const withVisual = {
+      ...basePage,
+      sections: [
+        {
+          type: 'visual-asset',
+          heading: 'Repo workflow visual',
+          src: '/assets/articles/demo/repo-workflow.svg',
+          alt: 'Repository workflow diagram generated from README evidence',
+          caption: 'A repo workflow card that explains how the collector, evidence ledger, and article gate relate.',
+          evidenceRole: 'evidence',
+          kind: 'repo-workflow',
+        },
+      ],
+    };
+
+    expect(estimateSeoPageContentWords(withVisual)).toBeGreaterThan(estimateSeoPageContentWords(basePage) + 10);
+  });
+
   it('requires a structured evidence ledger for every AdSense review page', () => {
     for (const page of getAdsenseReviewPageEntries()) {
       const profile = getEditorialQualityProfile(page);

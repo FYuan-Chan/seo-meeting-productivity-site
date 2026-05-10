@@ -518,6 +518,7 @@ export function getEditorialQualityProfile(page: SeoPage): EditorialQualityProfi
     types.has('tool-cards') ? 'Tool review cards' : '',
     types.has('pricing-table') ? 'Pricing table' : '',
     types.has('use-case-grid') ? 'Use-case recommender grid' : '',
+    types.has('visual-asset') ? 'Article visual asset' : '',
     types.has('table') ? 'Evidence or decision table' : '',
     types.has('cards') ? 'Structured scenario cards' : '',
     sources.length > 0 ? 'Source ledger table' : '',

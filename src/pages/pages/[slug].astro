@@ -162,6 +162,26 @@ const relatedPages = page.relatedSlugs
             {section.type === 'use-case-grid' && (
               <UseCaseRecommender useCases={section.useCases} />
             )}
+
+            {section.type === 'visual-asset' && (
+              <figure class="visual-asset-figure" data-visual-kind={section.kind} data-evidence-role={section.evidenceRole}>
+                <div class="visual-asset-frame">
+                  <img
+                    src={section.src}
+                    alt={section.alt}
+                    loading="lazy"
+                    decoding="async"
+                    width="1120"
+                    height="640"
+                  />
+                </div>
+                <figcaption>
+                  <span>{section.evidenceRole === 'evidence' ? 'Evidence visual' : 'Explanatory visual'}</span>
+                  {section.caption}
+                  {section.credit && <small>{section.credit}</small>}
+                </figcaption>
+              </figure>
+            )}
           </section>
         ))}
 
@@ -345,6 +365,50 @@ const relatedPages = page.relatedSlugs
 
   @media (max-width: 900px) {
     .tool-cards-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ─── Growth OS visual assets ─── */
+  .visual-asset-figure {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    margin: 0;
+  }
+
+  .visual-asset-frame {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+
+  .visual-asset-frame img {
+    aspect-ratio: 7 / 4;
+    display: block;
+    height: auto;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .visual-asset-figure figcaption {
+    color: var(--color-text-muted);
+    display: grid;
+    font-size: var(--text-sm);
+    gap: var(--space-1);
+    line-height: var(--leading-normal);
+    max-width: var(--measure);
+  }
+
+  .visual-asset-figure figcaption span {
+    color: var(--color-primary-light);
+    font-size: var(--text-xs);
+    font-weight: var(--font-semibold);
+    text-transform: uppercase;
+  }
+
+  .visual-asset-figure figcaption small {
+    color: var(--color-text-subtle);
+    font-size: var(--text-xs);
   }
 
   /* ─── FAQ ─── */

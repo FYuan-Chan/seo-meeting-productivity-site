@@ -60,6 +60,22 @@ export type PageSection =
       heading: string;
       useCases: UseCaseItem[];
     }
+  | {
+      type: 'visual-asset';
+      heading: string;
+      src: string;
+      alt: string;
+      caption: string;
+      evidenceRole: 'evidence' | 'explanatory';
+      kind:
+        | 'article-illustration'
+        | 'architecture-diagram'
+        | 'trend-chart'
+        | 'repo-workflow'
+        | 'concept-explainer'
+        | 'section-visual-card';
+      credit?: string;
+    }
 
 export type ToolCardData = {
   name: string;
@@ -2833,6 +2849,16 @@ export function estimateSeoPageContentWords(page: SeoPage): number {
       return section.plans.map((plan) => Object.values(plan).filter(Boolean).join(' '));
     }
     if ('useCases' in section) return section.useCases.map((item) => `${item.scenario} ${item.recommended} ${item.reason}`);
+    if ('src' in section) {
+      return [
+        section.heading,
+        section.alt,
+        section.caption,
+        section.evidenceRole,
+        section.kind,
+        section.credit ?? '',
+      ];
+    }
     return [];
   });
 

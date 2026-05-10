@@ -57,6 +57,16 @@ function collectPageText(page: ReturnType<typeof getAdsenseReviewPageEntries>[nu
       return section.plans.map((plan) => Object.values(plan).filter(Boolean).join(' '));
     }
     if ('useCases' in section) return section.useCases.map((item) => `${item.scenario} ${item.recommended} ${item.reason}`);
+    if ('src' in section) {
+      return [
+        section.heading,
+        section.alt,
+        section.caption,
+        section.evidenceRole,
+        section.kind,
+        section.credit ?? '',
+      ];
+    }
     return [];
   });
 
