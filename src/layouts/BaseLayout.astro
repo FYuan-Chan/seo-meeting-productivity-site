@@ -11,6 +11,7 @@ interface Props {
   metrics?: HeroMetric[];
   activePath?: string;
   schema?: Record<string, unknown> | Record<string, unknown>[];
+  noindex?: boolean;
 }
 
 const {
@@ -21,7 +22,8 @@ const {
   nav = [],
   metrics = [],
   activePath = '/',
-  schema
+  schema,
+  noindex = false
 } = Astro.props;
 ---
 
@@ -32,6 +34,7 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex,follow" />}
     <link rel="canonical" href={canonicalPath} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />

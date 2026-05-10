@@ -1,0 +1,100 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { buildCanonicalUrl, siteConfig } from '../lib/site';
+
+const canonicalPath = buildCanonicalUrl(siteConfig.siteUrl, '/404.html');
+---
+
+<BaseLayout
+  title={`Page Not Found | ${siteConfig.siteName}`}
+  description="This SignalForges page is not available in the current AdSense recovery sitemap."
+  canonicalPath={canonicalPath}
+  siteName={siteConfig.siteName}
+  nav={siteConfig.nav}
+  metrics={siteConfig.metrics}
+  activePath="/404.html"
+  noindex={true}
+>
+  <main class="not-found-page">
+    <section class="not-found-hero">
+      <div class="container not-found-width">
+        <p class="eyebrow">Recovery mode</p>
+        <h1>Page Not Found</h1>
+        <p>
+          This URL is not part of the current SignalForges public review set. During AdSense recovery,
+          thin drafts, duplicate variants, and experimental pages are removed from the live sitemap.
+        </p>
+        <div class="not-found-actions">
+          <a class="primary-link" href="/">Go to homepage</a>
+          <a class="secondary-link" href="/editorial-policy/">Read editorial policy</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .not-found-page {
+    background: var(--color-bg);
+  }
+
+  .not-found-hero {
+    align-items: center;
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    min-height: 58vh;
+    padding: var(--space-14) 0;
+  }
+
+  .not-found-width {
+    max-width: 760px;
+  }
+
+  .eyebrow {
+    color: #5eead4;
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+    margin: 0 0 var(--space-3);
+    text-transform: uppercase;
+  }
+
+  h1 {
+    color: var(--color-text-bright);
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    line-height: 1;
+    margin: 0 0 var(--space-5);
+  }
+
+  p {
+    color: var(--color-text);
+    font-size: var(--text-lg);
+    line-height: var(--leading-relaxed);
+    margin: 0 0 var(--space-7);
+  }
+
+  .not-found-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+  }
+
+  .primary-link,
+  .secondary-link {
+    border-radius: var(--radius-md);
+    display: inline-flex;
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+    padding: var(--space-3) var(--space-5);
+    text-decoration: none;
+  }
+
+  .primary-link {
+    background: #14b8a6;
+    color: #062b28;
+  }
+
+  .secondary-link {
+    border: 1px solid var(--color-border);
+    color: var(--color-text-bright);
+  }
+</style>
