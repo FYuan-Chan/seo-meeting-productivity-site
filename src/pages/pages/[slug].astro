@@ -7,6 +7,9 @@ import PricingComparison from '../../components/ai-tools/PricingComparison.astro
 import UseCaseRecommender from '../../components/ai-tools/UseCaseRecommender.astro';
 import RelatedComparisons from '../../components/ai-tools/RelatedComparisons.astro';
 import ReviewDisclosure from '../../components/editorial/ReviewDisclosure.astro';
+import SourceLedger from '../../components/editorial/SourceLedger.astro';
+import FactPack from '../../components/editorial/FactPack.astro';
+import ConclusionBox from '../../components/editorial/ConclusionBox.astro';
 import { getEditorialQualityProfile } from '../../lib/editorial-quality';
 
 export function getStaticPaths() {
@@ -140,6 +143,9 @@ const schemas = [
         </div>
 
         <ReviewDisclosure profile={editorialProfile} />
+        <SourceLedger sources={editorialProfile.sources} />
+        <FactPack facts={editorialProfile.factPack} methodology={editorialProfile.methodology} />
+        <ConclusionBox conclusion={editorialProfile.conclusion} riskNotes={editorialProfile.riskNotes} />
 
         <!-- Main Content Sections -->
         <div class="article-body">

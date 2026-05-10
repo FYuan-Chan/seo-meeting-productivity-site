@@ -1,0 +1,108 @@
+---
+import type { EditorialConclusion } from '../../lib/editorial-quality';
+
+interface Props {
+  conclusion: EditorialConclusion;
+  riskNotes: string[];
+}
+
+const { conclusion, riskNotes } = Astro.props;
+---
+
+<section class="conclusion-box" aria-labelledby="editorial-conclusion-heading">
+  <div class="section-kicker">Editorial Conclusion</div>
+  <h2 id="editorial-conclusion-heading">{conclusion.recommendation}</h2>
+
+  <div class="conclusion-grid">
+    <div>
+      <h3>Best for</h3>
+      <p>{conclusion.bestFor}</p>
+    </div>
+    <div>
+      <h3>Avoid when</h3>
+      <p>{conclusion.avoidWhen}</p>
+    </div>
+  </div>
+
+  <div class="risk-notes">
+    <h3>Refresh-sensitive details</h3>
+    <ul>
+      {riskNotes.map((note) => <li>{note}</li>)}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .conclusion-box {
+    background: linear-gradient(180deg, rgba(34, 197, 94, 0.12), rgba(20, 184, 166, 0.08));
+    border: 1px solid rgba(34, 197, 94, 0.26);
+    border-radius: var(--radius-lg);
+    margin: var(--space-8) 0;
+    padding: var(--space-6);
+  }
+
+  .section-kicker {
+    color: #86efac;
+    font-size: var(--text-xs);
+    font-weight: var(--font-semibold);
+    margin-bottom: var(--space-2);
+    text-transform: uppercase;
+  }
+
+  .conclusion-box h2 {
+    color: var(--color-text-bright);
+    font-size: var(--text-xl);
+    line-height: var(--leading-normal);
+    margin: 0 0 var(--space-5);
+  }
+
+  .conclusion-grid {
+    display: grid;
+    gap: var(--space-4);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .conclusion-grid div,
+  .risk-notes {
+    border-top: 1px solid rgba(134, 239, 172, 0.28);
+    padding-top: var(--space-4);
+  }
+
+  .conclusion-box h3 {
+    color: var(--color-text-bright);
+    font-size: var(--text-sm);
+    margin: 0 0 var(--space-2);
+  }
+
+  .conclusion-box p,
+  .conclusion-box li {
+    color: var(--color-text);
+    font-size: var(--text-sm);
+    line-height: var(--leading-normal);
+  }
+
+  .conclusion-box p {
+    margin: 0;
+  }
+
+  .risk-notes {
+    margin-top: var(--space-5);
+  }
+
+  .risk-notes ul {
+    display: grid;
+    gap: var(--space-2);
+    margin: 0;
+    padding-left: var(--space-5);
+  }
+
+  .risk-notes li::marker {
+    color: #86efac;
+  }
+
+  @media (max-width: 720px) {
+    .conclusion-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

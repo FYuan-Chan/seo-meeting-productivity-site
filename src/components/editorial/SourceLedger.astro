@@ -1,0 +1,121 @@
+---
+import type { EditorialSource } from '../../lib/editorial-quality';
+
+interface Props {
+  sources: EditorialSource[];
+}
+
+const { sources } = Astro.props;
+---
+
+<section class="source-ledger" aria-labelledby="source-ledger-heading">
+  <div class="section-kicker">Evidence</div>
+  <h2 id="source-ledger-heading">Source Ledger</h2>
+  <p>
+    These are the primary references used to keep the article grounded. Pricing, limits,
+    benchmark results, and model names are rechecked against the source type shown below.
+  </p>
+
+  <div class="source-table-wrap">
+    <table class="source-table">
+      <thead>
+        <tr>
+          <th>Source</th>
+          <th>Type</th>
+          <th>How it is used</th>
+        </tr>
+      </thead>
+      <tbody>
+        {sources.map((source) => (
+          <tr>
+            <td>
+              <a href={source.url} rel="noopener noreferrer" target="_blank">{source.label}</a>
+            </td>
+            <td>
+              <span>{source.sourceType.replace(/-/g, ' ')}</span>
+            </td>
+            <td>{source.whyUsed}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<style>
+  .source-ledger {
+    border-top: 1px solid var(--color-border);
+    margin: var(--space-8) 0;
+    padding-top: var(--space-7);
+  }
+
+  .section-kicker {
+    color: #93c5fd;
+    font-size: var(--text-xs);
+    font-weight: var(--font-semibold);
+    margin-bottom: var(--space-2);
+    text-transform: uppercase;
+  }
+
+  .source-ledger h2 {
+    color: var(--color-text-bright);
+    font-size: var(--text-2xl);
+    margin: 0 0 var(--space-3);
+  }
+
+  .source-ledger p {
+    color: var(--color-text-muted);
+    line-height: var(--leading-relaxed);
+    margin: 0 0 var(--space-5);
+    max-width: 72ch;
+  }
+
+  .source-table-wrap {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    overflow-x: auto;
+  }
+
+  .source-table {
+    border-collapse: collapse;
+    min-width: 720px;
+    width: 100%;
+  }
+
+  .source-table th,
+  .source-table td {
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-text);
+    font-size: var(--text-sm);
+    line-height: var(--leading-normal);
+    padding: var(--space-4);
+    text-align: left;
+    vertical-align: top;
+  }
+
+  .source-table th {
+    background: var(--color-bg-alt);
+    color: var(--color-text-bright);
+    font-weight: var(--font-semibold);
+  }
+
+  .source-table tr:last-child td {
+    border-bottom: 0;
+  }
+
+  .source-table a {
+    color: var(--color-primary-light);
+    font-weight: var(--font-semibold);
+  }
+
+  .source-table span {
+    background: rgba(59, 130, 246, 0.12);
+    border: 1px solid rgba(59, 130, 246, 0.24);
+    border-radius: var(--radius-sm);
+    color: #bfdbfe;
+    display: inline-block;
+    padding: var(--space-1) var(--space-2);
+    white-space: nowrap;
+  }
+</style>

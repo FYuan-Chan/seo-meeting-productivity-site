@@ -9,6 +9,7 @@ import {
   pageMap,
   siteConfig,
 } from '../src/lib/site';
+import { getEditorialQualityProfile } from '../src/lib/editorial-quality';
 import { trustPages } from '../src/lib/trust-pages';
 
 const baseLayoutSource = readFileSync(
@@ -92,5 +93,21 @@ describe('site metadata', () => {
   it('does not emit Review rating schema during AdSense recovery', () => {
     expect(articlePageSource).not.toContain('getReviewSchema');
     expect(articlePageSource).not.toContain('reviewRating');
+  });
+
+  it('requires a structured evidence ledger for every AdSense review page', () => {
+    for (const page of getAdsenseReviewPageEntries()) {
+      const profile = getEditorialQualityProfile(page);
+
+      expect(Array.isArray(profile.sources), page.slug).toBe(true);
+      expect(profile.sources.length, page.slug).toBeGreaterThanOrEqual(3);
+      expect(profile.sources.every((source) => /^https:\/\//.test(source.url)), page.slug).toBe(true);
+      expect(profile.factPack.length, page.slug).toBeGreaterThanOrEqual(3);
+      expect(profile.methodology.length, page.slug).toBeGreaterThanOrEqual(3);
+      expect(profile.riskNotes.length, page.slug).toBeGreaterThanOrEqual(2);
+      expect(profile.conclusion.recommendation, page.slug).toMatch(/\w/);
+      expect(profile.conclusion.bestFor, page.slug).toMatch(/\w/);
+      expect(profile.conclusion.avoidWhen, page.slug).toMatch(/\w/);
+    }
   });
 });
