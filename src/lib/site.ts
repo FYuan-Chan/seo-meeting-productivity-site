@@ -122,7 +122,7 @@ export type SeoPage = {
 
 const starterMetrics: HeroMetric[] = [
   { label: 'Review pages', value: '15' },
-  { label: 'Current mode', value: 'Quality recovery' },
+  { label: 'Publishing mode', value: 'Evidence first' },
   { label: 'Editorial focus', value: 'AI dev tools' }
 ];
 
@@ -183,9 +183,9 @@ export const siteConfig = {
     ] satisfies FeatureCard[],
     monetizationCards: [
       {
-        title: 'AdSense review first',
+        title: 'Reader value first',
         description:
-          'Advertising scripts and visible ad placeholders stay disabled until the site clears review and quality gates.'
+          'Advertising scripts and visible ad placeholders stay disabled while the site is evaluated for source quality and reader usefulness.'
       },
       {
         title: 'Editorial gates',

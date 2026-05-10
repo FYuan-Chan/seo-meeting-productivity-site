@@ -11,6 +11,7 @@ import SourceLedger from '../../components/editorial/SourceLedger.astro';
 import FactPack from '../../components/editorial/FactPack.astro';
 import ConclusionBox from '../../components/editorial/ConclusionBox.astro';
 import { getEditorialQualityProfile } from '../../lib/editorial-quality';
+import { formatInlineMarkdown } from '../../lib/formatting';
 
 export function getStaticPaths() {
   return getAdsenseReviewPageEntries().map((page) => ({
@@ -159,7 +160,7 @@ const schemas = [
               {section.type === 'paragraphs' && (
                 <div class="prose">
                   {section.paragraphs.map((paragraph) => (
-                    <p>{paragraph}</p>
+                    <p set:html={formatInlineMarkdown(paragraph)} />
                   ))}
                 </div>
               )}
@@ -170,10 +171,10 @@ const schemas = [
                     <li>
                       {item.label ? (
                         <>
-                          <strong>{item.label}:</strong> {item.text}
+                          <strong>{item.label}:</strong> <span set:html={formatInlineMarkdown(item.text)} />
                         </>
                       ) : (
-                        item.text
+                        <span set:html={formatInlineMarkdown(item.text)} />
                       )}
                     </li>
                   ))}
@@ -185,7 +186,7 @@ const schemas = [
                   {section.cards.map((card) => (
                     <article class="feature-card">
                       <h3>{card.title}</h3>
-                      <p>{card.description}</p>
+                      <p set:html={formatInlineMarkdown(card.description)} />
                     </article>
                   ))}
                 </div>
@@ -202,7 +203,7 @@ const schemas = [
                     <tbody>
                       {section.rows.map((row) => (
                         <tr>
-                          {row.map((cell) => <td>{cell}</td>)}
+                          {row.map((cell) => <td set:html={formatInlineMarkdown(cell)} />)}
                         </tr>
                       ))}
                     </tbody>
@@ -246,7 +247,7 @@ const schemas = [
                 <details class="faq-item">
                   <summary class="faq-question">{item.question}</summary>
                   <div class="faq-answer">
-                    <p>{item.answer}</p>
+                    <p set:html={formatInlineMarkdown(item.answer)} />
                   </div>
                 </details>
               ))}
@@ -559,6 +560,26 @@ const schemas = [
 
   .prose p:last-child {
     margin-bottom: 0;
+  }
+
+  .prose strong,
+  .feature-list strong,
+  .data-table strong,
+  .faq-answer strong {
+    color: var(--color-text-bright);
+    font-weight: var(--font-semibold);
+  }
+
+  .prose code,
+  .feature-list code,
+  .data-table code,
+  .faq-answer code {
+    background: rgba(148, 163, 184, 0.12);
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    border-radius: var(--radius-sm);
+    color: #bfdbfe;
+    font-size: 0.92em;
+    padding: 0.1em 0.32em;
   }
 
   /* ─── Feature List ─── */

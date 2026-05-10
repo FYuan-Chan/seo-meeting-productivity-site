@@ -32,10 +32,10 @@ export const trustPages: TrustPage[] = [
         ]
       },
       {
-        heading: 'Review Mode',
+        heading: 'Publishing Standard',
         paragraphs: [
-          'SignalForges is currently in an AdSense recovery and quality review period. Thin or experimental pages are removed from the public index while the site is rebuilt around fewer, stronger resources.',
-          'The live sitemap intentionally contains only selected analysis pages and trust pages during this period.'
+          'SignalForges keeps thin or experimental pages out of the public index while articles are rewritten around clearer evidence, stronger sourcing, and more useful conclusions.',
+          'The live sitemap intentionally contains selected analysis pages and trust pages rather than every draft in the content inventory.'
         ]
       }
     ]
@@ -223,7 +223,7 @@ export const trustPages: TrustPage[] = [
         heading: 'Review Responsibilities',
         paragraphs: [
           'The review role checks source quality, claim specificity, broken links, user value, and whether the article should remain in the public sitemap.',
-          'The publishing role is responsible for build validation, sitemap hygiene, and keeping thin content out of the review set.'
+          'The publishing role is responsible for build validation, sitemap hygiene, and keeping thin content out of the public index.'
         ]
       },
       {

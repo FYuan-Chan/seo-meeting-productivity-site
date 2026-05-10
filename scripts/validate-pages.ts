@@ -10,7 +10,8 @@
  *   --help    Show this help message
  */
 
-import { estimateSeoPageContentWords, getAdsenseReviewPageEntries, getAllPageEntries } from '../src/lib/site.js';
+import { aiToolPages } from '../src/lib/ai-tools-data.js';
+import { estimateSeoPageContentWords, getAdsenseReviewPageEntries, getAllPageEntries, pages as sitePages } from '../src/lib/site.js';
 import type { SeoPage } from '../src/lib/site.js';
 import { trustPages } from '../src/lib/trust-pages.js';
 
@@ -40,7 +41,7 @@ ${BOLD}Options:${RESET}
   --help    Show this help message
 
 ${BOLD}Checks:${RESET}
-  1. Slug uniqueness
+  1. Raw inventory slug uniqueness
   2. AdSense review set size and depth
   3. Review page related slugs validity
   4. FAQ non-empty
@@ -82,7 +83,7 @@ function validateSlugUniqueness(pages: SeoPage[]): ValidationResult {
     }
   }
 
-  return { rule: 'Slug uniqueness', passed: errors.length === 0, errors };
+  return { rule: 'Raw inventory slug uniqueness', passed: errors.length === 0, errors };
 }
 
 function validateRelatedSlugs(pages: SeoPage[]): ValidationResult {
@@ -285,6 +286,7 @@ function validateTrustPages(): ValidationResult {
 function main(): void {
   console.log(`\n${BOLD}🔍 Page Data Validator${RESET}\n`);
 
+  const rawPages = [...sitePages, ...aiToolPages];
   let pages: SeoPage[];
   let reviewPages: SeoPage[];
   try {
@@ -296,10 +298,10 @@ function main(): void {
     process.exit(1);
   }
 
-  console.log(`${DIM}Found ${pages.length} inventory pages; ${reviewPages.length} AdSense review pages${RESET}\n`);
+  console.log(`${DIM}Found ${rawPages.length} raw inventory pages; ${pages.length} deduped inventory pages; ${reviewPages.length} AdSense review pages${RESET}\n`);
 
   const results: ValidationResult[] = [
-    validateSlugUniqueness(pages),
+    validateSlugUniqueness(rawPages),
     validateAdsenseReviewSet(reviewPages),
     validateRelatedSlugs(reviewPages),
     validatePublicInternalLinks(reviewPages),
@@ -331,7 +333,8 @@ function main(): void {
   // Summary
   console.log(`\n${'─'.repeat(50)}`);
   console.log(`${BOLD}Summary:${RESET} ${GREEN}${passCount} passed${RESET}, ${failCount > 0 ? RED : GREEN}${failCount} failed${RESET}`);
-  console.log(`${DIM}Inventory pages checked: ${pages.length}${RESET}`);
+  console.log(`${DIM}Raw inventory pages checked: ${rawPages.length}${RESET}`);
+  console.log(`${DIM}Deduped inventory pages checked: ${pages.length}${RESET}`);
   console.log(`${DIM}Review pages checked: ${reviewPages.length}${RESET}\n`);
 
   if (failCount > 0) {

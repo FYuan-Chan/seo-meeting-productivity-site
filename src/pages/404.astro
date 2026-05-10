@@ -7,7 +7,7 @@ const canonicalPath = buildCanonicalUrl(siteConfig.siteUrl, '/404.html');
 
 <BaseLayout
   title={`Page Not Found | ${siteConfig.siteName}`}
-  description="This SignalForges page is not available in the current AdSense recovery sitemap."
+  description="This SignalForges page is not available in the current public index."
   canonicalPath={canonicalPath}
   siteName={siteConfig.siteName}
   nav={siteConfig.nav}
@@ -18,11 +18,11 @@ const canonicalPath = buildCanonicalUrl(siteConfig.siteUrl, '/404.html');
   <main class="not-found-page">
     <section class="not-found-hero">
       <div class="container not-found-width">
-        <p class="eyebrow">Recovery mode</p>
+        <p class="eyebrow">Not indexed</p>
         <h1>Page Not Found</h1>
         <p>
-          This URL is not part of the current SignalForges public review set. During AdSense recovery,
-          thin drafts, duplicate variants, and experimental pages are removed from the live sitemap.
+          This URL is not part of the current SignalForges public index. Thin drafts, duplicate variants,
+          and experimental pages are removed from navigation until they meet the editorial standard.
         </p>
         <div class="not-found-actions">
           <a class="primary-link" href="/">Go to homepage</a>

@@ -406,19 +406,19 @@ export function getEditorialQualityProfile(page: SeoPage): EditorialQualityProfi
       'SignalForges editorial inventory',
       'https://signalforges.com/editorial-policy/',
       'ecosystem-reference',
-      'Fallback record for pages not yet promoted into the AdSense review sitemap.'
+      'Fallback record for pages not yet promoted into the public index.'
     ),
   ];
   const factPack = ledger?.factPack ?? [
     { claim: 'This page is not yet assigned a full article-level evidence ledger.', evidence: 'Fallback editorial profile.', confidence: 'medium' },
-    { claim: 'The page must not be promoted until sources and conclusions are expanded.', evidence: 'AdSense recovery publishing gate.', confidence: 'high' },
+    { claim: 'The page must not be promoted until sources and conclusions are expanded.', evidence: 'SignalForges publishing gate.', confidence: 'high' },
     { claim: 'Manual review is required before public sitemap inclusion.', evidence: 'SignalForges editorial policy.', confidence: 'high' }
   ];
   const methodology = ledger?.methodology ?? sharedMethodology;
   const conclusion = ledger?.conclusion ?? {
     recommendation: 'Hold this page until a full source ledger and article-specific conclusion are added.',
     bestFor: 'Internal editorial review only.',
-    avoidWhen: 'Do not publish into the recovery sitemap without a complete quality profile.'
+    avoidWhen: 'Do not publish into the public index without a complete quality profile.'
   };
   const riskNotes = ledger?.riskNotes ?? standardRiskNotes;
   const sourceBasis = sources.map((item) => `${item.label}: ${item.whyUsed}`);
@@ -449,7 +449,7 @@ export function getEditorialQualityProfile(page: SeoPage): EditorialQualityProfi
   const reviewerNotes = [
     `Public sitemap status: ${page.slug}.`,
     `Primary intent: ${page.targetKeyword}.`,
-    'Thin historical drafts and duplicated variants are excluded from the review sitemap.',
+    'Thin historical drafts and duplicated variants are excluded from the public index.',
   ];
 
   return {

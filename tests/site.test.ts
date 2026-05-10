@@ -6,10 +6,13 @@ import {
   estimateSeoPageContentWords,
   getAdsenseReviewPageEntries,
   getAllPageEntries,
+  pages as sitePages,
   pageMap,
   siteConfig,
 } from '../src/lib/site';
+import { aiToolPages } from '../src/lib/ai-tools-data';
 import { getEditorialQualityProfile } from '../src/lib/editorial-quality';
+import { formatInlineMarkdown } from '../src/lib/formatting';
 import { trustPages } from '../src/lib/trust-pages';
 
 const baseLayoutSource = readFileSync(
@@ -23,10 +26,13 @@ const articlePageSource = readFileSync(
 
 describe('site metadata', () => {
   it('keeps the raw inventory available while limiting AdSense review pages to a strong whitelist', () => {
+    const rawPages = [...sitePages, ...aiToolPages];
     const pages = getAllPageEntries();
     const reviewPages = getAdsenseReviewPageEntries();
+    const rawSlugs = rawPages.map((page) => page.slug);
     const reviewSlugs = reviewPages.map((page) => page.slug);
 
+    expect(new Set(rawSlugs).size).toBe(rawSlugs.length);
     expect(pages.length).toBeGreaterThanOrEqual(90);
     expect(reviewPages.length).toBeGreaterThanOrEqual(10);
     expect(reviewPages.length).toBeLessThanOrEqual(15);
@@ -109,5 +115,14 @@ describe('site metadata', () => {
       expect(profile.conclusion.bestFor, page.slug).toMatch(/\w/);
       expect(profile.conclusion.avoidWhen, page.slug).toMatch(/\w/);
     }
+  });
+
+  it('renders lightweight article markdown without leaking raw artifacts', () => {
+    const html = formatInlineMarkdown('Use **official docs** before running `npm test`.');
+
+    expect(html).toContain('<strong>official docs</strong>');
+    expect(html).toContain('<code>npm test</code>');
+    expect(html).not.toContain('**official docs**');
+    expect(formatInlineMarkdown('<script>alert(1)</script>')).not.toContain('<script>');
   });
 });

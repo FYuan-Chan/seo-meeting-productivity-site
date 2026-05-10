@@ -26,7 +26,7 @@ type PageAudit = {
   issues: string[];
 };
 
-const MIN_REVIEW_WORDS = 500;
+const MIN_REVIEW_WORDS = 800;
 const MIN_SOURCE_BASIS = 3;
 const MIN_SOURCES = 3;
 const MIN_FACTS = 3;

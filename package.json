@@ -13,6 +13,7 @@
     "gen-page": "npx tsx scripts/generate-page-template.ts",
     "validate": "npx tsx scripts/validate-pages.ts",
     "audit:content": "npx tsx scripts/content-quality-audit.ts",
+    "audit:adsense": "npx tsx scripts/adsense-policy-audit.ts",
     "audit:recovery": "npx tsx scripts/recovery-audit.ts"
   },
   "dependencies": {
