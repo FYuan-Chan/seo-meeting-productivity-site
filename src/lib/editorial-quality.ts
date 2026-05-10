@@ -469,9 +469,9 @@ const editorialLedgers: Record<string, EditorialLedgerSeed> = {
       'Repositories flagged outside editorial scope are included in the ranking for completeness but not recommended.'
     ],
     conclusion: {
-      recommendation: 'Inspect three repositories for different audiences: UI-TARS-desktop for multimodal GUI agent infrastructure, agent-skills for coding agent process standardization, and financial-services for vertical-domain agent deployment patterns.',
-      bestFor: 'Developers and engineering leaders scanning GitHub Trending for production-grade AI developer tools, coding agent methodology, and enterprise agent deployment references.',
-      avoidWhen: 'Avoid treating Trending position as a proxy for production readiness, adoption rate, or code quality. Verify licenses, maintenance cadence, and community health before committing evaluation resources.'
+      recommendation: 'Use this ranking as a triage list: inspect UI-TARS-desktop, agent-skills, and financial-services first; keep watchlist rows separate from risk-only mentions.',
+      bestFor: 'Developers, students, and engineering leaders who want a fast but evidence-grounded read on which GitHub Trending AI repositories deserve follow-up.',
+      avoidWhen: 'Avoid treating Trending position or star gain as adoption proof. Verify licenses, maintenance cadence, issues, and a local run before committing evaluation resources.'
     },
     riskNotes: [
       'GitHub Trending is a 24-hour attention snapshot; daily rankings shift frequently and do not indicate sustained interest.',

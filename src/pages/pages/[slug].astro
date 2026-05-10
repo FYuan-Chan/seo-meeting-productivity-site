@@ -82,10 +82,6 @@ const relatedPages = page.relatedSlugs
           ))}
         </div>
 
-        <ReviewDisclosure profile={editorialProfile} />
-        <SourceLedger sources={editorialProfile.sources} />
-        <FactPack facts={editorialProfile.factPack} methodology={editorialProfile.methodology} />
-
         {page.sections.map((section, idx) => (
           <section class="article-section" id={`section-${idx}`}>
             <header class="article-section-header">
@@ -186,6 +182,10 @@ const relatedPages = page.relatedSlugs
         ))}
 
         <ConclusionBox conclusion={editorialProfile.conclusion} riskNotes={editorialProfile.riskNotes} />
+
+        <ReviewDisclosure profile={editorialProfile} />
+        <SourceLedger sources={editorialProfile.sources} />
+        <FactPack facts={editorialProfile.factPack} methodology={editorialProfile.methodology} />
 
         {page.faq.length > 0 && (
           <section class="article-section faq" id="faq">
