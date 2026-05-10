@@ -433,6 +433,50 @@ const editorialLedgers: Record<string, EditorialLedgerSeed> = {
       'The validation framework requires 2-10 successful traces and cannot yet learn from failure logs alone.',
       'Token efficiency results come from GitHub internal repositories with high workflow volume; smaller teams may see more variance.'
     ]
+  },
+  'github-trending-ai-devtools-2026-05-10': {
+    sources: [
+      source(
+        'GitHub: bytedance/UI-TARS-desktop',
+        'https://github.com/bytedance/UI-TARS-desktop',
+        'ecosystem-reference',
+        'Primary repository evidence for the top-ranked multimodal AI agent stack, including stars, forks, license, recent commits, and README content.'
+      ),
+      source(
+        'GitHub: anthropics/financial-services',
+        'https://github.com/anthropics/financial-services',
+        'ecosystem-reference',
+        'Primary repository evidence for Anthropic financial-services agent workflows, including named agents, vertical plugins, and deployment templates.'
+      ),
+      source(
+        'GitHub: addyosmani/agent-skills',
+        'https://github.com/addyosmani/agent-skills',
+        'ecosystem-reference',
+        'Primary repository evidence for agent skill standardization project, including 22 skills, slash commands, and multi-IDE support.'
+      ),
+    ],
+    factPack: [
+      { claim: 'GitHub Trending returned 13 repositories for the daily period on 2026-05-10, with the top 12 repositories analyzed in the ranking table.', evidence: 'SignalForges Growth OS GitHub Trending collection script output (reports/github-trending.json).', confidence: 'high' },
+      { claim: 'bytedance/UI-TARS-desktop ranked #1 with +656 stars in the daily window, has Apache-2.0 licensing evidence, and README evidence for Agent TARS, UI-TARS Desktop, CLI/Web UI usage, and Node.js 22+ quick-start requirements.', evidence: 'GitHub Trending report and README extraction collected 2026-05-10.', confidence: 'high' },
+      { claim: 'addyosmani/agent-skills ranked #3 with +1,092 stars, has MIT licensing evidence, and README evidence for 22 skills and 7 slash commands across the AI coding-agent development lifecycle.', evidence: 'GitHub Trending report and README extraction collected 2026-05-10.', confidence: 'high' },
+      { claim: 'anthropics/financial-services ranked #2 with +1,479 stars, has Apache-2.0 licensing evidence, and README evidence for 10 named agents plus human sign-off disclaimers for financial-services workflows.', evidence: 'GitHub Trending report and README extraction collected 2026-05-10.', confidence: 'high' },
+      { claim: 'Editorial risk screening marked 1 repository as blocked from recommendation and 3 repositories as mention-only risk context among the top 12 analyzed repositories.', evidence: 'editorialRisk fields in reports/github-trending.json.', confidence: 'high' }
+    ],
+    methodology: [
+      'Repository ranking follows GitHub Trending daily position, not editorial preference.',
+      'Editorial signals are based on GitHub API metadata, README evidence, license, activity recency, and content-fit scoring.',
+      'No hands-on testing was performed by SignalForges. All numeric claims (stars, forks, issues) are refresh-sensitive and reflect the collection timestamp of 2026-05-10.',
+      'Repositories flagged outside editorial scope are included in the ranking for completeness but not recommended.'
+    ],
+    conclusion: {
+      recommendation: 'Inspect three repositories for different audiences: UI-TARS-desktop for multimodal GUI agent infrastructure, agent-skills for coding agent process standardization, and financial-services for vertical-domain agent deployment patterns.',
+      bestFor: 'Developers and engineering leaders scanning GitHub Trending for production-grade AI developer tools, coding agent methodology, and enterprise agent deployment references.',
+      avoidWhen: 'Avoid treating Trending position as a proxy for production readiness, adoption rate, or code quality. Verify licenses, maintenance cadence, and community health before committing evaluation resources.'
+    },
+    riskNotes: [
+      'GitHub Trending is a 24-hour attention snapshot; daily rankings shift frequently and do not indicate sustained interest.',
+      'Star counts and repository metadata are refresh-sensitive and may differ from the collection timestamp values by the time a reader visits the repositories.'
+    ]
   }
 };
 
