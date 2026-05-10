@@ -477,6 +477,41 @@ const editorialLedgers: Record<string, EditorialLedgerSeed> = {
       'GitHub Trending is a 24-hour attention snapshot; daily rankings shift frequently and do not indicate sustained interest.',
       'Star counts and repository metadata are refresh-sensitive and may differ from the collection timestamp values by the time a reader visits the repositories.'
     ]
+  },
+  'addyosmani-agent-skills-best-practices-2026-05-10': {
+    sources: [
+      source('addyosmani/agent-skills GitHub repository', 'https://github.com/addyosmani/agent-skills', 'official-product', 'Primary repository identity, public metadata, and project framing.'),
+      source('addyosmani/agent-skills README', 'https://github.com/addyosmani/agent-skills/blob/main/README.md', 'official-docs', 'Primary evidence for purpose, install path, usage, supported runtimes, skill anatomy, and project structure.'),
+      source('addyosmani/agent-skills repository structure', 'https://github.com/addyosmani/agent-skills', 'official-docs', 'Directory listing for skills/, agents/, references/, hooks/, and docs/ used to verify file and directory counts.'),
+      source('addyosmani/agent-skills CONTRIBUTING.md', 'https://github.com/addyosmani/agent-skills/blob/main/CONTRIBUTING.md', 'official-docs', 'Contribution guidelines and skill quality bar evidence.'),
+      source('GitHub Trending daily snapshot 2026-05-10', 'https://github.com/trending', 'ecosystem-reference', 'Trending rank #3, star-gain +1,092, and daily window context.'),
+    ],
+    factPack: [
+      { claim: 'addyosmani/agent-skills appeared at rank #3 on GitHub Trending daily for May 10, 2026, gaining +1,092 stars.', evidence: 'GitHub Trending daily snapshot collected by Growth OS collect_github_trending.py on 2026-05-10.', confidence: 'high' },
+      { claim: 'The repository is licensed under MIT.', evidence: 'GitHub API repository metadata.', confidence: 'high' },
+      { claim: 'The latest detected push time is 2026-05-09T21:55:43Z.', evidence: 'GitHub API repository metadata.', confidence: 'high' },
+      { claim: 'The repository contains 20 skills (structured as skill directories), 3 agent persona files, 4 reference checklists, 7 slash commands, and session lifecycle hooks.', evidence: 'Repository structure inspection via zread-repo MCP tool.', confidence: 'high' },
+      { claim: 'The project supports Claude Code, Cursor, Gemini CLI, Windsurf, OpenCode, GitHub Copilot, Kiro IDE, and Codex.', evidence: 'README Quick Start section.', confidence: 'high' },
+      { claim: 'Skills follow a consistent anatomy: YAML frontmatter, overview, trigger conditions, step-by-step process, anti-rationalization tables, red flags, and verification checklists.', evidence: 'README skill anatomy documentation and docs/skill-anatomy.md.', confidence: 'high' },
+      { claim: 'The project is authored primarily by Addy Osmani and incorporates Google engineering practices including Hyrum\'s Law, the Beyonce Rule, trunk-based development, and shift-left CI/CD.', evidence: 'README "Why Agent Skills" section.', confidence: 'medium' },
+    ],
+    methodology: [
+      'Evidence comes from the GitHub repository README, repository structure inspection via the zread-repo MCP tool, and the GitHub Trending daily snapshot for May 10, 2026.',
+      'No hands-on testing was performed. The article does not claim installation, execution, or evaluation in a live environment.',
+      'Numeric claims (star count, skill count, persona count, command count) are sourced from the repository structure and README as of the collection timestamp. These values may change after publication.',
+      'The editorial focus is on inspection value, not adoption recommendation. The verdict reflects editorial judgment about whether the repository is worth a reader\'s inspection time.'
+    ],
+    conclusion: {
+      recommendation: 'Inspect agent-skills as a process reference and pattern library for encoding engineering discipline into AI coding agents. Borrow the anti-rationalization pattern, skill anatomy contract, and progressive disclosure design even if you do not adopt the skill pack directly.',
+      bestFor: 'Engineering teams and individual developers who want to bring structured workflow discipline to their AI coding agent sessions, especially teams using Claude Code, Cursor, or Gemini CLI.',
+      avoidWhen: 'Avoid if you need runtime-level enforcement rather than instruction-level guidance, if your agent runtime does not support instruction files, or if your team already has a mature agent discipline framework.'
+    },
+    riskNotes: [
+      'Skills are Markdown instructions, not executable constraints. Agent compliance is not guaranteed and depends on the runtime and context window.',
+      'The project is relatively new and the skill library may evolve rapidly. Counts and structure details are refresh-sensitive.',
+      'No automated test suite or CI pipeline is documented. Verification of skill effectiveness is subjective.',
+      'GitHub Trending rank and star-gain figures are specific to the May 10, 2026 daily snapshot and will not remain stable.'
+    ]
   }
 };
 

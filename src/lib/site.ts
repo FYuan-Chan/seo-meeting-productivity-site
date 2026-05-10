@@ -151,6 +151,7 @@ export const adsenseReviewSlugs = [
   'lovable-vs-bolt-vs-v0',
   'ai-ecosystem-developer-signal-2026-05-10',
   'github-trending-ai-devtools-2026-05-10',
+  'addyosmani-agent-skills-best-practices-2026-05-10',
 ] as const;
 
 const adsenseReviewSlugSet = new Set<string>(adsenseReviewSlugs);
