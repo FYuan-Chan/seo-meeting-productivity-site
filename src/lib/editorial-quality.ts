@@ -512,6 +512,46 @@ const editorialLedgers: Record<string, EditorialLedgerSeed> = {
       'No automated test suite or CI pipeline is documented. Verification of skill effectiveness is subjective.',
       'GitHub Trending rank and star-gain figures are specific to the May 10, 2026 daily snapshot and will not remain stable.'
     ]
+  },
+  'emo-pretraining-mixture-of-experts-for-emergent-modularity-2026-05-08': {
+    sources: [
+      source('Ai2 EMO blog post', 'https://huggingface.co/blog/allenai/emo', 'official-docs', 'Official Ai2 blog post describing EMO architecture, training method, benchmark results, and release details.'),
+      source('EMO arXiv technical report', 'https://arxiv.org/abs/2605.06663', 'peer-reviewed', 'arXiv:2605.06663 — primary evidence for model architecture (14B total, 1B active, 128 experts), training data (1T tokens), document-level routing constraint, benchmark evaluations, and clustering analysis.'),
+      source('allenai/EMO GitHub repository', 'https://github.com/allenai/EMO', 'official-product', 'Training code, evaluation scripts, vLLM plugin, and model checkpoint documentation. License: Apache 2.0.'),
+      source('Ai2 EMO blog post (allenai.org)', 'https://allenai.org/blog/emo', 'official-docs', 'Official Ai2 website blog post with summary of EMO contributions and released artifacts.'),
+      source('HuggingFace EMO model collection', 'https://huggingface.co/collections/allenai/emo', 'official-product', 'Model checkpoints: allenai/Emo_1b14b_1T, allenai/StdMoE_1b14b_1T, and ablation models.'),
+    ],
+    factPack: [
+      { claim: 'EMO is a 14B-total-parameter, 1B-active-parameter MoE with 128 total experts (127 routed, 1 shared), 8 active experts per token, trained on 1 trillion tokens from the OLMoE pretraining corpus followed by 50 billion annealing tokens.', evidence: 'arXiv:2605.06663 Section 2 (Model Architecture) and Ai2 blog post.', confidence: 'high' },
+      { claim: 'The core innovation is a document-level routing constraint where all tokens in a document are restricted to route through a shared expert pool, determined by averaging router preferences across the document.', evidence: 'arXiv:2605.06663 Section 3 (Method) and Ai2 blog post.', confidence: 'high' },
+      { claim: 'Document pool sizes are randomly sampled uniformly from 8 to 127 experts during training.', evidence: 'arXiv:2605.06663 Section 3.2 (Document Pool Size).', confidence: 'high' },
+      { claim: 'With 16 of 128 experts (12.5% of total), EMO loses approximately 3% absolute performance. With 32 of 128 experts (25%), the drop is approximately 1%.', evidence: 'arXiv:2605.06663 Section 4 (Results) and Ai2 blog post benchmark figures.', confidence: 'high' },
+      { claim: 'A standard MoE of equal architecture trained on the same data degrades sharply at small expert subset sizes, often falling near or below random performance at the 12.5% setting.', evidence: 'arXiv:2605.06663 Section 4 (Selective Expert Use) and Ai2 blog post.', confidence: 'high' },
+      { claim: 'Expert selection requires as few as 1 to 5 examples with few-shot demonstrations to identify a task-specific expert subset that performs on par with one selected using a full validation set.', evidence: 'arXiv:2605.06663 Section 4 (Expert Selection).', confidence: 'high' },
+      { claim: 'EMO expert clusters correspond to semantic domains (Health, Medical & Wellness; News Reporting; US Politics & Elections; Film & Music) while standard MoE clusters correspond to surface-level features (Prepositions; Proper Names; Copula Verbs; Definite Articles).', evidence: 'arXiv:2605.06663 Section 5 (Analysis) and Ai2 blog post clustering visualization.', confidence: 'high' },
+      { claim: 'The clustering analysis used the first 100 tokens from 12,000 pretraining documents with PCA and spherical k-means clustering (k=32).', evidence: 'arXiv:2605.06663 Section 5 (Clustering Methodology).', confidence: 'high' },
+      { claim: '8 model checkpoints are released on HuggingFace under the allenai/emo collection, including the main EMO model, a standard MoE baseline, and ablation models.', evidence: 'HuggingFace model collection page and GitHub repository README.', confidence: 'high' },
+      { claim: 'The code and models are released under the Apache 2.0 license.', evidence: 'GitHub repository LICENSE file.', confidence: 'high' },
+      { claim: 'The authors are Ryan Wang (UC Berkeley), Akshita Bhagia (Ai2), and Sewon Min (UC Berkeley and Ai2).', evidence: 'arXiv:2605.06663 author list and affiliations.', confidence: 'high' },
+    ],
+    methodology: [
+      'Evidence comes from the official Ai2 blog post on HuggingFace (huggingface.co/blog/allenai/emo), the arXiv technical report (2605.06663), the allenai/EMO GitHub repository, and the HuggingFace model collection.',
+      'The event was originally surfaced by the AIHOT clustering system. The public article was written entirely from primary sources (the blog post, paper, and repository), not from AIHOT summaries.',
+      'No hands-on testing was performed. The article does not claim that the author loaded, ran, or evaluated the model in a live environment.',
+      'Numeric claims are sourced directly from the paper and blog post. Benchmark performance numbers are approximate where read from charts.'
+    ],
+    conclusion: {
+      recommendation: 'Track EMO as a concrete step toward modular, composable LLM deployment. The document-level routing technique is reproducible and could reduce inference costs for domain-specific deployments, but wait for scale-up validation before betting production infrastructure on selective expert deployment.',
+      bestFor: 'Teams serving MoE models at scale who want to reduce memory costs for domain-specific tasks, researchers studying MoE architecture design, and developers building domain-specific LLM tools.',
+      avoidWhen: 'Avoid relying on EMO for production deployment today — it is a research release at 14B scale with no evidence yet that the technique transfers to frontier-scale models.'
+    },
+    riskNotes: [
+      'The model is a 14B research checkpoint. There is no evidence that the 12.5% expert deployment finding holds at 70B, 400B, or larger scale.',
+      'The selective deployment results depend on task domain specificity. Multi-domain tasks may not benefit as cleanly from expert subset selection.',
+      'Benchmark numbers (approximately 1% at 25%, approximately 3% at 12.5%) are approximate values from paper figures, not exact table readings.',
+      'The model requires custom HuggingFace modeling code (trust_remote_code=True), which carries security considerations for production use.',
+      'The clustering analysis uses 12,000 documents and 32 clusters. Different configurations might reveal different specialization patterns.'
+    ]
   }
 };
 

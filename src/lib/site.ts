@@ -152,6 +152,7 @@ export const adsenseReviewSlugs = [
   'ai-ecosystem-developer-signal-2026-05-10',
   'github-trending-ai-devtools-2026-05-10',
   'addyosmani-agent-skills-best-practices-2026-05-10',
+  'emo-pretraining-mixture-of-experts-for-emergent-modularity-2026-05-08',
 ] as const;
 
 const adsenseReviewSlugSet = new Set<string>(adsenseReviewSlugs);
