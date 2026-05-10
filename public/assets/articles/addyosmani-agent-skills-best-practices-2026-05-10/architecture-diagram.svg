@@ -1,37 +1,48 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="640" viewBox="0 0 1120 640" role="img" aria-labelledby="title desc">
-<title id="title">SignalForges evidence-to-publication architecture</title>
-<desc id="desc">addyosmani/agent-skills Deep Dive: Architecture Signals, Risks, and Best Practices</desc>
-<rect width="1120" height="640" rx="28" fill="#0b1020"/>
-<rect x="32" y="32" width="1056" height="128" rx="22" fill="#111827" stroke="#263244"/>
-<text x="60" y="78" fill="#f8fafc" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="750">SignalForges evidence-to-publication architecture</text>
-<text x="60" y="112" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="16">addyosmani/agent-skills Deep Dive: Architecture Signals, Risks, and Best Practices</text>
-<rect x="54" y="246" width="198" height="160" rx="18" fill="#172033" stroke="#2dd4bf" stroke-opacity="0.34"/>
-<text x="74" y="288" fill="#5eead4" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700">STEP 1</text>
-<text x="74" y="324" fill="#e2e8f0" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="650">Scripts collect</text>
-<text x="74" y="348" fill="#e2e8f0" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="650">facts</text>
-<line x1="257" y1="326" x2="269" y2="326" stroke="#64748b" stroke-width="2"/>
-<path d="M 269 326 L 261 320 L 261 332 Z" fill="#64748b"/>
-<rect x="274" y="246" width="198" height="160" rx="18" fill="#172033" stroke="#2dd4bf" stroke-opacity="0.34"/>
-<text x="294" y="288" fill="#5eead4" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700">STEP 2</text>
-<text x="294" y="324" fill="#e2e8f0" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="650">MCP fills</text>
-<text x="294" y="348" fill="#e2e8f0" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="650">evidence gaps</text>
-<line x1="477" y1="326" x2="489" y2="326" stroke="#64748b" stroke-width="2"/>
-<path d="M 489 326 L 481 320 L 481 332 Z" fill="#64748b"/>
-<rect x="494" y="246" width="198" height="160" rx="18" fill="#172033" stroke="#2dd4bf" stroke-opacity="0.34"/>
-<text x="514" y="288" fill="#5eead4" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700">STEP 3</text>
-<text x="514" y="324" fill="#e2e8f0" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="650">Skill enforces</text>
-<text x="514" y="348" fill="#e2e8f0" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="650">process</text>
-<line x1="697" y1="326" x2="709" y2="326" stroke="#64748b" stroke-width="2"/>
-<path d="M 709 326 L 701 320 L 701 332 Z" fill="#64748b"/>
-<rect x="714" y="246" width="198" height="160" rx="18" fill="#172033" stroke="#2dd4bf" stroke-opacity="0.34"/>
-<text x="734" y="288" fill="#5eead4" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700">STEP 4</text>
-<text x="734" y="324" fill="#e2e8f0" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="650">Agent selects</text>
-<text x="734" y="348" fill="#e2e8f0" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="650">direction</text>
-<line x1="917" y1="326" x2="929" y2="326" stroke="#64748b" stroke-width="2"/>
-<path d="M 929 326 L 921 320 L 921 332 Z" fill="#64748b"/>
-<rect x="934" y="246" width="198" height="160" rx="18" fill="#172033" stroke="#2dd4bf" stroke-opacity="0.34"/>
-<text x="954" y="288" fill="#5eead4" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700">STEP 5</text>
-<text x="954" y="324" fill="#e2e8f0" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="650">Site gates</text>
-<text x="954" y="348" fill="#e2e8f0" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="650">publish</text>
-<text x="60" y="580" fill="#64748b" font-family="Inter, Arial, sans-serif" font-size="13">Evidence role: explanatory architecture diagram generated from Growth OS workflow rules.</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="560" viewBox="0 0 1120 560" role="img" aria-labelledby="title desc">
+<title id="title">addyosmani/agent-skills lifecycle architecture</title>
+<desc id="desc">Reader-facing diagram of the repository lifecycle phases and the supporting command, persona, skill, reference, and hook layers.</desc>
+<rect width="1120" height="560" rx="24" fill="#0b1020"/>
+<rect x="32" y="32" width="1056" height="104" rx="18" fill="#111827" stroke="#263244"/>
+<text x="60" y="74" fill="#f8fafc" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="750">addyosmani/agent-skills lifecycle architecture</text>
+<text x="60" y="108" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="16">Six workflow phases sit above reusable skills, personas, references, commands, and hooks.</text>
+
+<text x="60" y="178" fill="#5eead4" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700">LIFECYCLE PHASES</text>
+<rect x="60" y="196" width="145" height="72" rx="14" fill="#172033" stroke="#2dd4bf" stroke-opacity="0.42"/>
+<text x="88" y="240" fill="#e2e8f0" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">Define</text>
+<rect x="221" y="196" width="145" height="72" rx="14" fill="#172033" stroke="#2dd4bf" stroke-opacity="0.42"/>
+<text x="260" y="240" fill="#e2e8f0" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">Plan</text>
+<rect x="382" y="196" width="145" height="72" rx="14" fill="#172033" stroke="#2dd4bf" stroke-opacity="0.42"/>
+<text x="420" y="240" fill="#e2e8f0" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">Build</text>
+<rect x="543" y="196" width="145" height="72" rx="14" fill="#172033" stroke="#2dd4bf" stroke-opacity="0.42"/>
+<text x="575" y="240" fill="#e2e8f0" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">Verify</text>
+<rect x="704" y="196" width="145" height="72" rx="14" fill="#172033" stroke="#2dd4bf" stroke-opacity="0.42"/>
+<text x="735" y="240" fill="#e2e8f0" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">Review</text>
+<rect x="865" y="196" width="145" height="72" rx="14" fill="#172033" stroke="#2dd4bf" stroke-opacity="0.42"/>
+<text x="905" y="240" fill="#e2e8f0" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">Ship</text>
+
+<line x1="133" y1="268" x2="133" y2="312" stroke="#64748b" stroke-width="2"/>
+<line x1="294" y1="268" x2="294" y2="312" stroke="#64748b" stroke-width="2"/>
+<line x1="455" y1="268" x2="455" y2="312" stroke="#64748b" stroke-width="2"/>
+<line x1="616" y1="268" x2="616" y2="312" stroke="#64748b" stroke-width="2"/>
+<line x1="777" y1="268" x2="777" y2="312" stroke="#64748b" stroke-width="2"/>
+<line x1="938" y1="268" x2="938" y2="312" stroke="#64748b" stroke-width="2"/>
+<line x1="133" y1="312" x2="938" y2="312" stroke="#64748b" stroke-width="2"/>
+<path d="M 536 312 L 548 305 L 548 319 Z" fill="#64748b"/>
+
+<text x="60" y="346" fill="#5eead4" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700">SUPPORTING LAYERS</text>
+<rect x="60" y="366" width="232" height="74" rx="14" fill="#111827" stroke="#334155"/>
+<text x="84" y="396" fill="#f8fafc" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">Slash commands</text>
+<text x="84" y="421" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="13">User-facing workflow entry points</text>
+<rect x="316" y="366" width="232" height="74" rx="14" fill="#111827" stroke="#334155"/>
+<text x="340" y="396" fill="#f8fafc" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">Agent personas</text>
+<text x="340" y="421" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="13">Reviewer, tester, security roles</text>
+<rect x="572" y="366" width="232" height="74" rx="14" fill="#111827" stroke="#334155"/>
+<text x="596" y="396" fill="#f8fafc" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">SKILL.md files</text>
+<text x="596" y="421" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="13">Process, triggers, checks, red flags</text>
+<rect x="828" y="366" width="232" height="74" rx="14" fill="#111827" stroke="#334155"/>
+<text x="852" y="396" fill="#f8fafc" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">References and hooks</text>
+<text x="852" y="421" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="13">Context files and session behavior</text>
+
+<rect x="60" y="476" width="1000" height="42" rx="12" fill="#0f172a" stroke="#263244"/>
+<text x="84" y="502" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="13">Evidence role: deterministic diagram from README and repository structure notes; verify exact counts, commands, and runtime support against current sources.</text>
 </svg>

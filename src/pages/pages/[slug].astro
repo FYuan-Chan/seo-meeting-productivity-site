@@ -376,18 +376,35 @@ const relatedPages = page.relatedSlugs
   }
 
   .visual-asset-frame {
+    align-items: center;
     background: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-lg);
+    display: flex;
+    justify-content: center;
     overflow: hidden;
   }
 
   .visual-asset-frame img {
-    aspect-ratio: 7 / 4;
     display: block;
-    height: auto;
-    object-fit: cover;
+    height: clamp(180px, 34vw, 340px);
+    object-fit: contain;
     width: 100%;
+  }
+
+  .visual-asset-figure[data-visual-kind="article-illustration"] .visual-asset-frame img {
+    height: clamp(190px, 32vw, 300px);
+    object-fit: cover;
+  }
+
+  @media (max-width: 640px) {
+    .visual-asset-frame img {
+      height: clamp(170px, 56vw, 240px);
+    }
+
+    .visual-asset-figure[data-visual-kind="article-illustration"] .visual-asset-frame img {
+      height: clamp(180px, 58vw, 250px);
+    }
   }
 
   .visual-asset-figure figcaption {

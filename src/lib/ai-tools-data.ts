@@ -4401,15 +4401,6 @@ export const aiToolPages: SeoPage[] = [
         ],
       },
       {
-        type: 'visual-asset',
-        heading: 'Evidence workflow behind the article',
-        src: '/assets/articles/github-trending-ai-devtools-2026-05-10/architecture-diagram.svg',
-        alt: 'Diagram showing how SignalForges moves from scripts to MCP evidence, skills, agent decisions, and site publishing gates.',
-        caption: 'The evidence appendix below keeps the article auditable without forcing readers through every source note before the main recommendation.',
-        evidenceRole: 'explanatory',
-        kind: 'architecture-diagram',
-      },
-      {
         type: 'cards',
         heading: 'What to do next',
         cards: [
