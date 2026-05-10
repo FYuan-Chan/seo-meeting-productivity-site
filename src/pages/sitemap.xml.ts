@@ -1,13 +1,18 @@
 import type { APIRoute } from 'astro';
-import { buildCanonicalUrl, getAllPageEntries, siteConfig } from '../lib/site';
+import { buildCanonicalUrl, getAdsenseReviewPageEntries, siteConfig } from '../lib/site';
+import { trustPages } from '../lib/trust-pages';
 
 const DEFAULT_LASTMOD = '2026-04-23';
 
 export const GET: APIRoute = () => {
-  const pageEntries = getAllPageEntries();
+  const pageEntries = getAdsenseReviewPageEntries();
 
   const urlEntries: { loc: string; lastmod: string }[] = [
-    { loc: buildCanonicalUrl(siteConfig.siteUrl, '/'), lastmod: DEFAULT_LASTMOD },
+    { loc: buildCanonicalUrl(siteConfig.siteUrl, '/'), lastmod: '2026-05-10' },
+    ...trustPages.map((page) => ({
+      loc: buildCanonicalUrl(siteConfig.siteUrl, `/${page.slug}/`),
+      lastmod: page.updated,
+    })),
     ...pageEntries.map((page) => ({
       loc: buildCanonicalUrl(siteConfig.siteUrl, `/pages/${page.slug}/`),
       lastmod: page.aiToolMeta?.lastUpdated ?? DEFAULT_LASTMOD,

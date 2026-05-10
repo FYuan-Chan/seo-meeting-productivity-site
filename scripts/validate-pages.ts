@@ -10,8 +10,9 @@
  *   --help    Show this help message
  */
 
-import { getAllPageEntries } from '../src/lib/site.js';
+import { estimateSeoPageContentWords, getAdsenseReviewPageEntries, getAllPageEntries } from '../src/lib/site.js';
 import type { SeoPage } from '../src/lib/site.js';
+import { trustPages } from '../src/lib/trust-pages.js';
 
 // ─── CLI helpers ─────────────────────────────────────────────────────────────
 
@@ -29,8 +30,8 @@ function printHelp(): void {
   console.log(`
 ${BOLD}🔍 Page Data Validator${RESET}
 
-${DIM}Validates all SeoPage entries for completeness, consistency,
-and correctness.${RESET}
+${DIM}Validates the full content inventory and the smaller AdSense
+review set used for the public sitemap.${RESET}
 
 ${BOLD}Usage:${RESET}
   npx tsx scripts/validate-pages.ts
@@ -40,11 +41,13 @@ ${BOLD}Options:${RESET}
 
 ${BOLD}Checks:${RESET}
   1. Slug uniqueness
-  2. Related slugs validity
-  3. FAQ non-empty
-  4. AI tool meta completeness
+  2. AdSense review set size and depth
+  3. Review page related slugs validity
+  4. FAQ non-empty
+  5. AI tool meta completeness
   5. Required fields non-empty
   6. Slug format validation
+  7. Trust pages present
 `);
 }
 
@@ -83,18 +86,45 @@ function validateSlugUniqueness(pages: SeoPage[]): ValidationResult {
 }
 
 function validateRelatedSlugs(pages: SeoPage[]): ValidationResult {
-  const allSlugs = new Set(pages.map((p) => p.slug));
+  const publicSlugs = new Set(pages.map((p) => p.slug));
   const errors: string[] = [];
 
   for (const page of pages) {
     for (const related of page.relatedSlugs) {
-      if (!allSlugs.has(related)) {
-        errors.push(`Page "${page.slug}" references non-existent slug "${related}"`);
+      if (!publicSlugs.has(related)) {
+        errors.push(`Review page "${page.slug}" references non-public review slug "${related}"`);
       }
     }
   }
 
-  return { rule: 'Related slugs validity', passed: errors.length === 0, errors };
+  return { rule: 'Review page related slugs stay inside public review set', passed: errors.length === 0, errors };
+}
+
+function validateAdsenseReviewSet(pages: SeoPage[]): ValidationResult {
+  const errors: string[] = [];
+  const blockedSlugs = new Set([
+    'meeting-notes-template-word',
+    'meeting-notes-template-free',
+    'typescript-go-2026-04-28',
+    'free-claude-code-2026-04-28',
+    'ai-briefing-2026-04-28'
+  ]);
+
+  if (pages.length < 10 || pages.length > 15) {
+    errors.push(`AdSense review set must contain 10-15 pages, found ${pages.length}`);
+  }
+
+  for (const page of pages) {
+    const words = estimateSeoPageContentWords(page);
+    if (words < 500) {
+      errors.push(`Review page "${page.slug}" is too thin (${words} words, minimum 500)`);
+    }
+    if (blockedSlugs.has(page.slug)) {
+      errors.push(`Blocked low-value or risky slug is still in review set: "${page.slug}"`);
+    }
+  }
+
+  return { rule: 'AdSense review set quality', passed: errors.length === 0, errors };
 }
 
 function validateFaqNonEmpty(pages: SeoPage[]): ValidationResult {
@@ -185,29 +215,93 @@ function validateSlugFormat(pages: SeoPage[]): ValidationResult {
   return { rule: 'Slug format', passed: errors.length === 0, errors };
 }
 
+function normalizeInternalPath(href: string): string | null {
+  if (/^(https?:)?\/\//.test(href) || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('#')) {
+    return null;
+  }
+
+  const [path] = href.split(/[?#]/);
+  if (!path || !path.startsWith('/')) return null;
+  return path.endsWith('/') || path.includes('.') ? path : `${path}/`;
+}
+
+function validatePublicInternalLinks(pages: SeoPage[]): ValidationResult {
+  const allowedPaths = new Set<string>([
+    '/',
+    ...trustPages.map((page) => `/${page.slug}/`),
+    ...pages.map((page) => `/pages/${page.slug}/`),
+  ]);
+  const errors: string[] = [];
+
+  for (const page of pages) {
+    const links = [page.ctaHref, ...page.relatedSlugs.map((slug) => `/pages/${slug}/`)];
+    for (const href of links) {
+      const internalPath = normalizeInternalPath(href);
+      if (internalPath && !allowedPaths.has(internalPath)) {
+        errors.push(`Review page "${page.slug}" links to non-public recovery path "${href}"`);
+      }
+    }
+  }
+
+  return { rule: 'Review page internal links stay public', passed: errors.length === 0, errors };
+}
+
+function validateTrustPages(): ValidationResult {
+  const required = new Set([
+    'about',
+    'contact',
+    'privacy-policy',
+    'terms',
+    'editorial-policy',
+    'ai-use-disclosure',
+    'author',
+  ]);
+  const slugs = new Set(trustPages.map((page) => page.slug));
+  const errors: string[] = [];
+
+  for (const slug of required) {
+    if (!slugs.has(slug)) {
+      errors.push(`Missing trust page "${slug}"`);
+    }
+  }
+
+  for (const page of trustPages) {
+    if (page.sections.length < 2) {
+      errors.push(`Trust page "${page.slug}" needs at least 2 sections`);
+    }
+  }
+
+  return { rule: 'Trust pages present', passed: errors.length === 0, errors };
+}
+
 // ─── Main ────────────────────────────────────────────────────────────────────
 
 function main(): void {
   console.log(`\n${BOLD}🔍 Page Data Validator${RESET}\n`);
 
   let pages: SeoPage[];
+  let reviewPages: SeoPage[];
   try {
     pages = getAllPageEntries();
+    reviewPages = getAdsenseReviewPageEntries();
   } catch (err) {
     console.error(`${RED}❌ Failed to load pages: ${(err as Error).message}${RESET}`);
     console.error(`${DIM}Make sure you're running from the project root.${RESET}`);
     process.exit(1);
   }
 
-  console.log(`${DIM}Found ${pages.length} pages to validate${RESET}\n`);
+  console.log(`${DIM}Found ${pages.length} inventory pages; ${reviewPages.length} AdSense review pages${RESET}\n`);
 
   const results: ValidationResult[] = [
     validateSlugUniqueness(pages),
-    validateRelatedSlugs(pages),
-    validateFaqNonEmpty(pages),
-    validateAiToolMeta(pages),
-    validateRequiredFields(pages),
-    validateSlugFormat(pages),
+    validateAdsenseReviewSet(reviewPages),
+    validateRelatedSlugs(reviewPages),
+    validatePublicInternalLinks(reviewPages),
+    validateFaqNonEmpty(reviewPages),
+    validateAiToolMeta(reviewPages),
+    validateRequiredFields(reviewPages),
+    validateSlugFormat(reviewPages),
+    validateTrustPages(),
   ];
 
   // Print results
@@ -231,7 +325,8 @@ function main(): void {
   // Summary
   console.log(`\n${'─'.repeat(50)}`);
   console.log(`${BOLD}Summary:${RESET} ${GREEN}${passCount} passed${RESET}, ${failCount > 0 ? RED : GREEN}${failCount} failed${RESET}`);
-  console.log(`${DIM}Total pages checked: ${pages.length}${RESET}\n`);
+  console.log(`${DIM}Inventory pages checked: ${pages.length}${RESET}`);
+  console.log(`${DIM}Review pages checked: ${reviewPages.length}${RESET}\n`);
 
   if (failCount > 0) {
     console.log(`${RED}❌ Validation failed with ${failCount} error(s).${RESET}\n`);

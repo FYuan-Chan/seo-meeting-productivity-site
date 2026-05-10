@@ -11,7 +11,9 @@
     "trending": "npx tsx scripts/fetch-trending.ts",
     "google-trends": "npx tsx scripts/fetch-google-trends.ts",
     "gen-page": "npx tsx scripts/generate-page-template.ts",
-    "validate": "npx tsx scripts/validate-pages.ts"
+    "validate": "npx tsx scripts/validate-pages.ts",
+    "audit:content": "npx tsx scripts/content-quality-audit.ts",
+    "audit:recovery": "npx tsx scripts/recovery-audit.ts"
   },
   "dependencies": {
     "astro": "^5.2.0"

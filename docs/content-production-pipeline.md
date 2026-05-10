@@ -1,10 +1,12 @@
 # GitHub Trending 内容生产标准流程
 
+> 2026-05-10 恢复期规则：当前站点因 AdSense “低价值内容”进入质量恢复模式。本文档保留为未来流程参考，但自动发文必须暂停；GitHub Trending 只能产出事实包和候选研究简报，不能直接发布到 sitemap。发布前必须通过 `npm run validate`、`npm run audit:content`、`npm test`、`npm run build`、`npm run audit:recovery`。
+
 ## 核心原则
 
 **你不是摘要 GitHub Trending，而是为 AI 学习者和技术创业者判断今日热点。**
 
-## 完整流水线
+## 恢复期完整流水线
 
 ```text
 github-trending-analyst (选题判断 + 数据采集)
@@ -19,6 +21,8 @@ humanizer (去除AI味 + 真人感)
     ↓
 final QA (质量检查 + 发布)
 ```
+
+恢复期最后一步不是自动发布，而是输出 `hold/rewrite/publish/noindex/delete` 建议。只有明确 `publish` 且全部门禁通过，才能进入 Astro 站点白名单。
 
 ## 第一步：github-trending-analyst
 

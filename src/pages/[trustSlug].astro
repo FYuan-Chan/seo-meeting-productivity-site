@@ -1,0 +1,144 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { buildCanonicalUrl, siteConfig } from '../lib/site';
+import { trustPages } from '../lib/trust-pages';
+
+export function getStaticPaths() {
+  return trustPages.map((page) => ({
+    params: { trustSlug: page.slug },
+    props: { page }
+  }));
+}
+
+const { page } = Astro.props;
+const canonicalPath = buildCanonicalUrl(siteConfig.siteUrl, `/${page.slug}/`);
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: page.title,
+  description: page.description,
+  dateModified: page.updated,
+  publisher: {
+    '@type': 'Organization',
+    name: siteConfig.siteName
+  },
+  url: canonicalPath
+};
+---
+
+<BaseLayout
+  title={`${page.title} | ${siteConfig.siteName}`}
+  description={page.description}
+  canonicalPath={canonicalPath}
+  siteName={siteConfig.siteName}
+  nav={siteConfig.nav}
+  metrics={siteConfig.metrics}
+  activePath={`/${page.slug}/`}
+  schema={schema}
+>
+  <main class="trust-page">
+    <section class="trust-hero">
+      <div class="container trust-width">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span>/</span>
+          <span>{page.title}</span>
+        </nav>
+        <p class="trust-kicker">SignalForges trust center</p>
+        <h1>{page.title}</h1>
+        <p class="trust-description">{page.description}</p>
+        <p class="trust-updated">Last updated {page.updated}</p>
+      </div>
+    </section>
+
+    <section class="trust-content">
+      <div class="container trust-width">
+        {page.sections.map((section) => (
+          <section class="trust-section">
+            <h2>{section.heading}</h2>
+            {section.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+          </section>
+        ))}
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .trust-page {
+    background: var(--color-bg);
+  }
+
+  .trust-width {
+    max-width: 860px;
+  }
+
+  .trust-hero {
+    border-bottom: 1px solid var(--color-border);
+    background: linear-gradient(180deg, var(--color-surface) 0%, var(--color-bg) 100%);
+    padding: var(--space-8) 0 var(--space-10);
+  }
+
+  .trust-kicker {
+    color: var(--color-primary-light);
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+    margin: var(--space-6) 0 var(--space-3);
+    text-transform: uppercase;
+  }
+
+  .trust-hero h1 {
+    color: var(--color-text-bright);
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    line-height: 1.1;
+    margin: 0 0 var(--space-4);
+  }
+
+  .trust-description {
+    color: var(--color-text);
+    font-size: var(--text-lg);
+    line-height: var(--leading-relaxed);
+    margin: 0 0 var(--space-4);
+  }
+
+  .trust-updated {
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+    margin: 0;
+  }
+
+  .trust-content {
+    padding: var(--space-10) 0 var(--space-14);
+  }
+
+  .trust-section {
+    border-bottom: 1px solid var(--color-border);
+    padding: var(--space-7) 0;
+  }
+
+  .trust-section:first-child {
+    padding-top: 0;
+  }
+
+  .trust-section:last-child {
+    border-bottom: 0;
+  }
+
+  .trust-section h2 {
+    color: var(--color-text-bright);
+    font-size: var(--text-2xl);
+    line-height: var(--leading-tight);
+    margin: 0 0 var(--space-4);
+  }
+
+  .trust-section p {
+    color: var(--color-text);
+    font-size: var(--text-base);
+    line-height: var(--leading-loose);
+    margin: 0 0 var(--space-4);
+  }
+
+  .trust-section p:last-child {
+    margin-bottom: 0;
+  }
+</style>

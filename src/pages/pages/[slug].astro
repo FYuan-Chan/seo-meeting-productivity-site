@@ -1,15 +1,16 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { buildCanonicalUrl, getAllPageEntries, getArticleSchema, getFaqSchema, getReviewSchema, getBreadcrumbSchema, pageMap, siteConfig } from '../../lib/site';
+import { adsenseReviewPageMap, buildCanonicalUrl, getAdsenseReviewPageEntries, getArticleSchema, getFaqSchema, getReviewSchema, getBreadcrumbSchema, siteConfig } from '../../lib/site';
 import ComparisonTable from '../../components/ai-tools/ComparisonTable.astro';
 import ToolRatingCard from '../../components/ai-tools/ToolRatingCard.astro';
 import PricingComparison from '../../components/ai-tools/PricingComparison.astro';
 import UseCaseRecommender from '../../components/ai-tools/UseCaseRecommender.astro';
 import RelatedComparisons from '../../components/ai-tools/RelatedComparisons.astro';
-import AdPlaceholder from '../../components/ads/AdPlaceholder.astro';
+import ReviewDisclosure from '../../components/editorial/ReviewDisclosure.astro';
+import { getEditorialQualityProfile } from '../../lib/editorial-quality';
 
 export function getStaticPaths() {
-  return getAllPageEntries().map((page) => ({
+  return getAdsenseReviewPageEntries().map((page) => ({
     params: { slug: page.slug },
     props: { page }
   }));
@@ -17,6 +18,7 @@ export function getStaticPaths() {
 
 const { page } = Astro.props;
 const canonicalPath = buildCanonicalUrl(siteConfig.siteUrl, `/pages/${page.slug}/`);
+const editorialProfile = getEditorialQualityProfile(page);
 
 const isAIToolPage = page.category.startsWith('ai-') || page.category === 'github-trending' || page.category === 'tutorial';
 
@@ -32,7 +34,7 @@ const readingTime = Math.max(3, Math.ceil(wordCount / 200));
 const schemas = [
   getArticleSchema(page),
   ...(page.faq.length > 0 ? [getFaqSchema(page)] : []),
-  ...(isAIToolPage && page.aiToolMeta ? [getReviewSchema(page)] : []),
+  ...(isAIToolPage && page.aiToolMeta?.comparisonData ? [getReviewSchema(page)] : []),
   getBreadcrumbSchema(page, siteConfig.siteUrl),
 ];
 ---
@@ -138,10 +140,7 @@ const schemas = [
           ))}
         </div>
 
-        <!-- Ad Placeholder - After Intro -->
-        <div class="ad-section">
-          <AdPlaceholder slot="intro-ad" format="auto" />
-        </div>
+        <ReviewDisclosure profile={editorialProfile} />
 
         <!-- Main Content Sections -->
         <div class="article-body">
@@ -250,21 +249,6 @@ const schemas = [
           </section>
         )}
 
-        <!-- Monetization Box -->
-        <aside class="monetization-box">
-          <div class="box-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
-              <path d="M2 17l10 5 10-5"></path>
-              <path d="M2 12l10 5 10-5"></path>
-            </svg>
-          </div>
-          <div class="box-content">
-            <h3>Primary monetization</h3>
-            <p><strong>{page.monetizationPrimary}</strong>. This page routes users toward the best-fitting offer while preserving topical authority.</p>
-          </div>
-        </aside>
-
         <!-- Related Comparisons -->
         {page.relatedSlugs && page.relatedSlugs.length > 0 && (
           <RelatedComparisons relatedSlugs={page.relatedSlugs} currentSlug={page.slug} />
@@ -275,15 +259,9 @@ const schemas = [
           <h2 class="section-heading">Related Articles</h2>
           <div class="related-grid">
             {page.relatedSlugs.map((slug) => {
-              const related = pageMap[slug];
+              const related = adsenseReviewPageMap[slug];
               if (!related) {
-                return (
-                  <article class="related-card missing">
-                    <span class="card-category">N/A</span>
-                    <h3>{slug}</h3>
-                    <p>Page not found</p>
-                  </article>
-                );
+                return null;
               }
               return (
                 <a href={`/pages/${related.slug}/`} class="related-card">
@@ -775,50 +753,6 @@ const schemas = [
     line-height: var(--leading-relaxed);
     color: var(--color-text-muted);
     margin: 0;
-  }
-
-  /* ─── Monetization Box ─── */
-  .monetization-box {
-    display: flex;
-    gap: var(--space-4);
-    background: linear-gradient(135deg, rgba(34, 197, 94, 0.05), rgba(59, 130, 246, 0.05));
-    border: 1px solid rgba(34, 197, 94, 0.2);
-    border-radius: var(--radius-xl);
-    padding: var(--space-5);
-    margin-top: var(--space-10);
-  }
-
-  .box-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 48px;
-    height: 48px;
-    background: rgba(34, 197, 94, 0.1);
-    border-radius: var(--radius-lg);
-    color: var(--color-success);
-    flex-shrink: 0;
-  }
-
-  .box-content h3 {
-    font-size: var(--text-sm);
-    font-weight: var(--font-semibold);
-    color: var(--color-text-bright);
-    margin-bottom: var(--space-2);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-
-  .box-content p {
-    font-size: var(--text-sm);
-    color: var(--color-text-muted);
-    margin: 0;
-    line-height: var(--leading-normal);
-  }
-
-  .box-content strong {
-    color: var(--color-success-light);
-    text-transform: capitalize;
   }
 
   /* ─── Related Articles ─── */

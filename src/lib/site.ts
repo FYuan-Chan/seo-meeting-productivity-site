@@ -3,7 +3,7 @@ import { aiToolPages } from './ai-tools-data';
 export type MonetizationPrimary = 'affiliate' | 'ads' | 'lead-magnet' | 'tool-upsell' | 'hybrid';
 export type PageCategory = 'commercial' | 'template' | 'examples' | 'comparison' | 'checklist' | 'ai-comparison' | 'ai-review' | 'ai-pillar' | 'github-trending' | 'tutorial';
 
-const DEFAULT_SITE_URL = 'https://example.com';
+const DEFAULT_SITE_URL = 'https://signalforges.com';
 const siteUrlFromEnv = ((import.meta as any).env?.PUBLIC_SITE_URL ?? DEFAULT_SITE_URL).replace(/\/$/, '');
 
 export type HeroMetric = {
@@ -121,63 +121,81 @@ export type SeoPage = {
 };
 
 const starterMetrics: HeroMetric[] = [
-  { label: 'Meeting pages', value: '48' },
-  { label: 'Main monetization', value: 'Ads + Affiliate' },
-  { label: 'Expansion path', value: 'Tools + Email' }
+  { label: 'Review pages', value: '15' },
+  { label: 'Current mode', value: 'Quality recovery' },
+  { label: 'Editorial focus', value: 'AI dev tools' }
 ];
+
+export const adsenseReviewSlugs = [
+  'claude-ecosystem-expansion-2026',
+  'gpt-5-5-deep-analysis',
+  'china-open-source-ai-2026',
+  'best-ai-coding-tools',
+  'best-ai-coding-assistant',
+  'chatgpt-vs-claude',
+  'github-copilot-vs-cursor',
+  'cursor-vs-windsurf',
+  'chatgpt-vs-claude-vs-gemini',
+  'perplexity-vs-chatgpt',
+  'claude-code-vs-cursor',
+  'lovable-vs-bolt-vs-v0',
+] as const;
+
+const adsenseReviewSlugSet = new Set<string>(adsenseReviewSlugs);
 
 export const siteConfig = {
   siteName: 'SignalForges',
   siteUrl: siteUrlFromEnv,
   language: 'en',
-  niche: 'AI meeting notes and meeting productivity',
-  heroTitle: 'AI tool comparisons and productivity guides for modern teams.',
+  niche: 'AI developer tools and agent infrastructure',
+  heroTitle: 'Evidence-led analysis of AI developer tools and agent infrastructure.',
   heroDescription:
-    'SignalForges is an AI tools comparison hub covering ChatGPT, Claude, coding assistants, writing tools, and productivity apps with in-depth reviews and real usage data.',
+    'SignalForges publishes source-backed comparisons, architecture notes, and practical adoption guidance for AI coding tools, model platforms, and agent workflows.',
   primaryCta: {
-    label: 'Open the money page',
-    href: '/pages/best-ai-meeting-assistants/'
+    label: 'Start with the AI coding tools guide',
+    href: '/pages/best-ai-coding-tools/'
   },
   nav: [
-    { label: 'AI Tools', href: '/pages/best-ai-meeting-assistants/' },
-    { label: 'Templates', href: '/pages/meeting-notes-template/' },
-    { label: 'Async Guide', href: '/pages/async-meeting-notes-best-practices/' },
-    { label: 'Remote Agenda', href: '/pages/meeting-agenda-remote-teams/' }
+    { label: 'Analysis', href: '/pages/best-ai-coding-tools/' },
+    { label: 'Comparisons', href: '/pages/chatgpt-vs-claude/' },
+    { label: 'Editorial Policy', href: '/editorial-policy/' },
+    { label: 'About', href: '/about/' },
+    { label: 'Contact', href: '/contact/' }
   ],
   metrics: starterMetrics satisfies HeroMetric[],
   homepageSections: {
     nicheReasons: [
       {
-        title: 'Growing remote-first demand',
+        title: 'Developer adoption pressure',
         description:
-          'Remote and hybrid teams are actively searching for async meeting workflows, meeting templates, and productivity tools that work across timezones.'
+          'Engineering teams are adopting coding assistants, model platforms, and agent tooling faster than their evaluation processes can keep up.'
       },
       {
-        title: 'Template + workflow pages',
+        title: 'Evidence before volume',
         description:
-          'Meeting note templates, agenda formats, and checklist pages have strong evergreen search demand and work well with display ads and lead magnets.'
+          'The site now favors fewer source-backed analysis pages over scaled daily digests and generic tool roundups.'
       },
       {
-        title: 'Software comparison angle',
+        title: 'Agent infrastructure focus',
         description:
-          'AI meeting assistant comparisons (Otter, Fireflies, Fathom) carry commercial intent and can support affiliate monetization as traffic grows.'
+          'Coverage is centered on AI developer tools, coding assistants, model ecosystems, and agent workflow infrastructure.'
       }
     ] satisfies FeatureCard[],
     monetizationCards: [
       {
-        title: 'Display ads',
+        title: 'AdSense review first',
         description:
-          'Template, example, and checklist pages can carry informational ad inventory once search traffic matures.'
+          'Advertising scripts and visible ad placeholders stay disabled until the site clears review and quality gates.'
       },
       {
-        title: 'Affiliate links',
+        title: 'Editorial gates',
         description:
-          'Commercial comparison pages can recommend AI note takers, collaboration suites, and adjacent productivity tools.'
+          'Every public page must pass sourcing, originality, link, build, and sitemap checks before publication.'
       },
       {
-        title: 'Future product',
+        title: 'Growth OS',
         description:
-          'A meeting summary generator or action-item extractor can turn the site from content asset into software asset.'
+          'Search Console data and content audits drive rewrite, merge, noindex, or delete decisions after publication.'
       }
     ] satisfies FeatureCard[]
   }
@@ -2782,13 +2800,96 @@ export const pages: SeoPage[] = [
   }
 ];
 
-starterMetrics[0] = { ...starterMetrics[0], value: String(pages.length) };
-
-export const pageMap = Object.fromEntries(pages.map((page) => [page.slug, page])) as Record<string, SeoPage>;
+function dedupePages(pageEntries: SeoPage[]): SeoPage[] {
+  const seen = new Set<string>();
+  return pageEntries.filter((page) => {
+    if (seen.has(page.slug)) return false;
+    seen.add(page.slug);
+    return true;
+  });
+}
 
 export function getAllPageEntries(): SeoPage[] {
-  return [...pages, ...aiToolPages];
+  return dedupePages([...pages, ...aiToolPages]);
 }
+
+export function estimateSeoPageContentWords(page: SeoPage): number {
+  const sectionText = page.sections.flatMap((section) => {
+    if ('paragraphs' in section) return section.paragraphs;
+    if ('items' in section) return section.items.map((item) => [item.label, item.text].filter(Boolean).join(' '));
+    if ('cards' in section) return section.cards.map((card) => `${card.title} ${card.description}`);
+    if ('rows' in section) return [section.heading, ...section.columns, ...section.rows.flat()];
+    if ('dimensions' in section) return [section.heading, ...section.dimensions, ...section.tools];
+    if ('tools' in section) {
+      return section.tools.map((tool) =>
+        [tool.name, tool.summary, ...(tool.pros ?? []), ...(tool.cons ?? []), tool.pricing].filter(Boolean).join(' ')
+      );
+    }
+    if ('plans' in section) {
+      return section.plans.map((plan) => Object.values(plan).filter(Boolean).join(' '));
+    }
+    if ('useCases' in section) return section.useCases.map((item) => `${item.scenario} ${item.recommended} ${item.reason}`);
+    return [];
+  });
+
+  return [
+    page.title,
+    page.description,
+    ...page.intro,
+    ...sectionText,
+    ...page.faq.flatMap((item) => [item.question, item.answer]),
+  ]
+    .join(' ')
+    .split(/\s+/)
+    .filter(Boolean).length;
+}
+
+export function getAdsenseReviewPageEntries(): SeoPage[] {
+  const allPages = getAllPageEntries();
+  const allPageMap = Object.fromEntries(allPages.map((page) => [page.slug, page])) as Record<string, SeoPage>;
+
+  return adsenseReviewSlugs
+    .map((slug) => allPageMap[slug])
+    .filter((page): page is SeoPage => Boolean(page))
+    .filter((page) => estimateSeoPageContentWords(page) >= 500)
+    .map((page) => sanitizeAdsenseReviewPage(page));
+}
+
+function extractInternalPageSlug(href: string): string | null {
+  const match = href.match(/^\/pages\/([^/#?]+)\/?(?:[#?].*)?$/);
+  return match?.[1] ?? null;
+}
+
+function getSafeReviewCtaHref(page: SeoPage): string {
+  const ctaSlug = extractInternalPageSlug(page.ctaHref);
+
+  if (!ctaSlug || adsenseReviewSlugSet.has(ctaSlug)) {
+    return page.ctaHref;
+  }
+
+  const relatedReviewSlug = page.relatedSlugs.find((slug) => adsenseReviewSlugSet.has(slug) && slug !== page.slug);
+  const fallbackSlug = relatedReviewSlug ?? (page.slug === 'best-ai-coding-tools' ? 'chatgpt-vs-claude' : 'best-ai-coding-tools');
+
+  return `/pages/${fallbackSlug}/`;
+}
+
+function sanitizeAdsenseReviewPage(page: SeoPage): SeoPage {
+  return {
+    ...page,
+    ctaHref: getSafeReviewCtaHref(page),
+    relatedSlugs: page.relatedSlugs.filter((slug) => adsenseReviewSlugSet.has(slug) && slug !== page.slug),
+  };
+}
+
+starterMetrics[0] = { ...starterMetrics[0], value: String(getAdsenseReviewPageEntries().length) };
+
+export const pageMap = Object.fromEntries(
+  getAllPageEntries().map((page) => [page.slug, page])
+) as Record<string, SeoPage>;
+
+export const adsenseReviewPageMap = Object.fromEntries(
+  getAdsenseReviewPageEntries().map((page) => [page.slug, page])
+) as Record<string, SeoPage>;
 
 export function buildCanonicalUrl(siteUrl: string, pathname: string) {
   const normalizedSite = siteUrl.replace(/\/$/, '');

@@ -17,7 +17,7 @@ const {
   title,
   description,
   canonicalPath,
-  siteName = 'MeetingFlow Hub',
+  siteName = 'SignalForges',
   nav = [],
   metrics = [],
   activePath = '/',
@@ -38,11 +38,6 @@ const {
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalPath} />
     <meta name="twitter:card" content="summary_large_image" />
-    <script
-      async
-      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6108188461869936"
-      crossorigin="anonymous"
-    ></script>
     {schema && (
       <script type="application/ld+json" set:html={JSON.stringify(schema)} />
     )}
@@ -65,14 +60,26 @@ const {
       <div class="container footer-grid">
         <div>
           <strong>{siteName}</strong>
-          <p>A deployable Astro starter site for SEO validation, monetization experiments, and future tool expansion.</p>
+          <p>Evidence-led analysis of AI developer tools, coding assistants, and agent infrastructure.</p>
         </div>
         <div>
-          <strong>Starter metrics</strong>
+          <strong>Review status</strong>
           <ul>
             {metrics.map((metric) => (
               <li><span>{metric.label}</span><span>{metric.value}</span></li>
             ))}
+          </ul>
+        </div>
+        <div>
+          <strong>Trust center</strong>
+          <ul>
+            <li><a href="/about/">About</a></li>
+            <li><a href="/contact/">Contact</a></li>
+            <li><a href="/privacy-policy/">Privacy</a></li>
+            <li><a href="/terms/">Terms</a></li>
+            <li><a href="/editorial-policy/">Editorial Policy</a></li>
+            <li><a href="/ai-use-disclosure/">AI Use Disclosure</a></li>
+            <li><a href="/author/">Author</a></li>
           </ul>
         </div>
       </div>

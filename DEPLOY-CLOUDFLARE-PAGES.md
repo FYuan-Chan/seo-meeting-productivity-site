@@ -1,8 +1,8 @@
 # Cloudflare Pages 部署清单
 
-适用项目：`seo-meeting-productivity-site`
+适用项目：`seo-meeting-productivity-site` / `signalforges.com`
 
-这个项目已经整理成可直接上 Cloudflare Pages 的发布版本了，当前采用 **环境变量驱动域名配置**，不需要每次部署都手改源码。
+这个项目现在处于 **AdSense recovery** 模式：Cloudflare Pages 只发布首页、信任页和少量白名单文章，避免“低价值内容”风险继续扩大。
 
 ---
 
@@ -27,6 +27,13 @@ PUBLIC_SITE_URL=https://yourdomain.com
 SITE_URL=https://yourdomain.com
 ```
 
+SignalForges 正式值：
+
+```bash
+PUBLIC_SITE_URL=https://signalforges.com
+SITE_URL=https://signalforges.com
+```
+
 ### 这两个变量分别做什么
 - `PUBLIC_SITE_URL`
   - 给站内页面使用
@@ -38,10 +45,10 @@ SITE_URL=https://yourdomain.com
 如果你不配置，项目会回退到：
 
 ```bash
-https://example.com
+https://signalforges.com
 ```
 
-这样会让 SEO 相关 URL 全部错误，所以正式上线前一定要填。
+仍然建议在 Cloudflare Pages 显式填写这两个变量，避免预览环境或未来多域名部署时混乱。
 
 ---
 
@@ -98,18 +105,37 @@ git push -u origin main
 - `/`
 
 ### 2. 内容页
-- `/pages/best-ai-meeting-assistants/`
-- `/pages/meeting-notes-template/`
-- `/pages/meeting-summary-examples/`
+- `/pages/best-ai-coding-tools/`
+- `/pages/chatgpt-vs-claude/`
+- `/pages/github-copilot-vs-cursor/`
 
-### 3. robots
+### 3. 信任页
+- `/about/`
+- `/contact/`
+- `/privacy-policy/`
+- `/terms/`
+- `/editorial-policy/`
+- `/ai-use-disclosure/`
+- `/author/`
+
+### 4. robots
 - `/robots.txt`
 
-### 4. sitemap
+### 5. sitemap
 - `/sitemap.xml`
 
-### 5. 源码里的 canonical
-确认已经不是 `example.com`，而是你的真实域名。
+### 6. 恢复期审计
+部署前本地必须通过：
+
+```bash
+npm run validate
+npm run audit:content
+npm test
+npm run build
+npm run audit:recovery
+```
+
+确认 sitemap 只有恢复期允许曝光的 URL，并且构建产物没有 `Ad Space`、`adsbygoogle`、`Primary monetization` 等广告痕迹。
 
 ---
 
@@ -135,21 +161,19 @@ Cloudflare 一般会自动处理 DNS 记录和 SSL。
 提交：
 
 ```text
-https://yourdomain.com/sitemap.xml
+https://signalforges.com/sitemap.xml
 ```
 
-### 2. 扩第二批页面
-先把内容量做起来，再观察：
+### 2. 不要立刻扩页面
+恢复期先观察：
 - 抓取
 - 收录
 - impressions
 - clicks
+- AdSense review 状态
 
-### 3. 再决定是否接广告和联盟
-SEO 项目最先验证的是：
-- 页面能不能被收录
-- 有没有真实曝光
-- 哪类关键词有起势
+### 3. 再决定是否恢复广告
+AdSense 通过前不要重新加入广告脚本、广告占位或“主要变现”模块。
 
 ---
 

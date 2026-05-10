@@ -1,69 +1,83 @@
-# MeetingFlow Hub — Cloudflare Pages Ready Astro SEO Starter
+# SignalForges — AdSense Recovery Astro Site
 
-This project is a deployable Astro static site prepared for Cloudflare Pages.
+`signalforges.com` is currently in AdSense recovery mode after a low-value-content rejection. The Astro site is now treated as the publishing front end only: it exposes a small whitelist of higher-quality AI developer tools pages, trust pages, and the homepage while the Growth OS control plane decides what should be improved, held, merged, noindexed, or deleted.
 
-## What is included
-- Astro-based static SEO site
-- 6 starter pages in a focused meeting-productivity cluster
-- Dynamic route generation for `/pages/[slug]/`
-- Dynamic `robots.txt` and `sitemap.xml`
-- FAQ + Article schema helpers
-- Vitest coverage for core site metadata and route generation
-- Cloudflare Pages deployment guide
-- Environment-based site URL configuration
+## Current Publishing Rules
 
-## Local development
+- Public sitemap contains only the homepage, trust pages, and 10-15 selected analysis pages.
+- Automated publishing is frozen during recovery.
+- Visible ad placeholders and AdSense scripts are disabled until review gates pass.
+- Thin GitHub Trending pages, duplicate slugs, risky topics, and generic meeting-template inventory are kept out of the public build.
+- Public pages must stay inside the `AI developer tools and agent infrastructure` positioning.
+
+## Local Development
+
 ```bash
 npm install
 npm run dev
 ```
 
-## Validation
+## Recovery Verification
+
+Run these before deploying or reapplying for AdSense:
+
 ```bash
+npm run validate
+npm run audit:content
 npm test
 npm run build
+npm run audit:recovery
 ```
 
-## Cloudflare Pages build settings
-Use these values in Cloudflare Pages:
+What the gates cover:
 
-- **Production branch**: `main`
-- **Build command**: `npm run build`
-- **Build output directory**: `dist`
+- `npm run validate`: duplicate slugs, review-set size/depth, trust pages, AI metadata, and public internal links.
+- `npm run audit:content`: machine-readable content audit in `reports/content-quality-audit.json`.
+- `npm test`: core metadata and recovery-mode assertions.
+- `npm run build`: Astro static output.
+- `npm run audit:recovery`: built HTML, sitemap whitelist, broken links, and blocked ad/monetization patterns.
 
-## Required environment variables
-Before production deployment, set these values either in a local `.env` file or in Cloudflare Pages > Settings > Environment variables.
+## Required Environment Variables
+
+Set these in Cloudflare Pages and local production builds:
 
 ```bash
-PUBLIC_SITE_URL=https://yourdomain.com
-SITE_URL=https://yourdomain.com
+PUBLIC_SITE_URL=https://signalforges.com
+SITE_URL=https://signalforges.com
 ```
 
-Why both?
-- `PUBLIC_SITE_URL` is consumed inside Astro source files for canonical tags, sitemap, robots, and schema URLs.
-- `SITE_URL` is consumed by `astro.config.mjs` during the build.
+## Project Structure
 
-If you do not set them, the project falls back to `https://example.com`.
+- `src/lib/site.ts`: site config, raw inventory, AdSense review whitelist, schema helpers.
+- `src/lib/trust-pages.ts`: About, Contact, Privacy, Terms, Editorial Policy, AI Use Disclosure, Author pages.
+- `src/lib/editorial-quality.ts`: per-page source/value/visual audit profile.
+- `src/pages/index.astro`: recovery-mode homepage.
+- `src/pages/pages/[slug].astro`: whitelisted public article template.
+- `src/pages/[trustSlug].astro`: trust-center route.
+- `scripts/validate-pages.ts`: data and public-link gate.
+- `scripts/content-quality-audit.ts`: machine-readable content audit.
+- `scripts/recovery-audit.ts`: post-build recovery crawler.
+- `legacy-static/`: archived first-pass static output, not part of the public Astro build.
 
-## Project structure
-- `src/lib/site.ts` — site config, page inventory, schema helpers
-- `src/pages/index.astro` — homepage
-- `src/pages/pages/[slug].astro` — dynamic SEO page template
-- `src/pages/robots.txt.ts` — robots output
-- `src/pages/sitemap.xml.ts` — sitemap output
-- `src/styles/global.css` — site styling
-- `tests/site.test.ts` — test coverage for core metadata logic
-- `DEPLOY-CLOUDFLARE-PAGES.md` — deployment checklist
-- `legacy-static/` — archived first-pass static HTML version
+## Growth OS
 
-## Recommended release flow
-1. Create a GitHub repository.
-2. Push this project to the `main` branch.
-3. Create a Cloudflare Pages project from that repository.
-4. Add `PUBLIC_SITE_URL` and `SITE_URL` in Cloudflare Pages environment variables.
-5. Deploy.
-6. Bind your custom domain.
-7. Submit `https://yourdomain.com/sitemap.xml` to Google Search Console.
+The long-term automation control plane lives at:
 
-## SEO reminder
-Do not launch with the default placeholder domain. Make sure your deployed pages, `robots.txt`, and `sitemap.xml` all point to the real domain before submitting the site to Google.
+```bash
+~/Documents/hermes-code/signalforges-growth-os
+```
+
+It follows the three-layer rule:
+
+- scripts define facts;
+- skills define repeatable editorial process;
+- agents define weekly strategy and evolution decisions.
+
+## Reapply Checklist
+
+1. Confirm `PUBLIC_SITE_URL` and `SITE_URL` are `https://signalforges.com`.
+2. Run the full recovery verification sequence above.
+3. Confirm `dist/sitemap.xml` contains only recovery-approved URLs.
+4. Spot-check homepage, representative articles, trust pages, and mobile layout.
+5. Submit the refreshed sitemap in Search Console.
+6. Reapply for AdSense only after the deployed production site matches the local recovery audit.

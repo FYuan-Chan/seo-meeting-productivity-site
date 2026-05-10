@@ -1,5 +1,7 @@
 # GitHub Trending 深度分析系统
 
+> 2026-05-10 恢复期规则：当前系统不再每日自动发布 GitHub Trending 页面。Trending 数据只用于发现值得深度研究的 AI developer tools / agent infrastructure 选题；薄摘要、重复日更、风险工具和缺少 README/commit/activity 证据的文章必须保持 `hold`。
+
 ## 系统概述
 
 本系统用于深度分析 GitHub Trending 排行榜，产出两类高质量文章：
@@ -52,9 +54,10 @@ scripts/data/analysis-{date}.json → 保存分析结果
   8. 总结
 
 ### 4. 发布层
-- 添加到 `ai-tools-data.ts`
-- 构建网站
-- 部署到 Cloudflare Pages
+- 先输出事实包、来源表、同类对比、风险分析和明确建议
+- 通过 AdSense 合规、内容质量、事实核验、构建审计四道门禁
+- 只有进入 `adsenseReviewSlugs` 白名单的页面才会出现在 public sitemap
+- 恢复期禁止批量写入 `ai-tools-data.ts` 后直接发布
 
 ## 每日工作流程
 
