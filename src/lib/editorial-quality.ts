@@ -391,6 +391,47 @@ const editorialLedgers: Record<string, EditorialLedgerSeed> = {
       bestFor: 'Product and engineering teams evaluating whether assistant platforms are becoming workflow infrastructure.',
       avoidWhen: 'Avoid assuming beta or ecosystem features are stable enough for regulated workflows without current Anthropic documentation.'
     }
+  },
+  'ai-ecosystem-developer-signal-2026-05-10': {
+    sources: [
+      source(
+        'GitHub Blog: Validating agentic behavior when correct is not deterministic',
+        'https://github.blog/ai-and-ml/generative-ai/validating-agentic-behavior-when-correct-isnt-deterministic/',
+        'company-release',
+        'Primary source for the dominator-analysis agent validation framework, including accuracy benchmarks and PTA construction methodology.'
+      ),
+      source(
+        'OpenAI Blog: Running Codex safely at OpenAI',
+        'https://openai.com/index/running-codex-safely',
+        'company-release',
+        'Primary source for Codex production security architecture, sandboxing, approval policies, network policies, and agent-native telemetry.'
+      ),
+      source(
+        'GitHub Blog: Improving token efficiency in GitHub Agentic Workflows',
+        'https://github.blog/ai-and-ml/github-copilot/improving-token-efficiency-in-github-agentic-workflows/',
+        'company-release',
+        'Primary source for token-efficiency optimization methodology, MCP tool pruning, CLI substitution, and Effective Tokens metric.'
+      ),
+    ],
+    factPack: [
+      { claim: 'Dominator-analysis structural validation achieved near-perfect precision and recall in controlled experiments, significantly outperforming agent self-assessment.', evidence: 'GitHub Blog post by Gaurav Mittal and Reshabh Kumar Sharma, published 2026-05-06.', confidence: 'high' },
+      { claim: 'Auto-Triage Issues achieved a 62% sustained Effective Tokens reduction across 109 post-fix runs after MCP tool pruning and CLI substitution.', evidence: 'GitHub Blog post by Landon Cox and Mara Kiefer, published 2026-05-07.', confidence: 'high' },
+      { claim: 'OpenAI runs Codex with sandboxing, approval policies, network restrictions, OS keyring credential storage, and OpenTelemetry-based agent-native logging.', evidence: 'OpenAI Blog post, published 2026-05-08.', confidence: 'high' }
+    ],
+    methodology: [
+      'Analysis based on primary sources from GitHub Blog and OpenAI Blog, accessed on 2026-05-10 via MCP web reader.',
+      'Quantified results are cited directly from primary sources without hands-on testing by SignalForges.',
+      'All claims are attributed to their original authors. Performance figures are treated as refresh-sensitive.'
+    ],
+    conclusion: {
+      recommendation: 'Teams deploying coding agents should prioritize token instrumentation, security posture review, and structural validation before scaling agent adoption.',
+      bestFor: 'Engineering teams and managers evaluating infrastructure readiness for autonomous coding agents at production scale.',
+      avoidWhen: 'Avoid applying these reference architectures without adaptation to your specific compliance, scale, and risk tolerance requirements.'
+    },
+    riskNotes: [
+      'The validation framework requires 2-10 successful traces and cannot yet learn from failure logs alone.',
+      'Token efficiency results come from GitHub internal repositories with high workflow volume; smaller teams may see more variance.'
+    ]
   }
 };
 

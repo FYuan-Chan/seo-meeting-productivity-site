@@ -121,7 +121,7 @@ export type SeoPage = {
 };
 
 const starterMetrics: HeroMetric[] = [
-  { label: 'Review pages', value: '15' },
+  { label: 'Review pages', value: '16' },
   { label: 'Publishing mode', value: 'Evidence first' },
   { label: 'Editorial focus', value: 'AI dev tools' }
 ];
@@ -139,6 +139,7 @@ export const adsenseReviewSlugs = [
   'perplexity-vs-chatgpt',
   'claude-code-vs-cursor',
   'lovable-vs-bolt-vs-v0',
+  'ai-ecosystem-developer-signal-2026-05-10',
 ] as const;
 
 const adsenseReviewSlugSet = new Set<string>(adsenseReviewSlugs);
