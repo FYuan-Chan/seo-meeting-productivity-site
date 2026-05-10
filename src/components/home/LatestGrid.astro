@@ -1,0 +1,79 @@
+---
+import type { SeoPage } from '../../lib/site';
+import ArticleCard from '../cards/ArticleCard.astro';
+
+interface Props {
+  items: SeoPage[];
+  title?: string;
+  description?: string;
+  href?: string;
+}
+
+const {
+  items,
+  title = 'Latest analysis',
+  description = 'Fresh comparisons, deep dives, and guides from SignalForges.',
+  href = '/archive/',
+} = Astro.props;
+---
+
+<section class="latest" aria-labelledby="latest-heading">
+  <div class="container">
+    <header class="latest-header">
+      <div>
+        <p class="eyebrow-caps">Latest</p>
+        <h2 id="latest-heading" class="headline-2">{title}</h2>
+        <p class="latest-dek">{description}</p>
+      </div>
+      <a class="latest-cta" href={href}>Browse all →</a>
+    </header>
+
+    <div class="latest-grid">
+      {items.map((page) => <ArticleCard page={page} variant="default" />)}
+    </div>
+  </div>
+</section>
+
+<style>
+  .latest {
+    padding: var(--space-12) 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .latest-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--space-6);
+    margin-bottom: var(--space-8);
+  }
+  .latest-dek {
+    margin-top: var(--space-2);
+    color: var(--color-text-muted);
+    font-size: var(--text-base);
+    max-width: 56ch;
+  }
+  .latest-cta {
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+    color: var(--color-primary-light);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .latest-cta:hover { color: var(--color-primary); }
+
+  .latest-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-5);
+  }
+
+  @media (max-width: 960px) {
+    .latest-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 600px) {
+    .latest-header { flex-direction: column; align-items: flex-start; }
+    .latest-grid { grid-template-columns: 1fr; }
+  }
+</style>

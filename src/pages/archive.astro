@@ -1,0 +1,127 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { buildCanonicalUrl, siteConfig } from '../lib/site';
+import {
+  getAllPublishedArticles,
+  getArchivableCategories,
+  groupByYearMonth,
+} from '../lib/articles';
+import { categoryLabel } from '../lib/articles';
+import ArticleCard from '../components/cards/ArticleCard.astro';
+
+const all = getAllPublishedArticles();
+const groups = groupByYearMonth(all);
+const archivableCats = getArchivableCategories();
+const canonicalPath = buildCanonicalUrl(siteConfig.siteUrl, '/archive/');
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: `Archive — ${siteConfig.siteName}`,
+  description: 'Every published SignalForges article grouped by month.',
+  url: canonicalPath,
+  isPartOf: { '@type': 'WebSite', name: siteConfig.siteName, url: siteConfig.siteUrl },
+  hasPart: all.map((p) => ({
+    '@type': 'Article',
+    headline: p.title,
+    url: buildCanonicalUrl(siteConfig.siteUrl, `/pages/${p.slug}/`),
+  })),
+};
+---
+
+<BaseLayout
+  title={`Archive — ${siteConfig.siteName}`}
+  description="Every published SignalForges article grouped by month."
+  canonicalPath={canonicalPath}
+  siteName={siteConfig.siteName}
+  nav={siteConfig.nav}
+  metrics={siteConfig.metrics}
+  activePath="/archive/"
+  schema={schema}
+>
+  <main id="main-content" class="archive-page">
+    <header class="archive-hero">
+      <div class="container content-width">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span class="separator" aria-hidden="true">/</span>
+          <span aria-current="page">Archive</span>
+        </nav>
+        <p class="eyebrow-caps kicker--accent">Archive</p>
+        <h1 class="headline-display">All SignalForges articles</h1>
+        <p class="dek dek--large">
+          Every article we've approved for the public index, grouped by month.
+          {all.length} articles and counting.
+        </p>
+      </div>
+    </header>
+
+    {archivableCats.length > 0 && (
+      <section class="archive-categories">
+        <div class="container content-width">
+          <p class="eyebrow-caps">Jump to a category</p>
+          <div class="archive-category-chips">
+            {archivableCats.map(({ category, items }) => (
+              <a class="chip" href={`/category/${category}/`}>
+                {categoryLabel(category)} <span class="chip-count">{items.length}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    <section class="archive-content">
+      <div class="container content-width">
+        {groups.map((group) => (
+          <section class="archive-group" aria-labelledby={`y-${group.key}`}>
+            <h2 id={`y-${group.key}`} class="archive-group-heading">{group.label}</h2>
+            <div class="archive-list">
+              {group.items.map((page) => <ArticleCard page={page} variant="row" />)}
+            </div>
+          </section>
+        ))}
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .archive-hero {
+    padding: var(--space-10) 0 var(--space-6);
+    border-bottom: 1px solid var(--color-border);
+  }
+  .archive-hero .breadcrumbs { margin-bottom: var(--space-4); }
+
+  .archive-categories {
+    padding: var(--space-6) 0 0;
+  }
+  .archive-category-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-top: var(--space-3);
+  }
+  .chip-count {
+    font-variant-numeric: tabular-nums;
+    opacity: 0.7;
+    margin-left: 4px;
+  }
+
+  .archive-content { padding: var(--space-8) 0 var(--space-16); }
+  .archive-group + .archive-group { margin-top: var(--space-8); }
+  .archive-group-heading {
+    font-family: var(--font-display);
+    font-weight: var(--font-semibold);
+    font-size: var(--text-2xl);
+    color: var(--color-text-bright);
+    padding-bottom: var(--space-3);
+    border-bottom: 1px solid var(--color-border);
+    margin-bottom: var(--space-2);
+  }
+  .archive-list {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid var(--color-border);
+  }
+</style>

@@ -3,6 +3,7 @@ import { existsSync, mkdirSync, readFileSync, readdirSync, statSync, writeFileSy
 import { dirname, extname, join, relative, resolve } from 'node:path';
 import { getAdsenseReviewPageEntries, siteConfig } from '../src/lib/site.js';
 import { trustPages } from '../src/lib/trust-pages.js';
+import { getArchivableCategories } from '../src/lib/articles.js';
 
 type RecoveryAuditReport = {
   generatedAt: string;
@@ -95,8 +96,11 @@ function main(): void {
   const issues: string[] = [];
   const expectedSiteUrl = getExpectedSiteUrl();
   const reviewPages = getAdsenseReviewPageEntries();
+  const archivableCategoryPaths = getArchivableCategories().map(({ category }) => `/category/${category}/`);
   const expectedPublicPaths = [
     '/',
+    '/archive/',
+    ...archivableCategoryPaths,
     ...trustPages.map((page) => `/${page.slug}/`),
     ...reviewPages.map((page) => `/pages/${page.slug}/`),
   ].sort();

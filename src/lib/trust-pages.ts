@@ -149,7 +149,7 @@ export const trustPages: TrustPage[] = [
         heading: 'Topic Selection',
         paragraphs: [
           'We select topics based on reader value, developer relevance, verified search interest, product significance, and evidence availability.',
-          'Trending topics are not published automatically. They must pass source, originality, safety, and depth checks before entering the public sitemap.'
+          'Trending topics may enter a daily publishing workflow, but they must pass source, originality, safety, and depth checks before entering the public sitemap.'
         ]
       },
       {
@@ -216,7 +216,7 @@ export const trustPages: TrustPage[] = [
         heading: 'Publisher',
         paragraphs: [
           'SignalForges is maintained by an independent operator using a research-assisted editorial workflow for AI developer tooling coverage.',
-          'The site favors evidence-led analysis over high-volume publishing.'
+          'The site favors evidence-led analysis and gated publishing over high-volume summaries.'
         ]
       },
       {

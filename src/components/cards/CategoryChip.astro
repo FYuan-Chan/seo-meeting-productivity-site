@@ -1,0 +1,21 @@
+---
+import type { PageCategory } from '../../lib/site';
+import { categoryLabel, categoryHasArchive } from '../../lib/articles';
+
+interface Props {
+  category: PageCategory;
+  variant?: 'primary' | 'accent' | 'muted';
+  link?: boolean;
+}
+
+const { category, variant = 'primary', link = true } = Astro.props;
+const label = categoryLabel(category);
+const clickable = link && categoryHasArchive(category);
+const href = `/category/${category}/`;
+---
+
+{clickable ? (
+  <a class="chip" data-variant={variant} href={href}>{label}</a>
+) : (
+  <span class="chip" data-variant={variant}>{label}</span>
+)}

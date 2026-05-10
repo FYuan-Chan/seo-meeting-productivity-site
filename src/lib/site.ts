@@ -142,6 +142,8 @@ export const adsenseReviewSlugs = [
 ] as const;
 
 const adsenseReviewSlugSet = new Set<string>(adsenseReviewSlugs);
+export const MIN_PUBLIC_ARTICLE_WORDS = 800;
+export const MAX_PUBLIC_ARTICLES = 60;
 
 export const siteConfig = {
   siteName: 'SignalForges',
@@ -173,7 +175,7 @@ export const siteConfig = {
       {
         title: 'Evidence before volume',
         description:
-          'The site now favors fewer source-backed analysis pages over scaled daily digests and generic tool roundups.'
+          'The site favors source-backed daily publishing over scaled digests and generic tool roundups.'
       },
       {
         title: 'Agent infrastructure focus',
@@ -195,7 +197,7 @@ export const siteConfig = {
       {
         title: 'Growth OS',
         description:
-          'Search Console data and content audits drive rewrite, merge, noindex, or delete decisions after publication.'
+          'GitHub Trending, AI ecosystem signals, Search Console data, and content audits drive publish, rewrite, merge, noindex, or delete decisions.'
       }
     ] satisfies FeatureCard[]
   }
@@ -2851,7 +2853,7 @@ export function getAdsenseReviewPageEntries(): SeoPage[] {
   return adsenseReviewSlugs
     .map((slug) => allPageMap[slug])
     .filter((page): page is SeoPage => Boolean(page))
-    .filter((page) => estimateSeoPageContentWords(page) >= 500)
+    .filter((page) => estimateSeoPageContentWords(page) >= MIN_PUBLIC_ARTICLE_WORDS)
     .map((page) => sanitizeAdsenseReviewPage(page));
 }
 

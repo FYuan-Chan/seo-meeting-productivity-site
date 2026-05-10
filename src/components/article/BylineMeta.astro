@@ -1,0 +1,43 @@
+---
+import type { SeoPage } from '../../lib/site';
+import { estimateReadingTime, formatUpdated, formatUpdatedISO } from '../../lib/articles';
+
+interface Props {
+  page: SeoPage;
+  sourceCount?: number;
+}
+
+const { page, sourceCount } = Astro.props;
+const readingTime = estimateReadingTime(page);
+const updated = formatUpdated(page);
+const updatedISO = formatUpdatedISO(page);
+---
+
+<div class="byline">
+  <span class="byline-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="10"></circle>
+      <polyline points="12 6 12 12 16 14"></polyline>
+    </svg>
+    {readingTime} min read
+  </span>
+  {updated && (
+    <span class="byline-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+        <line x1="16" y1="2" x2="16" y2="6"></line>
+        <line x1="8" y1="2" x2="8" y2="6"></line>
+        <line x1="3" y1="10" x2="21" y2="10"></line>
+      </svg>
+      Updated <time datetime={updatedISO}>{updated}</time>
+    </span>
+  )}
+  {typeof sourceCount === 'number' && sourceCount > 0 && (
+    <span class="byline-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 2L4 5v6c0 5 3.5 9.4 8 11 4.5-1.6 8-6 8-11V5l-8-3z"></path>
+      </svg>
+      {sourceCount} sources cited
+    </span>
+  )}
+</div>

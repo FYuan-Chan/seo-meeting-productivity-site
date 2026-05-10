@@ -11,9 +11,10 @@
  */
 
 import { aiToolPages } from '../src/lib/ai-tools-data.js';
-import { estimateSeoPageContentWords, getAdsenseReviewPageEntries, getAllPageEntries, pages as sitePages } from '../src/lib/site.js';
+import { MAX_PUBLIC_ARTICLES, MIN_PUBLIC_ARTICLE_WORDS, estimateSeoPageContentWords, getAdsenseReviewPageEntries, getAllPageEntries, pages as sitePages } from '../src/lib/site.js';
 import type { SeoPage } from '../src/lib/site.js';
 import { trustPages } from '../src/lib/trust-pages.js';
+import { getArchivableCategories } from '../src/lib/articles.js';
 
 // ─── CLI helpers ─────────────────────────────────────────────────────────────
 
@@ -111,14 +112,14 @@ function validateAdsenseReviewSet(pages: SeoPage[]): ValidationResult {
     'ai-briefing-2026-04-28'
   ]);
 
-  if (pages.length < 10 || pages.length > 15) {
-    errors.push(`AdSense review set must contain 10-15 pages, found ${pages.length}`);
+  if (pages.length < 10 || pages.length > MAX_PUBLIC_ARTICLES) {
+    errors.push(`Public article set must contain 10-${MAX_PUBLIC_ARTICLES} gated pages, found ${pages.length}`);
   }
 
   for (const page of pages) {
     const words = estimateSeoPageContentWords(page);
-    if (words < 500) {
-      errors.push(`Review page "${page.slug}" is too thin (${words} words, minimum 500)`);
+    if (words < MIN_PUBLIC_ARTICLE_WORDS) {
+      errors.push(`Public page "${page.slug}" is too thin (${words} words, minimum ${MIN_PUBLIC_ARTICLE_WORDS})`);
     }
     if (blockedSlugs.has(page.slug)) {
       errors.push(`Blocked low-value or risky slug is still in review set: "${page.slug}"`);
@@ -227,8 +228,11 @@ function normalizeInternalPath(href: string): string | null {
 }
 
 function validatePublicInternalLinks(pages: SeoPage[]): ValidationResult {
+  const archivableCategoryPaths = getArchivableCategories().map(({ category }) => `/category/${category}/`);
   const allowedPaths = new Set<string>([
     '/',
+    '/archive/',
+    ...archivableCategoryPaths,
     ...trustPages.map((page) => `/${page.slug}/`),
     ...pages.map((page) => `/pages/${page.slug}/`),
   ]);

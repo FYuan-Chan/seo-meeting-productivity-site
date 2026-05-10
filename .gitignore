@@ -19,3 +19,4 @@ reports/
 
 # macOS
 .DS_Store
+.kiro/*

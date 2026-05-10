@@ -6,6 +6,8 @@ import {
   estimateSeoPageContentWords,
   getAdsenseReviewPageEntries,
   getAllPageEntries,
+  MAX_PUBLIC_ARTICLES,
+  MIN_PUBLIC_ARTICLE_WORDS,
   pages as sitePages,
   pageMap,
   siteConfig,
@@ -25,7 +27,7 @@ const articlePageSource = readFileSync(
 );
 
 describe('site metadata', () => {
-  it('keeps the raw inventory available while limiting AdSense review pages to a strong whitelist', () => {
+  it('keeps the raw inventory available while limiting public pages to the gated whitelist', () => {
     const rawPages = [...sitePages, ...aiToolPages];
     const pages = getAllPageEntries();
     const reviewPages = getAdsenseReviewPageEntries();
@@ -35,7 +37,7 @@ describe('site metadata', () => {
     expect(new Set(rawSlugs).size).toBe(rawSlugs.length);
     expect(pages.length).toBeGreaterThanOrEqual(90);
     expect(reviewPages.length).toBeGreaterThanOrEqual(10);
-    expect(reviewPages.length).toBeLessThanOrEqual(15);
+    expect(reviewPages.length).toBeLessThanOrEqual(MAX_PUBLIC_ARTICLES);
     expect(new Set(reviewSlugs).size).toBe(reviewSlugs.length);
     expect(reviewSlugs).toEqual(
       expect.arrayContaining([
@@ -53,7 +55,7 @@ describe('site metadata', () => {
         'ai-briefing-2026-04-28'
       ])
     );
-    expect(reviewPages.every((page) => estimateSeoPageContentWords(page) >= 500)).toBe(true);
+    expect(reviewPages.every((page) => estimateSeoPageContentWords(page) >= MIN_PUBLIC_ARTICLE_WORDS)).toBe(true);
   });
 
   it('builds canonical URLs without duplicating slashes', () => {

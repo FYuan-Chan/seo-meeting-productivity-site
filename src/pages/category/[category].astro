@@ -1,0 +1,93 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { buildCanonicalUrl, siteConfig } from '../../lib/site';
+import { categoryDescription, categoryLabel, getArchivableCategories } from '../../lib/articles';
+import ArticleCard from '../../components/cards/ArticleCard.astro';
+
+export function getStaticPaths() {
+  return getArchivableCategories().map(({ category, items }) => ({
+    params: { category },
+    props: { category, items },
+  }));
+}
+
+const { category, items } = Astro.props;
+const canonicalPath = buildCanonicalUrl(siteConfig.siteUrl, `/category/${category}/`);
+const label = categoryLabel(category);
+const description = categoryDescription(category);
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: `${label} — ${siteConfig.siteName}`,
+  description,
+  url: canonicalPath,
+  isPartOf: {
+    '@type': 'WebSite',
+    name: siteConfig.siteName,
+    url: siteConfig.siteUrl,
+  },
+  hasPart: items.map((p) => ({
+    '@type': 'Article',
+    headline: p.title,
+    url: buildCanonicalUrl(siteConfig.siteUrl, `/pages/${p.slug}/`),
+  })),
+};
+---
+
+<BaseLayout
+  title={`${label} — ${siteConfig.siteName}`}
+  description={description}
+  canonicalPath={canonicalPath}
+  siteName={siteConfig.siteName}
+  nav={siteConfig.nav}
+  metrics={siteConfig.metrics}
+  activePath={`/category/${category}/`}
+  schema={schema}
+>
+  <main id="main-content" class="category-page">
+    <header class="category-hero">
+      <div class="container content-width">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span class="separator" aria-hidden="true">/</span>
+          <a href="/archive/">Articles</a>
+          <span class="separator" aria-hidden="true">/</span>
+          <span aria-current="page">{label}</span>
+        </nav>
+        <p class="eyebrow-caps kicker--accent">Category</p>
+        <h1 class="headline-display">{label}</h1>
+        <p class="dek dek--large">{description}</p>
+        <p class="category-count">{items.length} article{items.length === 1 ? '' : 's'}</p>
+      </div>
+    </header>
+
+    <section class="category-content">
+      <div class="container content-width">
+        <div class="category-list">
+          {items.map((page) => <ArticleCard page={page} variant="row" />)}
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .category-hero {
+    padding: var(--space-10) 0 var(--space-6);
+    border-bottom: 1px solid var(--color-border);
+  }
+  .category-hero .breadcrumbs { margin-bottom: var(--space-4); }
+  .category-count {
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+    margin-top: var(--space-3);
+    font-variant-numeric: tabular-nums;
+  }
+  .category-content { padding: var(--space-8) 0 var(--space-16); }
+  .category-list {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid var(--color-border);
+  }
+</style>

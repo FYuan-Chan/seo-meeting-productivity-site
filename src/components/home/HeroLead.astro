@@ -1,0 +1,60 @@
+---
+import type { SeoPage } from '../../lib/site';
+import ArticleCard from '../cards/ArticleCard.astro';
+
+interface Props {
+  lead: SeoPage;
+  secondary: SeoPage[];
+}
+
+const { lead, secondary } = Astro.props;
+---
+
+<section class="hero-lead" aria-labelledby="hero-lead-heading">
+  <div class="container hero-shell">
+    <div class="hero-meta">
+      <p class="eyebrow-caps kicker--accent">Editor's Pick</p>
+      <h2 id="hero-lead-heading" class="visually-hidden">Featured analysis</h2>
+    </div>
+    <div class="hero-grid">
+      <ArticleCard page={lead} variant="hero" />
+      <div class="hero-secondary">
+        {secondary.slice(0, 2).map((page) => (
+          <ArticleCard page={page} variant="featured" />
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-lead {
+    padding: var(--space-12) 0 var(--space-10);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .hero-shell {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+    gap: var(--space-6);
+    align-items: stretch;
+  }
+
+  .hero-secondary {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: var(--space-5);
+  }
+
+  @media (max-width: 900px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

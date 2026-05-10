@@ -1,0 +1,168 @@
+---
+interface TocItem {
+  id: string;
+  label: string;
+}
+
+interface Props {
+  items: TocItem[];
+}
+
+const { items } = Astro.props;
+---
+
+{items.length > 0 && (
+  <>
+    {/* Desktop: sticky sidebar */}
+    <aside class="toc-desktop" aria-label="Table of contents">
+      <div class="toc-container" data-toc>
+        <p class="toc-title">Contents</p>
+        <nav>
+          {items.map((item, i) => (
+            <a href={`#${item.id}`} class="toc-link" data-toc-link={item.id}>
+              <span class="toc-number">{String(i + 1).padStart(2, '0')}</span>
+              <span class="toc-text">{item.label}</span>
+            </a>
+          ))}
+        </nav>
+      </div>
+    </aside>
+
+    {/* Mobile/tablet: inline <details> */}
+    <details class="toc-inline" aria-label="Table of contents (inline)">
+      <summary>
+        <span>Table of contents · {items.length} sections</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </summary>
+      <nav>
+        {items.map((item, i) => (
+          <a href={`#${item.id}`} class="toc-link">
+            <span class="toc-number">{String(i + 1).padStart(2, '0')}</span>
+            <span class="toc-text">{item.label}</span>
+          </a>
+        ))}
+      </nav>
+    </details>
+
+    <script>
+      const container = document.querySelector<HTMLElement>('[data-toc]');
+      if (container) {
+        const links = Array.from(container.querySelectorAll<HTMLAnchorElement>('[data-toc-link]'));
+        const observer = new IntersectionObserver(
+          (entries) => {
+            for (const entry of entries) {
+              if (entry.isIntersecting) {
+                const id = (entry.target as HTMLElement).id;
+                for (const l of links) {
+                  const match = l.dataset.tocLink === id;
+                  l.classList.toggle('is-active', match);
+                  if (match) l.setAttribute('aria-current', 'true');
+                  else l.removeAttribute('aria-current');
+                }
+              }
+            }
+          },
+          { rootMargin: '-25% 0px -65% 0px', threshold: 0.1 },
+        );
+        for (const l of links) {
+          const target = document.getElementById(l.dataset.tocLink || '');
+          if (target) observer.observe(target);
+        }
+      }
+    </script>
+  </>
+)}
+
+<style>
+  /* ─── Desktop sticky sidebar ─── */
+  .toc-desktop {
+    display: none;
+  }
+
+  @media (min-width: 1200px) {
+    .toc-desktop {
+      display: block;
+      position: sticky;
+      top: calc(var(--header-height) + var(--space-8));
+      align-self: start;
+      width: 240px;
+      max-height: calc(100vh - var(--header-height) - var(--space-12));
+      overflow-y: auto;
+    }
+    .toc-container {
+      padding: var(--space-4);
+      font-size: var(--text-sm);
+    }
+  }
+
+  .toc-title {
+    font-family: var(--font-sans);
+    font-size: var(--text-xs);
+    font-weight: var(--font-semibold);
+    color: var(--color-text-dim);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-caps);
+    margin: 0 0 var(--space-3);
+  }
+
+  .toc-link {
+    display: flex;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-3);
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+    line-height: 1.4;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    border-left: 2px solid transparent;
+    transition: color var(--transition-fast), background-color var(--transition-fast), border-color var(--transition-fast);
+  }
+  .toc-link:hover { color: var(--color-text-bright); background: var(--color-surface-hover); }
+  :global(.toc-link.is-active) {
+    color: var(--color-primary-light);
+    border-left-color: var(--color-primary);
+    background: color-mix(in srgb, var(--color-primary) 8%, transparent);
+  }
+  .toc-number {
+    color: var(--color-text-dim);
+    font-variant-numeric: tabular-nums;
+    font-size: var(--text-xs);
+  }
+  :global(.toc-link.is-active) .toc-number { color: var(--color-primary-light); }
+  .toc-text { flex: 1; }
+
+  /* ─── Inline details (mobile/tablet) ─── */
+  .toc-inline {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-3) var(--space-4);
+    background: var(--color-surface);
+  }
+  .toc-inline[open] { padding-bottom: var(--space-3); }
+  .toc-inline summary {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+    color: var(--color-text);
+    cursor: pointer;
+  }
+  .toc-inline summary::-webkit-details-marker { display: none; }
+  .toc-inline summary svg { transition: transform var(--transition-fast); }
+  .toc-inline[open] summary svg { transform: rotate(180deg); }
+  .toc-inline nav {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    margin-top: var(--space-3);
+  }
+
+  @media (min-width: 1200px) {
+    .toc-inline { display: none; }
+  }
+</style>

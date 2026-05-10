@@ -1,0 +1,80 @@
+---
+import type { SeoPage } from '../../lib/site';
+import CategoryChip from '../cards/CategoryChip.astro';
+import BylineMeta from './BylineMeta.astro';
+import ShareBar from './ShareBar.astro';
+
+interface Props {
+  page: SeoPage;
+  canonicalUrl: string;
+  sourceCount?: number;
+}
+
+const { page, canonicalUrl, sourceCount } = Astro.props;
+---
+
+<header class="masthead">
+  <div class="container content-width masthead-shell">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span class="separator" aria-hidden="true">/</span>
+      <a href="/archive/">Articles</a>
+      <span class="separator" aria-hidden="true">/</span>
+      <span aria-current="page">{page.title}</span>
+    </nav>
+
+    <div class="masthead-chip">
+      <CategoryChip category={page.category} />
+    </div>
+
+    <h1 class="headline-display masthead-title">{page.title}</h1>
+    <p class="dek dek--large masthead-dek">{page.description}</p>
+
+    <div class="masthead-meta">
+      <BylineMeta page={page} sourceCount={sourceCount} />
+    </div>
+
+    <div class="masthead-actions">
+      <ShareBar url={canonicalUrl} title={page.title} />
+    </div>
+  </div>
+</header>
+
+<style>
+  .masthead {
+    padding: var(--space-10) 0 var(--space-8);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .masthead-shell {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .masthead-chip {
+    margin-top: var(--space-2);
+  }
+
+  .masthead-title {
+    /* Display scale is applied via headline-display utility */
+    max-width: 24ch;
+    margin: 0;
+  }
+
+  .masthead-dek {
+    max-width: var(--measure);
+  }
+
+  .masthead-meta { margin-top: var(--space-2); }
+  .masthead-actions { margin-top: var(--space-3); }
+
+  @media (max-width: 768px) {
+    .masthead {
+      padding: var(--space-8) 0 var(--space-6);
+    }
+    .masthead-title {
+      max-width: 100%;
+    }
+  }
+</style>

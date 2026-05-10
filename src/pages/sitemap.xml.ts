@@ -1,14 +1,22 @@
 import type { APIRoute } from 'astro';
 import { buildCanonicalUrl, getAdsenseReviewPageEntries, siteConfig } from '../lib/site';
 import { trustPages } from '../lib/trust-pages';
+import { getArchivableCategories } from '../lib/articles';
 
 const DEFAULT_LASTMOD = '2026-04-23';
+const HOMEPAGE_LASTMOD = '2026-05-10';
 
 export const GET: APIRoute = () => {
   const pageEntries = getAdsenseReviewPageEntries();
+  const archivableCats = getArchivableCategories();
 
   const urlEntries: { loc: string; lastmod: string }[] = [
-    { loc: buildCanonicalUrl(siteConfig.siteUrl, '/'), lastmod: '2026-05-10' },
+    { loc: buildCanonicalUrl(siteConfig.siteUrl, '/'), lastmod: HOMEPAGE_LASTMOD },
+    { loc: buildCanonicalUrl(siteConfig.siteUrl, '/archive/'), lastmod: HOMEPAGE_LASTMOD },
+    ...archivableCats.map(({ category }) => ({
+      loc: buildCanonicalUrl(siteConfig.siteUrl, `/category/${category}/`),
+      lastmod: HOMEPAGE_LASTMOD,
+    })),
     ...trustPages.map((page) => ({
       loc: buildCanonicalUrl(siteConfig.siteUrl, `/${page.slug}/`),
       lastmod: page.updated,

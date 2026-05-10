@@ -1,6 +1,9 @@
 ---
 import '../styles/global.css';
 import type { HeroMetric } from '../lib/site';
+import SiteHeader from '../components/common/SiteHeader.astro';
+import SiteFooter from '../components/common/SiteFooter.astro';
+import SearchDialog from '../components/common/SearchDialog.astro';
 
 interface Props {
   title: string;
@@ -12,6 +15,7 @@ interface Props {
   activePath?: string;
   schema?: Record<string, unknown> | Record<string, unknown>[];
   noindex?: boolean;
+  bodyClass?: string;
 }
 
 const {
@@ -23,7 +27,8 @@ const {
   metrics = [],
   activePath = '/',
   schema,
-  noindex = false
+  noindex = false,
+  bodyClass
 } = Astro.props;
 ---
 
@@ -40,52 +45,56 @@ const {
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalPath} />
+    <meta property="og:site_name" content={siteName} />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <!-- No-FOUC theme init (runs before paint) -->
+    <script is:inline>
+      (function () {
+        try {
+          var stored = localStorage.getItem('signalforges-theme');
+          var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+          var theme = stored || (prefersDark ? 'dark' : 'light');
+          document.documentElement.setAttribute('data-theme', theme);
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      })();
+    </script>
+
     {schema && (
       <script type="application/ld+json" set:html={JSON.stringify(schema)} />
     )}
   </head>
-  <body>
-    <header class="site-header">
-      <div class="container nav-shell">
-        <a class="brand" href="/">{siteName}</a>
-        <nav class="site-nav" aria-label="Primary navigation">
-          {nav.map((item) => (
-            <a href={item.href} class:list={{ active: activePath === item.href }}>
-              {item.label}
-            </a>
-          ))}
-        </nav>
-      </div>
-    </header>
+  <body class={bodyClass}>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <SiteHeader siteName={siteName} nav={nav} activePath={activePath} />
+
     <slot />
-    <footer class="site-footer">
-      <div class="container footer-grid">
-        <div>
-          <strong>{siteName}</strong>
-          <p>Evidence-led analysis of AI developer tools, coding assistants, and agent infrastructure.</p>
-        </div>
-        <div>
-          <strong>Review status</strong>
-          <ul>
-            {metrics.map((metric) => (
-              <li><span>{metric.label}</span><span>{metric.value}</span></li>
-            ))}
-          </ul>
-        </div>
-        <div>
-          <strong>Trust center</strong>
-          <ul>
-            <li><a href="/about/">About</a></li>
-            <li><a href="/contact/">Contact</a></li>
-            <li><a href="/privacy-policy/">Privacy</a></li>
-            <li><a href="/terms/">Terms</a></li>
-            <li><a href="/editorial-policy/">Editorial Policy</a></li>
-            <li><a href="/ai-use-disclosure/">AI Use Disclosure</a></li>
-            <li><a href="/author/">Author</a></li>
-          </ul>
-        </div>
-      </div>
-    </footer>
+
+    <SiteFooter siteName={siteName} metrics={metrics} />
+
+    <SearchDialog />
+
+    <style>
+      .skip-link {
+        position: absolute;
+        left: -9999px;
+        top: 0;
+        padding: var(--space-3) var(--space-4);
+        background: var(--color-primary);
+        color: #fff;
+        font-weight: var(--font-semibold);
+        border-radius: var(--radius-md);
+        z-index: var(--z-toast);
+      }
+      .skip-link:focus {
+        left: var(--space-4);
+        top: var(--space-4);
+      }
+    </style>
   </body>
 </html>
