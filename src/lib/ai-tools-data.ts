@@ -4131,7 +4131,7 @@ export const aiToolPages: SeoPage[] = [
         heading: 'Why these three signals matter now',
         paragraphs: [
           'AI coding tools are no longer experimental. They are running on every pull request, writing production code, and making autonomous decisions in CI pipelines. The question has shifted from "can agents do the task?" to "can we trust, secure, and afford them at scale?"',
-          'Three developments from early May 2026 address exactly these concerns. GitHub published research on validating non-deterministic agent behavior using compiler-theory techniques. OpenAI detailed how it runs Codex internally with sandboxing, approval policies, and agent-native telemetry. And the GitHub Agentic Workflows team shared a token-efficiency methodology that cut costs by up to 62% in production workflows.',
+          'Three developments from early May 2026 address exactly these concerns. GitHub published research on validating non-deterministic agent behavior using compiler-theory techniques. OpenAI detailed how it runs Codex internally with sandboxing, approval policies, and agent-native telemetry. And the GitHub Agentic Workflows team shared a token-efficiency methodology that reduced Effective Tokens by up to 62% in production workflows.',
           'These are not marketing announcements. They are engineering postmortems from teams running agents at production scale, and the lessons apply directly to any team deploying autonomous coding tools.',
         ],
       },

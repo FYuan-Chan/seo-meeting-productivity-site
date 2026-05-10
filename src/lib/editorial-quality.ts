@@ -415,7 +415,8 @@ const editorialLedgers: Record<string, EditorialLedgerSeed> = {
     ],
     factPack: [
       { claim: 'Dominator-analysis structural validation achieved near-perfect precision and recall in controlled experiments, significantly outperforming agent self-assessment.', evidence: 'GitHub Blog post by Gaurav Mittal and Reshabh Kumar Sharma, published 2026-05-06.', confidence: 'high' },
-      { claim: 'Auto-Triage Issues achieved a 62% sustained Effective Tokens reduction across 109 post-fix runs after MCP tool pruning and CLI substitution.', evidence: 'GitHub Blog post by Landon Cox and Mara Kiefer, published 2026-05-07.', confidence: 'high' },
+      { claim: 'Auto-Triage Issues achieved a 62% sustained Effective Tokens reduction across 109 post-fix runs after MCP tool pruning and CLI substitution; Security Guard and Smoke Claude showed 43% and 59% reductions in the same GitHub results table.', evidence: 'GitHub Blog post by Landon Cox and Mara Kiefer, published 2026-05-07.', confidence: 'high' },
+      { claim: 'GitHub reported that an MCP server with 40 tools can add 10-15 KB of schema per turn, and that pruning unused tools reduced smoke-test per-call context by 8-12 KB.', evidence: 'GitHub Blog post by Landon Cox and Mara Kiefer, published 2026-05-07.', confidence: 'high' },
       { claim: 'OpenAI runs Codex with sandboxing, approval policies, network restrictions, OS keyring credential storage, and OpenTelemetry-based agent-native logging.', evidence: 'OpenAI Blog post, published 2026-05-08.', confidence: 'high' }
     ],
     methodology: [

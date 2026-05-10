@@ -120,12 +120,6 @@ export type SeoPage = {
   };
 };
 
-const starterMetrics: HeroMetric[] = [
-  { label: 'Review pages', value: '16' },
-  { label: 'Publishing mode', value: 'Evidence first' },
-  { label: 'Editorial focus', value: 'AI dev tools' }
-];
-
 export const adsenseReviewSlugs = [
   'claude-ecosystem-expansion-2026',
   'gpt-5-5-deep-analysis',
@@ -145,6 +139,12 @@ export const adsenseReviewSlugs = [
 const adsenseReviewSlugSet = new Set<string>(adsenseReviewSlugs);
 export const MIN_PUBLIC_ARTICLE_WORDS = 800;
 export const MAX_PUBLIC_ARTICLES = 60;
+
+const starterMetrics: HeroMetric[] = [
+  { label: 'Review pages', value: String(adsenseReviewSlugs.length) },
+  { label: 'Publishing mode', value: 'Evidence first' },
+  { label: 'Editorial focus', value: 'AI dev tools' }
+];
 
 export const siteConfig = {
   siteName: 'SignalForges',
