@@ -24,6 +24,7 @@ const BLOCKED_HTML_PATTERNS = [
   'adsbygoogle',
   'pagead2.googlesyndication.com',
   'monetization-box',
+  'reviewRating',
 ];
 
 function walkFiles(dir: string): string[] {

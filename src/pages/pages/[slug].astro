@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { adsenseReviewPageMap, buildCanonicalUrl, getAdsenseReviewPageEntries, getArticleSchema, getFaqSchema, getReviewSchema, getBreadcrumbSchema, siteConfig } from '../../lib/site';
+import { adsenseReviewPageMap, buildCanonicalUrl, getAdsenseReviewPageEntries, getArticleSchema, getFaqSchema, getBreadcrumbSchema, siteConfig } from '../../lib/site';
 import ComparisonTable from '../../components/ai-tools/ComparisonTable.astro';
 import ToolRatingCard from '../../components/ai-tools/ToolRatingCard.astro';
 import PricingComparison from '../../components/ai-tools/PricingComparison.astro';
@@ -34,7 +34,6 @@ const readingTime = Math.max(3, Math.ceil(wordCount / 200));
 const schemas = [
   getArticleSchema(page),
   ...(page.faq.length > 0 ? [getFaqSchema(page)] : []),
-  ...(isAIToolPage && page.aiToolMeta?.comparisonData ? [getReviewSchema(page)] : []),
   getBreadcrumbSchema(page, siteConfig.siteUrl),
 ];
 ---

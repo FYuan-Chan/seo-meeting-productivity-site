@@ -59,6 +59,11 @@ function main(): void {
   for (const page of trustPages) {
     if (page.sections.length < 2) trustIssues.push(`trust_page_too_thin:${page.slug}`);
   }
+  const privacyPolicy = trustPages.find((page) => page.slug === 'privacy-policy');
+  const privacyText = privacyPolicy?.sections.flatMap((section) => section.paragraphs).join(' ') ?? '';
+  if (!privacyText.includes('https://policies.google.com/technologies/partner-sites')) {
+    trustIssues.push('privacy_policy_missing_google_partner_sites_disclosure');
+  }
 
   const report = {
     generatedAt: new Date().toISOString(),

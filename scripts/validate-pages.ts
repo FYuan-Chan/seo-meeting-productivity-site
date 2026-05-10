@@ -271,6 +271,12 @@ function validateTrustPages(): ValidationResult {
     }
   }
 
+  const privacyPolicy = trustPages.find((page) => page.slug === 'privacy-policy');
+  const privacyText = privacyPolicy?.sections.flatMap((section) => section.paragraphs).join(' ') ?? '';
+  if (!privacyText.includes('https://policies.google.com/technologies/partner-sites')) {
+    errors.push('Privacy policy should disclose the Google partner-sites data-use link before AdSense review');
+  }
+
   return { rule: 'Trust pages present', passed: errors.length === 0, errors };
 }
 

@@ -88,7 +88,8 @@ export const trustPages: TrustPage[] = [
         heading: 'Cookies and Advertising',
         paragraphs: [
           'The site may use cookies or similar technologies for analytics, security, and advertising once advertising is approved.',
-          'Advertising partners may use cookies to measure ad performance, prevent fraud, and personalize or limit ad delivery according to their own policies.'
+          'Advertising partners may use cookies to measure ad performance, prevent fraud, and personalize or limit ad delivery according to their own policies.',
+          'For Google advertising services, see how Google uses data when you use partners sites or apps: https://policies.google.com/technologies/partner-sites.'
         ]
       },
       {

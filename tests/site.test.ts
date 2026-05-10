@@ -88,4 +88,9 @@ describe('site metadata', () => {
     expect(articlePageSource).not.toContain('monetization-box');
     expect(articlePageSource).not.toContain('Primary monetization');
   });
+
+  it('does not emit Review rating schema during AdSense recovery', () => {
+    expect(articlePageSource).not.toContain('getReviewSchema');
+    expect(articlePageSource).not.toContain('reviewRating');
+  });
 });
