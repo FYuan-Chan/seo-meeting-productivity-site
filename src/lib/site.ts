@@ -155,6 +155,7 @@ export const adsenseReviewSlugs = [
   'emo-pretraining-mixture-of-experts-for-emergent-modularity-2026-05-08',
   'github-trending-ai-devtools-2026-05-11',
   'ai-ecosystem-developer-signal-2026-05-11',
+  'openai-launches-deployco-to-help-businesses-build-around-intelligence-2026-05-11',
 ] as const;
 
 const adsenseReviewSlugSet = new Set<string>(adsenseReviewSlugs);

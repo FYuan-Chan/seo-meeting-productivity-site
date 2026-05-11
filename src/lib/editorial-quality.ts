@@ -664,6 +664,75 @@ const editorialLedgers: Record<string, EditorialLedgerSeed> = {
       'Speech-to-speech model evaluation results from Parloa are not yet available. Whether these replace the STT-reasoning-TTS pipeline remains uncertain.',
       'Open source exemptions in Australia and France are specific to code collaboration platforms and may not extend to all developer tools or agent distribution channels.',
     ]
+  },
+  'openai-launches-deployco-to-help-businesses-build-around-intelligence-2026-05-11': {
+    sources: [
+      source(
+        'OpenAI Blog: The Deployment Company launch',
+        'https://openai.com/index/openai-launches-the-deployment-company',
+        'company-release',
+        'Primary source for all structural details about DeployCo: Tomoro acquisition, investment partners, operating model, and leadership quotes.'
+      ),
+      source(
+        'Bloomberg: OpenAI Finalizes Joint Venture',
+        'https://www.bloomberg.com/news/articles/2026-05-04/openai-finalizes-10-billion-joint-venture-with-pe-firms-to-deploy-ai',
+        'ecosystem-reference',
+        'Corroborating source for the investment amount, joint venture structure, and private equity backing.'
+      ),
+      source(
+        'The Next Web: OpenAI closes The Deployment Company',
+        'https://thenextweb.com/news/openai-deployco-finalized-10-billion-joint-venture',
+        'ecosystem-reference',
+        'Secondary source for valuation context and stake structure details.'
+      ),
+      source(
+        'The Decoder: OpenAI raises over four billion for new enterprise deployment venture',
+        'https://the-decoder.com/openai-raises-over-4-billion-for-new-enterprise-deployment-venture/',
+        'ecosystem-reference',
+        'Corroborating source confirming the joint venture structure and investment figures.'
+      ),
+      source(
+        'IQ.wiki: The Deployment Company milestones',
+        'https://iq.wiki/wiki/the-deployment-company/milestones',
+        'ecosystem-reference',
+        'Timeline reference for the ten billion dollar Delaware-domiciled vehicle confirmation.'
+      ),
+    ],
+    factPack: [
+      { claim: 'OpenAI has launched the OpenAI Deployment Company, a new subsidiary designed to embed Forward Deployed Engineers into organizations.', evidence: 'OpenAI official blog post, May 11, 2026.', confidence: 'high' },
+      { claim: 'OpenAI has agreed to acquire Tomoro, bringing approximately one hundred fifty experienced Forward Deployed Engineers and Deployment Specialists.', evidence: 'OpenAI official blog post, May 11, 2026.', confidence: 'high' },
+      { claim: 'Tomoro has built real-time AI systems for Tesco, Virgin Atlantic, and Supercell.', evidence: 'OpenAI official blog post, May 11, 2026.', confidence: 'high' },
+      { claim: 'The Deployment Company launches with more than four billion dollars of initial investment.', evidence: 'OpenAI official blog post, May 11, 2026.', confidence: 'high' },
+      { claim: 'Nineteen global firms are committed partners, led by TPG with Advent, Bain Capital, and Brookfield as co-lead founding partners.', evidence: 'OpenAI official blog post, May 11, 2026.', confidence: 'high' },
+      { claim: 'Consulting and systems integration partners include Bain and Company, Capgemini, and McKinsey and Company.', evidence: 'OpenAI official blog post, May 11, 2026.', confidence: 'high' },
+      { claim: 'The Deployment Company is majority-owned and controlled by OpenAI.', evidence: 'OpenAI official blog post, May 11, 2026.', confidence: 'high' },
+      { claim: 'Denise Dresser is the Chief Revenue Officer at OpenAI, quoted in the official announcement.', evidence: 'OpenAI official blog post, May 11, 2026.', confidence: 'high' },
+      { claim: 'The Tomoro acquisition is subject to customary closing conditions including regulatory approvals and is expected to close in the coming months.', evidence: 'OpenAI official blog post, May 11, 2026.', confidence: 'high' },
+      { claim: 'Bloomberg reported the joint venture valuation at approximately ten billion dollars, citing unnamed sources familiar with the matter.', evidence: 'Bloomberg, May 4, 2026; corroborated by The Next Web.', confidence: 'medium' },
+      { claim: 'The Deployment Company partnership sponsors more than two thousand businesses worldwide through its private equity partners.', evidence: 'OpenAI official blog post, May 11, 2026.', confidence: 'medium' },
+      { claim: 'More than one million businesses have adopted OpenAI products and APIs.', evidence: 'OpenAI official blog post, May 11, 2026.', confidence: 'medium' },
+    ],
+    methodology: [
+      'Analysis based on the primary source (OpenAI official blog post, May 11, 2026) accessed via MCP web reader.',
+      'Corroborating evidence from Bloomberg, The Next Web, The Decoder, and IQ.wiki was used for market context only.',
+      'The ten billion dollar valuation is reported by secondary sources and is not confirmed in the primary OpenAI announcement. It is treated as market intelligence.',
+      'No hands-on testing was performed. All factual claims are attributed to their original sources.',
+      'Developer impact analysis is based on SignalForges editorial assessment of the announcement\'s implications for different developer roles.',
+    ],
+    conclusion: {
+      recommendation: 'Developers building on OpenAI APIs should evaluate how DeployCo\'s services overlap with their own offerings. Enterprise development teams should clarify data governance and intellectual property arrangements before engaging with embedded FDEs. Independent consultants should differentiate on multi-model expertise and vendor neutrality.',
+      bestFor: 'Developers, engineering leaders, and AI consultants who need to understand how the AI deployment layer is changing and what competitive dynamics emerge when model providers vertically integrate into implementation services.',
+      avoidWhen: 'Do not treat the DeployCo launch as a guarantee of enterprise AI deployment success. The Tomoro acquisition has not closed. Pricing, scope, and competitive dynamics remain uncertain. Do not assume DeployCo will recommend only OpenAI models.'
+    },
+    riskNotes: [
+      'The Tomoro acquisition is subject to regulatory approvals and has not closed. Operating capacity is limited until closing.',
+      'The ten billion dollar valuation is from secondary sources (Bloomberg, The Next Web) and is not confirmed in the primary OpenAI announcement.',
+      'Pricing for DeployCo engagements has not been disclosed. Whether tiered engagement models for mid-market organizations will be offered is unknown.',
+      'DeployCo consulting partners (McKinsey, Bain, Capgemini) also work with competing model providers. Conflict-of-interest management is not addressed in the announcement.',
+      'It is unclear whether DeployCo FDEs will recommend OpenAI models exclusively or evaluate competing models based on client needs.',
+      'The "more than four billion dollars" figure represents committed capital, not deployed capital. Scaling speed depends on recruitment and training capacity.',
+      'One million businesses adopting OpenAI products and two thousand businesses sponsored by private equity partners are cited from the official announcement and have not been independently verified by SignalForges.',
+    ]
   }
 };
 
