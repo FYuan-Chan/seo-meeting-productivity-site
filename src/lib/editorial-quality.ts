@@ -733,6 +733,64 @@ const editorialLedgers: Record<string, EditorialLedgerSeed> = {
       'The "more than four billion dollars" figure represents committed capital, not deployed capital. Scaling speed depends on recruitment and training capacity.',
       'One million businesses adopting OpenAI products and two thousand businesses sponsored by private equity partners are cited from the official announcement and have not been independently verified by SignalForges.',
     ]
+  },
+  'v2-1-139-2026-05-11': {
+    sources: [
+      source(
+        'Anthropic GitHub Release: Claude Code v2.1.139',
+        'https://github.com/anthropics/claude-code/releases/tag/v2.1.139',
+        'official-product',
+        'Primary source for all feature descriptions, command names, configuration options, and bug-fix details in this article.'
+      ),
+      source(
+        'Claude Code Agent View documentation',
+        'https://code.claude.com/docs/en/agent-view',
+        'official-docs',
+        'Official documentation for the Agent View research-preview feature linked from the v2.1.139 release notes.'
+      ),
+      source(
+        'anthropics/claude-code GitHub repository',
+        'https://github.com/anthropics/claude-code',
+        'official-product',
+        'Repository context for Claude Code as an agentic coding tool: project identity, description, and version history.'
+      ),
+    ],
+    factPack: [
+      { claim: 'Claude Code v2.1.139 adds Agent View (Research Preview) accessible via claude agents, providing a single list of every session.', evidence: 'Anthropic release notes for v2.1.139 on GitHub.', confidence: 'high' },
+      { claim: 'The /goal command sets a completion condition and Claude keeps working across turns until it is met, with a live overlay showing elapsed time, turns, and tokens.', evidence: 'Anthropic release notes for v2.1.139 on GitHub.', confidence: 'high' },
+      { claim: 'Hook args: string[] field provides exec form that spawns commands directly without a shell, so path placeholders never need quoting.', evidence: 'Anthropic release notes for v2.1.139 on GitHub.', confidence: 'high' },
+      { claim: 'Hook continueOnBlock config option for PostToolUse feeds the hook rejection reason back to Claude and continues the turn.', evidence: 'Anthropic release notes for v2.1.139 on GitHub.', confidence: 'high' },
+      { claim: 'MCP stdio servers receive CLAUDE_PROJECT_DIR in their environment, matching hooks. Plugin configs can reference ${CLAUDE_PROJECT_DIR} in commands.', evidence: 'Anthropic release notes for v2.1.139 on GitHub.', confidence: 'high' },
+      { claim: 'API requests from subagents carry x-claude-code-agent-id and x-claude-code-parent-agent-id headers.', evidence: 'Anthropic release notes for v2.1.139 on GitHub.', confidence: 'high' },
+      { claim: 'Remote Control, /schedule, claude.ai MCP connectors, and notification preferences are disabled when ANTHROPIC_API_KEY / apiKeyHelper / ANTHROPIC_AUTH_TOKEN is set.', evidence: 'Anthropic release notes for v2.1.139 on GitHub.', confidence: 'high' },
+      { claim: 'Unbounded memory growth from HTTP/SSE MCP servers streaming non-protocol data is now capped at a 16 MB limit per SSE frame.', evidence: 'Anthropic release notes for v2.1.139 on GitHub.', confidence: 'high' },
+      { claim: 'autoAllowBashIfSandboxed now auto-approves commands with shell expansions like $VAR and $(cmd).', evidence: 'Anthropic release notes for v2.1.139 on GitHub.', confidence: 'high' },
+      { claim: 'Skill(name *) permission rules now work as prefix matches, matching Bash(ls *) behavior.', evidence: 'Anthropic release notes for v2.1.139 on GitHub.', confidence: 'high' },
+      { claim: 'A deadlock involving expired credentials and forceRemoteSettingsRefresh that blocked claude auth login/logout/status is now fixed.', evidence: 'Anthropic release notes for v2.1.139 on GitHub.', confidence: 'high' },
+      { claim: 'claude plugin details <name> shows plugin component inventory and projected per-session token cost.', evidence: 'Anthropic release notes for v2.1.139 on GitHub.', confidence: 'high' },
+      { claim: 'Compaction prompt now asks the model to preserve sensitive user instructions.', evidence: 'Anthropic release notes for v2.1.139 on GitHub.', confidence: 'high' },
+      { claim: 'VS Code extension supports Cmd/Ctrl+Shift+T to reopen the most recently closed session tab.', evidence: 'Anthropic release notes for v2.1.139 on GitHub.', confidence: 'high' },
+    ],
+    methodology: [
+      'Analysis based exclusively on the official Anthropic release notes for Claude Code v2.1.139, published on GitHub and accessed on 2026-05-11.',
+      'No hands-on testing was performed. Every feature description, command name, and configuration option is cited directly from the release notes.',
+      'Agent View is labeled Research Preview by Anthropic; its interface and behavior may change in future releases.',
+      'No claims about performance, reliability, or user experience beyond what the release notes state are made.',
+      'Developer impact analysis is based on SignalForges editorial assessment of the feature changes for different developer roles.',
+    ],
+    conclusion: {
+      recommendation: 'Upgrade to v2.1.139 for the memory growth cap and deadlock fix if running Claude Code in production or CI. Explore Agent View and /goal as research-preview capabilities. Migrate hooks to exec form and evaluate continueOnBlock for automation pipelines.',
+      bestFor: 'Developers and engineering teams using Claude Code in multi-session, CI, or automated environments who need session visibility, autonomous completion, and tighter hook control.',
+      avoidWhen: 'Do not hard-code Agent View output parsing into automation scripts while it remains in Research Preview. Do not assume /goal conditions will be evaluated reliably for complex or ambiguous goals without testing.'
+    },
+    riskNotes: [
+      'Agent View is a Research Preview feature. The command name, interface, and behavior may change in future Claude Code releases.',
+      'The /goal command evaluation criteria for complex conditions are not specified in the release notes. Reliability for ambiguous goals is untested.',
+      'The 16 MB SSE frame cap may be insufficient for heavily streaming MCP servers. Teams should monitor whether the cap is hit frequently in their configurations.',
+      'continueOnBlock may interact unpredictably with layered hook chains. Teams with complex hook policies should test the behavior before relying on it in production.',
+      'API key feature isolation disables Remote Control and /schedule when an API key is set. Teams using both authentication modes will need to choose one.',
+      'This article is based on a single primary source (the Anthropic GitHub release notes). No corroborating secondary sources were used.',
+    ]
   }
 };
 

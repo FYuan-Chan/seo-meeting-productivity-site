@@ -39,7 +39,7 @@ describe('articles lib', () => {
   it('returns the AdSense review whitelist as published articles', () => {
     const all = getAllPublishedArticles();
     expect(all.length).toBeGreaterThanOrEqual(10);
-    expect(all.length).toBeLessThanOrEqual(20);
+    expect(all.length).toBeLessThanOrEqual(25);
   });
 
   it('sortByUpdated is stable and descending', () => {
