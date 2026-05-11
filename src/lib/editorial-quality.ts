@@ -552,6 +552,53 @@ const editorialLedgers: Record<string, EditorialLedgerSeed> = {
       'The model requires custom HuggingFace modeling code (trust_remote_code=True), which carries security considerations for production use.',
       'The clustering analysis uses 12,000 documents and 32 clusters. Different configurations might reveal different specialization patterns.'
     ]
+  },
+  'github-trending-ai-devtools-2026-05-11': {
+    sources: [
+      source('bytedance/UI-TARS-desktop GitHub repository', 'https://github.com/bytedance/UI-TARS-desktop', 'official-product', 'Rank #1 repository evidence: multimodal AI agent stack with CLI, Web UI, desktop GUI agent, browser and computer operators, MCP integration.'),
+      source('anthropics/financial-services GitHub repository', 'https://github.com/anthropics/financial-services', 'official-product', 'Rank #2 repository evidence: Claude for Financial Services with 10 named agents, 7 vertical plugins, 11 MCP integrations, and human sign-off governance.'),
+      source('addyosmani/agent-skills GitHub repository', 'https://github.com/addyosmani/agent-skills', 'official-product', 'Rank #3 repository evidence: production-grade engineering skills for AI coding agents with 22 skills, 7 slash commands, and 8 supported platforms.'),
+      source('CloakHQ/CloakBrowser GitHub repository', 'https://github.com/CloakHQ/CloakBrowser', 'official-product', 'Rank #4 repository evidence: stealth Chromium browser with source-level fingerprint patches. Included as risk context only.'),
+      source('HKUDS/AI-Trader GitHub repository', 'https://github.com/HKUDS/AI-Trader', 'official-product', 'Rank #5 repository evidence: agent-native trading platform. Included as risk context only.'),
+      source('jundot/omlx GitHub repository', 'https://github.com/jundot/omlx', 'official-product', 'Rank #6 repository evidence: LLM inference server for Apple Silicon with continuous batching and SSD caching.'),
+      source('lsdefine/GenericAgent GitHub repository', 'https://github.com/lsdefine/GenericAgent', 'official-product', 'Rank #9 repository evidence: self-evolving agent framework with minimal core and layered memory.'),
+      source('decolua/9router GitHub repository', 'https://github.com/decolua/9router', 'official-product', 'Rank #10 repository blocked by editorial risk rules. Do not recommend or deep-dive.'),
+      source('GitHub Trending daily snapshot 2026-05-11', 'https://github.com/trending', 'ecosystem-reference', 'Daily snapshot collected by Growth OS collect_github_trending.py on 2026-05-11. 12 repositories returned.'),
+    ],
+    factPack: [
+      { claim: 'GitHub Trending returned 12 repositories for the daily period on May 11, 2026.', evidence: 'reports/github-trending.json generated at 2026-05-11T04:49:41Z.', confidence: 'high' },
+      { claim: 'bytedance/UI-TARS-desktop ranked #1 with +669 stars gained, 32,356 total stars, Apache-2.0 license, TypeScript.', evidence: 'GitHub Trending daily snapshot and GitHub API repository metadata.', confidence: 'high' },
+      { claim: 'anthropics/financial-services ranked #2 with +1,449 stars gained, 19,201 total stars, Apache-2.0 license, Python.', evidence: 'GitHub Trending daily snapshot and GitHub API repository metadata.', confidence: 'high' },
+      { claim: 'addyosmani/agent-skills ranked #3 with +1,065 stars gained, 38,734 total stars, MIT license, Shell.', evidence: 'GitHub Trending daily snapshot and GitHub API repository metadata.', confidence: 'high' },
+      { claim: 'CloakHQ/CloakBrowser ranked #4 with +496 stars gained, 5,004 total stars, MIT license. Editorial risk score 35: scraping context. Mention only with risk context.', evidence: 'GitHub Trending daily snapshot, GitHub API metadata, and Growth OS editorial risk screening.', confidence: 'high' },
+      { claim: 'HKUDS/AI-Trader ranked #5 with +163 stars gained, 15,744 total stars, no license declared. Editorial risk score 35: regulated-financial context. Mention only with risk context.', evidence: 'GitHub Trending daily snapshot, GitHub API metadata, and Growth OS editorial risk screening.', confidence: 'high' },
+      { claim: 'decolua/9router ranked #10 with +803 stars gained. Editorial risk score 100, blocked: terms-bypass pattern. Do not recommend or deep-dive.', evidence: 'Growth OS editorial risk screening with blocked recommendation.', confidence: 'high' },
+      { claim: '5 repositories were enriched with GitHub API metadata; 1 repository was blocked by editorial risk rules.', evidence: 'enrichment and editorialRisk fields in reports/github-trending.json.', confidence: 'high' },
+      { claim: 'The top three repositories (UI-TARS-desktop, financial-services, agent-skills) are the same top three as the May 10 snapshot, indicating sustained multi-day attention rather than a single-day spike.', evidence: 'Comparison of May 10 and May 11 GitHub Trending daily snapshots in Growth OS reports.', confidence: 'high' },
+      { claim: 'UI-TARS-desktop ships two products: Agent TARS (CLI and Web UI multimodal agent) and UI-TARS Desktop (native GUI agent for desktop control).', evidence: 'README headings and excerpt.', confidence: 'high' },
+      { claim: 'anthropics/financial-services packages 10 named agents, 7 vertical plugins, 11 MCP integrations, and dual deployment paths.', evidence: 'README headings and excerpt.', confidence: 'high' },
+      { claim: 'addyosmani/agent-skills now supports 8 platforms.', evidence: 'README Quick Start section and search results confirming platform support.', confidence: 'high' },
+      { claim: 'lsdefine/GenericAgent has a minimal core of approximately 3,000 lines with 9 atomic tools and a layered memory system.', evidence: 'README and repository structure inspection.', confidence: 'medium' },
+    ],
+    methodology: [
+      'Evidence comes from the GitHub Trending daily snapshot collected by Growth OS on 2026-05-11, enriched with GitHub API metadata for the top 5 repositories, and README evidence extracted via the zread-repo MCP tool.',
+      'Repository ranking is based on GitHub Trending position, not editorial endorsement. Editorial fit scores and risk screening determine inspect/watch/avoid tiers.',
+      'No hands-on testing was performed. The article does not claim installation, execution, or benchmark results for any repository.',
+      'Star counts, ranks, and metadata are refresh-sensitive and reflect the collection timestamp.',
+      'Blocked and high-risk repositories are included in the ranking table for completeness but are not recommended or deep-dived.'
+    ],
+    conclusion: {
+      recommendation: 'Inspect UI-TARS-desktop for GUI agent infrastructure, agent-skills for coding-agent process discipline, and financial-services for enterprise agent packaging patterns. The remaining rows are watchlist items or risk context.',
+      bestFor: 'Developers and engineering teams tracking the AI agent ecosystem who want a filtered daily snapshot rather than an unranked list.',
+      avoidWhen: 'Avoid treating any Trending rank as a quality or adoption signal. Trending measures short-window attention only.'
+    },
+    riskNotes: [
+      'GitHub Trending is a 24-hour attention snapshot; daily rankings shift frequently and do not indicate sustained interest or production readiness.',
+      'Star counts and repository metadata are refresh-sensitive and may differ from collection timestamp values.',
+      'CloakBrowser and AI-Trader carry editorial risk flags (scraping and regulated financial contexts). They are mentioned for completeness but not recommended.',
+      'decolua/9router is blocked by editorial risk rules and must not be recommended or deep-dived.',
+      'GenericAgent self-evolving claims and token consumption comparisons are README-sourced and not independently verified.'
+    ]
   }
 };
 
