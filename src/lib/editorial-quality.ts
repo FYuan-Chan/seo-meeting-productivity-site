@@ -599,6 +599,71 @@ const editorialLedgers: Record<string, EditorialLedgerSeed> = {
       'decolua/9router is blocked by editorial risk rules and must not be recommended or deep-dived.',
       'GenericAgent self-evolving claims and token consumption comparisons are README-sourced and not independently verified.'
     ]
+  },
+  'ai-ecosystem-developer-signal-2026-05-11': {
+    sources: [
+      source(
+        'OpenAI Blog: Parloa builds service agents customers want to talk to',
+        'https://openai.com/index/parloa',
+        'company-release',
+        'Primary source for Parloa AI Agent Management Platform architecture, multi-model orchestration with GPT-5.4, GPT-4.1, and GPT-5-mini, voice pipeline testing methodology, and production deployment results.'
+      ),
+      source(
+        'GitHub Blog: Why age assurance laws matter for developers',
+        'https://github.blog/news-insights/policy-news-and-insights/why-age-assurance-laws-matter-for-developers/',
+        'company-release',
+        'Primary source for age assurance legislation landscape including California AB 1043, Colorado SB 26-051, Illinois HB 4140, New York S 8102, Brazil Digital ECA, Australia and France legislation, and developer impact analysis.'
+      ),
+      source(
+        'GitHub Blog: Validating agentic behavior when correct is not deterministic',
+        'https://github.blog/ai-and-ml/generative-ai/validating-agentic-behavior-when-correct-isnt-deterministic/',
+        'company-release',
+        'Continued development: dominator-analysis framework for structural validation of agent outputs.'
+      ),
+      source(
+        'OpenAI Blog: Running Codex safely at OpenAI',
+        'https://openai.com/index/running-codex-safely',
+        'company-release',
+        'Continued development: production security architecture for coding agents including sandboxing and telemetry.'
+      ),
+      source(
+        'GitHub Blog: Improving token efficiency in GitHub Agentic Workflows',
+        'https://github.blog/ai-and-ml/github-copilot/improving-token-efficiency-in-github-agentic-workflows/',
+        'company-release',
+        'Continued development: MCP tool pruning and CLI substitution for token efficiency in agentic workflows.'
+      ),
+    ],
+    factPack: [
+      { claim: 'Parloa uses GPT-5.4 for core agent orchestration, GPT-4.1 for evaluation and simulation, and GPT-5-mini for post-conversation tasks.', evidence: 'OpenAI Blog case study on Parloa, published April 1, 2026.', confidence: 'high' },
+      { claim: 'Parloa has managed millions of conversations across retail, travel, and insurance industries.', evidence: 'OpenAI Blog case study on Parloa, published April 1, 2026.', confidence: 'high' },
+      { claim: 'Parloa reported an eighty percent reduction in requests for human agents at one global travel company deployment.', evidence: 'OpenAI Blog case study on Parloa, published April 1, 2026.', confidence: 'medium' },
+      { claim: 'Parloa decomposes complex agents into modular sub-agents for authentication, booking changes, and account updates.', evidence: 'OpenAI Blog case study on Parloa, published April 1, 2026.', confidence: 'high' },
+      { claim: 'California AB 1043 and AB 1856 would require OS providers to collect self-declared age and transmit age-range signals to applications via real-time API.', evidence: 'GitHub Blog post by Margaret Tucker, published May 8, 2026.', confidence: 'high' },
+      { claim: 'Brazil Digital ECA became enforceable in March 2026 and applies broadly to digital services likely accessed by minors.', evidence: 'GitHub Blog post by Margaret Tucker, published May 8, 2026.', confidence: 'high' },
+      { claim: 'GitHub secured an exemption for open source code collaboration platforms under Australia Social Media Minimum Age legislation.', evidence: 'GitHub Blog post by Margaret Tucker, published May 8, 2026.', confidence: 'high' },
+      { claim: 'Four US states (California, Colorado, Illinois, New York) are advancing age assurance legislation affecting software distribution.', evidence: 'GitHub Blog post by Margaret Tucker, published May 8, 2026.', confidence: 'high' },
+      { claim: 'Some open source projects have already restricted access in Brazil preemptively due to Digital ECA legal uncertainty.', evidence: 'GitHub Blog post by Margaret Tucker, published May 8, 2026.', confidence: 'medium' },
+      { claim: 'A Maintainer Month livestream with FreeBSD Foundation and Open Source Initiative is scheduled for May 22, 2026 to discuss regulatory issues.', evidence: 'GitHub Blog post by Margaret Tucker, published May 8, 2026.', confidence: 'high' },
+    ],
+    methodology: [
+      'Analysis based on primary sources from OpenAI Blog and GitHub Blog, accessed on 2026-05-11 via MCP web reader.',
+      'Parloa architecture details and deployment metrics are cited from the OpenAI case study and have not been independently verified by SignalForges.',
+      'Legislative details are cited from the GitHub Blog policy analysis. Bill numbers, sponsors, and status were extracted from the primary source.',
+      'Continued developments (agentic validation, Codex safety, token efficiency) were covered in depth in the May 10 SignalForges ecosystem analysis and are summarized here with cross-reference.',
+      'No hands-on testing was performed. Performance figures are treated as refresh-sensitive and attributed to their original sources.',
+    ],
+    conclusion: {
+      recommendation: 'Adopt the Parloa architecture patterns (multi-model orchestration, deterministic guardrails, evaluation-first deployment) for production agent readiness. Track California and New York age assurance legislation for compliance planning. Monitor open source exemptions as the regulatory landscape evolves.',
+      bestFor: 'Developers building or deploying AI agents who need to understand both production architecture patterns and emerging regulatory requirements that affect distribution.',
+      avoidWhen: 'Do not treat legislative proposals as enacted law. Do not adopt the Parloa patterns without adapting them to your specific latency, cost, and compliance requirements.'
+    },
+    riskNotes: [
+      'Parloa deployment metrics come from a vendor case study and have not been independently verified. The eighty percent reduction figure applies to one deployment and may not generalize.',
+      'Age assurance legislation is in varying stages across jurisdictions. Bill text may change before enactment. Enforcement dates and compliance grace periods are not yet fixed for most US state bills.',
+      'Brazil ANPD has not yet clarified whether FOSS projects fall under Digital ECA obligations. Draft guidance is under public consultation.',
+      'Speech-to-speech model evaluation results from Parloa are not yet available. Whether these replace the STT-reasoning-TTS pipeline remains uncertain.',
+      'Open source exemptions in Australia and France are specific to code collaboration platforms and may not extend to all developer tools or agent distribution channels.',
+    ]
   }
 };
 
