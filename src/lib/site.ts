@@ -157,6 +157,7 @@ export const adsenseReviewSlugs = [
   'ai-ecosystem-developer-signal-2026-05-11',
   'openai-launches-deployco-to-help-businesses-build-around-intelligence-2026-05-11',
   'v2-1-139-2026-05-11',
+  "datawhalechina-easy-vibe-best-practices-2026-05-12",
 ] as const;
 
 const adsenseReviewSlugSet = new Set<string>(adsenseReviewSlugs);

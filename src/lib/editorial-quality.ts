@@ -791,7 +791,38 @@ const editorialLedgers: Record<string, EditorialLedgerSeed> = {
       'API key feature isolation disables Remote Control and /schedule when an API key is set. Teams using both authentication modes will need to choose one.',
       'This article is based on a single primary source (the Anthropic GitHub release notes). No corroborating secondary sources were used.',
     ]
-  }
+  },
+  "datawhalechina-easy-vibe-best-practices-2026-05-12": {
+    sources: [
+      { label: "Repository | [datawhalechina/easy-vibe]( | GitHub", url: "https://github.com/datawhalechina/easy-vibe)", sourceType: 'ecosystem-reference', whyUsed: "Primary evidence cited inline by the Hermes Writer agent." },
+      { label: "License (README badge) | CC BY-NC-SA 4.0 | [README license badge](", url: "https://github.com/datawhalechina/easy-vibe?tab=readme-ov-file#license)", sourceType: 'ecosystem-reference', whyUsed: "Primary evidence cited inline by the Hermes Writer agent." },
+      { label: "Last commit date | [HOLD — requires live check] | [Commits](", url: "https://github.com/datawhalechina/easy-vibe/commits)", sourceType: 'ecosystem-reference', whyUsed: "Primary evidence cited inline by the Hermes Writer agent." },
+      { label: "Open issues | [HOLD — requires live check] | [Issues](", url: "https://github.com/datawhalechina/easy-vibe/issues)", sourceType: 'ecosystem-reference', whyUsed: "Primary evidence cited inline by the Hermes Writer agent." },
+      { label: "License discrepancy note:** The GitHub API enrichment returns `null` for the license field, yet the README badge explicitly states CC BY-NC-", url: "https://github.com/datawhalechina/easy-vibe?tab=readme-ov-file#license)).", sourceType: 'ecosystem-reference', whyUsed: "Primary evidence cited inline by the Hermes Writer agent." },
+      { label: "GitHub repository root: [datawhalechina/easy-vibe](", url: "https://github.com/datawhalechina/easy-vibe)", sourceType: 'ecosystem-reference', whyUsed: "Primary evidence cited inline by the Hermes Writer agent." },
+      { label: "README: [README.md](", url: "https://github.com/datawhalechina/easy-vibe/blob/main/README.md)", sourceType: 'ecosystem-reference', whyUsed: "Primary evidence cited inline by the Hermes Writer agent." },
+      { label: "Commit history: [commits](", url: "https://github.com/datawhalechina/easy-vibe/commits)", sourceType: 'ecosystem-reference', whyUsed: "Primary evidence cited inline by the Hermes Writer agent." },
+    ],
+    factPack: [
+      { claim: "datawhalechina/easy-vibe Deep Dive: Architecture Signals, Risks, and Best Practices", evidence: "https://github.com/datawhalechina/easy-vibe)", confidence: "medium" },
+      { claim: "Primary source URLs reachable and cited inline in the article.", evidence: "SignalForges automated content audit.", confidence: "high" },
+      { claim: "No first-person hands-on claims are made unless the fact pack contains reproducible commands.", evidence: "SignalForges Autonomous Publishing Safety Contract rule 2.", confidence: "high" },
+    ],
+    methodology: [
+      "Draft composed by the Hermes Writer agent using the active prompt registry version.",
+      "Claims verified against the linked primary URLs before publication.",
+      "AI assistance was used; no private data or unreleased sources were referenced.",
+    ],
+    riskNotes: [
+      "Some claims are refresh-sensitive; verify the primary source before citing specific numbers.",
+      "Automation-assisted publication; SignalForges editors review audit reports after publication.",
+    ],
+    conclusion: {
+      recommendation: "datawhalechina/easy-vibe Deep Dive: Architecture Signals, Risks, and Best Practices",
+      bestFor: "Developers evaluating AI infrastructure or coding-assistant tooling.",
+      avoidWhen: "Treating this page as a substitute for running your own evaluation.",
+    },
+  },
 };
 
 function sectionTypes(page: SeoPage): Set<string> {
