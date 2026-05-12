@@ -5558,7 +5558,7 @@ export const aiToolPages: SeoPage[] = [
         type: 'bullets',
         heading: "What the project does, based on README evidence",
         items: [
-          { text: "**Fast first Win** — a hands-on example designed to show \"what AI coding actually feels like\" through a concrete exercise ([README](https://github.com/datawhalechina/easy-vibe/blob/main/README.md))." },
+          { text: "**Fast first Win** — a hands-on example designed to show \"what AI coding actually feels like\" through a concrete exercise described in the README." },
           { text: "**Idea to product prototype** — guidance on turning a concept into a runnable frontend, including a module on converting design prototypes into functional code." },
           { text: "**Full-stack products end to end** — a deeper track covering the complete build pipeline." },
           { text: "**AI-Native advanced workflows** — material on Claude Code installation, setup, fundamentals, and useful commands, plus agent-based workflows." },
@@ -5569,7 +5569,7 @@ export const aiToolPages: SeoPage[] = [
         heading: "Architecture and workflow interpretation",
         paragraphs: [
           "This section merits a caveat: easy-vibe is a *content repository*, not a runtime system. There are no internal services, agents, or middleware to reverse-engineer. The \"architecture\" is the curriculum structure itself.",
-          "Based on the README headings and navigation, the content is organized into sequential stages. The README excerpts reference stages labeled \"stage-2\" and \"stage-3\" in their URLs (for example, the frontend design-to-code module lives under `stage-2/frontend/design-to-code/` and the Claude Code basics module under `stage-3/core-skills/basics/`), suggesting at least three progressive difficulty tiers ([README](https://github.com/datawhalechina/easy-vibe/blob/main/README.md)).",
+          "Based on the README headings and navigation, the content is organized into sequential stages. The README excerpts reference stages labeled \"stage-2\" and \"stage-3\" in their URLs (for example, the frontend design-to-code module lives under `stage-2/frontend/design-to-code/` and the Claude Code basics module under `stage-3/core-skills/basics/`), suggesting at least three progressive difficulty tiers.",
           "The project is built as a static documentation site. The install instructions (`npm install` followed by `npm run dev`) indicate that the repository includes a JavaScript-based documentation toolchain serving tutorial content locally. The \"Run Locally\" section and the Vercel build trigger comment at the top of the README confirm that the site is deployed through a Jamstack-style documentation workflow.",
           "There is no evidence in the README of executable code libraries, CLI tools, or runtime dependencies beyond the documentation site itself. The primary language metadata on GitHub is JavaScript, consistent with a docs-site toolchain.",
         ],
@@ -5580,8 +5580,8 @@ export const aiToolPages: SeoPage[] = [
         paragraphs: [
           "The README provides two steps for local execution:",
           "1. `npm install` 2. `npm run dev`",
-          "These appear under the \"Run Locally\" heading and are the only install hints detected ([README](https://github.com/datawhalechina/easy-vibe/blob/main/README.md)). To test the repository:",
-          "1. Clone the repo from [https://github.com/datawhalechina/easy-vibe](https://github.com/datawhalechina/easy-vibe). 2. Run `npm install` to resolve the site generator dependencies. 3. Run `npm run dev` to start the local dev server. 4. Open the local URL (typically `localhost` on a port printed by the dev server) and navigate the tutorial stages.",
+          "These appear under the \"Run Locally\" heading and are the only install hints detected in the README. To test the repository:",
+          "1. Clone the repo from https://github.com/datawhalechina/easy-vibe. 2. Run `npm install` to resolve the site generator dependencies. 3. Run `npm run dev` to start the local dev server. 4. Open the local URL (typically `localhost` on a port printed by the dev server) and navigate the tutorial stages.",
           "No environment variables, API keys, or external service accounts are mentioned in the install hints, suggesting the site content itself is fully self-contained. However, some tutorial stages reference Claude Code, which would require separate Anthropic API access and installation—those are external dependencies for the *exercises*, not for viewing the documentation.",
           "No `reproducible_tests` block was provided in the research brief, so this article does not make first-person claims about having executed these steps.",
         ],
@@ -5591,10 +5591,10 @@ export const aiToolPages: SeoPage[] = [
         heading: "Best practices and operational guardrails",
         paragraphs: [
           "For teams or individuals evaluating easy-vibe as a learning resource, several practical considerations emerge directly from the README evidence:",
-          "**License constraint.** The repository carries a CC BY-NC-SA 4.0 license ([README](https://github.com/datawhalechina/easy-vibe/blob/main/README.md)). This means you may share and adapt the material for non-commercial purposes with attribution, but you cannot incorporate it into commercial training products or paid curricula without negotiating separate terms. Internal team use within a company for employee onboarding sits in a gray area; consult legal counsel before distributing modified versions in a corporate setting.",
+          "**License constraint.** The repository carries a CC BY-NC-SA 4.0 license according to the README badge. This means you may share and adapt the material for non-commercial purposes with attribution, but you cannot incorporate it into commercial training products or paid curricula without negotiating separate terms. Internal team use within a company for employee onboarding sits in a gray area; consult legal counsel before distributing modified versions in a corporate setting.",
           "**Content currency.** The project's momentum is currently high (trending, daily pushes), but tutorial content about AI tools ages quickly. The Claude Code modules, for example, will diverge from the actual product as Anthropic ships updates. Verify each exercise against the current Claude Code documentation before relying on it for team training.",
           "**No runtime guarantees.** Because easy-vibe is a documentation project, there are no APIs, libraries, or packages to depend on in production. The risk surface is limited to the accuracy of the educational content itself.",
-          "**Companion ecosystem.** The README links to a separate \"hello-claw\" repository for learning OpenClaw ([README](https://github.com/datawhalechina/easy-vibe/blob/main/README.md)). If your learning path depends on that companion repo, evaluate its maintenance status independently—there is no evidence in the easy-vibe README about hello-claw's update cadence or stability.",
+          "**Companion ecosystem.** The README links to a separate \"hello-claw\" repository for learning OpenClaw. If your learning path depends on that companion repo, evaluate its maintenance status independently—there is no evidence in the easy-vibe README about hello-claw's update cadence or stability.",
           "**Audience fit.** The README explicitly identifies the audience as beginners and frames the content as a \"first modern Coding course.\" Senior developers will find the conceptual framing useful for understanding how vibe-coding pedagogy is evolving, but the hands-on exercises are unlikely to challenge experienced practitioners.",
         ],
       },
