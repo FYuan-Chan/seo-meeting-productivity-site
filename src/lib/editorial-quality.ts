@@ -821,6 +821,34 @@ const editorialLedgers: Record<string, EditorialLedgerSeed> = {
       avoidWhen: "Treating this page as a substitute for running your own evaluation.",
     },
   },
+  "github-trending-ai-devtools-2026-05-12": {
+    sources: [
+      { label: "https://github.com/tinyhumansai/openhuman", url: "https://github.com/tinyhumansai/openhuman", sourceType: 'ecosystem-reference', whyUsed: "Primary evidence cited inline by the Hermes Writer agent." },
+      { label: "https://github.com/rohitg00/agentmemory", url: "https://github.com/rohitg00/agentmemory", sourceType: 'ecosystem-reference', whyUsed: "Primary evidence cited inline by the Hermes Writer agent." },
+      { label: "https://github.com/CloakHQ/CloakBrowser", url: "https://github.com/CloakHQ/CloakBrowser", sourceType: 'ecosystem-reference', whyUsed: "Primary evidence cited inline by the Hermes Writer agent." },
+      { label: "https://github.com/apernet/hysteria", url: "https://github.com/apernet/hysteria", sourceType: 'ecosystem-reference', whyUsed: "Primary evidence cited inline by the Hermes Writer agent." },
+      { label: "https://github.com/mattpocock/skills", url: "https://github.com/mattpocock/skills", sourceType: 'ecosystem-reference', whyUsed: "Primary evidence cited inline by the Hermes Writer agent." },
+    ],
+    factPack: [
+      { claim: "Today's GitHub Trending page returned eleven repositories for the daily window. Of those, five were enriched with full metadata. The signal that matters for AI-infrastructure developers splits into two clusters: persiste", evidence: "https://github.com/tinyhumansai/openhuman", confidence: "medium" },
+      { claim: "Primary source URLs reachable and cited inline in the article.", evidence: "SignalForges automated content audit.", confidence: "high" },
+      { claim: "No first-person hands-on claims are made unless the fact pack contains reproducible commands.", evidence: "SignalForges Autonomous Publishing Safety Contract rule 2.", confidence: "high" },
+    ],
+    methodology: [
+      "Draft composed by the Hermes Writer agent using the active prompt registry version.",
+      "Claims verified against the linked primary URLs before publication.",
+      "AI assistance was used; no private data or unreleased sources were referenced.",
+    ],
+    riskNotes: [
+      "Some claims are refresh-sensitive; verify the primary source before citing specific numbers.",
+      "Automation-assisted publication; SignalForges editors review audit reports after publication.",
+    ],
+    conclusion: {
+      recommendation: "Today's GitHub Trending page returned eleven repositories for the daily window. Of those, five were enriched with full metadata. The signal that matters for AI-infrastructure developers splits into two clusters: persistent memory layers for coding agents, and opinionated skill sc",
+      bestFor: "Developers evaluating AI infrastructure or coding-assistant tooling.",
+      avoidWhen: "Treating this page as a substitute for running your own evaluation.",
+    },
+  },
 };
 
 function sectionTypes(page: SeoPage): Set<string> {
