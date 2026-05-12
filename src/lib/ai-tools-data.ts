@@ -5570,7 +5570,7 @@ export const aiToolPages: SeoPage[] = [
         paragraphs: [
           "This section merits a caveat: easy-vibe is a *content repository*, not a runtime system. There are no internal services, agents, or middleware to reverse-engineer. The \"architecture\" is the curriculum structure itself.",
           "Based on the README headings and navigation, the content is organized into sequential stages. The README excerpts reference stages labeled \"stage-2\" and \"stage-3\" in their URLs (for example, the frontend design-to-code module lives under `stage-2/frontend/design-to-code/` and the Claude Code basics module under `stage-3/core-skills/basics/`), suggesting at least three progressive difficulty tiers ([README](https://github.com/datawhalechina/easy-vibe/blob/main/README.md)).",
-          "The project is built as a static documentation site. The install instructions (`npm install` followed by `npm run dev`) indicate that the repository includes a standard JavaScript-based static site generator—likely VitePress, Docusaurus, or a similar tool—serving Markdown content locally ([README](https://github.com/datawhalechina/easy-vibe/blob/main/README.md)). The \"Run Locally\" section and the Vercel build trigger comment at the top of the README confirm that the site is deployed via Vercel, which aligns with a Jamstack documentation pattern.",
+          "The project is built as a static documentation site. The install instructions (`npm install` followed by `npm run dev`) indicate that the repository includes a JavaScript-based documentation toolchain serving tutorial content locally. The \"Run Locally\" section and the Vercel build trigger comment at the top of the README confirm that the site is deployed through a Jamstack-style documentation workflow.",
           "There is no evidence in the README of executable code libraries, CLI tools, or runtime dependencies beyond the documentation site itself. The primary language metadata on GitHub is JavaScript, consistent with a docs-site toolchain.",
         ],
       },
@@ -5610,7 +5610,7 @@ export const aiToolPages: SeoPage[] = [
       ],
     faq: [
       { question: "What does this briefing recommend developers do first?", answer: "datawhalechina/easy-vibe Deep Dive: Architecture Signals, Risks, and Best Practices" },
-      { question: "Where can readers verify the figures cited in this article?", answer: "Every precise figure must be verified against the primary URL. The first listed source is https://github.com/datawhalechina/easy-vibe)." },
+      { question: "Where can readers verify the figures cited in this article?", answer: "Every precise figure must be verified against the primary URL. The first listed source is https://github.com/datawhalechina/easy-vibe." },
       { question: "Is this article human-authored or AI-assisted?", answer: "The draft was composed with AI assistance by the Hermes Writer agent, then reviewed against the SignalForges editorial policy and the Autonomous Publishing Safety Contract before publication." },
     ],
   },

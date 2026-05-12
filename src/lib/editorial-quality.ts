@@ -794,13 +794,13 @@ const editorialLedgers: Record<string, EditorialLedgerSeed> = {
   },
   "datawhalechina-easy-vibe-best-practices-2026-05-12": {
     sources: [
-      { label: "[GitHub repository – datawhalechina/easy-vibe](", url: "https://github.com/datawhalechina/easy-vibe)", sourceType: 'ecosystem-reference', whyUsed: "Primary evidence cited inline by the Hermes Writer agent." },
-      { label: "[README.md](", url: "https://github.com/datawhalechina/easy-vibe/blob/main/README.md)", sourceType: 'ecosystem-reference', whyUsed: "Primary evidence cited inline by the Hermes Writer agent." },
-      { label: "[Recent commits](", url: "https://github.com/datawhalechina/easy-vibe/commits)", sourceType: 'ecosystem-reference', whyUsed: "Primary evidence cited inline by the Hermes Writer agent." },
-      { label: "[Issues](", url: "https://github.com/datawhalechina/easy-vibe/issues)", sourceType: 'ecosystem-reference', whyUsed: "Primary evidence cited inline by the Hermes Writer agent." },
+      { label: "GitHub repository – datawhalechina/easy-vibe", url: "https://github.com/datawhalechina/easy-vibe", sourceType: 'ecosystem-reference', whyUsed: "Primary evidence cited inline by the Hermes Writer agent." },
+      { label: "README.md", url: "https://github.com/datawhalechina/easy-vibe/blob/main/README.md", sourceType: 'ecosystem-reference', whyUsed: "Primary evidence cited inline by the Hermes Writer agent." },
+      { label: "Recent commits", url: "https://github.com/datawhalechina/easy-vibe/commits", sourceType: 'ecosystem-reference', whyUsed: "Primary evidence cited inline by the Hermes Writer agent." },
+      { label: "Issues", url: "https://github.com/datawhalechina/easy-vibe/issues", sourceType: 'ecosystem-reference', whyUsed: "Primary evidence cited inline by the Hermes Writer agent." },
     ],
     factPack: [
-      { claim: "datawhalechina/easy-vibe Deep Dive: Architecture Signals, Risks, and Best Practices", evidence: "https://github.com/datawhalechina/easy-vibe)", confidence: "medium" },
+      { claim: "datawhalechina/easy-vibe Deep Dive: Architecture Signals, Risks, and Best Practices", evidence: "https://github.com/datawhalechina/easy-vibe", confidence: "medium" },
       { claim: "Primary source URLs reachable and cited inline in the article.", evidence: "SignalForges automated content audit.", confidence: "high" },
       { claim: "No first-person hands-on claims are made unless the fact pack contains reproducible commands.", evidence: "SignalForges Autonomous Publishing Safety Contract rule 2.", confidence: "high" },
     ],
