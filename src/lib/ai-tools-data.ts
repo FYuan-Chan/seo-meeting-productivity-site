@@ -5555,6 +5555,15 @@ export const aiToolPages: SeoPage[] = [
         ],
       },
       {
+        type: 'visual-asset',
+        heading: "easy-vibe at a glance",
+        src: "/assets/articles/datawhalechina-easy-vibe-best-practices-2026-05-12/concept-explainer.svg",
+        alt: "Concept diagram summarizing easy-vibe as a staged AI coding curriculum rather than a runtime framework.",
+        caption: "A compact map of the article thesis: easy-vibe is best treated as a staged learning path for AI-assisted coding, not as production infrastructure.",
+        evidenceRole: "explanatory",
+        kind: "concept-explainer",
+      },
+      {
         type: 'bullets',
         heading: "What the project does, based on README evidence",
         items: [
@@ -5575,6 +5584,15 @@ export const aiToolPages: SeoPage[] = [
         ],
       },
       {
+        type: 'visual-asset',
+        heading: "Repository review map",
+        src: "/assets/articles/datawhalechina-easy-vibe-best-practices-2026-05-12/architecture-diagram.svg",
+        alt: "Architecture review map for evaluating the easy-vibe repository surface, modules, runtime path, integrations, and risks.",
+        caption: "A reader-facing checklist for evaluating a documentation repository: project surface, content modules, runtime path, integration points, and operational risks.",
+        evidenceRole: "explanatory",
+        kind: "architecture-diagram",
+      },
+      {
         type: 'paragraphs',
         heading: "Install and first-test path",
         paragraphs: [
@@ -5585,6 +5603,15 @@ export const aiToolPages: SeoPage[] = [
           "No environment variables, API keys, or external service accounts are mentioned in the install hints, suggesting the site content itself is fully self-contained. However, some tutorial stages reference Claude Code, which would require separate Anthropic API access and installation—those are external dependencies for the *exercises*, not for viewing the documentation.",
           "No `reproducible_tests` block was provided in the research brief, so this article does not make first-person claims about having executed these steps.",
         ],
+      },
+      {
+        type: 'visual-asset',
+        heading: "Workflow evidence map",
+        src: "/assets/articles/datawhalechina-easy-vibe-best-practices-2026-05-12/repo-workflow.svg",
+        alt: "Workflow evidence map showing README evidence, install path, activity and license review, risks, and best-practice verdict.",
+        caption: "Source-grounded workflow for turning README, install, activity, license, and risk evidence into a practical adoption verdict.",
+        evidenceRole: "evidence",
+        kind: "repo-workflow",
       },
       {
         type: 'paragraphs',
