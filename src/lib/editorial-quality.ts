@@ -823,14 +823,15 @@ const editorialLedgers: Record<string, EditorialLedgerSeed> = {
   },
   "github-trending-ai-devtools-2026-05-12": {
     sources: [
-      { label: "https://github.com/tinyhumansai/openhuman", url: "https://github.com/tinyhumansai/openhuman", sourceType: 'ecosystem-reference', whyUsed: "Primary evidence cited inline by the Hermes Writer agent." },
-      { label: "https://github.com/rohitg00/agentmemory", url: "https://github.com/rohitg00/agentmemory", sourceType: 'ecosystem-reference', whyUsed: "Primary evidence cited inline by the Hermes Writer agent." },
-      { label: "https://github.com/CloakHQ/CloakBrowser", url: "https://github.com/CloakHQ/CloakBrowser", sourceType: 'ecosystem-reference', whyUsed: "Primary evidence cited inline by the Hermes Writer agent." },
-      { label: "https://github.com/apernet/hysteria", url: "https://github.com/apernet/hysteria", sourceType: 'ecosystem-reference', whyUsed: "Primary evidence cited inline by the Hermes Writer agent." },
-      { label: "https://github.com/mattpocock/skills", url: "https://github.com/mattpocock/skills", sourceType: 'ecosystem-reference', whyUsed: "Primary evidence cited inline by the Hermes Writer agent." },
+      { label: "GitHub Trending", url: "https://github.com/trending", sourceType: 'ecosystem-reference', whyUsed: "Primary evidence cited inline by the Hermes Writer agent." },
+      { label: "tinyhumansai/openhuman", url: "https://github.com/tinyhumansai/openhuman", sourceType: 'ecosystem-reference', whyUsed: "Primary evidence cited inline by the Hermes Writer agent." },
+      { label: "rohitg00/agentmemory", url: "https://github.com/rohitg00/agentmemory", sourceType: 'ecosystem-reference', whyUsed: "Primary evidence cited inline by the Hermes Writer agent." },
+      { label: "CloakHQ/CloakBrowser", url: "https://github.com/CloakHQ/CloakBrowser", sourceType: 'ecosystem-reference', whyUsed: "Primary evidence cited inline by the Hermes Writer agent." },
+      { label: "apernet/hysteria", url: "https://github.com/apernet/hysteria", sourceType: 'ecosystem-reference', whyUsed: "Primary evidence cited inline by the Hermes Writer agent." },
+      { label: "mattpocock/skills", url: "https://github.com/mattpocock/skills", sourceType: 'ecosystem-reference', whyUsed: "Primary evidence cited inline by the Hermes Writer agent." },
     ],
     factPack: [
-      { claim: "Today's GitHub Trending page returned eleven repositories for the daily window. Of those, five were enriched with full metadata. The signal that matters for AI-infrastructure developers splits into two clusters: persiste", evidence: "https://github.com/tinyhumansai/openhuman", confidence: "medium" },
+      { claim: "Today's GitHub Trending page returned eleven repositories for the daily window. Of those, five were enriched with full metadata. The signal that matters for AI-infrastructure developers splits into two clusters: persiste", evidence: "https://github.com/trending", confidence: "medium" },
       { claim: "Primary source URLs reachable and cited inline in the article.", evidence: "SignalForges automated content audit.", confidence: "high" },
       { claim: "No first-person hands-on claims are made unless the fact pack contains reproducible commands.", evidence: "SignalForges Autonomous Publishing Safety Contract rule 2.", confidence: "high" },
     ],
