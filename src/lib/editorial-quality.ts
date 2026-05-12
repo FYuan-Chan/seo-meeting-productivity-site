@@ -791,7 +791,36 @@ const editorialLedgers: Record<string, EditorialLedgerSeed> = {
       'API key feature isolation disables Remote Control and /schedule when an API key is set. Teams using both authentication modes will need to choose one.',
       'This article is based on a single primary source (the Anthropic GitHub release notes). No corroborating secondary sources were used.',
     ]
-  }
+  },
+  "datawhalechina-easy-vibe-best-practices-2026-05-12": {
+    sources: [
+      { label: "[GitHub repository – datawhalechina/easy-vibe](", url: "https://github.com/datawhalechina/easy-vibe)", sourceType: 'ecosystem-reference', whyUsed: "Primary evidence cited inline by the Hermes Writer agent." },
+      { label: "[README.md](", url: "https://github.com/datawhalechina/easy-vibe/blob/main/README.md)", sourceType: 'ecosystem-reference', whyUsed: "Primary evidence cited inline by the Hermes Writer agent." },
+      { label: "[Recent commits](", url: "https://github.com/datawhalechina/easy-vibe/commits)", sourceType: 'ecosystem-reference', whyUsed: "Primary evidence cited inline by the Hermes Writer agent." },
+      { label: "[Issues](", url: "https://github.com/datawhalechina/easy-vibe/issues)", sourceType: 'ecosystem-reference', whyUsed: "Primary evidence cited inline by the Hermes Writer agent." },
+    ],
+    factPack: [
+      { claim: "datawhalechina/easy-vibe Deep Dive: Architecture Signals, Risks, and Best Practices", evidence: "https://github.com/datawhalechina/easy-vibe)", confidence: "medium" },
+      { claim: "Primary source URLs reachable and cited inline in the article.", evidence: "SignalForges automated content audit.", confidence: "high" },
+      { claim: "No first-person hands-on claims are made unless the fact pack contains reproducible commands.", evidence: "SignalForges Autonomous Publishing Safety Contract rule 2.", confidence: "high" },
+    ],
+    methodology: [
+      "This article was drafted with AI assistance using the provided research brief containing README excerpts, GitHub API metadata, and trending data. No hands-on commands were executed. All claims are grounded in the README headings, install hints, URL paths, and badge text extracted from the repository. No internal source code was inspected beyond what appears in the README excerpt.",
+      "Primary claims were checked against the linked source ledger before publication.",
+      "Hermes Critic and the Autonomous Publishing Safety Contract reviewed the draft before site gates ran.",
+    ],
+    riskNotes: [
+      "GitHub Trending rank #5 (daily) — trending position changes daily.",
+      "Star count and daily gain of 812 — both fluctuate continuously.",
+      "Latest push timestamp 2026-05-12T06:19:38Z — will be superseded by new commits.",
+      "References to Claude Code features and OpenClaw companion repo status may shift within 90 days.",
+    ],
+    conclusion: {
+      recommendation: "datawhalechina/easy-vibe Deep Dive: Architecture Signals, Risks, and Best Practices",
+      bestFor: "Developers evaluating AI infrastructure or coding-assistant tooling.",
+      avoidWhen: "Treating this page as a substitute for running your own evaluation.",
+    },
+  },
 };
 
 function sectionTypes(page: SeoPage): Set<string> {
