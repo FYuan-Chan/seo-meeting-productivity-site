@@ -850,6 +850,49 @@ const editorialLedgers: Record<string, EditorialLedgerSeed> = {
       avoidWhen: "Treating this page as a substitute for running your own evaluation.",
     },
   },
+  "rohitg00-agentmemory-best-practices-2026-05-13": {
+    sources: [
+      { label: "rohitg00/agentmemory GitHub repository", url: "https://github.com/rohitg00/agentmemory", sourceType: 'ecosystem-reference', whyUsed: "Primary evidence for purpose, architecture, install, benchmarks, license, and activity." },
+      { label: "agentmemory README.md", url: "https://github.com/rohitg00/agentmemory/blob/main/README.md", sourceType: 'ecosystem-reference', whyUsed: "Full README content (51K characters) covering hooks, memory pipeline, benchmarks, competitor comparison, and install instructions." },
+      { label: "agentmemory package.json", url: "https://github.com/rohitg00/agentmemory/blob/main/package.json", sourceType: 'ecosystem-reference', whyUsed: "Dependency evidence: six runtime deps including iii-sdk v0.11.2, Anthropic Claude agent SDK, zod." },
+      { label: "agentmemory AGENTS.md", url: "https://github.com/rohitg00/agentmemory/blob/main/AGENTS.md", sourceType: 'ecosystem-reference', whyUsed: "Contributor architecture guide documenting iii engine primitives, function registration, and state management." },
+      { label: "agentmemory LICENSE", url: "https://github.com/rohitg00/agentmemory/blob/main/LICENSE", sourceType: 'ecosystem-reference', whyUsed: "Apache License 2.0 verification." },
+    ],
+    factPack: [
+      { claim: "rohitg00/agentmemory appeared at GitHub Trending rank two for the daily period on 2026-05-13.", evidence: "https://github.com/trending", confidence: "high" },
+      { claim: "The repository license is Apache-2.0.", evidence: "GitHub API repository metadata and LICENSE file.", confidence: "high" },
+      { claim: "The latest detected push time is 2026-05-12T23:22:32Z.", evidence: "GitHub API repository metadata.", confidence: "high" },
+      { claim: "Total stars: 5,822. Forks: 545. Open issues: 53.", evidence: "GitHub API repository metadata at enrichment time.", confidence: "high" },
+      { claim: "The repository is TypeScript with six runtime dependencies: iii-sdk, @anthropic-ai/claude-agent-sdk, @anthropic-ai/sdk, @clack/prompts, dotenv, zod.", evidence: "package.json via GitHub API.", confidence: "high" },
+      { claim: "agentmemory supports sixteen or more agent clients including Claude Code, Cursor, Codex CLI, Hermes, OpenClaw, Gemini CLI, OpenCode, Cline, Goose, Kilo Code, Aider, Claude Desktop, Windsurf, Roo Code, Claude SDK, and any MCP or REST client.", evidence: "README.md headings and usage sections.", confidence: "high" },
+      { claim: "The memory pipeline uses four tiers: working, episodic, semantic, procedural.", evidence: "README.md four-tier memory consolidation section.", confidence: "high" },
+      { claim: "Retrieval benchmark: 95.2 percent R@5 on LongMemEval-S (ICLR 2025, five hundred questions).", evidence: "README.md comparison table and benchmark directory.", confidence: "medium" },
+      { claim: "Token savings reported as approximately 170,000 tokens per year versus over 19.5 million tokens for pasting full context.", evidence: "README.md token savings section.", confidence: "medium" },
+      { claim: "twelve hooks, four skills, fifty-one MCP tools, one hundred and seven REST endpoints.", evidence: "README.md feature sections and AGENTS.md.", confidence: "high" },
+      { claim: "iii engine pinned to version zero point eleven point two; newer versions not supported.", evidence: "README.md and package.json iii-sdk version.", confidence: "high" },
+      { claim: "Open issues include viewer reverse proxy breakage (#299), MCP tool count mismatch (#234), and OpenClaw compatibility (#262).", evidence: "GitHub Issues via API and web search.", confidence: "high" },
+      { claim: "Closed issues document historical token burn incidents (#138, #143, #149, #181) that were fixed in subsequent releases.", evidence: "GitHub Issues via API and CHANGELOG.md.", confidence: "high" },
+      { claim: "mem0 has 53K+ stars. Letta/MemGPT has 22K+ stars.", evidence: "README.md comparison table citing competitor star counts.", confidence: "medium" },
+    ],
+    methodology: [
+      "Draft composed by the Hermes Writer agent using repository metadata, README content, source structure, package.json, and GitHub issue data.",
+      "Evidence gathered via zai-zread-repo MCP tool and GitHub API.",
+      "No first-person testing was performed. All claims are grounded in cited primary sources.",
+      "AI assistance was used; no private data or unreleased sources were referenced.",
+    ],
+    riskNotes: [
+      "Star counts, issue counts, and version numbers reflect repository state as of the 2026-05-13 enrichment window.",
+      "Benchmark figures reference LongMemEval-S (ICLR 2025); test conditions should be verified independently.",
+      "The iii engine dependency is pinned to a specific version; evaluate version-lock risk before production adoption.",
+      "Some claims are refresh-sensitive; verify the primary source before citing specific numbers.",
+      "Automation-assisted publication; SignalForges editors review audit reports after publication.",
+    ],
+    conclusion: {
+      recommendation: "agentmemory is worth evaluating for individual developers using Claude Code or Cursor who need zero-config persistent memory across sessions. Teams with existing vector database infrastructure may prefer mem0.",
+      bestFor: "Developers running multiple coding-agent sessions per day who want automatic context capture and retrieval without manual configuration.",
+      avoidWhen: "You need multi-machine sync, database-backed persistence, or cannot accept a pinned iii engine dependency.",
+    },
+  },
 };
 
 function sectionTypes(page: SeoPage): Set<string> {
