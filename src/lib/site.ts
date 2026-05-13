@@ -160,6 +160,7 @@ export const adsenseReviewSlugs = [
   "datawhalechina-easy-vibe-best-practices-2026-05-12",
   "github-trending-ai-devtools-2026-05-12",
   "rohitg00-agentmemory-best-practices-2026-05-13",
+  "github-trending-ai-devtools-2026-05-13",
 ] as const;
 
 const adsenseReviewSlugSet = new Set<string>(adsenseReviewSlugs);

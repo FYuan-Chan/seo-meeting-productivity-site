@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="676" viewBox="0 0 1120 676" role="img" aria-labelledby="title desc">
+<title id="title">GitHub Trending star-gain signal</title>
+<desc id="desc">Bar chart generated from reports/github-trending.json for a SignalForges article visual asset.</desc>
+<rect width="1120" height="676" rx="24" fill="#0b1020"/>
+<rect x="24" y="24" width="1072" height="72" rx="18" fill="#111827" stroke="#263244"/>
+<text x="48" y="58" fill="#f8fafc" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700">GitHub Trending star-gain signal</text>
+<text x="48" y="82" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="14">Short-window attention signal, not production-readiness proof</text>
+<text x="48" y="146" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="14">#1</text>
+<text x="96" y="146" fill="#e2e8f0" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="600">tinyhumansai/openhuman</text>
+<rect x="300" y="122" width="660" height="28" rx="8" fill="#172033"/>
+<rect x="300" y="122" width="173" height="28" rx="8" fill="#2dd4bf"/>
+<text x="980" y="142" fill="#ccfbf1" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">1,014</text>
+<text x="48" y="192" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="14">#2</text>
+<text x="96" y="192" fill="#e2e8f0" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="600">rohitg00/agentmemory</text>
+<rect x="300" y="168" width="660" height="28" rx="8" fill="#172033"/>
+<rect x="300" y="168" width="178" height="28" rx="8" fill="#2dd4bf"/>
+<text x="980" y="188" fill="#ccfbf1" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">1,048</text>
+<text x="48" y="238" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="14">#3</text>
+<text x="96" y="238" fill="#e2e8f0" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="600">CloakHQ/CloakBrowser</text>
+<rect x="300" y="214" width="660" height="28" rx="8" fill="#172033"/>
+<rect x="300" y="214" width="274" height="28" rx="8" fill="#2dd4bf"/>
+<text x="980" y="234" fill="#ccfbf1" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">1,606</text>
+<text x="48" y="284" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="14">#4</text>
+<text x="96" y="284" fill="#e2e8f0" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="600">apernet/hysteria</text>
+<rect x="300" y="260" width="660" height="28" rx="8" fill="#172033"/>
+<rect x="300" y="260" width="8" height="28" rx="8" fill="#2dd4bf"/>
+<text x="980" y="280" fill="#ccfbf1" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">51</text>
+<text x="48" y="330" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="14">#5</text>
+<text x="96" y="330" fill="#e2e8f0" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="600">mattpocock/skills</text>
+<rect x="300" y="306" width="660" height="28" rx="8" fill="#172033"/>
+<rect x="300" y="306" width="660" height="28" rx="8" fill="#2dd4bf"/>
+<text x="980" y="326" fill="#ccfbf1" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">3,867</text>
+<text x="48" y="376" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="14">#6</text>
+<text x="96" y="376" fill="#e2e8f0" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="600">anonfaded/FadCam</text>
+<rect x="300" y="352" width="660" height="28" rx="8" fill="#172033"/>
+<rect x="300" y="352" width="19" height="28" rx="8" fill="#2dd4bf"/>
+<text x="980" y="372" fill="#ccfbf1" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">116</text>
+<text x="48" y="422" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="14">#7</text>
+<text x="96" y="422" fill="#e2e8f0" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="600">millionco/react-doctor</text>
+<rect x="300" y="398" width="660" height="28" rx="8" fill="#172033"/>
+<rect x="300" y="398" width="134" height="28" rx="8" fill="#2dd4bf"/>
+<text x="980" y="418" fill="#ccfbf1" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">788</text>
+<text x="48" y="468" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="14">#8</text>
+<text x="96" y="468" fill="#e2e8f0" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="600">rasbt/LLMs-from-scratch</text>
+<rect x="300" y="444" width="660" height="28" rx="8" fill="#172033"/>
+<rect x="300" y="444" width="131" height="28" rx="8" fill="#2dd4bf"/>
+<text x="980" y="464" fill="#ccfbf1" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">772</text>
+<text x="48" y="514" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="14">#9</text>
+<text x="96" y="514" fill="#e2e8f0" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="600">datawhalechina/hello-agen...</text>
+<rect x="300" y="490" width="660" height="28" rx="8" fill="#172033"/>
+<rect x="300" y="490" width="102" height="28" rx="8" fill="#2dd4bf"/>
+<text x="980" y="510" fill="#ccfbf1" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">599</text>
+<text x="48" y="560" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="14">#10</text>
+<text x="96" y="560" fill="#e2e8f0" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="600">yikart/AiToEarn</text>
+<rect x="300" y="536" width="660" height="28" rx="8" fill="#172033"/>
+<rect x="300" y="536" width="218" height="28" rx="8" fill="#2dd4bf"/>
+<text x="980" y="556" fill="#ccfbf1" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">1,282</text>
+<line x1="300" y1="606" x2="960" y2="606" stroke="#263244"/>
+<text x="48" y="638" fill="#64748b" font-family="Inter, Arial, sans-serif" font-size="13">Source: reports/github-trending.json</text>
+<text x="300" y="638" fill="#64748b" font-family="Inter, Arial, sans-serif" font-size="13">Generated by SignalForges Growth OS deterministic renderer</text>
+</svg>
