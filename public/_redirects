@@ -13,12 +13,12 @@
 /pages/gitnexus-2026-04-27/  /pages/github-trending-ai-devtools-2026-05-14/  301
 
 # ─── Security / low-value project pages → homepage ───
-/pages/hackingtool-2026-04-27/  /  301
-/pages/build-your-own-x-2026-04-27/  /  301
-/pages/posthog-2026-04-27/  /  301
-/pages/openclaw-2026-04-28/  /  301
-/pages/beads-2026-04-28/  /  301
-/pages/typescript-go-2026-04-28/  /  301
+/pages/hackingtool-2026-04-27/  /pages/github-trending-ai-devtools-2026-05-14/  301
+/pages/build-your-own-x-2026-04-27/  /pages/github-trending-ai-devtools-2026-05-14/  301
+/pages/posthog-2026-04-27/  /pages/chatgpt-vs-claude/  301
+/pages/openclaw-2026-04-28/  /pages/github-trending-ai-devtools-2026-05-14/  301
+/pages/beads-2026-04-28/  /pages/github-trending-ai-devtools-2026-05-14/  301
+/pages/typescript-go-2026-04-28/  /pages/github-trending-ai-devtools-2026-05-14/  301
 
 # ─── AI skills / free-tool pages → latest trending or relevant comparison ───
 /pages/awesome-codex-skills-2026-04-28/  /pages/github-trending-ai-devtools-2026-05-14/  301
@@ -32,7 +32,7 @@
 
 # ─── AI chatbot / writing / tool comparison pages → relevant active pages ───
 /pages/chatgpt-vs-claude-for-coding/  /pages/chatgpt-vs-claude/  301
-/pages/voice-ai-revolution-2026/  /  301
+/pages/voice-ai-revolution-2026/  /pages/china-open-source-ai-2026/  301
 /pages/best-ai-chatbot/  /pages/chatgpt-vs-claude/  301
 /pages/best-ai-image-generator/  /pages/chatgpt-vs-claude/  301
 /pages/best-ai-summarize-pdf/  /pages/chatgpt-vs-claude/  301
