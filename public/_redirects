@@ -25,21 +25,21 @@
 /pages/free-claude-code-2026-04-28/  /pages/claude-code-vs-cursor/  301
 
 # ─── AI briefing / news digest pages → homepage ───
-/pages/ai-briefing-2026-04-24/  /  301
-/pages/ai-briefing-2026-04-27/  /  301
-/pages/ai-briefing-2026-04-28/  /  301
-/pages/ai-news-2026-04-28/  /  301
+/pages/ai-briefing-2026-04-24/  /pages/china-open-source-ai-2026/  301
+/pages/ai-briefing-2026-04-27/  /pages/china-open-source-ai-2026/  301
+/pages/ai-briefing-2026-04-28/  /pages/china-open-source-ai-2026/  301
+/pages/ai-news-2026-04-28/  /pages/china-open-source-ai-2026/  301
 
 # ─── AI chatbot / writing / tool comparison pages → relevant active pages ───
 /pages/chatgpt-vs-claude-for-coding/  /pages/chatgpt-vs-claude/  301
 /pages/voice-ai-revolution-2026/  /  301
 /pages/best-ai-chatbot/  /pages/chatgpt-vs-claude/  301
-/pages/best-ai-image-generator/  /  301
-/pages/best-ai-summarize-pdf/  /  301
+/pages/best-ai-image-generator/  /pages/chatgpt-vs-claude/  301
+/pages/best-ai-summarize-pdf/  /pages/chatgpt-vs-claude/  301
 /pages/best-ai-writing-tool/  /pages/chatgpt-vs-claude/  301
 /pages/best-ai-writing-tools/  /pages/chatgpt-vs-claude/  301
-/pages/best-ai-for-students/  /  301
+/pages/best-ai-for-students/  /pages/chatgpt-vs-claude/  301
 /pages/grammarly-vs-chatgpt/  /pages/chatgpt-vs-claude/  301
 /pages/notion-ai-vs-chatgpt/  /pages/chatgpt-vs-claude/  301
-/pages/jasper-vs-copy-ai/  /  301
-/pages/midjourney-vs-dalle-vs-sd/  /  301
+/pages/jasper-vs-copy-ai/  /pages/chatgpt-vs-claude/  301
+/pages/midjourney-vs-dalle-vs-sd/  /pages/chatgpt-vs-claude/  301
