@@ -6091,4 +6091,48 @@ export const aiToolPages: SeoPage[] = [
     ],
   },
 
+  {
+    slug: "v2-1-141-2026-05-13",
+    title: "Claude Code v2.1.141: Hook Notifications, HTTPS Plugin Cloning, and Workspace-Scoped Tokens",
+    description: "Claude Code's v2.1.141 release, shipped on May 13, 2026, is a substantial patch that includes new features, quality-of-life improvements, and roughly a dozen bug fixes. Among the broader changes—such as `claude agents --cwd`, a rewind menu \"Summarize up to here\" option, backgroun",
+    eyebrow: "AI Signal",
+    intro: [
+        "Claude Code's v2.1.141 release, shipped on May 13, 2026, is a substantial patch that includes new features, quality-of-life improvements, and roughly a dozen bug fixes. Among the broader changes—such as `claude agents --cwd`, a rewind menu \"Summarize up to here\" option, background agent permission preservation, spinner feedback improvements, and plugin menu navigation updates—three infrastructure-level additions stand out for teams running Claude Code in CI, containers, or enterprise environments. This article provides a selective deep-dive into those three changes, which affect how developers write hooks, configure plugin sources in restricted networks, and scope authentication tokens for Anthropic workloads. Because the release is broader than these three items alone, builders should review the full release notes for the complete changelog before deciding on upgrade timing.",
+      ],
+    targetKeyword: "v2.1.141",
+    category: "ai-pillar",
+    monetizationPrimary: 'ads',
+    ctaLabel: "Read the editorial policy",
+    ctaHref: "/editorial-policy/",
+    relatedSlugs: [],
+    aiToolMeta: {
+      type: 'trending-digest',
+      tools: ["v2.1.141: Developer Impact Analysis"],
+      lastUpdated: "2026-05-14",
+    },
+      sections: [
+      {
+        type: 'paragraphs',
+        heading: "What changes for builders",
+        paragraphs: [
+          "**Hook authors get headless notification capability**",
+          "Previously, Claude Code hooks that wanted to signal the user—ring a bell, set a terminal title, or trigger a desktop notification—needed a controlling TTY. In practice, this meant hooks running inside CI pipelines, cron jobs, or background agents either silently failed or required workarounds like writing to a separate notification service. The `terminalSequence` field in the hook JSON output removes that dependency. Hook authors can now encode notification intent directly in the structured output, and the Claude Code runtime presumably handles rendering",
+          "For developers building tooling around Claude Code hooks—IDE extensions, CI dashboards, or monitoring agents—this is a structural improvement. It means hook output can be both machine-parseable (JSON) and human-visible (notifications) without coupling to a specific terminal emulator or session type.",
+          "**Restricted-network deployments get HTTPS plugin cloning**",
+          "The `CLAUDE_CODE_PLUGIN_PREFER_HTTPS` variable solves a specific operational friction point: Claude Code's default behavior of cloning plugin sources via SSH (`git@github.com:...`). In environments where SSH keys are not provisioned—ephemeral CI containers, air-gapped build agents with only HTTPS egress, or locked-down developer machines—plugin installation would previously fail or require manual SSH key management. Setting this variable to a truthy value switches the clone strategy to HTTPS, which authenticates via token-based or credential-helper mecha",
+          "Builders deploying Claude Code into hardened CI pipelines should add this variable to their pipeline configuration. It eliminates one class of SSH-related failures without requiring changes to plugin manifests or repository configurations.",
+          "**Workspace-scoped tokens for federated identity**",
+          "The `ANTHROPIC_WORKSPACE_ID` variable is the most enterprise-relevant change examined here. The release note provides its complete description: it scopes the minted token to a specific workspace **when the federation rule covers more than one** workspace. This qualifying condition matters—teams with a single-workspace federation setup would not be affected, since there is no ambiguity about which workspace the token belongs to. The variable becomes relevant exactly when federation rules span multiple workspaces and the token must be constrained to one.",
+          "Workload identity federation, as a general pattern, allows workloads (CI jobs, cloud functions, service accounts) to obtain short-lived tokens without managing long-lived API keys. By scoping the token to a specific workspace when multiple workspaces are in scope, the blast radius of a compromised token is reduced to that workspace's permissions.",
+          "For teams operating under Anthropic's enterprise or team plans with multi-workspace federation, this variable provides the necessary control to ensure automated workloads authenticate against the correct workspace boundary. Builders running Claude Code in automated pipelines should evaluate whether their federation rules cover multiple workspaces and, if so, whether their current token strategy explicitly scopes to the intended target. The exact configuration steps are not documented in this release note; consult Anthropic's platform documentation for th",
+        ],
+      },
+      ],
+    faq: [
+      { question: "What does this briefing recommend developers do first?", answer: "Claude Code's v2.1.141 release, shipped on May 13, 2026, is a substantial patch that includes new features, quality-of-life improvements, and roughly a dozen bug fixes. Among the broader changes—such as `claude agents --cwd`, a rewind menu \"Summarize up to here\" option, backgroun" },
+      { question: "Where can readers verify the figures cited in this article?", answer: "Every precise figure must be verified against the primary URL. The first listed source is https://github.com/anthropics/claude-code/releases/tag/v2.1.141." },
+      { question: "Is this article human-authored or AI-assisted?", answer: "The draft was composed with AI assistance by the Hermes Writer agent, then reviewed against the SignalForges editorial policy and the Autonomous Publishing Safety Contract before publication." },
+    ],
+  },
+
 ];

@@ -942,6 +942,33 @@ const editorialLedgers: Record<string, EditorialLedgerSeed> = {
       avoidWhen: "You need production-ready tooling for immediate deployment; several recommended repositories are in early stages and require evaluation.",
     },
   },
+  "v2-1-141-2026-05-13": {
+    sources: [
+      { label: "release page on GitHub", url: "https://github.com/anthropics/claude-code/releases/tag/v2.1.141", sourceType: 'ecosystem-reference', whyUsed: "Primary evidence cited inline by the Hermes Writer agent." },
+      { label: "GitHub release page v2.1.141", url: "https://github.com/anthropics/claude-code/releases/tag/v2.1.141", sourceType: 'ecosystem-reference', whyUsed: "Primary evidence cited inline by the Hermes Writer agent." },
+    ],
+    factPack: [
+      { claim: "Claude Code's v2.1.141 release, shipped on May 13, 2026, is a substantial patch that includes new features, quality-of-life improvements, and roughly a dozen bug fixes. Among the broader changes—such as `claude agents --", evidence: "https://github.com/anthropics/claude-code/releases/tag/v2.1.141", confidence: "medium" },
+      { claim: "Primary source URLs reachable and cited inline in the article.", evidence: "SignalForges automated content audit.", confidence: "high" },
+      { claim: "No first-person hands-on claims are made unless the fact pack contains reproducible commands.", evidence: "SignalForges Autonomous Publishing Safety Contract rule 2.", confidence: "high" },
+    ],
+    methodology: [
+      "Draft composed by the Hermes Writer agent using the active prompt registry version.",
+      "Claims verified against the linked primary URLs before publication.",
+      "AI assistance was used; no private data or unreleased sources were referenced.",
+    ],
+    riskNotes: [
+      "**No performance or behavioral claims are made.** The release does not mention speed improvements, model changes, context window adjustments, or token usage differences. The three changes examined here are infrastructure and configuration additions, but the broader release includes other features and fixes that should be evaluated independently.",
+      "**No deprecation notices or breaking changes are listed.** If the `terminalSequence` field replaces an older mechanism, the release page does not state so. Do not assume prior hook patterns are deprecated.",
+      "**The release does not specify minimum Claude Code version dependencies or upgrade paths.** It appears to be a standard patch release, but migration considerations are not addressed in the source.",
+      "**No benchmark, adoption, or usage statistics are available.** Claims about how many teams use hooks, SSH-based plugins, or workload federation would be invented.",
+    ],
+    conclusion: {
+      recommendation: "Claude Code's v2.1.141 release, shipped on May 13, 2026, is a substantial patch that includes new features, quality-of-life improvements, and roughly a dozen bug fixes. Among the broader changes—such as `claude agents --cwd`, a rewind menu \"Summarize up to here\" option, backgroun",
+      bestFor: "Developers evaluating AI infrastructure or coding-assistant tooling.",
+      avoidWhen: "Treating this page as a substitute for running your own evaluation.",
+    },
+  },
 };
 
 function sectionTypes(page: SeoPage): Set<string> {
