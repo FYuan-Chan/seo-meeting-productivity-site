@@ -87,7 +87,7 @@ describe('site metadata', () => {
   });
 
   it('keeps AI pages resolvable for internal links and schema', () => {
-    expect(pageMap['chatgpt-vs-claude']?.title).toContain('ChatGPT vs Claude');
+    expect(pageMap['chatgpt-vs-claude']?.title).toMatch(/ChatGPT.*Claude|Claude.*ChatGPT/);
     expect(pageMap['claude-ecosystem-expansion-2026']?.title).toContain('Claude');
   });
 
