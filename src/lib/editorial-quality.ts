@@ -968,7 +968,54 @@ const editorialLedgers: Record<string, EditorialLedgerSeed> = {
       bestFor: "Developers evaluating AI infrastructure or coding-assistant tooling.",
       avoidWhen: "Treating this page as a substitute for running your own evaluation.",
     },
+  },  "github-trending-ai-devtools-2026-05-14": {
+    sources: [
+      source('tinyhumansai/openhuman', 'https://github.com/tinyhumansai/openhuman', 'primary-source', 'GitHub Trending rank one and repository evidence for the daily ranking.'),
+      source('danielmiessler/Personal_AI_Infrastructure', 'https://github.com/danielmiessler/Personal_AI_Infrastructure', 'primary-source', 'GitHub Trending repository evidence for the daily ranking.'),
+      source('mattpocock/skills', 'https://github.com/mattpocock/skills', 'primary-source', 'GitHub Trending repository and README evidence for the daily ranking.'),
+      source('github/spec-kit', 'https://github.com/github/spec-kit', 'primary-source', 'GitHub Trending repository and README evidence for the daily ranking.'),
+      source('K-Dense-AI/scientific-agent-skills', 'https://github.com/K-Dense-AI/scientific-agent-skills', 'primary-source', 'GitHub Trending repository evidence for the daily ranking.'),
+      source('obra/superpowers', 'https://github.com/obra/superpowers', 'primary-source', 'GitHub Trending repository evidence for the daily ranking.'),
+      source('millionco/react-doctor', 'https://github.com/millionco/react-doctor', 'primary-source', 'GitHub Trending repository evidence for the daily ranking.'),
+      source('CloakHQ/CloakBrowser', 'https://github.com/CloakHQ/CloakBrowser', 'primary-source', 'GitHub Trending repository evidence for the daily ranking, flagged with editorial risk.'),
+      source('GitHub Trending page', 'https://github.com/trending', 'primary-source', 'Source of the daily trending ranking and star-delta data.'),
+    ],
+    factPack: [
+      { claim: "GitHub Trending returned nineteen repositories for the daily period ending 2026-05-14.", evidence: "https://github.com/trending", confidence: "high" },
+      { claim: "The ranking must be interpreted as a short-window attention signal, not a durable adoption metric.", evidence: "GitHub Trending source semantics and SignalForges editorial policy.", confidence: "high" },
+      { claim: "tinyhumansai/openhuman gained one thousand six hundred ninety-six stars with a total of five thousand two hundred two stars, GPL-3.0 license, last pushed 2026-05-14.", evidence: "GitHub API enrichment for tinyhumansai/openhuman.", confidence: "high" },
+      { claim: "danielmiessler/Personal_AI_Infrastructure gained one thousand three hundred forty-two stars with a total of nine thousand one hundred fifty-four stars, MIT license, last pushed 2026-05-14.", evidence: "GitHub API enrichment for danielmiessler/Personal_AI_Infrastructure.", confidence: "high" },
+      { claim: "mattpocock/skills gained one thousand two hundred ninety-one stars with a total of seventy-six thousand four hundred twenty-four stars, MIT license, last pushed 2026-05-14.", evidence: "GitHub API enrichment for mattpocock/skills.", confidence: "high" },
+      { claim: "github/spec-kit gained one thousand one hundred fifty-eight stars with a total of one thousand four hundred twenty-one stars, MIT license, last pushed 2026-05-14.", evidence: "GitHub API enrichment for github/spec-kit.", confidence: "high" },
+      { claim: "K-Dense-AI/scientific-agent-skills gained one thousand one hundred twelve stars with a total of two thousand seven hundred forty-three stars, MIT license, last pushed 2026-05-14.", evidence: "GitHub API enrichment for K-Dense-AI/scientific-agent-skills.", confidence: "high" },
+      { claim: "obra/superpowers gained eight hundred sixty-three stars with a total of one hundred eighty-nine thousand five hundred seventy-seven stars, MIT license, last pushed 2026-05-14.", evidence: "GitHub API enrichment for obra/superpowers.", confidence: "high" },
+      { claim: "millionco/react-doctor gained seven hundred fifty-two stars with a total of seven thousand seventy-nine stars, MIT license, last pushed 2026-05-14.", evidence: "GitHub API enrichment for millionco/react-doctor.", confidence: "high" },
+      { claim: "mattpocock/skills provides TypeScript hot-reloadable skill definitions with over seventy-five thousand stars on GitHub.", evidence: "README.md from mattpocock/skills.", confidence: "high" },
+      { claim: "github/spec-kit is GitHub official specification tool for AI-powered features, MIT licensed, very new with rapid star growth.", evidence: "README.md from github/spec-kit.", confidence: "high" },
+      { claim: "CloakHQ/CloakBrowser is flagged as mention-only-with-risk-context due to stealth Chromium capabilities.", evidence: "GitHub Trending editorial risk assessment.", confidence: "high" },
+      { claim: "Three clusters identified: personal AI agent harnesses, agent skills and spec tooling, AI-assisted code quality and education.", evidence: "SignalForges cluster analysis of nineteen trending repositories.", confidence: "high" },
+    ],
+    methodology: [
+      "Draft composed by the Hermes Writer agent using repository metadata, README content, and GitHub API data.",
+      "Evidence gathered via zai-zread-repo MCP tool and GitHub API enrichment pipeline.",
+      "No first-person testing was performed. All claims are grounded in cited primary sources.",
+      "AI assistance was used; no private data or unreleased sources were referenced.",
+    ],
+    riskNotes: [
+      "Star counts and push timestamps reflect repository state as of the 2026-05-14 enrichment window.",
+      "Daily star deltas are short-window attention metrics and do not indicate durable adoption.",
+      "Repositories without enrichment may have different license, star count, or activity status than listed.",
+      "Some claims are refresh-sensitive; verify the primary source before citing specific numbers.",
+      "CloakBrowser is flagged for stealth browser risk and mentioned only with risk context.",
+      "Automation-assisted publication; SignalForges editors review audit reports after publication.",
+    ],
+    conclusion: {
+      recommendation: "Three clusters lead this cycle: mattpocock/skills and github/spec-kit for agent skills and specification tooling, tinyhumansai/openhuman and danielmiessler/Personal_AI_Infrastructure for personal AI agent harnesses, and obra/superpowers with millionco/react-doctor for AI-assisted code quality. github/spec-kit is the highest-velocity newcomer worth immediate inspection.",
+      bestFor: "Developers tracking the AI agent infrastructure ecosystem who need a filtered, evidence-based ranking rather than raw trending data.",
+      avoidWhen: "You need production-ready tooling for immediate deployment; several recommended repositories are in early stages and require evaluation.",
+    },
   },
+
 };
 
 function sectionTypes(page: SeoPage): Set<string> {

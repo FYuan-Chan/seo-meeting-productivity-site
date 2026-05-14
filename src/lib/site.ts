@@ -162,6 +162,7 @@ export const adsenseReviewSlugs = [
   "rohitg00-agentmemory-best-practices-2026-05-13",
   "github-trending-ai-devtools-2026-05-13",
   "v2-1-141-2026-05-13",
+  "github-trending-ai-devtools-2026-05-14",
 ] as const;
 
 const adsenseReviewSlugSet = new Set<string>(adsenseReviewSlugs);
