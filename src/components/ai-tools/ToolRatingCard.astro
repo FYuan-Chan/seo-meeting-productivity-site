@@ -25,7 +25,7 @@ const initial = tool.name.charAt(0).toUpperCase();
     )}
     <div class="card-top-info">
       <h3 class="tool-name">{tool.name}</h3>
-      <div class="star-rating" aria-label={`Rating: ${tool.rating} out of 5`}>
+      <div class="star-rating" role="img" aria-label={`${tool.rating} / 5`}>
         {Array.from({ length: fullStars }).map(() => (
           <span class="star full">&#9733;</span>
         ))}
