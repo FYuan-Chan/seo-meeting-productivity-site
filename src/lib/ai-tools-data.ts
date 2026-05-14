@@ -6147,13 +6147,14 @@ export const aiToolPages: SeoPage[] = [
 
   {
     slug: "github-trending-ai-devtools-2026-05-14",
-    title: "GitHub Trending AI Repositories: May 14 2026",
-    description: "GitHub trending AI repositories for May 14 2026. Agent skills, code tools, and dev infra ranked by engineering signal, not just star count.",
+    title: "GitHub Trending AI Repositories Past 24 Hours: Agent Skills to Inspect First",
+    description: "A past-24-hours GitHub Trending AI repositories briefing for May 14 2026, with agent skills, spec tooling, and dev infra ranked by inspection value, not raw hype.",
     eyebrow: "GitHub Trending",
     intro: [
+        "If you searched for GitHub Trending AI repositories in the past 24 hours, the useful question is not which repo gained the most attention. The useful question is which repositories deserve inspection by developers building AI agents, coding workflows, and model-backed engineering systems.",
         "Today's GitHub Trending page returned nineteen repositories for the daily window. Five were enriched with full metadata. The signal that matters for AI-infrastructure developers splits into three clusters: personal AI agent harnesses, agent skills and specification tooling, and AI-assisted code quality and education. Everything else on the list is either low-fit for AI dev tooling or carries dual-use risk that limits recommendation. This ranking filters for repositories that solve a concrete developer problem, not just repositories accumulating attention.",
       ],
-    targetKeyword: "github trending ai developer tools",
+    targetKeyword: "github trending ai repositories past 24 hours, top 10 github agent skills trending this week, github trending ai developer tools",
     category: "github-trending",
     monetizationPrimary: 'ads',
     ctaLabel: "Read the editorial policy",
@@ -6167,9 +6168,11 @@ export const aiToolPages: SeoPage[] = [
       sections: [
       {
         type: 'paragraphs',
-        heading: "TL;DR with a Clear Editorial Thesis",
+        heading: "Past-24-hours answer: which AI repositories deserve inspection first?",
         paragraphs: [
-          "Three repositories deserve immediate inspection: **obra/superpowers** (composable agent workflow skills with over one hundred eighty-nine thousand total stars and the largest community in this ranking), **mattpocock/skills** (opinionated engineering skills for coding agents, gained over three thousand three hundred stars in one day, MIT license), and **github/spec-kit** (GitHub's official spec-driven development toolkit with over one thousand one hundred stars gained and support for over thirty AI coding agents). **tinyhumansai/openhuman** leads the daily ranking with over one thousand six hundred stars gained but carries GPL-3.0 copyleft risk. **rohitg00/agentmemory** continues its multi-day trending run as the leading persistent memory layer for coding agents. **trycua/cua** provides open-source sandbox infrastructure for computer-use agents across any operating system.",
+          "For readers landing from a past-24-hours GitHub Trending query, the short answer is: inspect the agent workflow repositories before the raw star leaders. **obra/superpowers**, **mattpocock/skills**, and **github/spec-kit** are the strongest developer-workflow signals because they convert agent enthusiasm into repeatable planning, testing, and specification habits.",
+          "**tinyhumansai/openhuman** leads the daily ranking with a large short-window star delta, but its GPL-3.0 license and early-agent-harness profile make it better suited for monitoring than immediate production adoption. **rohitg00/agentmemory** remains relevant for persistent coding-agent memory, while **trycua/cua** is worth watching for computer-use agent sandbox infrastructure.",
+          "The rest of this briefing keeps the original ranking table, then separates the attention signal from the engineering signal so readers can decide what to inspect, ignore, or monitor next.",
         ],
       },
       {
@@ -6271,6 +6274,17 @@ export const aiToolPages: SeoPage[] = [
         ],
       },
       {
+        type: 'table',
+        heading: "Search-intent decision map for this past-24-hours ranking",
+        columns: ["Search intent", "Best next click", "Why this is the right interpretation"],
+        rows: [
+          ["GitHub Trending AI repositories past 24 hours", "Read the ranking table, then inspect the three workflow-tooling recommendations", "Daily trending is a discovery feed; the ranking needs editorial filtering before it becomes an engineering shortlist"],
+          ["Top 10 GitHub agent skills trending this week", "Start with obra/superpowers, mattpocock/skills, and github/spec-kit", "These repositories map directly to planning, skill, and specification workflows for AI coding agents"],
+          ["Newly released agent skills GitHub star growth", "Treat star deltas as launch attention, then check license, README clarity, and maintenance cadence", "Short-window growth can reveal new themes, but it does not prove production readiness"],
+          ["Security-tool or anti-detection queries", "Do not use this briefing as a recommendation", "Dual-use repositories may trend, but SignalForges only mentions them with risk context and does not recommend them"],
+        ],
+      },
+      {
         type: 'bullets',
         heading: "What Not to Infer from GitHub Trending",
         items: [
@@ -6284,7 +6298,7 @@ export const aiToolPages: SeoPage[] = [
       },
       ],
     faq: [
-      { question: "What does this briefing recommend developers do first?", answer: "Today's GitHub Trending page returned nineteen repositories for the daily window. Of those, five were enriched with full metadata. The dominant signal is the convergence of agent workflow tooling around structured skill definitions and specification-driven development. Start by inspecting obra/superpowers for composable agent workflow skills, then evaluate mattpocock/skills for opinionated engineering patterns, and then assess github/spec-kit for structured spec-driven development." },
+      { question: "What does this past-24-hours GitHub Trending briefing recommend developers do first?", answer: "Start with the repositories that turn agent attention into engineering process: obra/superpowers for composable workflow skills, mattpocock/skills for opinionated engineering-agent habits, and github/spec-kit for specification-driven development. Treat the raw star leaders as discovery signals, not automatic adoption recommendations." },
       { question: "Where can readers verify the figures cited in this article?", answer: "Every precise figure must be verified against the primary URL. The first listed source is https://github.com/trending." },
       { question: "Is this article human-authored or AI-assisted?", answer: "The draft was composed with AI assistance by the Hermes Writer agent, then reviewed against the SignalForges editorial policy and the Autonomous Publishing Safety Contract before publication." },
     ],
