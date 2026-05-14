@@ -5851,9 +5851,8 @@ export const aiToolPages: SeoPage[] = [
         type: 'paragraphs',
         heading: "Benchmarks from README evidence",
         paragraphs: [
-          "The README includes a comparison table citing retrieval benchmarks against LongMemEval-S (ICLR 2025, five hundred questions). Agentmemory reports 95.2 percent recall at five (R@5), 98.6 percent recall at ten (R@10), and 88.2 percent mean reciprocal rank (MRR). The BM25-only fallback achieves 86.2 percent R@5. The same table compares agentmemory against mem0 (68.5 percent R@5) and Letta/MemGPT (83.2 percent R@5).",
-          "Token savings are reported as approximately 170,000 tokens per year (roughly ten dollars per year at current API pricing) versus over 19.5 million tokens for pasting full context every session, representing a claimed 92 percent reduction compared to built-in approaches.",
-          "These figures come from the repository's own README and benchmark directory. They were not independently verified by SignalForges. LongMemEval-S is a published academic benchmark, which lends some credibility, but the test conditions, model versions, and hardware configurations are not fully documented in the available excerpt. Treat these as directional indicators rather than guaranteed performance guarantees.",
+          "The README includes a comparison table citing retrieval benchmarks against LongMemEval-S (ICLR 2025, five hundred questions). According to the project's self-reported figures, Agentmemory achieves higher recall than its BM25-only fallback and outperforms alternatives such as mem0 and Letta/MemGPT on the same benchmark. The project also claims substantial token savings compared to pasting full context each session.",
+          "These figures come from the repository's own README and benchmark directory. They were not independently reproduced by SignalForges. LongMemEval-S is a published academic benchmark, which lends credibility to the testing framework, but the test conditions, model versions, and hardware configurations are not fully documented in the available excerpt. Treat these as directional indicators rather than guaranteed performance figures.",
         ],
       },
       {
