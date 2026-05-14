@@ -233,17 +233,23 @@ const standardRiskNotes = [
 
 const editorialLedgers: Record<string, EditorialLedgerSeed> = {
   'chatgpt-vs-claude': {
-    sources: [openaiProduct, openaiModels, anthropicClaude, anthropicModels],
+    sources: [openaiProduct, openaiModels, anthropicClaude, anthropicModels, claudeCodeDocs, githubCopilot],
     factPack: [
       { claim: 'ChatGPT and Claude serve overlapping assistant use cases but differ in product ecosystem and model-family behavior.', evidence: 'Official OpenAI and Anthropic product/documentation pages.', confidence: 'high' },
-      { claim: 'The article recommendation is scenario-based rather than a universal winner claim.', evidence: 'Comparison table, tool profiles, and use-case grid in the page body.', confidence: 'high' },
-      { claim: 'Context, pricing, and model availability are treated as volatile details.', evidence: 'Risk notes and last-updated metadata attached to the page.', confidence: 'medium' }
+      { claim: 'The article recommendation is scenario-based rather than a universal winner claim.', evidence: 'Comparison table, developer decision map, tool profiles, and use-case grid in the page body.', confidence: 'high' },
+      { claim: 'The developer decision map routes fast tool-assisted iteration toward ChatGPT and long-form code review, architecture explanation, and refactor planning toward Claude.', evidence: 'OpenAI product positioning, Anthropic Claude documentation, Claude Code documentation, and the page\'s source-backed editorial analysis.', confidence: 'medium' },
+      { claim: 'Context, pricing, model names, and plan packaging are treated as refresh-sensitive details rather than permanent claims.', evidence: 'Risk notes, tool-card pricing copy, FAQ, and last-updated metadata attached to the page.', confidence: 'medium' }
     ],
     conclusion: {
-      recommendation: 'Use ChatGPT when integrations, speed, and general-purpose tool access matter more; use Claude when long-context reading and careful prose are the deciding factors.',
-      bestFor: 'Developers, analysts, and technical writers choosing a default assistant for coding, writing, or document review.',
-      avoidWhen: 'Avoid treating either tool as a verified source of facts without checking primary documentation or cited external evidence.'
-    }
+      recommendation: 'Use ChatGPT when broad tool access, fast iteration, and mixed product workflows matter more; use Claude when code review, architecture explanation, refactor planning, and careful long-form reasoning are the deciding factors.',
+      bestFor: 'Developers and engineering teams choosing a daily assistant for coding, debugging, pull-request review, or technical planning.',
+      avoidWhen: 'Avoid choosing either tool from a headline benchmark alone or treating AI output as verified code without human source-level review.'
+    },
+    riskNotes: [
+      'Pricing, model names, plan packaging, and context limits can change quickly; the public page intentionally tells readers to check current OpenAI and Anthropic documentation before buying.',
+      'The page uses editorial ratings as decision aids, not laboratory benchmark claims or guaranteed coding performance results.',
+      'The rewrite removes unsupported precise plan-price and context-window claims from the public recommendation copy and keeps them refresh-sensitive.'
+    ]
   },
   'best-ai-coding-tools': {
     sources: [githubCopilot, githubCopilotProduct, cursorDocs, sourcegraphCody, tabnineEnterprise, amazonQDeveloper, stackOverflowSurvey],
