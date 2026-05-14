@@ -6166,14 +6166,14 @@ export const aiToolPages: SeoPage[] = [
 
   {
     slug: "github-trending-ai-devtools-2026-05-14",
-    title: "GitHub Trending AI Repositories Past 24 Hours: Agent Skills to Inspect First",
-    description: "A past-24-hours GitHub Trending AI repositories briefing for May 14 2026, with agent skills, spec tooling, and dev infra ranked by inspection value, not raw hype.",
+    title: "GitHub Trending AI Repositories Past 24 Hours: What Developers Should Inspect First",
+    description: "GitHub Trending AI repositories past 24 hours, filtered for developers: agent skills, spec tooling, memory layers, sandbox infrastructure, and risk flags to inspect before adopting.",
     eyebrow: "GitHub Trending",
     intro: [
-        "If you searched for GitHub Trending AI repositories in the past 24 hours, the useful question is not which repo gained the most attention. The useful question is which repositories deserve inspection by developers building AI agents, coding workflows, and model-backed engineering systems.",
-        "Today's GitHub Trending page returned nineteen repositories for the daily window. Five were enriched with full metadata. The signal that matters for AI-infrastructure developers splits into three clusters: personal AI agent harnesses, agent skills and specification tooling, and AI-assisted code quality and education. Everything else on the list is either low-fit for AI dev tooling or carries dual-use risk that limits recommendation. This ranking filters for repositories that solve a concrete developer problem, not just repositories accumulating attention.",
+        "GitHub Trending AI repositories past 24 hours is a noisy search intent: some readers want the raw ranking, others want the short list that is actually useful for agent builders and coding-tool teams. This page answers both, but the editorial verdict comes first: inspect workflow repositories before treating star growth as adoption proof.",
+        "The May 14 daily window returned nineteen repositories. Five were enriched with full metadata, and the useful developer signal splits into three clusters: personal AI agent harnesses, agent skills and specification tooling, and AI-assisted code quality and education. Repositories outside that scope are kept in the table for context, but they are not promoted as AI developer-tool recommendations.",
       ],
-    targetKeyword: "github trending ai repositories past 24 hours, top 10 github agent skills trending this week, github trending ai developer tools",
+    targetKeyword: "github trending ai repositories past 24 hours, best github trending ai developer tools, top github agent skills trending this week",
     category: "github-trending",
     monetizationPrimary: 'ads',
     ctaLabel: "Read the editorial policy",
@@ -6187,11 +6187,21 @@ export const aiToolPages: SeoPage[] = [
       sections: [
       {
         type: 'paragraphs',
-        heading: "Past-24-hours answer: which AI repositories deserve inspection first?",
+        heading: "GitHub Trending AI repositories past 24 hours: fast developer answer",
         paragraphs: [
           "For readers landing from a past-24-hours GitHub Trending query, the short answer is: inspect the agent workflow repositories before the raw star leaders. **obra/superpowers**, **mattpocock/skills**, and **github/spec-kit** are the strongest developer-workflow signals because they convert agent enthusiasm into repeatable planning, testing, and specification habits.",
-          "**tinyhumansai/openhuman** leads the daily ranking with a large short-window star delta, but its GPL-3.0 license and early-agent-harness profile make it better suited for monitoring than immediate production adoption. **rohitg00/agentmemory** remains relevant for persistent coding-agent memory, while **trycua/cua** is worth watching for computer-use agent sandbox infrastructure.",
-          "The rest of this briefing keeps the original ranking table, then separates the attention signal from the engineering signal so readers can decide what to inspect, ignore, or monitor next.",
+          "Treat **tinyhumansai/openhuman** as a monitor-first personal-agent harness rather than an immediate production default because its copyleft license, early-agent profile, and open issue surface require closer review. **rohitg00/agentmemory** remains relevant for persistent coding-agent memory, while **trycua/cua** is worth watching for computer-use agent sandbox infrastructure.",
+          "The rest of this briefing keeps the raw ranking visible, then separates attention, engineering fit, and editorial risk so readers can decide what to inspect, ignore, or monitor next.",
+        ],
+      },
+      {
+        type: 'table',
+        heading: "Search-intent answer map",
+        columns: ["If you searched for", "Use this page for", "Do not infer"],
+        rows: [
+          ["GitHub Trending AI repositories past 24 hours", "A filtered developer shortlist plus the raw daily ranking table", "That the highest daily star gain is the safest adoption target"],
+          ["Best GitHub Trending AI developer tools", "Agent workflow, specification, memory, and sandbox repositories worth inspecting", "That mention-only or dual-use repositories are recommended"],
+          ["Top GitHub agent skills trending this week", "The skill and specification tooling cluster: obra/superpowers, mattpocock/skills, and github/spec-kit", "That popularity removes the need to review license, maintenance, and fit"],
         ],
       },
       {
