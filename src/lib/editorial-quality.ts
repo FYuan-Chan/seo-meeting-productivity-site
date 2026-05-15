@@ -1022,6 +1022,42 @@ const editorialLedgers: Record<string, EditorialLedgerSeed> = {
     },
   },
 
+  "continue-dev-vs-cursor": {
+    sources: [
+      source('Continue documentation', 'https://docs.continue.dev/', 'official-docs', 'Used to verify Continue checks, pull-request status behavior, agents, triggers, and repository-file workflow.'),
+      source('continuedev/continue GitHub repository', 'https://github.com/continuedev/continue', 'ecosystem-reference', 'Used to verify the open-source repository, README positioning, CLI, extensions, and Apache license evidence.'),
+      source('Continue agents documentation', 'https://github.com/continuedev/continue/blob/master/docs/agents/overview.mdx', 'official-docs', 'Used to verify local and cloud agents, Mission Control triggers, cron/webhook/GitHub event support, and CLI invocation examples.'),
+      source('Cursor documentation', 'https://docs.cursor.com/', 'official-docs', 'Used to verify Cursor positioning as an AI editor and coding agent, plus rules, skills, MCP, CLI, integrations, and model documentation surface.'),
+      source('Cursor pricing documentation', 'https://docs.cursor.com/account/pricing', 'official-docs', 'Used to verify plan categories, team controls, privacy-mode mention, Bugbot, Background Agents, and usage-pricing caveats without publishing unsupported buying math.'),
+    ],
+    factPack: [
+      { claim: "Continue runs AI checks on every pull request, and each check is a markdown file in the repository that reports as a GitHub status check.", evidence: "Continue docs/index.mdx and README from continuedev/continue.", confidence: "high" },
+      { claim: "Continue agents use the same markdown file format as checks and can be triggered by cron schedules, webhooks, GitHub events, issues, alerts, Slack messages, or Mission Control workflows.", evidence: "Continue docs/agents/overview.mdx.", confidence: "high" },
+      { claim: "The continuedev/continue repository is open source, Apache licensed, TypeScript-led, and includes CLI, VS Code, JetBrains, core, documentation, and configuration packages.", evidence: "GitHub API metadata and repository structure for continuedev/continue.", confidence: "high" },
+      { claim: "Cursor documentation describes Cursor as an AI editor and coding agent for understanding codebases, planning and building features, fixing bugs, reviewing changes, customization, and connected workflows.", evidence: "Cursor documentation home page.", confidence: "high" },
+      { claim: "Cursor documentation exposes rules, skills, MCP, CLI, model documentation, pricing, Bugbot, Background Agents, team administration, and usage-pricing surfaces.", evidence: "Cursor documentation and pricing documentation.", confidence: "high" },
+      { claim: "No first-person hands-on testing, benchmark, user-count, adoption, or performance claim is made in this article.", evidence: "SignalForges writing gate and scoped safety review.", confidence: "high" },
+    ],
+    methodology: [
+      "Draft composed by Hermes/GLM-5.1 from official documentation, public repository evidence, and the selected Growth OS high-intent comparison candidate.",
+      "MCP web-reader, web-search, and zread-repo tools were used where available; failed web-reader calls were replaced with repository documentation and official Cursor documentation extraction.",
+      "Search-demand and editorial-distribution reports influenced candidate selection only and are not used as public factual evidence for product capability claims.",
+      "No first-person testing was performed; all comparative statements are workflow-fit analysis grounded in cited sources.",
+    ],
+    riskNotes: [
+      "Cursor pricing, usage limits, model names, context behavior, and plan packaging are refresh-sensitive and must be checked against current Cursor documentation before procurement.",
+      "Continue cloud-agent, Mission Control, CLI, and repository conventions may change; teams should verify current Continue documentation before writing platform policy.",
+      "The article deliberately avoids precise pricing math, model-context numbers, benchmark results, user counts, adoption counts, and performance claims.",
+      "CAP-generated visuals are explanatory only and are not used as factual evidence.",
+      "The phrase source-controlled AI checks appears in Continue's public README and documentation and is used as product-positioning evidence, not as an independent performance claim.",
+    ],
+    conclusion: {
+      recommendation: "Choose Continue.dev when the job is reviewable repository automation and AI checks; choose Cursor when the job is editor-native coding assistance. Many teams can use Cursor for daily development and Continue.dev for shared pull-request and event-driven guardrails.",
+      bestFor: "Developers, staff engineers, and platform teams comparing AI coding tools by workflow placement rather than vendor marketing language.",
+      avoidWhen: "You need live benchmark results, procurement pricing math, or first-person implementation testing; this article is an evidence-backed decision guide, not a hands-on benchmark report.",
+    },
+  },
+
 };
 
 function sectionTypes(page: SeoPage): Set<string> {

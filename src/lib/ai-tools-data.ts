@@ -6317,4 +6317,163 @@ export const aiToolPages: SeoPage[] = [
     ],
   },
 
+  {
+    slug: 'continue-dev-vs-cursor',
+    title: 'Continue.dev vs Cursor: Developer Decision Guide for AI Checks, Agents, and IDE Work',
+    description:
+      'Continue.dev vs Cursor compared for developers choosing between source-controlled AI checks, automated agents, editor-native coding, rules, MCP, and team workflow fit.',
+    eyebrow: 'AI Comparison',
+    intro: [
+      'Continue.dev and Cursor now solve different parts of the AI developer workflow. Continue is strongest when you want source-controlled AI checks and automations attached to pull requests, issues, schedules, or webhooks. Cursor is strongest when you want an AI editor and coding agent inside the daily development loop.',
+      'The practical decision is not which product sounds more capable. It is where you want the AI to sit: in repository policy and automation, or inside the editor where developers plan, edit, review, and debug code. This guide uses Continue documentation, the Continue GitHub repository, Cursor documentation, and Cursor pricing documentation as the source base.',
+    ],
+    targetKeyword: 'continue dev vs cursor, continue.dev vs cursor, AI coding agent comparison, AI code review checks',
+    category: 'ai-comparison',
+    monetizationPrimary: 'ads',
+    ctaLabel: 'Compare more AI coding tools',
+    ctaHref: '/pages/best-ai-coding-tools/',
+    relatedSlugs: [
+      'best-ai-coding-tools',
+      'github-copilot-vs-cursor',
+      'claude-code-vs-cursor',
+    ],
+    aiToolMeta: {
+      type: 'comparison',
+      tools: ['Continue.dev', 'Cursor'],
+      lastUpdated: '2026-05-15',
+    },
+    sections: [
+      {
+        type: 'table',
+        heading: 'Continue.dev vs Cursor: quick verdict by developer job',
+        columns: ['Developer job', 'Better default', 'Why this default fits', 'Verification step before standardizing'],
+        rows: [
+          ['Make AI review rules visible in pull requests', 'Continue.dev', 'Continue documents AI checks as markdown files in a repository that report pass or fail status on GitHub pull requests.', 'Create one low-risk check in a sandbox repository and confirm reviewers understand the result.'],
+          ['Use an AI assistant while editing code', 'Cursor', 'Cursor positions itself as an AI editor and coding agent for understanding a codebase, planning features, fixing bugs, and reviewing changes.', 'Run the same backlog task in Cursor and in your existing editor workflow, then compare reviewability.'],
+          ['Automate recurring repository tasks', 'Continue.dev', 'Continue agents can be triggered by schedules, GitHub events, webhooks, issues, Slack messages, and alerts through Mission Control.', 'Start with a non-destructive weekly audit or triage task before allowing write actions.'],
+          ['Standardize prompt behavior for an editor team', 'Cursor', 'Cursor documentation emphasizes rules, skills, prompts, MCP, and connected workflows across tools such as GitHub, GitLab, JetBrains, Slack, and Linear.', 'Define a small rule set and review whether developers actually follow it in normal editing sessions.'],
+          ['Control AI behavior through versioned repository files', 'Continue.dev', 'Continue checks and local agents use markdown files stored under repository configuration folders, making the policy reviewable in code review.', 'Require code owners or platform reviewers for changes to AI check files.'],
+        ],
+      },
+      {
+        type: 'visual-asset',
+        heading: 'Decision map: automation layer or editor layer',
+        src: '/assets/articles/continue-dev-vs-cursor/concept-explainer.svg',
+        alt: 'Concept card contrasting Continue.dev as a repository automation layer and Cursor as an editor-native coding agent.',
+        caption: 'Read the comparison as a placement decision: repository automation and checks on one side, editor-native planning and coding on the other.',
+        evidenceRole: 'explanatory',
+        kind: 'concept-explainer',
+      },
+      {
+        type: 'paragraphs',
+        heading: 'The core difference: source-controlled checks versus editor-native assistance',
+        paragraphs: [
+          'Continue.dev is now framed around source-controlled AI checks and agents. Its documentation says a check is a markdown file stored in the repository under a Continue configuration folder. When a pull request opens, Continue runs the check against the diff and reports the result as a GitHub status check. If the code looks good, the check is green; if not, it can fail and suggest a fix. That model turns AI review behavior into a repository artifact that teams can inspect, version, and discuss during normal engineering governance.',
+          'Cursor starts from the opposite end of the workflow. Its documentation describes Cursor as an AI editor and coding agent used to understand a codebase, plan and build features, fix bugs, review changes, customize workflows, and connect with tools developers already use. Instead of making the pull request the primary interface, Cursor makes the editor session the primary interface. The relevant unit is the developer loop: read context, ask questions, generate or edit code, review diffs, and iterate.',
+          'That distinction matters more than feature-by-feature comparison. A team choosing Continue is likely asking how to make AI-assisted review repeatable, auditable, and attached to the repository lifecycle. A team choosing Cursor is likely asking how to make individual developers faster inside the editor while still preserving review discipline. Both can belong in the same organization, but they should not be evaluated as interchangeable “AI coding assistants.”',
+        ],
+      },
+      {
+        type: 'table',
+        heading: 'Evidence-backed capability comparison',
+        columns: ['Criterion', 'Continue.dev', 'Cursor', 'Editorial interpretation'],
+        rows: [
+          ['Primary surface', 'Repository checks, pull-request status checks, local or cloud agents, and the Continue CLI.', 'AI editor, coding agent, rules, skills, MCP, CLI, and connected developer workflows.', 'Continue is better treated as an automation and governance layer; Cursor is better treated as a daily coding environment.'],
+          ['Configuration model', 'Checks and local agents are markdown files committed in repository configuration folders.', 'Rules, skills, prompts, and model settings customize editor and agent behavior.', 'Continue favors code-reviewable policy files; Cursor favors interactive developer workflow configuration.'],
+          ['Trigger model', 'Pull-request opening for checks; agents can run from schedules, webhooks, GitHub events, and other configured triggers.', 'Developer-initiated editor and agent workflows, with separate product surfaces such as Background Agents and Bugbot documented in pricing material.', 'Continue is stronger for event-driven automation; Cursor is stronger for in-session coding work.'],
+          ['Model and provider posture', 'The open-source repository includes CLI, extension, core, config, and model-provider packages, and the docs point developers to Continue configuration paths.', 'Cursor docs expose model attributes and usage-based plan concepts, while pricing docs explain individual, team, and background-agent usage mechanics.', 'Cursor abstracts more of the model experience into the product; Continue gives teams more visible repository and open-source implementation surface.'],
+          ['Governance fit', 'Best when AI behavior should be reviewed like code and tied to repository events.', 'Best when developers need a capable editor-native agent with team rules and integrations.', 'The safer enterprise pattern may be Cursor for daily work plus Continue-style checks for shared guardrails.'],
+        ],
+      },
+      {
+        type: 'paragraphs',
+        heading: 'When Continue.dev is the better default',
+        paragraphs: [
+          'Choose Continue.dev first when your pain is inconsistent code review or missing repository standards. The official example check flags hardcoded secrets, missing input validation, unsafe query construction, and sensitive logging. The important point is not the specific security checklist; it is the operating model. The standard lives in a markdown file, is visible to the team, and runs as a status check. That makes it easier to discuss than a private prompt buried inside an editor chat.',
+          'Continue also fits teams that want recurring or event-driven engineering agents. The agents documentation says agents use the same markdown format as checks, but can be triggered beyond pull-request open events: schedules, GitHub issues, Sentry alerts, Slack messages, and webhooks are part of the documented trigger model. That makes Continue attractive for workflows such as vulnerability triage, dependency cleanup, analytics follow-up, project management, and recurring repository hygiene.',
+          'The open-source repository strengthens that fit. Continue is not only a hosted product surface; the public repository contains the CLI, VS Code extension, JetBrains extension, core packages, documentation, and configuration packages. The README identifies the project as source-controlled AI checks enforced in CI and says the open-source CLI powers those checks. For teams with platform engineering capacity, that visible implementation surface is a real evaluation advantage.',
+        ],
+      },
+      {
+        type: 'paragraphs',
+        heading: 'When Cursor is the better default',
+        paragraphs: [
+          'Choose Cursor first when the bottleneck is the developer’s day-to-day coding loop. Cursor documentation describes the product as an AI editor and coding agent for understanding codebases, planning and building features, fixing bugs, reviewing changes, and connecting with tools already used by teams. That framing is broader than pull-request review: it covers the moments before a pull request exists, when the developer is still reading unfamiliar code, testing hypotheses, and shaping the change.',
+          'Cursor also fits teams that want a single interactive environment for AI-assisted work. Its docs emphasize customization through rules, skills, and prompts, and workflow connections with tools such as GitHub, GitLab, JetBrains, Slack, and Linear. The pricing documentation separately describes plan tiers, team administration, privacy mode enforcement for team plans, dashboards, single sign-on, Bugbot, Background Agents, and usage pricing. Those are product-operational surfaces rather than repository-only configuration files.',
+          'The trade-off is that Cursor adoption should be measured as a workflow change, not as a passive tool purchase. Teams should test whether Cursor improves reviewable output, reduces context switching, and preserves ownership of the code. Do not standardize solely because an agent can produce code quickly. Standardize only if the resulting diffs are easier for humans to review and the team can explain how rules, usage limits, and privacy settings are governed.',
+        ],
+      },
+      {
+        type: 'visual-asset',
+        heading: 'Fit map for technical evaluation',
+        src: '/assets/articles/continue-dev-vs-cursor/section-visual-card.svg',
+        alt: 'Section visual card summarizing when Continue.dev and Cursor fit different engineering workflows.',
+        caption: 'Use the evaluation map to avoid a false binary: Continue.dev fits reviewable automation, while Cursor fits editor-native coding assistance.',
+        evidenceRole: 'explanatory',
+        kind: 'section-visual-card',
+      },
+      {
+        type: 'cards',
+        heading: 'Best fit and avoid guidance',
+        cards: [
+          { title: 'Best fit for Continue.dev', description: 'Platform teams, staff engineers, and engineering managers who want AI checks and agents to be versioned, reviewed, and triggered from repository events rather than hidden in individual chat sessions.' },
+          { title: 'Best fit for Cursor', description: 'Developers and teams who want AI help during planning, codebase exploration, editing, bug fixing, and review inside the editor, with team-level controls and connected workflow tooling.' },
+          { title: 'Use both when governance and speed matter', description: 'A mature setup can use Cursor for daily developer assistance and Continue.dev for shared repository checks, scheduled audits, and automation guardrails.' },
+          { title: 'Avoid the wrong default', description: 'Do not pick Continue.dev if your immediate need is an editor-native coding environment. Do not pick Cursor alone if your main problem is enforceable repository policy that must run consistently on pull requests.' },
+        ],
+      },
+      {
+        type: 'bullets',
+        heading: 'Evaluation checklist before adopting either tool',
+        items: [
+          { label: 'Define the placement', text: 'Decide whether the AI should act before code review, during code review, after code review, or on recurring events. Placement determines whether Continue.dev, Cursor, or both make sense.' },
+          { label: 'Start with low-risk scope', text: 'For Continue.dev, begin with a check that only comments or flags. For Cursor, begin with planning, explanation, and small diffs before delegating larger changes.' },
+          { label: 'Review the source of truth', text: 'For Continue.dev, review the committed check or agent files. For Cursor, review rules, skills, privacy settings, usage limits, and the workflow integrations your team enables.' },
+          { label: 'Measure human review cost', text: 'The winning tool is not the one that produces the most code. It is the one that produces changes reviewers can understand, challenge, and safely merge.' },
+          { label: 'Keep claims refresh-sensitive', text: 'Pricing, model names, context behavior, and product packaging change. Treat vendor pages as the current source, not as permanent facts.' },
+        ],
+      },
+      {
+        type: 'paragraphs',
+        heading: 'Pricing, model, and privacy caveats',
+        paragraphs: [
+          'This comparison intentionally avoids precise buying math. Cursor pricing documentation includes plan tiers, usage budgets, team billing, privacy mode enforcement for organizations, Bugbot pricing, Background Agents, and additional usage pricing. Those details are operationally important, but they change often enough that teams should verify them directly on Cursor’s pricing page before procurement.',
+          'Continue’s public repository and documentation provide the strongest evidence for its operating model: source-controlled checks, agents, CLI execution, and repository-visible configuration. Any hosted-plan limits, enterprise packaging, or cloud-agent policies should be verified from Continue’s current product and documentation pages before a purchasing decision.',
+          'Privacy should be evaluated with the same discipline as functionality. Cursor team plans document organization-wide privacy mode enforcement. Continue’s source-controlled model can make prompts and checks reviewable, but cloud execution and integrations still require policy review. In both cases, decide what code, logs, secrets, and repository metadata may be exposed before connecting production repositories.',
+        ],
+      },
+      {
+        type: 'paragraphs',
+        heading: 'Methodology and disclosure',
+        paragraphs: [
+          'This article was produced by an AI editorial agent operating under the SignalForges gated publishing workflow. The evidence base is the Continue documentation, the public continuedev/continue GitHub repository and README, Cursor documentation, and Cursor pricing documentation. Search-demand and editorial-distribution signals were used only to select the topic, not as public evidence for product claims.',
+          'No first-person hands-on testing was performed. The article does not claim that SignalForges installed Continue, ran the Continue CLI, used Cursor in a live repository, measured latency, compared output quality, or evaluated model performance. The recommendation is based on official documentation, repository evidence, and workflow-fit analysis.',
+        ],
+      },
+      {
+        type: 'paragraphs',
+        heading: 'Editorial conclusion',
+        paragraphs: [
+          'The most useful verdict is simple: Continue.dev is the better default for teams that want AI behavior to become part of repository governance, while Cursor is the better default for developers who want an AI-native coding environment. If your question is “How do we make AI review repeatable and enforceable?”, start with Continue.dev. If your question is “How do developers get better assistance while planning, editing, and debugging?”, start with Cursor.',
+          'For many engineering organizations, the strongest answer is not either-or. Cursor can improve the individual developer loop, while Continue.dev can provide shared checks and recurring automation. Evaluate them at different layers, require source-backed policies, and keep humans responsible for the final merge decision.',
+        ],
+      },
+      {
+        type: 'paragraphs',
+        heading: 'Refresh-sensitive notes',
+        paragraphs: [
+          'Cursor model tables, plan packaging, usage limits, privacy controls, and agent pricing are refresh-sensitive. Verify the Cursor documentation and pricing page before quoting details in procurement or internal policy.',
+          'Continue documentation and repository structure may evolve as the project updates the CLI, agents, checks, IDE extensions, and Mission Control workflows. Verify the README and docs before implementing a long-lived platform policy.',
+          'This article avoids unsupported benchmark, user-count, adoption, and performance claims. Any future update should preserve that boundary unless primary sources and reproducible evidence are added to the editorial ledger.',
+        ],
+      },
+    ],
+    faq: [
+      { question: 'Is Continue.dev a replacement for Cursor?', answer: 'Not usually. Continue.dev is best understood as a repository automation and AI-check layer, while Cursor is an editor-native AI coding environment. They overlap around AI-assisted development, but they sit in different parts of the workflow.' },
+      { question: 'Which tool should a small team try first?', answer: 'If the team needs help while writing and understanding code, try Cursor first. If the team already has a pull-request review problem and wants repeatable AI checks, try Continue.dev first.' },
+      { question: 'Can Continue.dev and Cursor be used together?', answer: 'Yes. A practical pattern is Cursor for daily coding assistance and Continue.dev for repository checks, scheduled audits, or event-driven agents that the whole team can review.' },
+      { question: 'Does this article include hands-on benchmark results?', answer: 'No. The comparison is based on official documentation, repository evidence, and workflow analysis. It does not claim live testing, speed measurement, or output-quality benchmarking.' },
+    ],
+  },
+
 ];
